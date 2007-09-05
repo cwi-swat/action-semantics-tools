@@ -1,0 +1,113 @@
+%
+% This file was automatically produced at Apr 15 2002, 17:47:11 by
+% c++2latex FibRec-nocomment.java
+%
+\expandafter\ifx\csname indentation\endcsname\relax%
+\newlength{\indentation}\fi
+\setlength{\indentation}{0.5em}
+\begin{flushleft}
+{\bf public} {\bf class} FibRec extends AbstractEnactable \{\mbox{}\\
+\hspace*{4\indentation}{\bf public} FibRec(DataFactory factory) \{\mbox{}\\
+\hspace*{8\indentation}{\bf this}.factory = factory;\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf public} Data enact(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}{\bf return} unfolding\$1(data, bindings);\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data and\$30000(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}Data d1 = data;\mbox{}\\
+\hspace*{8\indentation}Data d2 = factory.makeInt((0));\mbox{}\\
+\hspace*{8\indentation}{\bf return} d1.concat(d2);\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data then\$3000(Data data, Bindings bindings)\mbox{}\\
+\hspace*{8\indentation}throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}Data d = and\$30000(data, bindings);\mbox{}\\
+\hspace*{8\indentation}{\bf return} exceptionally\$30001(d, bindings);\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data exceptionally\$30001(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}try \{\mbox{}\\
+\hspace*{12\indentation}{\bf return} ((DataValue) (data).at(1)).equals(((DataValue) (data).at(2)));\mbox{}\\
+\hspace*{8\indentation}\} catch (Exception e) \{\mbox{}\\
+\hspace*{12\indentation}Data raised = catchExceptional(e);\mbox{}\\
+\hspace*{12\indentation}{\bf return} fail();\mbox{}\\
+\hspace*{8\indentation}\}\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data then\$300(Data data,  Bindings bindings)\mbox{}\\
+\hspace*{8\indentation}throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}Data d = then\$3000(data, bindings);\mbox{}\\
+\hspace*{8\indentation}{\bf return} factory.makeInt((1));\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data otherwise\$30(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}try \{\mbox{}\\
+\hspace*{12\indentation}{\bf return} then\$300(data, bindings);\mbox{}\\
+\hspace*{8\indentation}\} catch (Failed f) \{\mbox{}\\
+\hspace*{12\indentation}{\bf return} then\$301(data, bindings);\mbox{}\\
+\hspace*{8\indentation}\}\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data and\$30100(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}Data d1 = data;\mbox{}\\
+\hspace*{8\indentation}Data d2 = factory.makeInt((1));\mbox{}\\
+\hspace*{8\indentation}{\bf return} d1.concat(d2);\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data then\$3010(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}Data d = and\$30100(data, bindings);\mbox{}\\
+\hspace*{8\indentation}{\bf return} exceptionally\$30101(d, bindings);\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data exceptionally\$30101(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}try \{\mbox{}\\
+\hspace*{12\indentation}{\bf return} ((DataValue) (data).at(1)).equals(((DataValue) (data).at(2)));\mbox{}\\
+\hspace*{8\indentation}\} catch (Exception e) \{\mbox{}\\
+\hspace*{12\indentation}Data raised = catchExceptional(e);\mbox{}\\
+\hspace*{12\indentation}{\bf return} fail();\mbox{}\\
+\hspace*{8\indentation}\}\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data then\$301(Data data, Bindings bindings)	throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}Data d = then\$3010(data, bindings);\mbox{}\\
+\hspace*{8\indentation}{\bf return} factory.makeInt((1));\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data unfold\$3(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}try \{\mbox{}\\
+\hspace*{12\indentation}{\bf return} otherwise\$30(data, bindings);\mbox{}\\
+\hspace*{8\indentation}\} catch (Failed f) \{\mbox{}\\
+\hspace*{12\indentation}{\bf return} then\$31(data, bindings);\mbox{}\\
+\hspace*{8\indentation}\}\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data and\$310000(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}Data d1 = data;\mbox{}\\
+\hspace*{8\indentation}Data d2 = factory.makeInt((2));\mbox{}\\
+\hspace*{8\indentation}{\bf return} d1.concat(d2);\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data then\$31000(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}Data d = and\$310000(data, bindings);\mbox{}\\
+\hspace*{8\indentation}{\bf return} ((Int) ((d).at(1))).minus((Int) (d).at(2));\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data then\$3100(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}Data d = then\$31000(data, bindings);\mbox{}\\
+\hspace*{8\indentation}{\bf return} unfold\$3(d, bindings);\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data and\$310(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}Data d1 = then\$3100(data, bindings);\mbox{}\\
+\hspace*{8\indentation}Data d2 = then\$3101(data, bindings);\mbox{}\\
+\hspace*{8\indentation}{\bf return} d1.concat(d2);\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data and\$310100(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}Data d1 = data;\mbox{}\\
+\hspace*{8\indentation}Data d2 = factory.makeInt((1));\mbox{}\\
+\hspace*{8\indentation}{\bf return} d1.concat(d2);\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data then\$31010(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}Data d = and\$310100(data, bindings);\mbox{}\\
+\hspace*{8\indentation}{\bf return} ((Int) ((d).at(1))).minus((Int) (d).at(2));\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data then\$3101(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}Data d = then\$31010(data, bindings);\mbox{}\\
+\hspace*{8\indentation}{\bf return} unfold\$3(d, bindings);\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data then\$31(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}Data d = and\$310(data, bindings);\mbox{}\\
+\hspace*{8\indentation}{\bf return} ((Int) ((d).at(1))).plus((Int) (d).at(2));\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\hspace*{4\indentation}{\bf private} Data unfolding\$1(Data data, Bindings bindings) throws Exceptional, Failed \{\mbox{}\\
+\hspace*{8\indentation}{\bf return} unfold\$3(data, bindings);\mbox{}\\
+\hspace*{4\indentation}\}\mbox{}\\
+\}\mbox{}\\
+\end{flushleft}

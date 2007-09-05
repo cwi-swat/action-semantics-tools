@@ -1,0 +1,154 @@
+definition
+
+module dn/syn/lib/Token
+
+imports basic/Strings
+
+exports
+
+sorts Token
+
+context-free syntax
+	String -> Token
+	Token -> Datum
+	"token" -> SortName
+
+
+module aux/Finite-Map[Key Value]
+
+imports basic/Whitespace
+	basic/Booleans
+
+exports
+
+sorts Finite-Map Key Value
+
+exports
+
+context-free syntax
+	"[" "]" -> Finite-Map {cons("empty-map")}
+	Finite-Map Entry -> Finite-Map {cons("non-empty-map")}
+	"[" Value "/" Key "]" -> Entry {cons("map-entry")}
+	"(" Finite-Map ")" -> Finite-Map {bracket,cons("map-bracket")}
+
+	eval(Key, Finite-Map) -> Value {cons("eval-map")}
+	Finite-Map "@" Key -> Value {cons("eval-at-map")}
+	
+	is-empty(Finite-Map) -> Boolean {cons("is-empty")}
+
+	Finite-Map "+" Entry -> Finite-Map {cons("plus-map-entry")}
+	Finite-Map "-" Entry -> Finite-Map {cons("minus-map-entry")}
+	Finite-Map "-" Key -> Finite-Map {cons("minus-key")}
+	Finite-Map "--" Value -> Finite-Map {cons("minus-value")}
+	Finite-Map "+" Finite-Map -> Finite-Map {left,cons("map-plus-map")}
+
+	has-key(Key, Finite-Map) -> Boolean {cons("has-key")}
+	has-value(Value, Finite-Map) -> Boolean {cons("has-value")}
+	
+
+	
+
+hiddens
+variables
+	"m"[0-9\']* -> Finite-Map
+	"k"[0-9\']* -> Key
+	"v"[0-9\']* -> Value
+
+module basic/Strings
+
+%% This module defines strings with continuations and escaped newlines, tabs and 
+%% backslashes
+
+hiddens 
+  sorts Escaped Normal
+
+exports
+  sorts StrCon String
+  lexical syntax
+    ~[\0-\31\"\\\n]                         -> Normal
+    "\\n" | "\\t" |  "\\\"" | "\\\\"        -> Escaped
+    "\"" {Contents "\\\n"}+ "\"" -> StrCon
+
+  aliases
+    (Normal | Escaped)* -> Contents
+
+  context-free syntax
+    StrCon             -> String {constructor}
+    String "||" String -> String {left}
+    remove-continuations(String) -> String
+
+hiddens
+  imports
+    basic/Whitespace
+  variables
+    "Chars" [0-9]* -> CHAR*
+
+  variables
+    "Str-con" [0-9\']* -> StrCon
+    "Str" [0-9\']*     -> String
+module basic/Whitespace
+
+exports
+  lexical syntax
+    [\ \t\n]	-> LAYOUT
+  context-free restrictions
+    LAYOUT? -/- [\ \t\n]
+
+module basic/Booleans
+
+exports
+  sorts BoolCon
+  context-free syntax
+    "true"  -> BoolCon {constructor}
+    "false" -> BoolCon {constructor}
+
+  sorts Boolean
+  context-free syntax
+    BoolCon -> Boolean
+
+    Boolean "|" Boolean 	-> Boolean {left}
+    Boolean "&" Boolean 	-> Boolean {left}
+    "not" "(" Boolean ")" 	-> Boolean
+    "(" Boolean ")"       	-> Boolean {bracket}
+
+  context-free priorities
+    Boolean "&" Boolean -> Boolean >
+    Boolean "|" Boolean -> Boolean
+
+hiddens
+  imports
+    asf/syntax/Comments
+  variables
+    "Bool"[0-9]* 	-> Boolean
+    "Bool-con"[0-9]* 	-> BoolCon
+
+
+module asf/syntax/Comments
+
+imports
+  basic/Whitespace
+
+exports
+  lexical syntax
+    "%%" ~[\n]* "\n"	-> LAYOUT
+    "%" ~[\%\n]+ "%"	-> LAYOUT
+  context-free restrictions
+    LAYOUT? -/- [\%]
+
+module dn/syn/internal/Bindings
+
+imports aux/Finite-Map[Token Datum][Finite-Map=>Bindings Entry=>Bindings-Entry]
+	dn/syn/lib/Token
+
+exports
+
+context-free syntax
+	Bindings -> Datum
+	"bindings" -> SortName {cons("bindings-sortname")}
+
+	"no" "bindings" -> Bindings {cons("no-bindings")}
+
+	"binding" -> DataOpPrefix {cons("binding-prefix")}
+	"bound" -> DataOpPrefix {cons("bound-prefix")}
+	"disjoint" "union" -> DataOpPrefix {cons("disjoint-union-prefix")}
+	"overriding" -> DataOpPrefix {cons("overriding-prefix")}

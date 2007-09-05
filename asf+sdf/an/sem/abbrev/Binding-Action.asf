@@ -1,0 +1,30 @@
+equations
+
+[bin]	bindable(A) = true
+
+[r18]	give (current bindings) = give current bindings
+
+[r19]	bound to Y = bound (current bindings, Y)
+
+[r20]	closure Y = provide current bindings hence
+			((furthermore the action bound to rec) 
+				exceptionally provide no bindings)
+			hence Y
+
+[r21]	bind = give binding
+
+[r22]	furthermore A = (give current bindings and A) then give overriding
+
+[r23]	A1 moreover A2 = (A1 and A2) then give overriding
+
+[r24]	A1 before A2 = (give current bindings and A1) then
+		(give the bindings #2 and (give overriding hence A2)) then
+		give overriding
+
+[r25]	recursively A = furthermore bind (rec, A) hence A
+
+[r26]	unfolding A = furthermore bind (unf, A) hence A
+
+[r27]	unfold = enact (provide the data then (
+			provide current bindings hence
+			the action bound to unf))

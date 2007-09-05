@@ -1,0 +1,11 @@
+equations
+
+[]	create(s, c, d) = put(s, c, d)
+
+[]	has-cell(s,c) = has-key(s,c)
+
+[]	update(s, c, d) = put(s,c,d)
+
+[]	inspect(s,c) = get(s,c)
+
+[]	new-store() = empty-map()

@@ -1,0 +1,2648 @@
+This is pdfTeX, Version 3.14159-13d (Web2C 7.3.1) (format=pdflatex 2002.1.14)  11 JAN 2003 16:48
+**refman.tex
+(refman.tex[/usr/share/texmf/pdftex/config/pdftex.cfg]
+LaTeX2e <2000/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, d
+utch, italian, nohyphenation, loaded.
+(/usr/share/texmf/tex/latex/base/book.cls
+Document Class: book 2000/05/19 v1.4b Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/bk10.clo
+File: bk10.clo 2000/05/19 v1.4b Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf/tex/latex/misc/a4wide.sty
+Package: a4wide 1994/08/30
+
+(/usr/share/texmf/tex/latex/ntgclass/a4.sty
+Package: a4 1999/03/03 v1.2f A4 based page layout
+))
+(/usr/share/texmf/tex/latex/base/makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+(/usr/share/texmf/tex/latex/fancyhdr/fancyhdr.sty
+\headwidth=\dimen103
+)
+(/usr/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 1999/02/16 v1.0l Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf/tex/latex/config/graphics.cfg)
+Package graphics Info: Driver file: pdftex.def on input line 80.
+
+(/usr/share/texmf/tex/latex/graphics/pdftex.def
+File: pdftex.def 2000/06/16 v0.03a graphics/color for pdftex
+\Gread@gobject=\count88
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+(/usr/share/texmf/tex/latex/misc/float.sty
+Package: float 1999/05/29 v1.2d Float enhancements (AL)
+\c@float@type=\count89
+\float@box=\box26
+\@floatcapt=\box27
+)
+(/usr/share/texmf/tex/latex/base/alltt.sty
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+) (doxygen.sty
+Package: doxygen 
+
+(/usr/share/texmf/tex/latex/tools/calc.sty
+Package: calc 1998/07/07 v4.1b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count90
+\calc@Bcount=\count91
+\calc@Adimen=\dimen106
+\calc@Bdimen=\dimen107
+\calc@Askip=\skip43
+\calc@Bskip=\skip44
+LaTeX Info: Redefining \setlength on input line 59.
+LaTeX Info: Redefining \addtolength on input line 60.
+\calc@denominator=\count92
+)
+(/usr/share/texmf/tex/latex/tools/array.sty
+Package: array 1998/05/13 v2.3m Tabular extension package (FMi)
+\col@sep=\dimen108
+\extrarowheight=\dimen109
+\NC@list=\toks15
+\extratabsurround=\skip45
+\backup@length=\skip46
+)
+\tmplength=\skip47
+)
+(/usr/share/texmf/tex/latex/psnfss/times.sty
+Package: times 2002/09/08 PSNFSS-v9.0a (SPQR) 
+)
+(/usr/share/texmf/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2000/11/05 v6.71a Hypertext links for LaTeX
+\@linkdim=\dimen110
+\Hy@linkcounter=\count93
+\Hy@pagecounter=\count94
+
+(/usr/share/texmf/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2000/11/05 v6.71a Hyperref: PDFDocEncoding definition (HO)
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 1603.
+Package hyperref Info: Bookmarks ON on input line 1661.
+Package hyperref Info: Hyper figures OFF on input line 1680.
+Package hyperref Info: Link nesting OFF on input line 1685.
+Package hyperref Info: Hyper index ON on input line 1688.
+Package hyperref Info: Plain pages ON on input line 1693.
+Package hyperref Info: Backreferencing ON on input line 1698.
+
+Implicit mode ON; LaTeX internals redefined
+(/usr/share/texmf/tex/latex/hyperref/backref.sty
+Package: backref 2000/01/19 v1.19 Bibliographical back referencing
+)
+(/usr/share/texmf/tex/latex/html/url.sty
+Package: url 1999/03/02  ver 1.4  Verb mode for urls, email addresses, and file
+ names
+)
+LaTeX Info: Redefining \url on input line 1905.
+\Fld@menulength=\count95
+\Field@Width=\dimen111
+\Fld@charsize=\dimen112
+\Choice@toks=\toks16
+\Field@toks=\toks17
+Package hyperref Info: Hyper figures OFF on input line 2351.
+Package hyperref Info: Link nesting OFF on input line 2356.
+Package hyperref Info: Hyper index ON on input line 2359.
+Package hyperref Info: backreferencing ON on input line 2364.
+Package hyperref Info: Link coloring ON on input line 2369.
+\c@Item=\count96
+\c@Hfootnote=\count97
+)
+*hyperref using driver hpdftex*
+(/usr/share/texmf/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2000/11/05 v6.71a Hyperref driver for pdfTeX
+
+(/usr/share/texmf/tex/latex/psnfss/pifont.sty
+Package: pifont 2002/09/08 PSNFSS-v9.0a Pi font support (SPQR) 
+LaTeX Font Info:    Try loading font information for U+pzd on input line 62.
+
+(/usr/share/texmf/tex/latex/psnfss/upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Try loading font information for U+psy on input line 63.
+
+(/usr/share/texmf/tex/latex/psnfss/upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+))
+\Fld@listcount=\count98
+\@outlinefile=\write3
+)
+\@indexfile=\write4
+\openout4 = `refman.idx'.
+
+
+Writing index file refman.idx
+(refman.aux (package__ajc_8data.aux) (package__ajc_8data_8pure.aux)
+(classAbstractInfixCombinator.aux) (classAbstractPrefixCombinator.aux)
+(interfaceAction.aux) (classActionImpl.aux) (interfaceAgent.aux)
+(classAgentImpl.aux) (classAnd.aux) (classAndExceptionally.aux)
+(classAndThen.aux) (interfaceBindable.aux) (interfaceBindings.aux)
+(classBindingsImpl.aux) (interfaceBool.aux) (classBoolImpl.aux)
+(interfaceCell.aux) (classCellImpl.aux) (classComparable.aux)
+(interfaceData.aux) (interfaceDataConst.aux) (classDataConstImpl.aux)
+(interfaceDataFactory.aux) (classDataImpl.aux) (interfaceDataValue.aux)
+(classDataValueImpl.aux) (interfaceDatum.aux) (classDatumImpl.aux)
+(interfaceEmpty.aux) (classEmptyImpl.aux) (interfaceEnactable.aux)
+(classException.aux) (classExceptional.aux) (classExceptionally.aux)
+(classFailed.aux) (classHashtable.aux) (classHence.aux) (classIndivisibly.aux)
+(interfaceInt.aux) (classIntImpl.aux) (interfaceList.aux) (classListImpl.aux)
+(interfaceMessage.aux) (interfaceMessageTag.aux) (classMessageTagImpl.aux)
+(classOtherwise.aux) (classProvide.aux) (classPureFactory.aux)
+(classRunnable.aux) (classSchedule.aux) (interfaceScheduling.aux)
+(interfaceStorable.aux) (classStore.aux) (interfaceStoring.aux)
+(classTaggedBuffers.aux) (interfaceText.aux) (classTextImpl.aux) (classThen.aux
+) (interfaceToken.aux) (classTokenImpl.aux) (classUnfold.aux)
+(AbstractEnactable_8java.aux) (AbstractInfixCombinator_8java.aux)
+(AbstractPrefixCombinator_8java.aux) (Action_8java.aux) (ActionImpl_8java.aux)
+(Agent_8java.aux) (AgentImpl_8java.aux) (Bindable_8java.aux)
+(Bindings_8java.aux) (BindingsImpl_8java.aux) (Bool_8java.aux)
+(BoolImpl_8java.aux) (Cell_8java.aux) (CellImpl_8java.aux) (Data_8java.aux)
+(DataConst_8java.aux) (DataConstImpl_8java.aux) (DataFactory_8java.aux)
+(DataImpl_8java.aux) (DataValue_8java.aux) (DataValueImpl_8java.aux)
+(Datum_8java.aux) (DatumImpl_8java.aux) (Empty_8java.aux) (EmptyImpl_8java.aux)
+(Enactable_8java.aux) (Exceptional_8java.aux) (Failed_8java.aux) (Int_8java.aux
+) (IntImpl_8java.aux) (List_8java.aux) (ListImpl_8java.aux) (Message_8java.aux)
+(MessageTag_8java.aux) (MessageTagImpl_8java.aux) (PureFactory_8java.aux)
+(Schedule_8java.aux) (Scheduling_8java.aux) (Storable_8java.aux)
+(Store_8java.aux) (Storing_8java.aux) (TaggedBuffers_8java.aux) (Text_8java.aux
+) (TextImpl_8java.aux) (Token_8java.aux) (TokenImpl_8java.aux) (Tuple_8java.aux
+) (Unfold_8java.aux))
+\openout1 = `refman.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 26.
+ (/usr/share/texmf/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+(/usr/share/texmf/tex/context/base/supp-pdf.tex
+(/usr/share/texmf/tex/context/base/supp-mis.tex
+loading : Context Support Macros / Missing
+\protectiondepth=\count99
+\scratchcounter=\count100
+\scratchdimen=\dimen113
+\scratchskip=\skip48
+\scratchmuskip=\muskip10
+\scratchbox=\box28
+\scratchread=\read1
+\scratchwrite=\write5
+\nextbox=\box29
+\nextdepth=\dimen114
+\everyline=\toks18
+\!!counta=\count101
+\!!countb=\count102
+\recursecounter=\count103
+)
+loading : Context Support Macros / PDF
+\nofMPsegments=\count104
+\nofMParguments=\count105
+) (/usr/share/texmf/tex/latex/graphics/color.sty
+Package: color 1999/02/16 v1.0i Standard LaTeX Color (DPC)
+LaTeX Info: Redefining \color on input line 71.
+
+(/usr/share/texmf/tex/latex/config/color.cfg)
+Package color Info: Driver file: pdftex.def on input line 125.
+)
+Package hyperref Info: Link coloring ON on input line 26.
+
+(/usr/share/texmf/tex/latex/hyperref/nameref.sty
+Package: nameref 2000/05/08 v2.18 Cross-referencing by name of section
+\c@section@level=\count106
+) (refman.out) (refman.out)
+\openout3 = `refman.out'.
+
+LaTeX Info: Redefining \ref on input line 26.
+LaTeX Info: Redefining \pageref on input line 26.
+
+[1
+
+
+[/usr/share/texmf/dvips/config/pdftex.map]] [2
+
+]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 39.
+ (refman.toc
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 2.
+
+Warning (ext1): destination with the same identifier (name{page.1}) already exi
+sts!
+\new@pdflink ...Hy@SaveLastskip \pdfdest name {#1}
+                                                  \@pdfview \Hy@RestoreLasts...
+l.95 ...ool Interface Reference}{37}{section.6.14}
+                                                   [1
+
+]
+Underfull \vbox (badness 1389) has occurred while \output is active []
+
+
+Warning (ext1): destination with the same identifier (name{page.2}) already exi
+sts!
+\new@pdflink ...Hy@SaveLastskip \pdfdest name {#1}
+                                                  \@pdfview \Hy@RestoreLasts...
+l.291 ...ng Interface Reference}{92}{section.6.50}
+                                                  
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 291.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 291.
+
+
+(/usr/share/texmf/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+
+LaTeX Font Warning: Font shape `OMS/ptm/bx/n' undefined
+(Font)              using `OMS/ptm/m/n' instead on input line 291.
+
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <7> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 291.
+LaTeX Font Info:    Font shape `OMS/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 291.
+[2] [3])
+\tf@toc=\write6
+\openout6 = `refman.toc'.
+
+ [4]
+Chapter 1.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 42.
+(packages.tex
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
+
+Underfull \hbox (badness 10000) detected at line 3
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 4
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 5
+[][]
+ []
+
+)
+Warning (ext1): destination with the same identifier (name{page.1}) already exi
+sts!
+\new@pdflink ...Hy@SaveLastskip \pdfdest name {#1}
+                                                  \@pdfview \Hy@RestoreLasts...
+l.44 \chapter
+             {Action Java Compiler Runtime Hierarchical Index} [1
+
+
+]
+Warning (ext1): destination with the same identifier (name{page.2}) already exi
+sts!
+\new@pdflink ...Hy@SaveLastskip \pdfdest name {#1}
+                                                  \@pdfview \Hy@RestoreLasts...
+l.44 \chapter
+             {Action Java Compiler Runtime Hierarchical Index} [2
+
+]
+Chapter 2.
+(hierarchy.tex
+Underfull \hbox (badness 10000) detected at line 3
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 5
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 9
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 11
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 13
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 15
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 17
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 19
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 21
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 23
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 25
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 28
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 30
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 32
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 34
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 36
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 38
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 40
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 42
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 44
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 46
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 47
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 48
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 49
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 50
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 51
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 52
+[][]
+ []
+
+Warning (ext1): destination with the same identifier (name{page.3}) already exi
+sts!
+\new@pdflink ...Hy@SaveLastskip \pdfdest name {#1}
+                                                  \@pdfview \Hy@RestoreLasts...
+l.53 \item \contentsline
+                        {section}{Text\-Impl}{\pageref{classTextImpl}}{}
+[3]
+Underfull \hbox (badness 10000) detected at line 53
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 55
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 56
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 59
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 61
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 63
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 65
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 67
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 69
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 71
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 73
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 74
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 76
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 81
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 83
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 85
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 87
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 89
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 91
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 93
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 95
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 98
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 100
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 102
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 103
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 105
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 108
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 109
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 112
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 114
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 116
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 118
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 120
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 122
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 123
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 124
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 126
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 128
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 130
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 132
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 134
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 136
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 138
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 140
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 142
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 144
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 146
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 148
+[][]
+ []
+
+)
+Warning (ext1): destination with the same identifier (name{page.4}) already exi
+sts!
+\new@pdflink ...Hy@SaveLastskip \pdfdest name {#1}
+                                                  \@pdfview \Hy@RestoreLasts...
+l.46 \chapter
+             {Action Java Compiler Runtime Compound Index} [4]
+Chapter 3.
+(annotated.tex
+Underfull \hbox (badness 10000) detected at line 3
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 4
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 5
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 6
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 8
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 9
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 10
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 11
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 13
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 15
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 17
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 19
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 20
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 21
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 22
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 23
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 24
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 25
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 26
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 27
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 28
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 29
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 30
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 31
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 32
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 33
+[][]
+ []
+
+[5
+
+]
+Underfull \hbox (badness 10000) detected at line 34
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 35
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 36
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 37
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 38
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 39
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 40
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 41
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 42
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 43
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 44
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 45
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 46
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 47
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 48
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 49
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 50
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 51
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 52
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 53
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 54
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 55
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 56
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 57
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 58
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 59
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 60
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 61
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 62
+[][]
+ []
+
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 62.
+(/usr/share/texmf/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)) [6]
+Chapter 4.
+(files.tex
+Underfull \hbox (badness 10000) detected at line 3
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 4
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 5
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 6
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 8
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 9
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 10
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 11
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 12
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 13
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 15
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 16
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 17
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 19
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 20
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 21
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 22
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 23
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 24
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 25
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 26
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 27
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 28
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 29
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 30
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 31
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 32
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 33
+[][]
+ []
+
+[7
+
+]
+Underfull \hbox (badness 10000) detected at line 34
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 35
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 36
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 37
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 38
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 39
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 40
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 41
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 42
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 43
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 44
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 45
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 46
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 47
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 48
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 49
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 50
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 51
+[][]
+ []
+
+) [8]
+Chapter 5.
+(package__ajc.tex
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 8.
+
+Underfull \hbox (badness 10000) detected at line 30
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 30
+[][]
+ []
+
+) [9
+
+]
+\openout2 = `package__ajc_8data.aux'.
+
+ (package__ajc_8data.tex) [10
+
+]
+\openout2 = `package__ajc_8data_8pure.aux'.
+
+ (package__ajc_8data_8pure.tex) [11
+
+
+]
+[12
+
+
+]
+Chapter 6.
+(classAbstractEnactable.tex
+<classAbstractEnactable__inherit__graph.pdf 83.31125pt, 65.24374pt, obj 1026>
+File: classAbstractEnactable__inherit__graph.pdf Graphic file (type pdf)
+
+<use classAbstractEnactable__inherit__graph.pdf>
+<classAbstractEnactable__coll__graph.pdf 134.50249pt, 77.28874pt, obj 1027>
+File: classAbstractEnactable__coll__graph.pdf Graphic file (type pdf)
+
+<use classAbstractEnactable__coll__graph.pdf>
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 37.
+
+Underfull \vbox (badness 1226) has occurred while \output is active []
+
+ [13 <./classAbstractEnactable__inherit__graph.pdf> <./classAbstractEnactable__
+coll__graph.pdf>]) [14]
+\openout2 = `classAbstractInfixCombinator.aux'.
+
+ (classAbstractInfixCombinator.tex
+<classAbstractInfixCombinator__inherit__graph.pdf 448.67624pt, 316.18124pt,
+obj 1090>
+File: classAbstractInfixCombinator__inherit__graph.pdf Graphic file (type pdf)
+ <use classAbstractInfixCombinator__inherit__graph.pdf>
+<classAbstractInfixCombinator__coll__graph.pdf 590.20499pt, 368.37624pt,
+obj 1091>
+File: classAbstractInfixCombinator__coll__graph.pdf Graphic file (type pdf)
+ <use classAbstractInfixCombinator__coll__graph.pdf>) [15
+
+ <./classAbstractInfixCombinator__inherit__graph.pdf> <./classAbstractInfixComb
+inator__coll__graph.pdf>]
+\openout2 = `classAbstractPrefixCombinator.aux'.
+
+ (classAbstractPrefixCombinator.tex
+<classAbstractPrefixCombinator__inherit__graph.pdf 306.14374pt, 316.18124pt,
+obj 1115>
+File: classAbstractPrefixCombinator__inherit__graph.pdf Graphic file (type pdf)
+
+ <use classAbstractPrefixCombinator__inherit__graph.pdf>
+<classAbstractPrefixCombinator__coll__graph.pdf 590.20499pt, 358.33875pt,
+obj 1116>
+File: classAbstractPrefixCombinator__coll__graph.pdf Graphic file (type pdf)
+ <use classAbstractPrefixCombinator__coll__graph.pdf> [16
+
+
+ <./classAbstractPrefixCombinator__inherit__graph.pdf> <./classAbstractPrefixCo
+mbinator__coll__graph.pdf>]) [17]
+\openout2 = `interfaceAction.aux'.
+
+ (interfaceAction.tex
+<interfaceAction__inherit__graph.pdf 580.1675pt, 316.18124pt, obj 1152>
+File: interfaceAction__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceAction__inherit__graph.pdf>
+<interfaceAction__coll__graph.pdf 239.89624pt, 165.61874pt, obj 1153>
+File: interfaceAction__coll__graph.pdf Graphic file (type pdf)
+
+<use interfaceAction__coll__graph.pdf> [18
+
+
+ <./interfaceAction__inherit__graph.pdf> <./interfaceAction__coll__graph.pdf>]
+Underfull \hbox (badness 2173) in paragraph at lines 94--95
+[]\OT1/ptm/m/n/10 Referenced by Action-Impl::and(), Action-Impl::and-Exceptiona
+lly(), Action-Impl::and-Then(), Action-
+ []
+
+) [19]
+\openout2 = `classActionImpl.aux'.
+
+ (classActionImpl.tex
+<classActionImpl__inherit__graph.pdf 609.27625pt, 316.18124pt, obj 1244>
+File: classActionImpl__inherit__graph.pdf Graphic file (type pdf)
+
+<use classActionImpl__inherit__graph.pdf>
+<classActionImpl__coll__graph.pdf 612.28749pt, 306.14374pt, obj 1245>
+File: classActionImpl__coll__graph.pdf Graphic file (type pdf)
+
+<use classActionImpl__coll__graph.pdf> [20
+
+
+ <./classActionImpl__inherit__graph.pdf> <./classActionImpl__coll__graph.pdf>] 
+[21] [22]) [23]
+\openout2 = `interfaceAgent.aux'.
+
+ (interfaceAgent.tex
+<interfaceAgent__inherit__graph.pdf 239.89624pt, 215.80624pt, obj 1432>
+File: interfaceAgent__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceAgent__inherit__graph.pdf>
+<interfaceAgent__coll__graph.pdf 239.89624pt, 165.61874pt, obj 1433>
+File: interfaceAgent__coll__graph.pdf Graphic file (type pdf)
+
+<use interfaceAgent__coll__graph.pdf>) [24
+
+
+ <./interfaceAgent__inherit__graph.pdf> <./interfaceAgent__coll__graph.pdf>]
+\openout2 = `classAgentImpl.aux'.
+
+ (classAgentImpl.tex
+<classAgentImpl__inherit__graph.pdf 306.14374pt, 215.80624pt, obj 1457>
+File: classAgentImpl__inherit__graph.pdf Graphic file (type pdf)
+
+<use classAgentImpl__inherit__graph.pdf>
+<classAgentImpl__coll__graph.pdf 471.7625pt, 286.06874pt, obj 1458>
+File: classAgentImpl__coll__graph.pdf Graphic file (type pdf)
+
+<use classAgentImpl__coll__graph.pdf>) [25
+
+
+ <./classAgentImpl__inherit__graph.pdf> <./classAgentImpl__coll__graph.pdf>]
+\openout2 = `classAnd.aux'.
+
+ (classAnd.tex
+<classAnd__inherit__graph.pdf 306.14374pt, 316.18124pt, obj 1483>
+File: classAnd__inherit__graph.pdf Graphic file (type pdf)
+
+<use classAnd__inherit__graph.pdf>
+<classAnd__coll__graph.pdf 583.17874pt, 420.57124pt, obj 1484>
+File: classAnd__coll__graph.pdf Graphic file (type pdf)
+
+<use classAnd__coll__graph.pdf>
+Underfull \vbox (badness 1406) has occurred while \output is active []
+
+ [26
+
+
+ <./classAnd__inherit__graph.pdf> <./classAnd__coll__graph.pdf>]) [27]
+\openout2 = `classAndExceptionally.aux'.
+
+
+(classAndExceptionally.tex
+<classAndExceptionally__inherit__graph.pdf 306.14374pt, 316.18124pt, obj 1545>
+File: classAndExceptionally__inherit__graph.pdf Graphic file (type pdf)
+
+<use classAndExceptionally__inherit__graph.pdf>
+<classAndExceptionally__coll__graph.pdf 583.17874pt, 420.57124pt, obj 1546>
+File: classAndExceptionally__coll__graph.pdf Graphic file (type pdf)
+
+<use classAndExceptionally__coll__graph.pdf>
+Underfull \vbox (badness 1406) has occurred while \output is active []
+
+ [28
+
+
+ <./classAndExceptionally__inherit__graph.pdf> <./classAndExceptionally__coll__
+graph.pdf>]) [29]
+\openout2 = `classAndThen.aux'.
+
+ (classAndThen.tex
+<classAndThen__inherit__graph.pdf 306.14374pt, 316.18124pt, obj 1607>
+File: classAndThen__inherit__graph.pdf Graphic file (type pdf)
+
+<use classAndThen__inherit__graph.pdf>
+<classAndThen__coll__graph.pdf 583.17874pt, 420.57124pt, obj 1608>
+File: classAndThen__coll__graph.pdf Graphic file (type pdf)
+
+<use classAndThen__coll__graph.pdf>
+Underfull \vbox (badness 1406) has occurred while \output is active []
+
+ [30
+
+
+ <./classAndThen__inherit__graph.pdf> <./classAndThen__coll__graph.pdf>]) [31]
+\openout2 = `interfaceBindable.aux'.
+
+
+(interfaceBindable.tex
+<interfaceBindable__inherit__graph.pdf 655.44875pt, 165.61874pt, obj 1670>
+File: interfaceBindable__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceBindable__inherit__graph.pdf>) [32
+
+
+ <./interfaceBindable__inherit__graph.pdf>]
+\openout2 = `interfaceBindings.aux'.
+
+ (interfaceBindings.tex
+<interfaceBindings__inherit__graph.pdf 239.89624pt, 215.80624pt, obj 1686>
+File: interfaceBindings__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceBindings__inherit__graph.pdf>
+<interfaceBindings__coll__graph.pdf 239.89624pt, 165.61874pt, obj 1687>
+File: interfaceBindings__coll__graph.pdf Graphic file (type pdf)
+
+<use interfaceBindings__coll__graph.pdf> [33
+
+
+ <./interfaceBindings__inherit__graph.pdf> <./interfaceBindings__coll__graph.pd
+f>]) [34]
+\openout2 = `classBindingsImpl.aux'.
+
+ (classBindingsImpl.tex
+<classBindingsImpl__inherit__graph.pdf 306.14374pt, 215.80624pt, obj 1743>
+File: classBindingsImpl__inherit__graph.pdf Graphic file (type pdf)
+
+<use classBindingsImpl__inherit__graph.pdf>
+<classBindingsImpl__coll__graph.pdf 471.7625pt, 286.06874pt, obj 1744>
+File: classBindingsImpl__coll__graph.pdf Graphic file (type pdf)
+
+<use classBindingsImpl__coll__graph.pdf> [35
+
+
+ <./classBindingsImpl__inherit__graph.pdf> <./classBindingsImpl__coll__graph.pd
+f>]) [36]
+\openout2 = `interfaceBool.aux'.
+
+ (interfaceBool.tex
+<interfaceBool__inherit__graph.pdf 239.89624pt, 215.80624pt, obj 1805>
+File: interfaceBool__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceBool__inherit__graph.pdf>
+<interfaceBool__coll__graph.pdf 239.89624pt, 165.61874pt, obj 1806>
+File: interfaceBool__coll__graph.pdf Graphic file (type pdf)
+
+<use interfaceBool__coll__graph.pdf>) [37
+
+
+ <./interfaceBool__inherit__graph.pdf> <./interfaceBool__coll__graph.pdf>]
+\openout2 = `classBoolImpl.aux'.
+
+ (classBoolImpl.tex
+<classBoolImpl__inherit__graph.pdf 306.14374pt, 215.80624pt, obj 1843>
+File: classBoolImpl__inherit__graph.pdf Graphic file (type pdf)
+
+<use classBoolImpl__inherit__graph.pdf>
+<classBoolImpl__coll__graph.pdf 471.7625pt, 286.06874pt, obj 1844>
+File: classBoolImpl__coll__graph.pdf Graphic file (type pdf)
+
+<use classBoolImpl__coll__graph.pdf> [38
+
+
+ <./classBoolImpl__inherit__graph.pdf> <./classBoolImpl__coll__graph.pdf>]) [39
+]
+\openout2 = `interfaceCell.aux'.
+
+ (interfaceCell.tex
+<interfaceCell__inherit__graph.pdf 239.89624pt, 215.80624pt, obj 1892>
+File: interfaceCell__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceCell__inherit__graph.pdf>
+<interfaceCell__coll__graph.pdf 239.89624pt, 165.61874pt, obj 1893>
+File: interfaceCell__coll__graph.pdf Graphic file (type pdf)
+
+<use interfaceCell__coll__graph.pdf>) [40
+
+
+ <./interfaceCell__inherit__graph.pdf> <./interfaceCell__coll__graph.pdf>]
+\openout2 = `classCellImpl.aux'.
+
+ (classCellImpl.tex
+<classCellImpl__inherit__graph.pdf 306.14374pt, 215.80624pt, obj 1917>
+File: classCellImpl__inherit__graph.pdf Graphic file (type pdf)
+
+<use classCellImpl__inherit__graph.pdf>
+<classCellImpl__coll__graph.pdf 471.7625pt, 286.06874pt, obj 1918>
+File: classCellImpl__coll__graph.pdf Graphic file (type pdf)
+
+<use classCellImpl__coll__graph.pdf>) [41
+
+
+ <./classCellImpl__inherit__graph.pdf> <./classCellImpl__coll__graph.pdf>]
+\openout2 = `classComparable.aux'.
+
+ (classComparable.tex
+<classComparable__inherit__graph.pdf 59.22124pt, 115.43124pt, obj 1949>
+File: classComparable__inherit__graph.pdf Graphic file (type pdf)
+
+<use classComparable__inherit__graph.pdf>) [42
+
+
+ <./classComparable__inherit__graph.pdf>]
+\openout2 = `interfaceData.aux'.
+
+ (interfaceData.tex
+<interfaceData__inherit__graph.pdf 729.72624pt, 265.99374pt, obj 1965>
+File: interfaceData__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceData__inherit__graph.pdf> [43
+
+
+ <./interfaceData__inherit__graph.pdf>]) [44]
+\openout2 = `interfaceDataConst.aux'.
+
+ (interfaceDataConst.tex
+<interfaceDataConst__inherit__graph.pdf 125.46875pt, 215.80624pt, obj 2047>
+File: interfaceDataConst__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceDataConst__inherit__graph.pdf>
+<interfaceDataConst__coll__graph.pdf 53.19875pt, 115.43124pt, obj 2048>
+File: interfaceDataConst__coll__graph.pdf Graphic file (type pdf)
+
+<use interfaceDataConst__coll__graph.pdf>) [45
+
+
+ <./interfaceDataConst__inherit__graph.pdf> <./interfaceDataConst__coll__graph.
+pdf>]
+\openout2 = `classDataConstImpl.aux'.
+
+ (classDataConstImpl.tex
+<classDataConstImpl__inherit__graph.pdf 143.53624pt, 215.80624pt, obj 2072>
+File: classDataConstImpl__inherit__graph.pdf Graphic file (type pdf)
+
+<use classDataConstImpl__inherit__graph.pdf>
+<classDataConstImpl__coll__graph.pdf 338.26375pt, 245.91875pt, obj 2073>
+File: classDataConstImpl__coll__graph.pdf Graphic file (type pdf)
+
+<use classDataConstImpl__coll__graph.pdf>) [46
+
+
+ <./classDataConstImpl__inherit__graph.pdf> <./classDataConstImpl__coll__graph.
+pdf>]
+\openout2 = `interfaceDataFactory.aux'.
+
+ (interfaceDataFactory.tex
+<interfaceDataFactory__inherit__graph.pdf 59.22124pt, 65.24374pt, obj 2104>
+File: interfaceDataFactory__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceDataFactory__inherit__graph.pdf> [47
+
+
+ <./interfaceDataFactory__inherit__graph.pdf>]) [48]
+\openout2 = `classDataImpl.aux'.
+
+ (classDataImpl.tex
+<classDataImpl__inherit__graph.pdf 729.72624pt, 265.99374pt, obj 2230>
+File: classDataImpl__inherit__graph.pdf Graphic file (type pdf)
+
+<use classDataImpl__inherit__graph.pdf>
+<classDataImpl__coll__graph.pdf 232.87pt, 129.48375pt, obj 2231>
+File: classDataImpl__coll__graph.pdf Graphic file (type pdf)
+
+<use classDataImpl__coll__graph.pdf> [49
+
+
+ <./classDataImpl__inherit__graph.pdf> <./classDataImpl__coll__graph.pdf>] [50]
+) [51]
+\openout2 = `interfaceDataValue.aux'.
+
+ (interfaceDataValue.tex
+<interfaceDataValue__inherit__graph.pdf 766.86499pt, 215.80624pt, obj 2351>
+File: interfaceDataValue__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceDataValue__inherit__graph.pdf>
+<interfaceDataValue__coll__graph.pdf 53.19875pt, 65.24374pt, obj 2352>
+File: interfaceDataValue__coll__graph.pdf Graphic file (type pdf)
+
+<use interfaceDataValue__coll__graph.pdf>) [52
+
+
+ <./interfaceDataValue__inherit__graph.pdf> <./interfaceDataValue__coll__graph.
+pdf>]
+\openout2 = `classDataValueImpl.aux'.
+
+ (classDataValueImpl.tex
+<classDataValueImpl__inherit__graph.pdf 729.72624pt, 265.99374pt, obj 2395>
+File: classDataValueImpl__inherit__graph.pdf Graphic file (type pdf)
+
+<use classDataValueImpl__inherit__graph.pdf>
+<classDataValueImpl__coll__graph.pdf 268.00124pt, 181.67874pt, obj 2396>
+File: classDataValueImpl__coll__graph.pdf Graphic file (type pdf)
+
+<use classDataValueImpl__coll__graph.pdf> [53
+
+
+ <./classDataValueImpl__inherit__graph.pdf> <./classDataValueImpl__coll__graph.
+pdf>]) [54]
+\openout2 = `interfaceDatum.aux'.
+
+ (interfaceDatum.tex
+<interfaceDatum__inherit__graph.pdf 655.44875pt, 215.80624pt, obj 2480>
+File: interfaceDatum__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceDatum__inherit__graph.pdf>
+<interfaceDatum__coll__graph.pdf 239.89624pt, 115.43124pt, obj 2481>
+File: interfaceDatum__coll__graph.pdf Graphic file (type pdf)
+
+<use interfaceDatum__coll__graph.pdf>) [55
+
+
+ <./interfaceDatum__inherit__graph.pdf> <./interfaceDatum__coll__graph.pdf>]
+\openout2 = `classDatumImpl.aux'.
+
+ (classDatumImpl.tex
+<classDatumImpl__inherit__graph.pdf 729.72624pt, 215.80624pt, obj 2506>
+File: classDatumImpl__inherit__graph.pdf Graphic file (type pdf)
+
+<use classDatumImpl__inherit__graph.pdf>
+<classDatumImpl__coll__graph.pdf 468.75124pt, 233.87375pt, obj 2507>
+File: classDatumImpl__coll__graph.pdf Graphic file (type pdf)
+
+<use classDatumImpl__coll__graph.pdf>) [56
+
+
+ <./classDatumImpl__inherit__graph.pdf> <./classDatumImpl__coll__graph.pdf>]
+\openout2 = `interfaceEmpty.aux'.
+
+ (interfaceEmpty.tex
+<interfaceEmpty__inherit__graph.pdf 57.21375pt, 215.80624pt, obj 2538>
+File: interfaceEmpty__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceEmpty__inherit__graph.pdf>
+<interfaceEmpty__coll__graph.pdf 53.19875pt, 165.61874pt, obj 2539>
+File: interfaceEmpty__coll__graph.pdf Graphic file (type pdf)
+
+<use interfaceEmpty__coll__graph.pdf>) [57
+
+
+ <./interfaceEmpty__inherit__graph.pdf> <./interfaceEmpty__coll__graph.pdf>]
+\openout2 = `classEmptyImpl.aux'.
+
+ (classEmptyImpl.tex
+<classEmptyImpl__inherit__graph.pdf 143.53624pt, 215.80624pt, obj 2563>
+File: classEmptyImpl__inherit__graph.pdf Graphic file (type pdf)
+
+<use classEmptyImpl__inherit__graph.pdf>
+<classEmptyImpl__coll__graph.pdf 331.23749pt, 296.10625pt, obj 2564>
+File: classEmptyImpl__coll__graph.pdf Graphic file (type pdf)
+
+<use classEmptyImpl__coll__graph.pdf> [58
+
+
+ <./classEmptyImpl__inherit__graph.pdf> <./classEmptyImpl__coll__graph.pdf>]) [
+59]
+\openout2 = `interfaceEnactable.aux'.
+
+ (interfaceEnactable.tex
+<interfaceEnactable__inherit__graph.pdf 253.94875pt, 304.13625pt, obj 2622>
+File: interfaceEnactable__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceEnactable__inherit__graph.pdf>) [60
+
+
+ <./interfaceEnactable__inherit__graph.pdf>]
+\openout2 = `classException.aux'.
+
+ (classException.tex
+<classException__inherit__graph.pdf 167.62624pt, 65.24374pt, obj 2652>
+File: classException__inherit__graph.pdf Graphic file (type pdf)
+
+<use classException__inherit__graph.pdf>) [61
+
+
+ <./classException__inherit__graph.pdf>]
+\openout2 = `classExceptional.aux'.
+
+ (classExceptional.tex
+<classExceptional__inherit__graph.pdf 59.22124pt, 65.24374pt, obj 2669>
+File: classExceptional__inherit__graph.pdf Graphic file (type pdf)
+
+<use classExceptional__inherit__graph.pdf>
+<classExceptional__coll__graph.pdf 110.41249pt, 77.28874pt, obj 2670>
+File: classExceptional__coll__graph.pdf Graphic file (type pdf)
+
+<use classExceptional__coll__graph.pdf>) [62
+
+
+ <./classExceptional__inherit__graph.pdf> <./classExceptional__coll__graph.pdf>
+]
+\openout2 = `classExceptionally.aux'.
+
+ (classExceptionally.tex
+<classExceptionally__inherit__graph.pdf 306.14374pt, 316.18124pt, obj 2711>
+File: classExceptionally__inherit__graph.pdf Graphic file (type pdf)
+
+<use classExceptionally__inherit__graph.pdf>
+<classExceptionally__coll__graph.pdf 583.17874pt, 420.57124pt, obj 2712>
+File: classExceptionally__coll__graph.pdf Graphic file (type pdf)
+
+<use classExceptionally__coll__graph.pdf>
+Underfull \vbox (badness 1406) has occurred while \output is active []
+
+ [63
+
+
+ <./classExceptionally__inherit__graph.pdf> <./classExceptionally__coll__graph.
+pdf>])
+[64]
+\openout2 = `classFailed.aux'.
+
+ (classFailed.tex <classFailed__inherit__graph.pdf 51.19124pt, 65.24374pt,
+obj 2773>
+File: classFailed__inherit__graph.pdf Graphic file (type pdf)
+ <use classFailed__inherit__graph.pdf>
+<classFailed__coll__graph.pdf 51.19124pt, 65.24374pt, obj 2774>
+File: classFailed__coll__graph.pdf Graphic file (type pdf)
+
+<use classFailed__coll__graph.pdf>) [65
+
+
+ <./classFailed__inherit__graph.pdf> <./classFailed__coll__graph.pdf>]
+\openout2 = `classHashtable.aux'.
+
+ (classHashtable.tex
+<classHashtable__inherit__graph.pdf 71.26624pt, 65.24374pt, obj 2804>
+File: classHashtable__inherit__graph.pdf Graphic file (type pdf)
+
+<use classHashtable__inherit__graph.pdf>) [66
+
+
+ <./classHashtable__inherit__graph.pdf>]
+\openout2 = `classHence.aux'.
+
+ (classHence.tex
+<classHence__inherit__graph.pdf 306.14374pt, 316.18124pt, obj 2820>
+File: classHence__inherit__graph.pdf Graphic file (type pdf)
+
+<use classHence__inherit__graph.pdf>
+<classHence__coll__graph.pdf 583.17874pt, 420.57124pt, obj 2821>
+File: classHence__coll__graph.pdf Graphic file (type pdf)
+
+<use classHence__coll__graph.pdf>
+Underfull \vbox (badness 1406) has occurred while \output is active []
+
+ [67
+
+
+ <./classHence__inherit__graph.pdf> <./classHence__coll__graph.pdf>]) [68]
+\openout2 = `classIndivisibly.aux'.
+
+
+(classIndivisibly.tex
+<classIndivisibly__inherit__graph.pdf 306.14374pt, 316.18124pt, obj 2883>
+File: classIndivisibly__inherit__graph.pdf Graphic file (type pdf)
+
+<use classIndivisibly__inherit__graph.pdf>
+<classIndivisibly__coll__graph.pdf 583.17874pt, 410.53374pt, obj 2884>
+File: classIndivisibly__coll__graph.pdf Graphic file (type pdf)
+
+<use classIndivisibly__coll__graph.pdf>
+Underfull \vbox (badness 1975) has occurred while \output is active []
+
+ [69
+
+
+ <./classIndivisibly__inherit__graph.pdf> <./classIndivisibly__coll__graph.pdf>
+])
+[70]
+\openout2 = `interfaceInt.aux'.
+
+ (interfaceInt.tex
+<interfaceInt__inherit__graph.pdf 239.89624pt, 215.80624pt, obj 2942>
+File: interfaceInt__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceInt__inherit__graph.pdf>
+<interfaceInt__coll__graph.pdf 239.89624pt, 165.61874pt, obj 2943>
+File: interfaceInt__coll__graph.pdf Graphic file (type pdf)
+
+<use interfaceInt__coll__graph.pdf> [71
+
+
+ <./interfaceInt__inherit__graph.pdf> <./interfaceInt__coll__graph.pdf>]
+Underfull \hbox (badness 2799) in paragraph at lines 70--71
+[]\OT1/ptm/m/n/10 Referenced by Int-Impl::greater(), Int-Impl::greater-Or-Eq(),
+ Int-Impl::less(), Int-Impl::less-Or-Eq(), Int-
+ []
+
+) [72]
+\openout2 = `classIntImpl.aux'.
+
+ (classIntImpl.tex
+<classIntImpl__inherit__graph.pdf 306.14374pt, 215.80624pt, obj 3031>
+File: classIntImpl__inherit__graph.pdf Graphic file (type pdf)
+
+<use classIntImpl__inherit__graph.pdf>
+<classIntImpl__coll__graph.pdf 471.7625pt, 286.06874pt, obj 3032>
+File: classIntImpl__coll__graph.pdf Graphic file (type pdf)
+
+<use classIntImpl__coll__graph.pdf> [73
+
+
+ <./classIntImpl__inherit__graph.pdf> <./classIntImpl__coll__graph.pdf>] [74]) 
+[75]
+\openout2 = `interfaceList.aux'.
+
+ (interfaceList.tex
+<interfaceList__inherit__graph.pdf 239.89624pt, 215.80624pt, obj 3150>
+File: interfaceList__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceList__inherit__graph.pdf>
+<interfaceList__coll__graph.pdf 239.89624pt, 165.61874pt, obj 3151>
+File: interfaceList__coll__graph.pdf Graphic file (type pdf)
+
+<use interfaceList__coll__graph.pdf> [76
+
+
+ <./interfaceList__inherit__graph.pdf> <./interfaceList__coll__graph.pdf>]) [77
+]
+\openout2 = `classListImpl.aux'.
+
+ (classListImpl.tex
+<classListImpl__inherit__graph.pdf 306.14374pt, 215.80624pt, obj 3214>
+File: classListImpl__inherit__graph.pdf Graphic file (type pdf)
+
+<use classListImpl__inherit__graph.pdf>
+<classListImpl__coll__graph.pdf 556.0775pt, 308.15125pt, obj 3215>
+File: classListImpl__coll__graph.pdf Graphic file (type pdf)
+
+<use classListImpl__coll__graph.pdf> [78
+
+
+ <./classListImpl__inherit__graph.pdf> <./classListImpl__coll__graph.pdf>]) [79
+]
+\openout2 = `interfaceMessage.aux'.
+
+ (interfaceMessage.tex
+<interfaceMessage__inherit__graph.pdf 655.44875pt, 165.61874pt, obj 3290>
+File: interfaceMessage__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceMessage__inherit__graph.pdf>) [80
+
+
+ <./interfaceMessage__inherit__graph.pdf>]
+\openout2 = `interfaceMessageTag.aux'.
+
+ (interfaceMessageTag.tex
+<interfaceMessageTag__inherit__graph.pdf 239.89624pt, 265.99374pt, obj 3306>
+File: interfaceMessageTag__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceMessageTag__inherit__graph.pdf>
+<interfaceMessageTag__coll__graph.pdf 239.89624pt, 215.80624pt, obj 3307>
+File: interfaceMessageTag__coll__graph.pdf Graphic file (type pdf)
+
+<use interfaceMessageTag__coll__graph.pdf>) [81
+
+
+ <./interfaceMessageTag__inherit__graph.pdf> <./interfaceMessageTag__coll__grap
+h.pdf>]
+\openout2 = `classMessageTagImpl.aux'.
+
+ (classMessageTagImpl.tex <classMessageTagImpl__inherit__graph.pdf 306.14374pt,
+ 265.99374pt, obj 3331>
+File: classMessageTagImpl__inherit__graph.pdf Graphic file (type pdf)
+
+<use classMessageTagImpl__inherit__graph.pdf>
+<classMessageTagImpl__coll__graph.pdf 471.7625pt, 338.26375pt, obj 3332>
+File: classMessageTagImpl__coll__graph.pdf Graphic file (type pdf)
+
+<use classMessageTagImpl__coll__graph.pdf>) [82
+
+
+ <./classMessageTagImpl__inherit__graph.pdf> <./classMessageTagImpl__coll__grap
+h.pdf>]
+\openout2 = `classOtherwise.aux'.
+
+ (classOtherwise.tex
+<classOtherwise__inherit__graph.pdf 306.14374pt, 316.18124pt, obj 3356>
+File: classOtherwise__inherit__graph.pdf Graphic file (type pdf)
+
+<use classOtherwise__inherit__graph.pdf>
+<classOtherwise__coll__graph.pdf 583.17874pt, 420.57124pt, obj 3357>
+File: classOtherwise__coll__graph.pdf Graphic file (type pdf)
+
+<use classOtherwise__coll__graph.pdf>
+Underfull \vbox (badness 1406) has occurred while \output is active []
+
+ [83
+
+
+ <./classOtherwise__inherit__graph.pdf> <./classOtherwise__coll__graph.pdf>]) [
+84]
+\openout2 = `classProvide.aux'.
+
+
+(classProvide.tex <classProvide__inherit__graph.pdf 306.14374pt, 265.99374pt,
+obj 3418>
+File: classProvide__inherit__graph.pdf Graphic file (type pdf)
+ <use classProvide__inherit__graph.pdf>
+<classProvide__coll__graph.pdf 595.22374pt, 358.33875pt, obj 3419>
+File: classProvide__coll__graph.pdf Graphic file (type pdf)
+
+<use classProvide__coll__graph.pdf>) [85
+
+
+ <./classProvide__inherit__graph.pdf> <./classProvide__coll__graph.pdf>]
+\openout2 = `classPureFactory.aux'.
+
+ (classPureFactory.tex
+<classPureFactory__inherit__graph.pdf 59.22124pt, 65.24374pt, obj 3452>
+File: classPureFactory__inherit__graph.pdf Graphic file (type pdf)
+
+<use classPureFactory__inherit__graph.pdf>
+<classPureFactory__coll__graph.pdf 59.22124pt, 65.24374pt, obj 3453>
+File: classPureFactory__coll__graph.pdf Graphic file (type pdf)
+
+<use classPureFactory__coll__graph.pdf> [86
+
+
+ <./classPureFactory__inherit__graph.pdf> <./classPureFactory__coll__graph.pdf>
+]
+Underfull \hbox (badness 2653) in paragraph at lines 135--136
+\OT1/ptm/m/n/10 Impl::equals(), Empty-Impl::first(), Int-Impl::greater(), Int-I
+mpl::greater-Or-Eq(), List-Impl::head(), Int-
+ []
+
+[87]) [88]
+\openout2 = `classRunnable.aux'.
+
+ (classRunnable.tex
+<classRunnable__inherit__graph.pdf 580.1675pt, 215.80624pt, obj 3571>
+File: classRunnable__inherit__graph.pdf Graphic file (type pdf)
+
+<use classRunnable__inherit__graph.pdf>) [89
+
+
+ <./classRunnable__inherit__graph.pdf>]
+\openout2 = `classSchedule.aux'.
+
+ (classSchedule.tex
+<classSchedule__inherit__graph.pdf 55.20624pt, 65.24374pt, obj 3586>
+File: classSchedule__inherit__graph.pdf Graphic file (type pdf)
+
+<use classSchedule__inherit__graph.pdf>
+<classSchedule__coll__graph.pdf 211.79124pt, 101.37874pt, obj 3587>
+File: classSchedule__coll__graph.pdf Graphic file (type pdf)
+
+<use classSchedule__coll__graph.pdf> [90
+
+
+ <./classSchedule__inherit__graph.pdf> <./classSchedule__coll__graph.pdf>]) [91
+]
+\openout2 = `interfaceScheduling.aux'.
+
+ (interfaceScheduling.tex
+<interfaceScheduling__inherit__graph.pdf 55.20624pt, 65.24374pt, obj 3693>
+File: interfaceScheduling__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceScheduling__inherit__graph.pdf> [92
+
+
+ <./interfaceScheduling__inherit__graph.pdf>]) [93]
+\openout2 = `interfaceStorable.aux'.
+
+ (interfaceStorable.tex
+<interfaceStorable__inherit__graph.pdf 655.44875pt, 165.61874pt, obj 3766>
+File: interfaceStorable__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceStorable__inherit__graph.pdf>) [94
+
+
+ <./interfaceStorable__inherit__graph.pdf>]
+\openout2 = `classStore.aux'.
+
+ (classStore.tex
+<classStore__inherit__graph.pdf 39.14624pt, 65.24374pt, obj 3782>
+File: classStore__inherit__graph.pdf Graphic file (type pdf)
+
+<use classStore__inherit__graph.pdf>
+<classStore__coll__graph.pdf 192.71999pt, 77.28874pt, obj 3783>
+File: classStore__coll__graph.pdf Graphic file (type pdf)
+
+<use classStore__coll__graph.pdf> [95
+
+
+ <./classStore__inherit__graph.pdf> <./classStore__coll__graph.pdf>]) [96]
+\openout2 = `interfaceStoring.aux'.
+
+ (interfaceStoring.tex
+<interfaceStoring__inherit__graph.pdf 39.14624pt, 65.24374pt, obj 3877>
+File: interfaceStoring__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceStoring__inherit__graph.pdf>) [97
+
+
+ <./interfaceStoring__inherit__graph.pdf>]
+\openout2 = `classTaggedBuffers.aux'.
+
+ (classTaggedBuffers.tex
+<classTaggedBuffers__inherit__graph.pdf 71.26624pt, 65.24374pt, obj 3929>
+File: classTaggedBuffers__inherit__graph.pdf Graphic file (type pdf)
+
+<use classTaggedBuffers__inherit__graph.pdf>
+<classTaggedBuffers__coll__graph.pdf 136.51pt, 77.28874pt, obj 3930>
+File: classTaggedBuffers__coll__graph.pdf Graphic file (type pdf)
+
+<use classTaggedBuffers__coll__graph.pdf>) [98
+
+
+ <./classTaggedBuffers__inherit__graph.pdf> <./classTaggedBuffers__coll__graph.
+pdf>]
+\openout2 = `interfaceText.aux'.
+
+ (interfaceText.tex
+<interfaceText__inherit__graph.pdf 239.89624pt, 265.99374pt, obj 3976>
+File: interfaceText__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceText__inherit__graph.pdf>
+<interfaceText__coll__graph.pdf 239.89624pt, 165.61874pt, obj 3977>
+File: interfaceText__coll__graph.pdf Graphic file (type pdf)
+
+<use interfaceText__coll__graph.pdf>) [99
+
+
+ <./interfaceText__inherit__graph.pdf> <./interfaceText__coll__graph.pdf>]
+\openout2 = `classTextImpl.aux'.
+
+ (classTextImpl.tex
+<classTextImpl__inherit__graph.pdf 306.14374pt, 265.99374pt, obj 4008>
+File: classTextImpl__inherit__graph.pdf Graphic file (type pdf)
+
+<use classTextImpl__inherit__graph.pdf>
+<classTextImpl__coll__graph.pdf 471.7625pt, 286.06874pt, obj 4009>
+File: classTextImpl__coll__graph.pdf Graphic file (type pdf)
+
+<use classTextImpl__coll__graph.pdf> [100
+
+
+ <./classTextImpl__inherit__graph.pdf> <./classTextImpl__coll__graph.pdf>]) [10
+1]
+\openout2 = `classThen.aux'.
+
+ (classThen.tex
+<classThen__inherit__graph.pdf 306.14374pt, 316.18124pt, obj 4051>
+File: classThen__inherit__graph.pdf Graphic file (type pdf)
+
+<use classThen__inherit__graph.pdf>
+<classThen__coll__graph.pdf 583.17874pt, 420.57124pt, obj 4052>
+File: classThen__coll__graph.pdf Graphic file (type pdf)
+
+<use classThen__coll__graph.pdf>
+Underfull \vbox (badness 1406) has occurred while \output is active []
+
+ [102
+
+
+ <./classThen__inherit__graph.pdf> <./classThen__coll__graph.pdf>]) [103]
+\openout2 = `interfaceToken.aux'.
+
+
+(interfaceToken.tex
+<interfaceToken__inherit__graph.pdf 239.89624pt, 265.99374pt, obj 4114>
+File: interfaceToken__inherit__graph.pdf Graphic file (type pdf)
+
+<use interfaceToken__inherit__graph.pdf>
+<interfaceToken__coll__graph.pdf 239.89624pt, 215.80624pt, obj 4115>
+File: interfaceToken__coll__graph.pdf Graphic file (type pdf)
+
+<use interfaceToken__coll__graph.pdf>) [104
+
+
+ <./interfaceToken__inherit__graph.pdf> <./interfaceToken__coll__graph.pdf>]
+\openout2 = `classTokenImpl.aux'.
+
+ (classTokenImpl.tex
+<classTokenImpl__inherit__graph.pdf 306.14374pt, 265.99374pt, obj 4138>
+File: classTokenImpl__inherit__graph.pdf Graphic file (type pdf)
+
+<use classTokenImpl__inherit__graph.pdf>
+<classTokenImpl__coll__graph.pdf 471.7625pt, 338.26375pt, obj 4139>
+File: classTokenImpl__coll__graph.pdf Graphic file (type pdf)
+
+<use classTokenImpl__coll__graph.pdf> [105
+
+
+ <./classTokenImpl__inherit__graph.pdf> <./classTokenImpl__coll__graph.pdf>]) [
+106]
+\openout2 = `classUnfold.aux'.
+
+ (classUnfold.tex
+<classUnfold__inherit__graph.pdf 51.19124pt, 65.24374pt, obj 4176>
+File: classUnfold__inherit__graph.pdf Graphic file (type pdf)
+
+<use classUnfold__inherit__graph.pdf>
+<classUnfold__coll__graph.pdf 110.41249pt, 77.28874pt, obj 4177>
+File: classUnfold__coll__graph.pdf Graphic file (type pdf)
+
+<use classUnfold__coll__graph.pdf>
+Underfull \hbox (badness 10000) detected at line 24
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 24
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 26
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 26
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 31
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 31
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--41
+  
+ []
+
+[107
+
+
+ <./classUnfold__inherit__graph.pdf> <./classUnfold__coll__graph.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--94
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
+  
+ []
+
+) [108]
+Chapter 7.
+(AbstractAction_8java.tex) [109
+
+
+]
+\openout2 = `AbstractEnactable_8java.aux'.
+
+ (AbstractEnactable_8java.tex) [110
+
+]
+\openout2 = `AbstractInfixCombinator_8java.aux'.
+
+
+(AbstractInfixCombinator_8java.tex) [111
+
+
+]
+\openout2 = `AbstractPrefixCombinator_8java.aux'.
+
+ (AbstractPrefixCombinator_8java.tex)
+[112
+
+
+]
+\openout2 = `Action_8java.aux'.
+
+ (Action_8java.tex) [113
+
+
+]
+\openout2 = `ActionImpl_8java.aux'.
+
+ (ActionImpl_8java.tex) [114
+
+
+]
+\openout2 = `Agent_8java.aux'.
+
+ (Agent_8java.tex)
+[115
+
+
+]
+\openout2 = `AgentImpl_8java.aux'.
+
+ (AgentImpl_8java.tex) [116
+
+
+]
+\openout2 = `Bindable_8java.aux'.
+
+ (Bindable_8java.tex) [117
+
+
+]
+\openout2 = `Bindings_8java.aux'.
+
+
+(Bindings_8java.tex) [118
+
+
+]
+\openout2 = `BindingsImpl_8java.aux'.
+
+ (BindingsImpl_8java.tex) [119
+
+
+]
+\openout2 = `Bool_8java.aux'.
+
+ (Bool_8java.tex)
+[120
+
+
+]
+\openout2 = `BoolImpl_8java.aux'.
+
+ (BoolImpl_8java.tex) [121
+
+
+]
+\openout2 = `Cell_8java.aux'.
+
+ (Cell_8java.tex) [122
+
+
+]
+\openout2 = `CellImpl_8java.aux'.
+
+ (CellImpl_8java.tex)
+[123
+
+
+]
+\openout2 = `Data_8java.aux'.
+
+ (Data_8java.tex) [124
+
+
+]
+\openout2 = `DataConst_8java.aux'.
+
+ (DataConst_8java.tex) [125
+
+
+]
+\openout2 = `DataConstImpl_8java.aux'.
+
+
+(DataConstImpl_8java.tex) [126
+
+
+]
+\openout2 = `DataFactory_8java.aux'.
+
+ (DataFactory_8java.tex) [127
+
+
+]
+\openout2 = `DataImpl_8java.aux'.
+
+
+(DataImpl_8java.tex) [128
+
+
+]
+\openout2 = `DataValue_8java.aux'.
+
+ (DataValue_8java.tex) [129
+
+
+]
+\openout2 = `DataValueImpl_8java.aux'.
+
+ (DataValueImpl_8java.tex) [130
+
+
+]
+\openout2 = `Datum_8java.aux'.
+
+ (Datum_8java.tex) [131
+
+
+]
+\openout2 = `DatumImpl_8java.aux'.
+
+ (DatumImpl_8java.tex) [132
+
+
+]
+\openout2 = `Empty_8java.aux'.
+
+ (Empty_8java.tex)
+[133
+
+
+]
+\openout2 = `EmptyImpl_8java.aux'.
+
+ (EmptyImpl_8java.tex) [134
+
+
+]
+\openout2 = `Enactable_8java.aux'.
+
+ (Enactable_8java.tex) [135
+
+
+]
+\openout2 = `Exceptional_8java.aux'.
+
+
+(Exceptional_8java.tex) [136
+
+
+]
+\openout2 = `Failed_8java.aux'.
+
+ (Failed_8java.tex) [137
+
+
+]
+\openout2 = `Int_8java.aux'.
+
+ (Int_8java.tex) [138
+
+
+]
+\openout2 = `IntImpl_8java.aux'.
+
+
+(IntImpl_8java.tex) [139
+
+
+]
+\openout2 = `List_8java.aux'.
+
+ (List_8java.tex) [140
+
+
+]
+\openout2 = `ListImpl_8java.aux'.
+
+ (ListImpl_8java.tex) [141
+
+
+]
+\openout2 = `Message_8java.aux'.
+
+
+(Message_8java.tex) [142
+
+
+]
+\openout2 = `MessageTag_8java.aux'.
+
+ (MessageTag_8java.tex) [143
+
+
+]
+\openout2 = `MessageTagImpl_8java.aux'.
+
+
+(MessageTagImpl_8java.tex) [144
+
+
+]
+\openout2 = `PureFactory_8java.aux'.
+
+ (PureFactory_8java.tex) [145
+
+
+]
+\openout2 = `Schedule_8java.aux'.
+
+
+(Schedule_8java.tex) [146
+
+
+]
+\openout2 = `Scheduling_8java.aux'.
+
+ (Scheduling_8java.tex) [147
+
+
+]
+\openout2 = `Storable_8java.aux'.
+
+ (Storable_8java.tex)
+[148
+
+
+]
+\openout2 = `Store_8java.aux'.
+
+ (Store_8java.tex) [149
+
+
+]
+\openout2 = `Storing_8java.aux'.
+
+ (Storing_8java.tex) [150
+
+
+]
+\openout2 = `TaggedBuffers_8java.aux'.
+
+
+(TaggedBuffers_8java.tex) [151
+
+
+]
+\openout2 = `Text_8java.aux'.
+
+ (Text_8java.tex) [152
+
+
+]
+\openout2 = `TextImpl_8java.aux'.
+
+ (TextImpl_8java.tex)
+[153
+
+
+]
+\openout2 = `Token_8java.aux'.
+
+ (Token_8java.tex) [154
+
+
+]
+\openout2 = `TokenImpl_8java.aux'.
+
+ (TokenImpl_8java.tex) [155
+
+
+]
+\openout2 = `Tuple_8java.aux'.
+
+ (Tuple_8java.tex)
+[156
+
+
+]
+\openout2 = `Unfold_8java.aux'.
+
+ (Unfold_8java.tex
+Underfull \hbox (badness 10000) detected at line 9
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 9
+[][]
+ []
+
+) [157
+
+
+]
+No file refman.ind.
+(refman.aux (package__ajc_8data.aux) (package__ajc_8data_8pure.aux)
+(classAbstractInfixCombinator.aux) (classAbstractPrefixCombinator.aux)
+(interfaceAction.aux) (classActionImpl.aux) (interfaceAgent.aux)
+(classAgentImpl.aux) (classAnd.aux) (classAndExceptionally.aux)
+(classAndThen.aux) (interfaceBindable.aux) (interfaceBindings.aux)
+(classBindingsImpl.aux) (interfaceBool.aux) (classBoolImpl.aux)
+(interfaceCell.aux) (classCellImpl.aux) (classComparable.aux)
+(interfaceData.aux) (interfaceDataConst.aux) (classDataConstImpl.aux)
+(interfaceDataFactory.aux) (classDataImpl.aux) (interfaceDataValue.aux)
+(classDataValueImpl.aux) (interfaceDatum.aux) (classDatumImpl.aux)
+(interfaceEmpty.aux) (classEmptyImpl.aux) (interfaceEnactable.aux)
+(classException.aux) (classExceptional.aux) (classExceptionally.aux)
+(classFailed.aux) (classHashtable.aux) (classHence.aux) (classIndivisibly.aux)
+(interfaceInt.aux) (classIntImpl.aux) (interfaceList.aux) (classListImpl.aux)
+(interfaceMessage.aux) (interfaceMessageTag.aux) (classMessageTagImpl.aux)
+(classOtherwise.aux) (classProvide.aux) (classPureFactory.aux)
+(classRunnable.aux) (classSchedule.aux) (interfaceScheduling.aux)
+(interfaceStorable.aux) (classStore.aux) (interfaceStoring.aux)
+(classTaggedBuffers.aux) (interfaceText.aux) (classTextImpl.aux) (classThen.aux
+) (interfaceToken.aux) (classTokenImpl.aux) (classUnfold.aux)
+(AbstractEnactable_8java.aux) (AbstractInfixCombinator_8java.aux)
+(AbstractPrefixCombinator_8java.aux) (Action_8java.aux) (ActionImpl_8java.aux)
+(Agent_8java.aux) (AgentImpl_8java.aux) (Bindable_8java.aux)
+(Bindings_8java.aux) (BindingsImpl_8java.aux) (Bool_8java.aux)
+(BoolImpl_8java.aux) (Cell_8java.aux) (CellImpl_8java.aux) (Data_8java.aux)
+(DataConst_8java.aux) (DataConstImpl_8java.aux) (DataFactory_8java.aux)
+(DataImpl_8java.aux) (DataValue_8java.aux) (DataValueImpl_8java.aux)
+(Datum_8java.aux) (DatumImpl_8java.aux) (Empty_8java.aux) (EmptyImpl_8java.aux)
+(Enactable_8java.aux) (Exceptional_8java.aux) (Failed_8java.aux) (Int_8java.aux
+) (IntImpl_8java.aux) (List_8java.aux) (ListImpl_8java.aux) (Message_8java.aux)
+(MessageTag_8java.aux) (MessageTagImpl_8java.aux) (PureFactory_8java.aux)
+(Schedule_8java.aux) (Scheduling_8java.aux) (Storable_8java.aux)
+(Store_8java.aux) (Storing_8java.aux) (TaggedBuffers_8java.aux) (Text_8java.aux
+) (TextImpl_8java.aux) (Token_8java.aux) (TokenImpl_8java.aux) (Tuple_8java.aux
+) (Unfold_8java.aux))
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 5333 strings out of 50614
+ 91053 string characters out of 693303
+ 149242 words of memory out of 1500001
+ 6710 multiletter control sequences out of 10000+25000
+ 25783 words of font info for 46 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 10000
+ 41i,16n,42p,456b,725s stack positions out of 3000i,500n,3000p,50000b,5000s
+<8r.enc><cmsy10.pfb><cmsy7.pfb>
+Output written on refman.pdf (163 pages, 864915 bytes).

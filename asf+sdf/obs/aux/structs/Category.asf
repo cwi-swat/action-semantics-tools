@@ -1,0 +1,17 @@
+equations
+
+[]	compose(a1,a2) = a1;a2
+		when post(a1) = pre(a2)
+
+[]	pre(a1;a2) = pre(a1)
+
+[]	post(a1;a2) = post(a2)
+
+[]	id(pre(a));a = a
+
+[]	a;id(post(a)) = a
+
+[]	pre(id(o)) = o
+
+[]	post(id(o)) = o
+

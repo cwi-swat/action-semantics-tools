@@ -1,0 +1,16 @@
+equations
+
+[]	empty-queue() = []
+
+[]	queue([e*], e) = [e e*]
+
+[]	get-queued([e e*]) = e
+
+[]	dequeue([e e*]) = [e*]
+
+[]	is-empty([]) = true
+
+[]	is-empty([e e*]) = false
+
+
+

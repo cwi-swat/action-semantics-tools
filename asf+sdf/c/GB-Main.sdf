@@ -1,0 +1,7 @@
+module GB-Main
+imports Main
+
+exports
+  syntax
+    <START> -> SURROGATE-START {cons("\"c-0\"")}
+    SURROGATE-START [\256] -> <Start> {prefer, cons("SURROGATE-START")}

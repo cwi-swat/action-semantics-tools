@@ -1,0 +1,14 @@
+equations
+
+[]	empty-stack() = bottom
+
+[]	push(s,x) = stack(x,s)
+
+[]	drop(stack(x,s)) = s
+
+[]	top(stack(x,s)) = x
+
+[]	is-empty(bottom) = true
+
+[default]
+	is-empty(s) = false

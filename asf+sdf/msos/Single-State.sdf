@@ -1,0 +1,9 @@
+module msos/Single-State[S]
+
+imports msos/Monoid-Unit[S]
+	msos/Single
+	msos/Trace[Single S]
+
+
+
+

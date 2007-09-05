@@ -1,0 +1,18 @@
+module obs/aux/Concat-Data
+
+imports obs/data/__AN-K-Data
+
+exports
+
+sorts Data
+
+context-free syntax
+
+Data "++" Data -> Data {left}
+
+hiddens
+variables
+
+"d"[0-9\']* -> Data
+"u"[0-9\']* -> Datum
+"d+"[0-9\']* -> {Data ","}+

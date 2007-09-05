@@ -1,0 +1,53 @@
+module avm/Kernel-AN-to-AIL
+
+imports avm/AN2-to-AIL-Functions
+	avm/Primitive-AN-to-AIL
+	obs/aux/structs/Info[Position-Index Int]
+	%%Action-Analysis
+
+exports
+
+sorts Program
+
+context-free syntax
+
+"pos" -> Position-Index
+
+split-environment(Environment) -> (Environment Environment)
+make-label(Int) -> Label
+
+hiddens
+variables
+"lab"[0-9\']* -> Label
+"stat*"[0-9\']* -> Statement*
+"stat"[0-9\']* -> Statement
+"bs"[0-9\']* -> Bindings
+"t"[0-9\']* -> Terminated
+"ds"[0-9\']* -> DataSort
+"oc"[0-9\']* -> Outcome+
+"A"[0-9\']* -> Action
+"Ap"[0-9\']* -> ActionPrefix
+"Ac"[0-9\']* -> ActionConst
+"Ai"[0-9\']* -> ActionInfix
+"C"[0-9\']* -> {Action "or"}+
+"d"[0-9\']* -> Data
+"dc"[0-9\']* -> DataConst
+"d+"[0-9\']* -> {Data ","}+
+"o"[0-9\']* -> DataOp
+"op"[0-9\']* -> DataOpPrefix
+"oi"[0-9\']* -> DataOpInfix
+"q"[0-9\']* -> DataPred
+"u"[0-9\']* -> Datum
+"n"[0-9\']* -> Int
+"tk"[0-9\']* -> Token
+"nat"[0-9\']* -> Nat
+"pos"[0-9\']* -> Pos
+"nat-con"[0-9\']* -> Nat-Con
+"b"[0-9\']* -> DataConst
+"c"[0-9\']* -> Cell
+"char+"[0-9\']* -> CHAR+
+"char*"[0-9\']* -> CHAR*
+"b"[0-9\']* -> Bool
+"env"[0-9\']* -> Environment
+"prg"[0-9\']* -> Program
+"aterm"[0-9\']* -> ATerm

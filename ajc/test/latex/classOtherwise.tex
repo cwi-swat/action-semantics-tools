@@ -1,0 +1,82 @@
+\hypertarget{classOtherwise}{
+\section{Otherwise  Class Reference}
+\label{classOtherwise}\index{Otherwise@{Otherwise}}
+}
+Inheritance diagram for Otherwise:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{classOtherwise__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Otherwise:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{classOtherwise__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{classOtherwise_a0}{Otherwise} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory}, \hyperlink{interfaceEnactable}{Enactable} \hyperlink{classAbstractInfixCombinator_o0}{enactable1}, \hyperlink{interfaceEnactable}{Enactable} \hyperlink{classAbstractInfixCombinator_o1}{enactable2})
+\item 
+\hyperlink{interfaceData}{Data} \hyperlink{classOtherwise_a1}{enact} (\hyperlink{interfaceData}{Data} data, \hyperlink{interfaceBindings}{Bindings} bindings) throws \hyperlink{classExceptional}{Exceptional}, \hyperlink{classFailed}{Failed}
+\item 
+\hyperlink{classOtherwise_a2}{Otherwise} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory}, \hyperlink{interfaceEnactable}{Enactable} \hyperlink{classAbstractInfixCombinator_o0}{enactable1}, \hyperlink{interfaceEnactable}{Enactable} \hyperlink{classAbstractInfixCombinator_o1}{enactable2})
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classOtherwise_a0}{
+\index{Otherwise@{Otherwise}!Otherwise@{Otherwise}}
+\index{Otherwise@{Otherwise}!Otherwise@{Otherwise}}
+\subsubsection[Otherwise]{\setlength{\rightskip}{0pt plus 5cm}Otherwise::Otherwise (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory}, \hyperlink{interfaceEnactable}{Enactable} {\em enactable1}, \hyperlink{interfaceEnactable}{Enactable} {\em enactable2})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classOtherwise_a0}
+
+
+
+
+Definition at line 131 of file Abstract\-Action.java.\footnotesize\begin{verbatim}00131                                                                                       {
+00132         super(factory, enactable1, enactable2);
+00133     }
+\end{verbatim}\normalsize 
+\hypertarget{classOtherwise_a2}{
+\index{Otherwise@{Otherwise}!Otherwise@{Otherwise}}
+\index{Otherwise@{Otherwise}!Otherwise@{Otherwise}}
+\subsubsection[Otherwise]{\setlength{\rightskip}{0pt plus 5cm}Otherwise::Otherwise (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory}, \hyperlink{interfaceEnactable}{Enactable} {\em enactable1}, \hyperlink{interfaceEnactable}{Enactable} {\em enactable2})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classOtherwise_a2}
+
+
+
+
+Definition at line 171 of file Action\-Impl.java.\footnotesize\begin{verbatim}00171                                                                                       {
+00172         super(factory, enactable1, enactable2);
+00173         enactable = new _Otherwise();
+00174     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classOtherwise_a1}{
+\index{Otherwise@{Otherwise}!enact@{enact}}
+\index{enact@{enact}!Otherwise@{Otherwise}}
+\subsubsection[enact]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceData}{Data} Otherwise::enact (\hyperlink{interfaceData}{Data} {\em data}, \hyperlink{interfaceBindings}{Bindings} {\em bindings})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classOtherwise_a1}
+
+
+
+
+Definition at line 134 of file Abstract\-Action.java.\footnotesize\begin{verbatim}00134                                                                                {
+00135         try {
+00136             return enactable1.enact(data, bindings);
+00137         }
+00138         catch (Failed f) {
+00139             return enactable2.enact(data, bindings);
+00140         }
+00141     }
+\end{verbatim}\normalsize 
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{AbstractAction_8java-source}{Abstract\-Action.java}\item 
+\hyperlink{ActionImpl_8java-source}{Action\-Impl.java}\end{CompactItemize}

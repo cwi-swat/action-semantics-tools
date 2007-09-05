@@ -1,0 +1,9 @@
+module msos/Single
+
+exports
+
+sorts msos/Single
+
+context-free syntax
+	"single" -> Single
+

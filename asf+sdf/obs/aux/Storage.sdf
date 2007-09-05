@@ -1,0 +1,23 @@
+module obs/aux/Storage[Cell Data]
+
+imports obs/aux/structs/Finite-Map[Cell Data][Finite-Map => Storage]  
+	obs/data/integers/Int
+
+exports
+
+sorts Storage 
+
+context-free syntax
+
+create(Storage, Cell, Data) -> Storage
+has-cell(Storage, Cell) -> Bool
+update(Storage, Cell, Data) -> Storage
+inspect(Storage, Cell) -> Data
+
+new-store() -> Storage
+
+hiddens
+variables
+"c"[0-9\']* -> Cell
+"d"[0-9\']* -> Data
+"s"[0-9\']* -> Storage

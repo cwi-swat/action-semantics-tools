@@ -1,0 +1,18 @@
+equations
+
+[cat1]  u1 ++ u2 = (u1, u2)
+
+[cat2]  (d, d+) ++ u2 = (d, d+, u2)
+
+[cat3]  u1 ++ (d, d+) = (u1, d, d+)
+
+[cat4]  (d1, d+1) ++ (d2, d+2) = (d1, d+1, d2, d+2)
+
+[cat5]  d ++ () = d
+
+[cat6]  () ++ d = d
+
+~~ This is needed because a dataconst is not a datum
+[default-cat]
+        d1 ++ d2 = (d1, d2)
+

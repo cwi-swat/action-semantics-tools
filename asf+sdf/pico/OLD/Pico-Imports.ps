@@ -1,0 +1,580 @@
+%!PS-Adobe-2.0
+%%Creator: dot version 1.7.12.1 (Tue Jan 22 23:04:43 CET 2002)
+%%For: (tvdstorm) Tijs van der Storm
+%%Title: pico
+%%Pages: (atend)
+%%BoundingBox: 35 35 414 411
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+
+EncodingVector
+  dup 306 /AE
+  dup 301 /Aacute
+  dup 302 /Acircumflex
+  dup 304 /Adieresis
+  dup 300 /Agrave
+  dup 305 /Aring
+  dup 303 /Atilde
+  dup 307 /Ccedilla
+  dup 311 /Eacute
+  dup 312 /Ecircumflex
+  dup 313 /Edieresis
+  dup 310 /Egrave
+  dup 315 /Iacute
+  dup 316 /Icircumflex
+  dup 317 /Idieresis
+  dup 314 /Igrave
+  dup 334 /Udieresis
+  dup 335 /Yacute
+  dup 376 /thorn
+  dup 337 /germandbls
+  dup 341 /aacute
+  dup 342 /acircumflex
+  dup 344 /adieresis
+  dup 346 /ae
+  dup 340 /agrave
+  dup 345 /aring
+  dup 347 /ccedilla
+  dup 351 /eacute
+  dup 352 /ecircumflex
+  dup 353 /edieresis
+  dup 350 /egrave
+  dup 355 /iacute
+  dup 356 /icircumflex
+  dup 357 /idieresis
+  dup 354 /igrave
+  dup 360 /dcroat
+  dup 361 /ntilde
+  dup 363 /oacute
+  dup 364 /ocircumflex
+  dup 366 /odieresis
+  dup 362 /ograve
+  dup 365 /otilde
+  dup 370 /oslash
+  dup 372 /uacute
+  dup 373 /ucircumflex
+  dup 374 /udieresis
+  dup 371 /ugrave
+  dup 375 /yacute
+  dup 377 /ydieresis  
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+	dup 1 exch div /InvScaleFactor exch def
+	dup scale
+} bind def
+
+% styles
+/solid { } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(() show i str cvs show (,) show j str cvs show ()) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw aligned label in bounding box aligned to current point
+/alignedtext {			% width text
+	/text exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			/awidth text stringwidth pop def
+			width awidth div dup
+			1.0 lt {dup scale} {pop width awidth sub 2 div 0 rmoveto} ifelse
+		} if
+		% even if node or edge is dashed, don't paint text with dashes
+		[] 0 setdash
+		text show
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+1 setmiterlimit
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+%%Page: 1 1
+%%PageBoundingBox: 36 36 414 411
+%%PageOrientation: Portrait
+gsave
+35 35 379 376 boxprim clip newpath
+36 36 translate
+0 0 1 beginpage
+0 0 translate 0 rotate
+[ /CropBox [36 36 414 411] /PAGES pdfmark
+0.000 0.000 0.000 graphcolor
+14.00 /Times-Roman set_font
+
+%	Pico-Run
+gsave 10 dict begin
+dashed
+newpath 247 366 moveto
+169 366 lineto
+169 330 lineto
+247 330 lineto
+closepath
+stroke
+gsave 10 dict begin
+176 345 moveto 64 (Pico-Run) alignedtext
+end grestore
+end grestore
+
+%	Pico-Execute
+gsave 10 dict begin
+dashed
+newpath 259 294 moveto
+157 294 lineto
+157 258 lineto
+259 258 lineto
+closepath
+stroke
+gsave 10 dict begin
+164 273 moveto 88 (Pico-Execute) alignedtext
+end grestore
+end grestore
+
+%	Pico-Run -> Pico-Execute
+newpath 208 330 moveto
+208 322 208 313 208 304 curveto
+stroke
+newpath 206 304 moveto
+208 294 lineto
+211 304 lineto
+closepath
+fill
+
+%	Pico-Declare
+gsave 10 dict begin
+dashed
+newpath 377 294 moveto
+277 294 lineto
+277 258 lineto
+377 258 lineto
+closepath
+stroke
+gsave 10 dict begin
+285 273 moveto 85 (Pico-Declare) alignedtext
+end grestore
+end grestore
+
+%	Pico-Run -> Pico-Declare
+newpath 238 330 moveto
+253 321 272 309 289 299 curveto
+stroke
+newpath 287 297 moveto
+297 294 lineto
+290 301 lineto
+closepath
+fill
+
+%	Pico-Program
+gsave 10 dict begin
+newpath 139 294 moveto
+31 294 lineto
+31 258 lineto
+139 258 lineto
+closepath
+stroke
+gsave 10 dict begin
+38 273 moveto 94 (Pico-Program) alignedtext
+end grestore
+end grestore
+
+%	Pico-Run -> Pico-Program
+newpath 177 330 moveto
+161 321 141 309 124 299 curveto
+stroke
+newpath 123 301 moveto
+116 294 lineto
+126 297 lineto
+closepath
+fill
+
+%	Pico-Evaluate
+gsave 10 dict begin
+dashed
+newpath 324 222 moveto
+216 222 lineto
+216 186 lineto
+324 186 lineto
+closepath
+stroke
+gsave 10 dict begin
+223 201 moveto 94 (Pico-Evaluate) alignedtext
+end grestore
+end grestore
+
+%	Pico-Execute -> Pico-Evaluate
+newpath 224 258 moveto
+231 249 240 239 248 229 curveto
+stroke
+newpath 246 227 moveto
+255 222 lineto
+250 231 lineto
+closepath
+fill
+
+%	Pico-Stats
+gsave 10 dict begin
+newpath 198 222 moveto
+120 222 lineto
+120 186 lineto
+198 186 lineto
+closepath
+stroke
+gsave 10 dict begin
+127 201 moveto 65 (Pico-Stats) alignedtext
+end grestore
+end grestore
+
+%	Pico-Execute -> Pico-Stats
+newpath 196 258 moveto
+190 250 183 239 177 230 curveto
+stroke
+newpath 175 232 moveto
+171 222 lineto
+179 229 lineto
+closepath
+fill
+
+%	Pico-Trans
+gsave 10 dict begin
+dashed
+newpath 330 150 moveto
+244 150 lineto
+244 114 lineto
+330 114 lineto
+closepath
+stroke
+gsave 10 dict begin
+251 129 moveto 73 (Pico-Trans) alignedtext
+end grestore
+end grestore
+
+%	Pico-Declare -> Pico-Trans
+newpath 330 258 moveto
+333 235 337 198 333 186 curveto
+329 175 322 165 315 157 curveto
+stroke
+newpath 313 159 moveto
+308 150 lineto
+317 155 lineto
+closepath
+fill
+
+%	Pico-Decls
+gsave 10 dict begin
+newpath 102 222 moveto
+18 222 lineto
+18 186 lineto
+102 186 lineto
+closepath
+stroke
+gsave 10 dict begin
+25 201 moveto 70 (Pico-Decls) alignedtext
+end grestore
+end grestore
+
+%	Pico-Declare -> Pico-Decls
+newpath 277 260 moveto
+274 260 271 259 268 258 curveto
+198 239 179 241 111 222 curveto
+stroke
+newpath 111 225 moveto
+102 219 lineto
+112 220 lineto
+closepath
+fill
+
+%	Pico-Program -> Pico-Stats
+newpath 104 258 moveto
+113 249 124 238 134 229 curveto
+stroke
+newpath 132 227 moveto
+141 222 lineto
+136 231 lineto
+closepath
+fill
+
+%	Pico-Program -> Pico-Decls
+newpath 79 258 moveto
+76 250 73 240 69 231 curveto
+stroke
+newpath 67 232 moveto
+66 222 lineto
+72 231 lineto
+closepath
+fill
+
+%	Pico-Evaluate -> Pico-Trans
+newpath 274 186 moveto
+276 178 278 168 281 159 curveto
+stroke
+newpath 278 159 moveto
+283 150 lineto
+283 160 lineto
+closepath
+fill
+
+%	Pico-Exps
+gsave 10 dict begin
+newpath 226 150 moveto
+144 150 lineto
+144 114 lineto
+226 114 lineto
+closepath
+stroke
+gsave 10 dict begin
+152 129 moveto 67 (Pico-Exps) alignedtext
+end grestore
+end grestore
+
+%	Pico-Evaluate -> Pico-Exps
+newpath 249 186 moveto
+238 177 225 166 213 156 curveto
+stroke
+newpath 212 158 moveto
+206 150 lineto
+215 155 lineto
+closepath
+fill
+
+%	Pico-Stats -> Pico-Exps
+newpath 166 186 moveto
+169 178 172 168 175 159 curveto
+stroke
+newpath 172 159 moveto
+178 150 lineto
+177 160 lineto
+closepath
+fill
+
+%	Pico-Lex
+gsave 10 dict begin
+newpath 222 61 moveto
+148 61 lineto
+148 25 lineto
+222 25 lineto
+closepath
+stroke
+gsave 10 dict begin
+155 40 moveto 60 (Pico-Lex) alignedtext
+end grestore
+end grestore
+
+%	Pico-Trans -> Pico-Lex
+newpath 266 114 moveto
+251 101 230 82 213 67 curveto
+stroke
+newpath 212 69 moveto
+206 61 lineto
+215 66 lineto
+closepath
+fill
+
+%	AN2
+gsave 10 dict begin
+dashed
+287 43 34 34 ellipse_path
+stroke
+gsave 10 dict begin
+270 40 moveto 35 (AN2) alignedtext
+end grestore
+end grestore
+
+%	Pico-Trans -> AN2
+newpath 287 114 moveto
+287 107 287 97 287 88 curveto
+stroke
+newpath 285 88 moveto
+287 78 lineto
+290 88 lineto
+closepath
+fill
+
+%	Pico-Types
+gsave 10 dict begin
+newpath 88 150 moveto
+0 150 lineto
+0 114 lineto
+88 114 lineto
+closepath
+stroke
+gsave 10 dict begin
+7 129 moveto 74 (Pico-Types) alignedtext
+end grestore
+end grestore
+
+%	Pico-Decls -> Pico-Types
+newpath 56 186 moveto
+54 178 52 168 50 159 curveto
+stroke
+newpath 48 160 moveto
+48 150 lineto
+53 159 lineto
+closepath
+fill
+
+%	Pico-Decls -> Pico-Lex
+newpath 74 186 moveto
+96 157 141 100 166 68 curveto
+stroke
+newpath 163 68 moveto
+171 61 lineto
+167 71 lineto
+closepath
+fill
+
+%	Pico-Exps -> Pico-Lex
+newpath 185 114 moveto
+185 102 185 85 185 71 curveto
+stroke
+newpath 183 71 moveto
+185 61 lineto
+188 71 lineto
+closepath
+fill
+endpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+%%Pages: 1
+end
+restore
+%%EOF

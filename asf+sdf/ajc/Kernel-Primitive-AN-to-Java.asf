@@ -1,0 +1,129 @@
+equations
+
+[1]	ka-to-expression(provide u, exp1, exp2, env) = data-to-expression(u,env)
+
+[2]	ka-to-expression(provide b, exp1, exp2, env) = data-to-expression(b,env)
+
+[3]	ka-to-expression(provide (), exp1, exp2,  env) = data-to-expression((),env)
+
+[4]	ka-to-expression(provide (d1,d2), exp1, exp2, env) =
+		ka-to-expression(provide d1 and provide d2, exp1, exp2, env)
+
+[5]	ka-to-expression(provide (d1,d2,d+), exp1, exp2, env) =
+		ka-to-expression(provide d1 and provide (d2,d+),exp1,exp2,env)
+
+[6]	ka-to-expression(copy, exp1, exp2, env) = exp1
+
+[7]	ka-to-expression(give the ds_, exp1, exp2, env) = 
+		((datasort-to-identifier(ds))(exp1))
+
+[8]	ka-to-expression(give #nat-con_, exp1, exp2, env) = 
+		(exp1).at(int-to-integerliteral(nat-con))
+
+[9]	ka-to-expression(enact, exp1, exp2, env) = ((Action)(exp1)).enact()
+
+[10]	ka-to-expression(raise, exp1, exp2, env) = raise(exp1)
+
+[11]	ka-to-expression(fail, exp1, exp2, env) = fail()
+
+[12]	ka-to-expression(give current bindings, exp1, exp2, env) = exp2
+
+[13]	ka-to-expression(give current time, exp1, exp2, env) = 
+		Schedule.getSchedule().giveCurrentTime()
+
+[14]	ka-to-expression(give current agent, exp1, exp2, env) =
+		Schedule.getSchedule().giveCurrentAgent()
+
+[15]	ka-to-expression(create, exp1, exp2, env) = 
+		Store.getStore().create((Storable)(exp1))
+
+[16]	ka-to-expression(update, exp1, exp2, env) = 
+		Store.getStore().update((Cell)(exp1).at(1), (Storable)(exp1).at(2))
+
+[17]	ka-to-expression(destroy, exp1, exp2, env) = Store.getStore().destroy((Cell)(exp1))
+
+[18]	ka-to-expression(inspect, exp1, exp2, env) = 
+		(Data)(Store.getStore().inspect((Cell)(exp1)))
+
+[19]	ka-to-expression(send, exp1, exp2, env) = 
+		Schedule.getSchedule().send((Agent)(exp1).at(1), 
+						(Message)(exp1).at(2),
+						(MessageTag)(exp1).at(3))
+
+[20]	ka-to-expression(receive, exp1, exp2, env) = 
+		(Data)(Schedule.getSchedule().receive((MessageTag)(exp1)))
+
+
+[21]	ka-to-expression(give _+_, exp1, exp2, env) = 
+		((Int)((exp1).at(1))).plus((Int)(exp1).at(2))
+
+[22]	ka-to-expression(give _-_, exp1, exp2, env) = 
+		((Int)((exp1).at(1))).minus((Int)(exp1).at(2))
+
+[23]	ka-to-expression(give _-?_, exp1, exp2, env) =
+		((Int)((exp1).at(1))).monus((Int)(exp1).at(2))
+
+[24]	ka-to-expression(give _*_, exp1, exp2, env) = 
+		((Int)((exp1).at(1))).times((Int)(exp1).at(2))
+
+[25]	ka-to-expression(give not_, exp1, exp2, env) = ((Bool)(exp1)).not()
+
+[26]	ka-to-expression(give tupleToList_, exp1, exp2, env) = (exp1).tupleToList()
+
+[27]	ka-to-expression(give overriding_, exp1, exp2, env) = 
+		((Bindings)(exp1).at(1)).overriding((Bindings)(exp1).at(2))
+
+[28]	ka-to-expression(give bound_, exp1, exp2, env) = 
+		(Data)((Bindings)(exp1).at(1)).bound((Token)(exp1).at(2))
+
+[29]	ka-to-expression(give binding_, exp1, exp2, env) = 
+		factory.makeBindings((Token)(exp1).at(1),(Bindable)(exp1).at(2))
+
+[30]	ka-to-expression(give disjoint union_, exp1, exp2, env) = 
+		((Bindings)(exp1).at(1)).disjointUnion((Bindings)(exp1).at(2))
+
+[31]	ka-to-expression(give _then_, exp1, exp2, env) = 
+		((Action)(exp1).at(1)).then((Action)(exp1).at(2))
+
+[32]	ka-to-expression(give _and then_, exp1, exp2, env) = 
+		((Action)(exp1).at(1)).andThen((Action)(exp1).at(2))
+
+[33]	ka-to-expression(give _and_, exp1, exp2, env) = 
+		((Action)(exp1).at(1)).and((Action)(exp1).at(2))
+
+[34]	ka-to-expression(give _exceptionally_, exp1, exp2, env) = 
+		((Action)(exp1).at(1)).exceptionally((Action)(exp1).at(2))
+
+[35]	ka-to-expression(give _and exceptionally_, exp1, exp2, env) = 
+		((Action)(exp1).at(1)).andExceptionally((Action)(exp1).at(2))
+
+[36]	ka-to-expression(give _otherwise_, exp1, exp2, env) = 
+		((Action)(exp1).at(1)).otherwise((Action)(exp1).at(2))
+
+[37]	ka-to-expression(give _hence_, exp1, exp2, env) = 
+		((Action)(exp1).at(1)).hence((Action)(exp1).at(2))
+
+[38]	ka-to-expression(give indivisibly_, exp1, exp2, env) = 
+		((Action)(exp1).at(1)).indivisibly((Action)(exp1).at(2))
+
+[39]	ka-to-expression(give provide_, exp1, exp2, env) = exp1.provide()
+
+[40]	ka-to-expression(check _=_, exp1, exp2, env) = 
+		((DataValue)(exp1).at(1)).equals(((DataValue)(exp1).at(2)))
+
+[41]	ka-to-expression(check _>_, exp1, exp2, env) = 
+		((Int)(exp1).at(1)).greater(((Int)(exp1).at(2)))
+
+[42]	ka-to-expression(check _<_, exp1, exp2, env) = 
+		((Int)(exp1).at(1)).less(((Int)(exp1).at(2)))
+
+[43]	ka-to-expression(check _>=_, exp1, exp2, env) =
+		((Int)(exp1).at(1)).greaterOrEq(((Int)(exp1).at(2)))
+
+[44]	ka-to-expression(check _<=_, exp1, exp2, env) =
+		((Int)(exp1).at(1)).lessOrEq(((Int)(exp1).at(2)))
+
+
+
+
+

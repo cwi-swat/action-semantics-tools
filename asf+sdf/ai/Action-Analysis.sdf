@@ -1,0 +1,44 @@
+module ai/Action-Analysis
+
+imports %%an/Kernel-AN2-Syntax
+	obs/__AN-K-Semantics
+	%%basic/Booleans
+
+exports
+
+context-free syntax
+
+"normal" -> Termination
+"exceptional" -> Termination
+"failed" -> Termination
+
+"-" Termination "(" Action ")" -> Bool
+Termination "(" Action ")" -> Bool
+
+get-terminal-data(Action) -> Data
+
+is-committing(Action) -> Bool {memo}
+is-consuming(Action) -> Bool
+is-unfolding(Action) -> Bool
+get-unfolding(Action) -> Action
+has-unfold(Action) -> Bool
+is-unfold(Action) -> Bool
+is-tail-recursive(Action) -> Bool
+
+gives-void(Action) -> Bool
+raises-void(Action) -> Bool
+takes-void(Action) -> Bool
+
+is-distributive(Action) -> Bool
+
+hiddens
+variables
+"Ac"[0-9\']* -> ActionConst
+"A"[0-9\']* -> Action
+"Ai"[0-9\']* -> ActionInfix
+"Ap"[0-9\']* -> ActionPrefix
+"d"[0-9\']* -> Data
+"C"[0-9\']* -> {Action "or"}+
+"t"[0-9\']* -> Termination
+"o"[0-9\']* -> DataOp
+"q"[0-9\']* -> DataPred

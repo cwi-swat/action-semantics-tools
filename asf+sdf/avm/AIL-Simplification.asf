@@ -1,0 +1,27 @@
+equations
+
+[]	stat*1 publish; i; unpublish; stat*2 = stat*1 i; stat*2
+
+[]	stat*1 epublish; i; unpublish; stat*2 = stat*1 i; stat*2
+
+[]	stat*1 push; copy; update; merge; stat*2 = stat*1 copy; update; stat*2
+
+[]	stat*1 push; copy; destroy; merge; stat*2 = stat*1 copy; update; stat*2
+
+[]	stat*1 copy; copy; stat*2 = stat*1 copy; stat*2
+
+[]	stat*1 copy; prov aterm; stat*2 = stat*1 prov aterm; stat*2
+
+[]	stat*1 copy; scope; stat*2 = stat*1 scope; stat*2
+
+[]	stat*1 copy; time; stat*2 = stat*1 time; stat*2
+
+[]	stat*1 copy; agent; aterm; stat*2 = stat*1 agent; stat*2
+
+[]	stat*1 copy; random; aterm; stat*2 = stat*1 random; stat*2
+
+[]	stat*1 cast <term>; stat*2 = stat*1 stat*2
+
+[]	stat*1 push; copy; goto l; merge; stat*2 = stat*1 goto l; stat*2
+
+

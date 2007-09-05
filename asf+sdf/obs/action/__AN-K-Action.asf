@@ -1,0 +1,12 @@
+equations
+
+
+[re1]	result the action[oc]_ A = A
+
+[re2]	result the action_ A = A
+
+[re3]	result _Ai_ (A1, A2) = A1 Ai A2
+
+[re4]	result Ap_ A = Ap A
+
+[re5]	result provide_ d = provide d

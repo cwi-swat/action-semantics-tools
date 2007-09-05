@@ -1,0 +1,35 @@
+module obs/aux/structs/Vector[Elt]
+
+imports obs/data/booleans/Bool
+
+exports
+
+sorts Vector
+
+context-free syntax
+
+prepend(Vector, Elt) -> Vector
+append(Vector, Elt) -> Vector
+
+get-first(Vector) -> Elt
+get-last(Vector) -> Elt
+remove-last(Vector) -> Vector
+remove(Vector, Elt) -> Vector
+rotate(Vector) -> Vector
+
+has-element(Vector, Elt) -> Bool
+
+is-empty-vector(Vector) -> Bool
+
+empty-vector() -> Vector
+
+hiddens
+
+context-free syntax
+
+"[" Elt* "]" -> Vector
+
+variables
+"e"[0-9\']* -> Elt
+"e*"[0-9\']* -> Elt*
+

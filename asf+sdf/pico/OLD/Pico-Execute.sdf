@@ -1,0 +1,11 @@
+module pico/Execute
+
+imports pico/Evaluate
+	pico/Stats
+
+exports
+
+context-free syntax
+
+"execute" "[[" SERIES "]]" -> Action
+

@@ -1,0 +1,19 @@
+module obs/interacting/__AN-K-Interacting
+
+imports obs/storing/__AN-K-Storing
+
+exports 
+context-free syntax
+lexical syntax
+
+  "activate"                                    -> ActionConst
+  "deactivate"                                  -> ActionConst
+  "give" LAYOUT+  "current" LAYOUT+ "agent"      -> ActionConst 
+  "send"                                        -> ActionConst 
+  "receive"                                     -> ActionConst 
+  "give" LAYOUT+ "current" LAYOUT+ "time"       -> ActionConst 
+
+
+hiddens sorts
+
+        ActionConst SortName MessageTag

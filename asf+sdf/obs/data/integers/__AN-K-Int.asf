@@ -1,0 +1,58 @@
+equations
+
+[0]     i1 < i2 = true
+        ===
+        holds _ < _ (i1, i2) = true
+
+[0]     i1 > i2 = true
+        ===
+        holds _ > _ (i1, i2) = true
+
+[0]	i1 < i2 = false
+	===
+        holds _ < _ (i1, i2) = false
+
+[0]	i1 > i2 = false
+	===
+        holds _ > _ (i1, i2) = false
+
+[0]     i1 <= i2 = true
+        ===
+        holds _ <= _ (i1, i2) = true
+
+[0]     i1 >= i2 = true
+        ===
+        holds _ >= _ (i1, i2) = true
+
+[0]	i1 <= i2 = false
+	===
+        holds _ <= _ (i1, i2) = false
+
+[0]	i1 >= i2 = false
+	===
+        holds _ >= _ (i1, i2) = false
+
+[r1]	result _+_ (i1, i2) = i1 + i2
+
+[r2]	result _-_ (i1, i2) = i1 - i2
+
+[r3]	result _-?_ (n1, n2) = n1 -? n2
+
+[r4]	result _*_ (i1, i2) = i1 * i2
+
+[r5]	n >= 0 = true
+	===
+	result the nat _ n = n
+
+[r6]	n > 0 = true
+	===
+	result the pos _ n = n
+
+[r7]	d = i
+	===
+	result the int _ d = i
+
+
+
+
+

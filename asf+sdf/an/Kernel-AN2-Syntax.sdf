@@ -1,0 +1,4 @@
+module an/Kernel-AN2-Syntax
+
+imports an/syn/kernel/Kernel-Action
+	dn/DN2-Syntax

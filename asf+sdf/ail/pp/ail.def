@@ -1,0 +1,76 @@
+definition
+
+module Main
+
+imports
+	AIL
+	ATerms 
+
+module AIL
+
+imports ATerms Layout
+
+exports
+
+sorts 
+	Program Instruction Statement Label Instructions
+	Arg Number
+
+lexical syntax
+	[\@][a-zA-Z][a-zA-Z0-9]* -> Label
+	[a-zA-Z][a-zA-Z0-9\_]* -> Id
+	[1-9][0-9]* -> Number
+
+lexical restrictions
+	Label -/- [a-zA-Z0-9]
+	Id -/- [a-zA-Z\_0-9]
+	Number -/- [0-9]
+
+context-free syntax
+
+	id:Id -> Instruction {cons("without-arg")}
+	id:Id argument:Arg -> Instruction {cons("with-arg")}
+
+	label:Label ":" -> Statement {cons("label-def")}
+	instruction:Instruction ";" -> Statement {cons("instruction")}
+
+	number:Number -> Arg {cons("number")}
+	code:Program  -> Arg {cons("code")}
+	term:ATerm -> Arg {cons("aterm")}
+	label:Label -> Arg {cons("label")}
+
+	"{" list:Statement* "}" -> Program {cons("program")}
+
+hiddens
+
+variables
+	"char+" -> CHAR+
+module ATerms
+imports Literals IntCon
+
+exports
+  sorts ATermList ACon AFun ATerm
+
+  context-free syntax
+    "[" ATerms "]" -> ATermList {cons("ATerms")}
+    IntCon -> ACon {cons("IntCon")}
+    Literal -> AFun {cons("Literal")}
+    ACon Ann -> ATerm {cons("ACon-Ann")}
+    ACon -> ATerm {cons("ACon-No-Ann")}
+    ATermList Ann -> ATerm {cons("ATermList-Ann")}
+    ATermList -> ATerm {cons("ATermList-No-Ann")}
+    AFun Ann -> ATerm {cons("AFun-Ann")}
+    AFun -> ATerm {cons("AFun-No-Ann")}
+    AFun "(" ATerms ")" Ann -> ATerm {cons("Appl-Ann")}
+    AFun "(" ATerms ")" -> ATerm {cons("Appl-No-Ann")}
+
+    "<" ATerm ">" -> ATerm {cons("Placeholder-No-Ann")}
+    "<" ATerm ">" Abb -> ATerm {cons("Placeholder-Ann")}
+
+
+    "{" ATerms "}" -> Ann 
+aliases
+    {ATerm ","}* -> ATerms
+
+
+

@@ -1,0 +1,72 @@
+definition
+
+module Main
+
+imports
+	AIL-Definition
+	AIL 
+
+module AIL-Definition
+
+imports AIL
+
+exports
+
+sorts Definition
+
+exports 
+context-free syntax
+
+"<int>" -> Pattern {cons("int")}
+"<term>" -> Pattern {cons("aterm")}
+"<label>" -> Pattern {cons("label")}
+"<code>" -> Pattern {cons("code")}
+
+name:Id pattern:Pattern ";" -> Signature {cons("with-pattern")}
+name:Id  ";" -> Signature {cons("without-pattern")}
+
+"definition" id:Id "{"
+	list:Signature* 
+"}" -> Definition
+
+
+
+module AIL
+
+imports ATerms Layout
+
+exports
+
+sorts 
+	Program Instruction Statement Label Instructions
+	Arg Number
+
+lexical syntax
+	[\@][a-zA-Z][a-zA-Z0-9]* -> Label
+	[a-zA-Z][a-zA-Z0-9\_]* -> Id
+	[1-9][0-9]* -> Number
+
+lexical restrictions
+	Label -/- [a-zA-Z0-9]
+	Id -/- [a-zA-Z\_0-9]
+	Number -/- [0-9]
+
+context-free syntax
+
+	id:Id -> Instruction {cons("without-arg")}
+	id:Id argument:Arg -> Instruction {cons("with-arg")}
+
+	lab:Label ":" -> Statement {cons("label-def")}
+	instruction:Instruction ";" -> Statement {cons("instruction")}
+
+	number:Number -> Arg {cons("number"),prefer}
+	code:Program  -> Arg {cons("code")}
+	term:ATerm -> Arg {cons("aterm")}
+	label:Label -> Arg {cons("label")}
+
+	"{" list:Statement* "}" -> Program {cons("program")}
+
+hiddens
+
+variables
+	"char+" -> CHAR+

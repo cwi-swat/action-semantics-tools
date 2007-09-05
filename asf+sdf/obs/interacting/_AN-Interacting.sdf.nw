@@ -1,0 +1,23 @@
+\section{AN2/_AN-Interacting.sdf}
+<<AN2/_AN-Interacting.sdf>>=
+module _AN-Interacting
+
+imports __AN-K
+
+exports context-free syntax
+
+
+	"current" "agent"	-> Yielder
+	"current" "time"	-> Yielder
+
+lexical syntax
+
+	"patiently" 			-> ActionPrefix
+
+
+hiddens sorts
+
+	Yielder ActionPrefix
+@
+
+

@@ -1,0 +1,20 @@
+module obs/data/strings/ASCII
+
+imports obs/data/strings/String
+
+exports 
+
+context-free syntax
+
+ascii-val(String)  -> Int
+
+str-comp(String,String) -> Int
+
+hiddens
+variables
+"_string" -> String
+"char+"[0-9\']* -> CHAR+
+"char*"[0-9\']* -> CHAR*
+"char"[0-9\']* -> CHAR
+
+

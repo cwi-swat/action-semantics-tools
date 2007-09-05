@@ -1,0 +1,18 @@
+equations
+
+[sos20]	s |- exceptional d1 then A2 = <exceptional d1, s>
+
+[sos21]	s |- exceptional d1 and then A2 = <exceptional d1, s>
+
+[sos22]	s |- normal d1 and then exceptional d2 = <exceptional d2, s>
+
+[sos23]	s |- exceptional d1 and A2 = <exceptional d1, s>
+
+[sos24]	s |- A1 and exceptional d2 = <exceptional d2, s>
+
+[sos25]	s |- normal d1 exceptionally A2 = <normal d1, s>
+
+[sos26]	s |- normal d1 and exceptionally A2 = <normal d1, s>
+
+[sos27]	s |- exceptional d1 and exceptionally normal d2 =
+			<normal d2, s>

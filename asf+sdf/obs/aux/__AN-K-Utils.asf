@@ -1,0 +1,6 @@
+equations
+
+[t]	terminated(t) = true
+
+[default-t]
+	terminated(A) = false

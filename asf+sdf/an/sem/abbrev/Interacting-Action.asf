@@ -1,0 +1,7 @@
+equations
+
+[r29]	give (current agent) = give current agent
+
+[r30]	give (current time) = give current time
+
+[r31]	patiently A = unfolding (A otherwise unfold)

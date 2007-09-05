@@ -1,0 +1,68 @@
+module obs/data/__AN-K-Data-Contract
+
+imports obs/data/__AN-K-DataTypes 
+
+exports
+
+context-free syntax
+
+	Datum -> Data {cons("datum")}
+
+	DataConst  -> Data {cons("dataconst")}
+
+	DataOpSort -> DataOpPrefix {cons("dataopsort")}
+
+	"the" sort:DataSort -> DataOpSort 
+
+	result DataOp Data  -> Data 
+	holds DataPred Data -> DataConst 
+	storable(Data) -> Bool
+	bindable(Data) -> Bool
+	sendable(Data) -> Bool
+
+	prefix:DataOpPrefix "_"              -> DataOp {cons("dataopprefix")}
+	"_" infix:DataOpInfix "_"           -> DataOp {cons("dataopinfix")}
+
+	prefix:DataPredPrefix "_"   -> DataPred {cons("datapredprefix")}
+	"_" infix:DataPredInfix "_"  -> DataPred {cons("datapredinfix")}
+
+
+lexical syntax
+   "true" -> DataConst 
+   "false" -> DataConst 
+
+
+context-free syntax
+
+%%	"(" head:Data "," tail:{Data ","}+ ")" -> Data {cons("tuple")}
+	"(" {Data  ","}2+ ")" -> Data 
+	"(" data:Data ")" -> Data {bracket, prefer,cons("bracket")}
+	"(" ")" -> Data {prefer,cons("empty")}
+
+context-free syntax
+	nothing -> Data {cons("nothing")}
+
+	Data "++" Data -> Data {prefer, left}
+
+hiddens 
+
+sorts
+        DataPredInfix DataPredPrefix DataOpSort
+        DataOpComponent Data DataOpPrefix 
+
+context-free syntax
+
+Data "!" Int -> Datum
+
+variables
+"o"[0-9\']* -> DataOp
+"d"[0-9\']* -> Data
+"ds"[0-9\']* -> DataSort
+"d+"[0-9\']* -> {Data ","}+
+"d*"[0-9\']* -> {Data ","}*
+"n"[0-9\']* -> Int 
+"p"[0-9\']* -> Nat-Con 
+"u"[0-9\']* -> Datum
+"i"[0-9\']* -> Int
+"char+" -> CHAR+
+

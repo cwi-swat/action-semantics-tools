@@ -1,0 +1,8 @@
+equations
+
+[emag]	empty-agents() = empty-list()
+
+[emac]	empty-actions() = []
+
+[emsc]	empty-schedule() = [][main/0]
+

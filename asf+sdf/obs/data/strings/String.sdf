@@ -1,0 +1,23 @@
+module obs/data/strings/String
+
+imports obs/data/integers/Int
+
+exports
+
+sorts String
+
+lexical syntax
+   "\"" StringChar* "\"" -> String
+    ~[\\\"\n] -> StringChar
+    [\\] [\\\"] -> StringChar
+
+context-free syntax
+
+length(String) -> Int
+
+hiddens
+variables
+"char*"[0-9\']* -> CHAR*
+"char"[0-9\']* -> CHAR
+
+

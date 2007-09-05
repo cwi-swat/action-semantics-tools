@@ -1,0 +1,14 @@
+equations
+
+[dec1]	declare[[ declare Id-Types ; ]] = declare[[ Id-Types ]]
+
+[dec2]	declare[[ ]] = give no bindings
+
+[dec3]	declare[[ Id : Type, Id-Types ]] =
+		provide 0 then create 
+		then bind (token of[[ Id ]], the cell)
+		and declare[[ Id-Types ]] then give disjoint union
+
+[def1]	default of[[ natural ]] = 0
+
+

@@ -1,0 +1,16 @@
+module an/syn/abbrev/Data
+
+imports dn/syn/kernel/Kernel-Data
+
+exports
+
+sorts DataOp SortName
+
+context-free syntax
+	"datum" -> SortName {cons("datum-sortname")}
+	"data" -> SortName {cons("data-sortname")}
+
+	"a" DataSort -> DataOp {cons("a-dataop")}
+	"an" DataSort -> DataOp {cons("an-dataop")}
+	"it" -> DataOp {cons("it-dataop")}
+

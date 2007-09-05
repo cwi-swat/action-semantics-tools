@@ -1,0 +1,16 @@
+module pico/Trans
+
+imports pico/Lex
+	an/AN2-Semantics
+	dn/sem/lib/Integers
+
+exports
+
+context-free syntax
+	"<" PICO-ID ">" -> Token {cons("pico-token")}
+	"token" "of" "[[" PICO-ID "]]" -> Token {cons("pico-token-of")}
+	"integer" "of" "[[" PICO-INT "]]" -> Integer {cons("pico-int-of")}
+
+hiddens
+variables
+"char+"[0-9\']* -> CHAR+

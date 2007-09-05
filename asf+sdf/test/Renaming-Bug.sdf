@@ -1,0 +1,10 @@
+module test/Renaming-Bug
+
+imports basic/Integers
+	test/Renamed-Set[Integer][Set => MySet]
+
+exports
+
+sorts Set MySet 
+
+

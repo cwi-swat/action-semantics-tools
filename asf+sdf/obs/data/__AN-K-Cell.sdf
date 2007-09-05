@@ -1,0 +1,29 @@
+module obs/data/__AN-K-Cell
+
+imports obs/data/integers/Int 
+	obs/data/__AN-K-Data-Contract
+
+exports
+
+lexical syntax
+"cell" -> SortName
+
+%% This should move.
+"storable" -> SortName
+
+
+context-free syntax
+
+Cell -> Datum {cons("cell")}
+
+new-cell(Int) -> Cell
+cell-to-int(Cell) -> Int
+
+hiddens
+
+context-free syntax
+"@" Int -> Cell
+
+variables
+"n"[0-9\']* -> Int
+"d"[0-9\']* -> Data

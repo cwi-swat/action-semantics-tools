@@ -1,0 +1,90 @@
+equations
+
+[]	is-unfolding(A) = true,
+	nat-con(char+) = env.pos
+	===
+	fa-to-identifier(A, env) = id("u""n""f""o""l""d""i""n""g""_"char+)
+
+[]      <A, nat-con(char+), false> = env.unf
+        ===
+        fa-to-identifier(A, env) = id("u""n""f""o""l""d""_"char+)
+
+[]	is-unfolding(A) = true,
+	get-unfolding(A) = A',
+	is-tail-recursive(A') = false,
+	n = env.pos, n' = n * 10,
+	env1 = env.unf := <A', n', false>,
+	env2 = env1.pos := n'
+	===
+	fa-to-decls(A, env) =
+fa-to-decls(A', env2)
+fa-to-function(A,
+	return fa-to-default-expression(A', env2);,env)
+
+
+[]	is-unfolding(A) = true,
+	get-unfolding(A) = A',
+	is-tail-recursive(A') = true,
+	n = env.pos, n' = n * 10,
+	env1 = env.unf := <A', n', true>,
+	env2 = env1.pos := n'
+	===
+	fa-to-decls(A, env) =
+fa-to-decls(A', env2) 
+fa-to-function(A,
+   loop:
+	if (!ACC_unfolding(&data-parameter(),&bindings-parameter()))
+           return fa-to-default-expression(A', env2);
+        goto loop;, env)
+
+
+%%[]      is-unfold(A2) = true,
+%%       <A',n', true> = env.unf,
+%%        n = env.pos, n1 = n + 2,
+%%        env1 = env.pos := n1
+%%        ===
+%%        fa-to-decls(A1 and A2, env) =
+%%fa-to-decls(A1, env1)
+%%fa-to-function(A1 and A2,
+%%        data-type() d = fa-to-default-expression(A1, env1);
+%%        return NULL;, env)
+
+%%[]      is-unfold(A2) = true,
+%%        <A',n', true> = env.unf,
+%%        n = env.pos, n1 = n + 2,
+%%        env1 = env.pos := n1
+%%        ===
+%%        fa-to-decls(A1 and then A2, env) =
+%%fa-to-decls(A1, env1)
+%%fa-to-function(A1 and then A2,
+%%        data-type() d = fa-to-default-expression(A1, env1);
+%%        return NULL;, env)
+
+
+[f-1]	is-unfold(A) = true
+	===
+	fa-to-decls(A, env) = 
+
+
+[f-2]   is-unfold(A) = true,
+        <A',n,false> = env.unf,
+        env' = env.pos := n
+        ===
+        fa-to-expression(A, exp1, exp2, env) =
+                fa-to-expression(A', exp1, exp2, env')
+
+%% rarity: the parentheses around ACC_unfold(...) are
+%% needed, to turn it into a PrimaryExpression; otherwise
+%% it is a PostfixExpression which is (somehow?) not injected
+%% into PrimaryExpression
+[f-3]   is-unfold(A) = true,
+        <A',n, true> = env.unf
+        ===
+        fa-to-expression(A, exp1, exp2, env) = 
+		(ACC_unfold(exp1,exp2))
+
+[f-4]   is-unfold(A) = true,
+        has-key(env, unf) = false
+        ===
+        fa-to-expression(A, exp1, exp2, env) = ERROR_UNFOLD_WITHOUT_UNFOLDING
+

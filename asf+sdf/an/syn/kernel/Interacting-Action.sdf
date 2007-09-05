@@ -1,0 +1,23 @@
+module an/syn/kernel/Interacting-Action
+
+imports	an/syn/kernel/Normal-Outcome 
+	an/syn/kernel/Exceptional-Outcome
+
+exports
+
+sorts Action Datum
+
+context-free syntax
+	Action -> Datum
+	Agent -> Datum
+	Integer -> Datum
+	MessageTag -> Datum
+	Message -> Datum
+
+	"activate" -> Action {cons("activate")}
+	"deactivate" -> Action {cons("deactivate")}
+	"give" "current" "agent" -> Action {cons("give-current-agent")}
+	"send" -> Action {cons("send")}
+	"receive" -> Action {cons("receive")}
+	"give" "current" "time" -> Action {cons("give-current-time")}
+

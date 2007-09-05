@@ -1,0 +1,17 @@
+trye l1;
+push 3 {[type,int()]};
+publish;
+raise;
+unpublish;
+catche l2;
+l1:
+push 5 {[type,int()]};
+push 6 {[type,int()]};
+merge;
+publish;
+add;
+publish;
+create;
+unpublish;
+unpublish;
+l2: return;

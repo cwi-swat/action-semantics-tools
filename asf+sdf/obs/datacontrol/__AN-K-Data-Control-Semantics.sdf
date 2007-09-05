@@ -1,0 +1,35 @@
+module obs/datacontrol/__AN-K-Data-Control-Semantics
+
+imports obs/datacontrol/__AN-K-Data-Control
+        obs/aux/Transition-Function
+	obs/aux/structs/Info[Data-Index Data]
+
+exports 
+
+context-free syntax
+
+"data" -> Data-Index
+
+hiddens
+
+variables
+"A"[0-9\']* -> Action
+"C"[0-9\']* -> {Action "or"}+ 
+[ia][0-9\']* -> Environment
+"d"[0-9]* -> Data
+"ds"[0-9]* -> DataSort
+"d+"[0-9]* -> {Data ","}+
+"t"[0-9]* -> Terminated
+"o"[0-9\']* -> DataOp
+"q"[0-9\']* -> DataPred
+"u"[0-9\']* -> Datum
+"p"[0-9\']* -> Pair
+"de"[0-9\']* -> Data-Entry
+"n"[0-9\']* -> Int
+"nat"[0-9\']* -> Nat
+"nat-con"[0-9\']* -> Nat-Con
+"b"[0-9\']* -> DataConst 
+
+
+
+

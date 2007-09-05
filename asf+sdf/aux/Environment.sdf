@@ -1,0 +1,11 @@
+module aux/Environment
+
+imports aux/Finite-Map[Environment-Key Environment-Value]
+		  [Finite-Map => Environment]
+
+exports
+
+sorts Environment
+
+context-free syntax
+	new-environment() -> Environment

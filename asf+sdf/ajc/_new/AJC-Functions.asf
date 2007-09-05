@@ -1,0 +1,8 @@
+equations
+
+[]	~|~ = full
+
+[]	_|_ = kernel
+
+[]	pred(full) = kernel
+

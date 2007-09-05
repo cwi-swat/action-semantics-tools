@@ -1,0 +1,65 @@
+definition
+
+module basic/Booleans
+
+exports
+  sorts BoolCon
+  context-free syntax
+    "true"  -> BoolCon {constructor}
+    "false" -> BoolCon {constructor}
+
+  sorts Boolean
+  context-free syntax
+    BoolCon -> Boolean
+
+    Boolean "|" Boolean 	-> Boolean {left}
+    Boolean "&" Boolean 	-> Boolean {left}
+    "not" "(" Boolean ")" 	-> Boolean
+    "(" Boolean ")"       	-> Boolean {bracket}
+
+  context-free priorities
+    Boolean "&" Boolean -> Boolean >
+    Boolean "|" Boolean -> Boolean
+
+hiddens
+  imports
+    asf/syntax/Comments
+  variables
+    "Bool"[0-9]* 	-> Boolean
+    "Bool-con"[0-9]* 	-> BoolCon
+
+
+module asf/syntax/Comments
+
+imports
+  basic/Whitespace
+
+exports
+  lexical syntax
+    "%%" ~[\n]* "\n"	-> LAYOUT
+    "%" ~[\%\n]+ "%"	-> LAYOUT
+  context-free restrictions
+    LAYOUT? -/- [\%]
+
+module basic/Whitespace
+
+exports
+  lexical syntax
+    [\ \t\n]	-> LAYOUT
+  context-free restrictions
+    LAYOUT? -/- [\ \t\n]
+
+module dn/syn/lib/Booleans
+
+imports basic/Booleans
+
+exports
+
+context-free syntax
+	Boolean -> Datum
+	"boolean" -> SortName {cons("boolean-sortname")}
+	"not" -> DataOpPrefix {cons("not-dataop-prefix")}
+	"&" -> DataOpInfix {cons("and-dataop-infix")}
+	"|" -> DataOpInfix {cons("or-dataop-infix")}
+
+	

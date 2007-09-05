@@ -1,0 +1,13 @@
+mt-perform(
+(provide ( provide 1 
+and then provide 2 
+and then provide 3 
+and then provide 4 and then
+(provide <3> then receive  and then provide 6))) 
+then activate and then 
+(provide ($0, <3>, "ms") then send )
+and then provide 5 
+and then provide 6 
+and then (provide $0 then deactivate)
+and then provide 7 
+and then provide 8)

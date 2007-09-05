@@ -1,0 +1,10 @@
+module pico/Types
+
+exports
+  sorts TYPE
+
+  context-free syntax
+    "natural"     -> TYPE {cons("natural-type")}
+    "string"      -> TYPE {cons("string-type")}
+  variables
+    "Type"[0-9]*  -> TYPE

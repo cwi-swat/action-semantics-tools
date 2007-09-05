@@ -1,0 +1,3378 @@
+definition
+
+module obs/aux/structs/Info[Key Value]
+imports obs/aux/structs/Environment
+
+exports
+  context-free syntax
+    Key -> Environment-Key
+    Value -> Environment-Value
+
+module ajc/Data-to-Java
+imports ajc/AN2-to-Java-Functions
+
+exports
+  sorts Expr
+
+  context-free syntax
+    data-to-expression ( Data, Environment ) -> Expr {prefer}
+    datasort-to-pattern ( DataSort ) -> StringLiteral {prefer}
+    datasort-to-identifier ( DataSort ) -> Id {prefer}
+    int-to-integerliteral ( Int ) -> IntLiteral
+
+hiddens
+  variables
+    "id" [0-9\']* -> Id {prefer}
+    "str" [0-9\']* -> StringLiteral {prefer}
+    "exp" [0-9\']* -> Expr {prefer}
+    "bs" [0-9\']* -> Bindings {prefer}
+    "t" [0-9\']* -> Terminated {prefer}
+    "ds" [0-9\']* -> DataSort {prefer}
+    "oc" [0-9\']* -> Outcome+ {prefer}
+    "A" [0-9\']* -> Action {prefer}
+    "Ap" [0-9\']* -> ActionPrefix {prefer}
+    "Ac" [0-9\']* -> ActionConst {prefer}
+    "Ai" [0-9\']* -> ActionInfix {prefer}
+    "C" [0-9\']* -> {Action "or"}+ {prefer}
+    "d" [0-9\']* -> Data {prefer}
+    "dc" [0-9\']* -> DataConst {prefer}
+    "d+" [0-9\']* -> {Data ","}+ {prefer}
+    "o" [0-9\']* -> DataOp {prefer}
+    "op" [0-9\']* -> DataOpPrefix {prefer}
+    "oi" [0-9\']* -> DataOpInfix {prefer}
+    "q" [0-9\']* -> DataPred {prefer}
+    "u" [0-9\']* -> Datum {prefer}
+    "n" [0-9\']* -> Int {prefer}
+    "tk" [0-9\']* -> Token {prefer}
+    "nat" [0-9\']* -> Natural {prefer}
+    "nat-con" [0-9\']* -> Nat-Con {prefer}
+    "b" [0-9\']* -> DataConst {prefer}
+    "char+" [0-9\']* -> CHAR+ {prefer}
+    "char*" [0-9\']* -> CHAR* {prefer}
+    "b" [0-9\']* -> Boolean {prefer}
+    "env" [0-9\']* -> Environment {prefer}
+
+module ajc/Kernel-Primitive-AN-to-Java
+imports ajc/Data-to-Java
+
+hiddens
+  variables
+    "id" [0-9\']* -> Id {prefer}
+    "str" [0-9\']* -> StringLiteral {prefer}
+    "exp" [0-9\']* -> Expr {prefer}
+    "bs" [0-9\']* -> Bindings {prefer}
+    "t" [0-9\']* -> Terminated {prefer}
+    "ds" [0-9\']* -> DataSort {prefer}
+    "oc" [0-9\']* -> Outcome+ {prefer}
+    "A" [0-9\']* -> Action {prefer}
+    "Ap" [0-9\']* -> ActionPrefix {prefer}
+    "Ac" [0-9\']* -> ActionConst {prefer}
+    "Ai" [0-9\']* -> ActionInfix {prefer}
+    "C" [0-9\']* -> {Action "or"}+ {prefer}
+    "d" [0-9\']* -> Data {prefer}
+    "dc" [0-9\']* -> DataConst {prefer}
+    "d+" [0-9\']* -> {Data ","}+ {prefer}
+    "o" [0-9\']* -> DataOp {prefer}
+    "op" [0-9\']* -> DataOpPrefix {prefer}
+    "oi" [0-9\']* -> DataOpInfix {prefer}
+    "q" [0-9\']* -> DataPred {prefer}
+    "u" [0-9\']* -> Datum {prefer}
+    "n" [0-9\']* -> Int {prefer}
+    "tk" [0-9\']* -> Token {prefer}
+    "nat" [0-9\']* -> Nat {prefer}
+    "pos" [0-9\']* -> Pos {prefer}
+    "nat-con" [0-9\']* -> Nat-Con {prefer}
+    "b" [0-9\']* -> DataConst {prefer}
+    "c" [0-9\']* -> Cell {prefer}
+    "char+" [0-9\']* -> CHAR+ {prefer}
+    "char*" [0-9\']* -> CHAR* {prefer}
+    "b" [0-9\']* -> Bool {prefer}
+    "env" [0-9\']* -> Environment {prefer}
+
+module obs/aux/structs/Finite-Map[Key Value]
+imports obs/data/booleans/Bool obs/aux/structs/Finite-Set[Key]
+
+exports
+  sorts Finite-Map Value
+
+  context-free syntax
+    Finite-Map "." Key ":=" Value -> Finite-Map
+    Finite-Map "." Key -> Value
+    "(" Finite-Map ")" -> Finite-Map {bracket}
+    Finite-Map "+" Finite-Map -> Finite-Map {assoc}
+    get ( Finite-Map, Key ) -> Value
+    put ( Finite-Map, Key, Value ) -> Finite-Map
+    remove ( Finite-Map, Key ) -> Finite-Map
+    has-key ( Finite-Map, Key ) -> Bool
+    domain ( Finite-Map ) -> Finite-Set
+    empty-map ( ) -> Finite-Map
+    disjoint-union ( Finite-Map, Finite-Map ) -> Finite-Map
+    overriding ( Finite-Map, Finite-Map ) -> Finite-Map
+    Key # Value -> Tuple
+
+  context-free syntax
+    "{" Tuple* "}" -> Finite-Map
+
+hiddens
+  variables
+    "k" [0-9\']* -> Key {prefer}
+    "v" [0-9\']* -> Value {prefer}
+    "m" [0-9\']* -> Finite-Map {prefer}
+    "tup" [0-9\']* -> Tuple {prefer}
+    "tup*" [0-9\']* -> Tuple* {prefer}
+
+module obs/aux/structs/Environment
+imports obs/aux/structs/Finite-Map[Environment-Key Environment-Value] [
+
+
+                                                                      Finite-Map
+
+
+                                                                      =>
+
+
+                                                                      Environment
+                                                                      ]
+
+exports
+  sorts Environment
+
+  context-free syntax
+    new-environment ( ) -> Environment
+
+module java/basic/Java-Statements
+imports java/basic/Java-Expressions java/basic/Java-Types
+
+exports
+  sorts BlockStm
+
+  context-free syntax
+    "{" BlockStm* "}" -> Block {cons("Block")}
+    Block -> Stm
+    LocalVarDec -> BlockStm
+    Stm -> BlockStm
+    ClassDec -> BlockStm
+    Type {VarDec ","}+ ";" -> LocalVarDec {cons("LocalVarDec")}
+    Expr ";" -> Stm {cons("Expr")}
+    ";" -> Stm {cons("Empty")}
+    Id ":" Stm -> Stm {cons("Labeled")}
+    "if" "(" Expr ")" Stm -> Stm {cons("If")}
+    "if" "(" Expr ")" Stm "else" Stm -> Stm {cons("If")}
+    "while" "(" Expr ")" Stm -> Stm {cons("While")}
+    "do" Stm "while" "(" Expr ")" ";" -> Stm {cons("DoWhile")}
+    "for" "(" ForInit? ";" Expr? ";" ForUpdate? ")" Stm -> Stm {cons("For")}
+    LocalVarDec -> ForInit
+    {StmExpr ","}+ -> ForInit
+    {StmExpr ","}+ -> ForUpdate
+    "break" Id? ";" -> Stm {cons("Break")}
+    "continue" Id? ";" -> Stm {cons("Continue")}
+    "return" Expr? ";" -> Stm {cons("Return")}
+    "throw" Expr ";" -> Stm {cons("Throw")}
+    "try" Block CatchClause+ -> Stm {cons("Try")}
+    "try" Block CatchClause* "finally" Block -> Stm {cons("Try")}
+    "catch" "(" FormalParam ")" Block -> CatchClause {cons("Catch")}
+    "synchronized" "(" Expr ")" Block -> Stm {cons("Synchronized")}
+    "switch" "(" Expr ")" SwitchBlock -> Statement {cons("Switch")}
+    "{" SwitchGroup* SwitchLabel* "}" -> SwitchBlock {cons("SwitchBlock")}
+    SwitchLabel+ BlockStm+ -> SwitchGroup {cons("SwitchGroup")}
+    "case" Expr ":" -> SwitchLabel {cons("Case")}
+    "default" ":" -> SwitchLabel {cons("Default")}
+    "assert" Expr ";" -> Stm {cons("Assert")}
+    "assert" Expr ":" Expr ";" -> Stm {cons("Assert")}
+
+  context-free priorities
+    "if" "(" Expr ")" Stm "else" Stm -> Stm >
+    "if" "(" Expr ")" Stm -> Stm
+
+module java/basic/Java-Classes
+imports java/basic/Java-Names java/basic/Java-Modifiers java/basic/Java-MethodDecs java/basic/Java-Statements java/basic/Java-Types
+
+exports
+  sorts ClassDec
+
+  context-free syntax
+    ClassMod* "class" Id Super? Interfaces? ClassBody -> ClassDec {cons("ClassDec")}
+    "extends" ClassType -> Super {cons("Extends")}
+    "implements" {InterfaceType ","}+ -> Interfaces {cons("Implements")}
+    "{" ClassBodyDec* "}" -> ClassBody {cons("ClassBody")}
+    StaticInit -> ClassBodyDec
+    InstanceInit -> ClassBodyDec
+    ClassMemberDec -> ClassBodyDec
+    ConstructorDec -> ClassBodyDec
+    FieldDec -> ClassMemberDec
+    MethodDec -> ClassMemberDec
+    ClassDec -> ClassMemberDec
+    InterfaceDec -> ClassMemberDec
+    ";" -> ClassMemberDec {cons("Semicolon")}
+    FieldMod* Type {VarDec ","}+ ";" -> FieldDec {cons("FieldDec")}
+    "static" Block -> StaticInit {cons("StaticInit")}
+    Block -> InstanceInit {cons("InstanceInit")}
+    ConstructorMod* SimpleTypeName "(" {FormalParam ","}* ")" Throws? ConstructorBody -> ConstructorDec {cons("ConstructorDec")}
+    "{" CInvoke? BlockStm* "}" -> ConstructorBody {cons("ConstructorBody")}
+    "this" "(" {Expr ","}* ")" ";" -> CInvoke {cons("CInvoke")}
+    "super" "(" {Expr ","}* ")" ";" -> CInvoke {cons("SuperCInvoke")}
+    Expr "." "super" "(" {Expr ","}* ")" ";" -> CInvoke {cons("QSuperCInvoke")}
+
+module java/basic/Java-Expressions
+imports java/basic/Java-Literals
+
+exports
+  sorts Expr
+
+  context-free syntax
+    "(" Expr ")" -> Expr {bracket}
+    Literal -> Expr {cons("Lit")}
+    "this" -> Expr {cons("This")}
+    ClassName "." "this" -> Expr {cons("QThis")}
+    "(" Type ")" Expr -> Expr {cons("Cast")}
+    ExprName -> Expr {cons("Name")}
+    "new" ClassOrInterfaceType "(" {Expr ","}* ")" ClassBody? -> Expr {cons("NewInstance")}
+    Expr "." "new" Id "(" {Expr ","}* ")" ClassBody? -> Expr {cons("QNewInstance")}
+    Expr "." Id -> FieldAccess {cons("Field")}
+    ExprName "." Id -> FieldAccess {reject}
+    "super" "." Id -> FieldAccess {cons("SuperField")}
+    ClassName "." "super" "." Id -> FieldAccess {cons("QSuperField")}
+    Expr "[" Expr "]" -> ArrayAccess {cons("ArrayAccess")}
+    ArrayCreationExpr "[" Expr "]" -> ArrayAccess {reject}
+    "new" ArrayBaseType DimExpr+ Dim* -> ArrayCreationExpr {cons("NewArray")}
+    "new" ArrayBaseType Dim+ ArrayInit -> ArrayCreationExpr {cons("NewArray")}
+    FieldAccess -> Expr
+    ArrayAccess -> Expr
+    ArrayCreationExpr -> Expr
+    ClassOrInterfaceType -> ArrayBaseType
+    PrimType -> ArrayBaseType
+    "[" Expr "]" -> DimExpr {cons("Dim")}
+    "[" "]" -> Dim {cons("Dim")}
+    MethodId "(" {Expr ","}* ")" -> Expr {cons("Invoke")}
+    MethodName -> MethodId {prefer, cons("Method")}
+    Expr "." Id -> MethodId {cons("Method")}
+    "super" "." Id -> MethodId {cons("SuperMethod")}
+    ClassName "." "super" "." Id -> MethodId {cons("QSuperMethod")}
+    Expr "instanceof" RefType -> Expr {cons("InstanceOf")}
+    "+" Expr -> Expr {cons("Plus")}
+    "-" Expr -> Expr {cons("Minus")}
+    "++" Expr -> Expr {cons("PreIncr")}
+    "--" Expr -> Expr {cons("PreDecr")}
+    Expr "++" -> Expr {cons("PostIncr")}
+    Expr "--" -> Expr {cons("PostDecr")}
+    Expr "*" Expr -> Expr {left, cons("Mul")}
+    Expr "/" Expr -> Expr {left, cons("Div")}
+    Expr "%" Expr -> Expr {left, cons("Remain")}
+    Expr "+" Expr -> Expr {left, cons("Plus")}
+    Expr "-" Expr -> Expr {left, cons("Minus")}
+    Expr "<<" Expr -> Expr {left, cons("LeftShift")}
+    Expr ">>" Expr -> Expr {left, cons("RightShift")}
+    Expr ">>>" Expr -> Expr {left, cons("URightShift")}
+    Expr "<" Expr -> Expr {left, cons("Lt")}
+    Expr ">" Expr -> Expr {left, cons("Gt")}
+    Expr "<=" Expr -> Expr {left, cons("LtEq")}
+    Expr ">=" Expr -> Expr {left, cons("GtEq")}
+    Expr "==" Expr -> Expr {left, cons("Eq")}
+    Expr "!=" Expr -> Expr {left, cons("NotEq")}
+    Expr "&&" Expr -> Expr {left, cons("LazyAnd")}
+    Expr "||" Expr -> Expr {left, cons("LazyOr")}
+    Expr "&" Expr -> Expr {left, cons("And")}
+    Expr "^" Expr -> Expr {left, cons("ExcOr")}
+    Expr "|" Expr -> Expr {left, cons("Or")}
+    "~" Expr -> Expr {cons("Complement")}
+    "!" Expr -> Expr {cons("Not")}
+    Expr "?" Expr ":" Expr -> Expr {right, cons("Cond")}
+    LHS "=" Expr -> Expr {cons("Assign")}
+    LHS "*=" Expr -> Expr {cons("AssignMul")}
+    LHS "/=" Expr -> Expr {cons("AssignDiv")}
+    LHS "%=" Expr -> Expr {cons("AssignRemain")}
+    LHS "+=" Expr -> Expr {cons("AssignPlus")}
+    LHS "-=" Expr -> Expr {cons("AssignMinus")}
+    LHS "<<=" Expr -> Expr {cons("AssignLeftShift")}
+    LHS ">>=" Expr -> Expr {cons("AssignRightShift")}
+    LHS ">>>=" Expr -> Expr {cons("AssignURightShift")}
+    LHS "&=" Expr -> Expr {cons("AssignAnd")}
+    LHS "^=" Expr -> Expr {cons("AssignExcOr")}
+    LHS "|=" Expr -> Expr {cons("AssignOr")}
+    ExprName -> LHS
+    FieldAccess -> LHS
+    ArrayAccess -> LHS
+
+  lexical restrictions
+    "+" -/- [\+]
+    "-" -/- [\-]
+    "/" -/- [\/]
+
+  context-free priorities
+    Expr "." Id -> FieldAccess >
+    Expr "." Id -> MethodId >
+    { right : Expr "++" -> Expr Expr "--" -> Expr } >
+    { right : "++" Expr -> Expr "--" Expr -> Expr "+" Expr -> Expr "-" Expr -> Expr "~" Expr -> Expr "!" Expr -> Expr "(" Type ")" Expr -> Expr } >
+    { left : Expr "*" Expr -> Expr Expr "/" Expr -> Expr Expr "%" Expr -> Expr } >
+    { left : Expr "+" Expr -> Expr Expr "-" Expr -> Expr } >
+    { left : Expr "<<" Expr -> Expr Expr ">>" Expr -> Expr Expr ">>>" Expr -> Expr } >
+    { left : Expr "instanceof" RefType -> Expr Expr "<" Expr -> Expr Expr ">" Expr -> Expr Expr "<=" Expr -> Expr Expr ">=" Expr -> Expr } >
+    { left : Expr "==" Expr -> Expr Expr "!=" Expr -> Expr } >
+    Expr "&" Expr -> Expr >
+    Expr "^" Expr -> Expr >
+    Expr "|" Expr -> Expr >
+    Expr "&&" Expr -> Expr >
+    Expr "||" Expr -> Expr >
+    Expr "?" Expr ":" Expr -> Expr >
+    { right : LHS "=" Expr -> Expr LHS "*=" Expr -> Expr LHS "/=" Expr -> Expr LHS "%=" Expr -> Expr LHS "+=" Expr -> Expr LHS "-=" Expr -> Expr LHS "<<=" Expr -> Expr LHS ">>=" Expr -> Expr LHS ">>>=" Expr -> Expr LHS "&=" Expr -> Expr LHS "^=" Expr -> Expr LHS "|=" Expr -> Expr }
+
+module java/basic/Java-VarDecs
+imports java/basic/Java-Expressions java/basic/Java-Types
+
+exports
+  context-free syntax
+    VarDecId -> VarDec {cons("VarDec")}
+    VarDecId "=" VarInit -> VarDec {cons("VarDec")}
+    Id -> VarDecId {cons("VarId")}
+    Id Dim+ -> VarDecId {cons("VarId")}
+    "[" "]" -> Dim {cons("Dim")}
+    Expr -> VarInit
+    ArrayInit -> VarInit
+    "{" {VarInit ","}* Comma? "}" -> ArrayInit {cons("ArrayInit")}
+    "," -> Comma {cons("Comma")}
+
+module java/basic/Java-Types
+imports java/basic/Java-Names
+
+exports
+  context-free syntax
+    PrimType -> Type
+    RefType -> Type
+    NumType -> PrimType
+    "boolean" -> PrimType {cons("Boolean")}
+    IntType -> NumType
+    FloatType -> NumType
+    "byte" -> IntType {cons("Byte")}
+    "short" -> IntType {cons("Short")}
+    "int" -> IntType {cons("Int")}
+    "long" -> IntType {cons("Long")}
+    "char" -> IntType {cons("Char")}
+    "float" -> FloatType {cons("Float")}
+    "double" -> FloatType {cons("Double")}
+    ClassOrInterfaceType -> RefType
+    ArrayType -> RefType
+    ClassType -> ClassOrInterfaceType
+    TypeName -> ClassType {cons("ClassType")}
+    TypeName -> InterfaceType {cons("InterfaceType")}
+    Type "[" "]" -> ArrayType {cons("ArrayType")}
+
+module java/basic/Java-MethodDecs
+imports java/basic/Java-Lexical java/basic/Java-Modifiers java/basic/Java-Types java/basic/Java-Names java/basic/Java-VarDecs
+
+exports
+  context-free syntax
+    MethodHead Block -> MethodDec {cons("MethodDec")}
+    MethodHead ";" -> MethodDec {cons("MethodDec")}
+    MethodMod* ResultType Id "(" {FormalParam ","}* ")" Throws? -> MethodHead {cons("Head")}
+    MethodMod* ResultType Id "(" {FormalParam ","}* ")" Dim+ Throws? -> MethodHead {cons("DeprHead")}
+    Type -> ResultType
+    "void" -> ResultType {cons("Void")}
+    Final? Type VarDecId -> FormalParam {cons("Param")}
+    "throws" {ClassType ","}+ -> Throws {cons("Throws")}
+
+module java/basic/Java-Modifiers
+exports
+  context-free syntax
+    AccessMod -> ClassMod
+    Static -> ClassMod
+    Abstract -> ClassMod
+    Final -> ClassMod
+    StrictFP -> ClassMod
+    AccessMod -> InterfaceMod
+    Static -> InterfaceMod
+    Abstract -> InterfaceMod
+    StrictFP -> InterfaceMod
+    AccessMod -> FieldMod
+    Static -> FieldMod
+    Transient -> FieldMod
+    Volatile -> FieldMod
+    Final -> FieldMod
+    AccessMod -> ConstructorMod
+    Public -> ConstantMod
+    Static -> ConstantMod
+    Final -> ConstantMod
+    Public -> AccessMod
+    Protected -> AccessMod
+    Private -> AccessMod
+    Abstract -> AMethodMod
+    Public -> AMethodMod
+    AccessMod -> MethodMod
+    Static -> MethodMod
+    Abstract -> MethodMod
+    Final -> MethodMod
+    Synchronized -> MethodMod
+    Native -> MethodMod
+    StrictFP -> MethodMod
+    "public" -> Public {cons("Public")}
+    "private" -> Private {cons("Private")}
+    "protected" -> Protected {cons("Protected")}
+    "abstract" -> Abstract {cons("Abstract")}
+    "final" -> Final {cons("Final")}
+    "static" -> Static {cons("Static")}
+    "native" -> Native {cons("Native")}
+    "transient" -> Transient {cons("Transient")}
+    "volatile" -> Volatile {cons("Volatile")}
+    "synchronized" -> Synchronized {cons("Synchronized")}
+    "strictfp" -> StrictFP {cons("StrictFP")}
+
+module java/basic/Java-Interfaces
+imports java/basic/Java-Names java/basic/Java-Modifiers java/basic/Java-MethodDecs java/basic/Java-Types java/basic/Java-VarDecs
+
+exports
+  sorts InterfaceDec
+
+  context-free syntax
+    InterfaceMod* "interface" Id ExtendsInterfaces? InterfaceBody -> InterfaceDec {cons("InterfaceDec")}
+    "extends" {InterfaceType ","}+ -> ExtendsInterfaces {cons("ExtendsInterfaces")}
+    "{" InterfaceMemberDec* "}" -> InterfaceBody {cons("InterfaceBody")}
+    ConstantDec -> InterfaceMemberDec
+    AMethodDec -> InterfaceMemberDec
+    ClassDec -> InterfaceMemberDec
+    InterfaceDec -> InterfaceMemberDec
+    ";" -> InterfaceMemberDec {cons("Semicolon")}
+    ConstantMod* Type {VarDec ","}+ ";" -> ConstantDec {cons("ConstantDec")}
+    AMethodHead ";" -> AMethodDec {cons("MethodDec")}
+    AMethodMod* ResultType Id "(" {FormalParam ","}* ")" Throws? -> AMethodHead {cons("Head")}
+    AMethodMod* ResultType Id "(" {FormalParam ","}* ")" Dim+ Throws? -> AMethodHead {cons("DeprHead")}
+
+module java/basic/Java-TypeDecs
+imports java/basic/Java-Interfaces java/basic/Java-Classes
+
+exports
+  sorts TypeDec
+
+  context-free syntax
+    ClassDec -> TypeDec
+    InterfaceDec -> TypeDec
+
+module java/basic/Java-Names
+imports java/basic/Java-Identifiers
+
+exports
+  context-free syntax
+    {Id "."}+ -> Name
+    Name -> PackageName {cons("PackageName")}
+    Name -> ClassName {cons("ClassName")}
+    Name -> AmbName {cons("AmbName")}
+    AmbName "." Id -> MethodName {cons("MethodName")}
+    Id -> MethodName {cons("MethodName")}
+    AmbName "." Id -> ExprName {cons("ExprName")}
+    Id -> ExprName {cons("ExprName")}
+    Name "." Id -> QTypeName {cons("QTypeName")}
+    Id -> SimpleTypeName {cons("TypeName")}
+    SimpleTypeName -> TypeName
+    QTypeName -> TypeName
+
+module java/basic/Java-Literals
+exports
+  sorts BooleanLiteral NullLiteral IntegerLiteral FloatingPointLiteral Literal
+
+  context-free syntax
+    IntLiteral -> Literal
+    FloatLiteral -> Literal {cons("Float")}
+    BoolLiteral -> Literal {cons("Bool")}
+    CharLiteral -> Literal {cons("Char")}
+    StringLiteral -> Literal {cons("String")}
+    NullLiteral -> Literal
+    ClassLiteral -> Literal {cons("Class")}
+    DeciLiteral -> IntLiteral {cons("Deci")}
+    HexaLiteral -> IntLiteral {cons("Hexa")}
+    OctaLiteral -> IntLiteral {cons("Octa")}
+    "true" -> BoolLiteral {cons("True")}
+    "false" -> BoolLiteral {cons("False")}
+    "null" -> NullLiteral {cons("Null")}
+
+  context-free syntax
+    Type "." "class" -> ClassLiteral
+    "void" "." "class" -> ClassLiteral {cons("Void")}
+
+  lexical syntax
+    [0-7] -> OctaDigit
+    [0-9] -> DeciDigit
+    [0-9a-fA-F] -> HexaDigit
+    DeciNumeral [lL]? -> DeciLiteral
+    HexaNumeral [lL]? -> HexaLiteral
+    OctaNumeral [lL]? -> OctaLiteral
+    DeciDigit+ -> DeciNumeral
+    [0] DeciDigit+ -> DeciNumeral {reject}
+    [0] [xX] HexaDigit+ -> HexaNumeral
+    [0] OctaDigit+ -> OctaNumeral
+    [fFdD] -> FloatTypeSuffix
+    FloatDigits ExponentPart? FloatTypeSuffix? -> FloatLiteral
+    DeciDigit+ -> FloatLiteral {reject}
+    DeciDigit* "." DeciDigit* -> FloatDigits
+    "." -> FloatDigits {reject}
+    DeciDigit+ -> FloatDigits
+    [eE] SignedInt -> ExponentPart
+    Sign? DeciDigit+ -> SignedInt
+    [\-\+] -> Sign
+    "\\" UnicodeMarker HexaDigit HexaDigit HexaDigit HexaDigit -> UnicodeEscape
+    [u]+ -> UnicodeMarker
+    UnicodeEscape -> UnicodeInputChar
+    ~[] -> UnicodeInputChar
+    UnicodeInputChar -> InputChar
+    [\12\13] -> InputChar {reject}
+    "'" InputChar "'" -> CharLiteral
+    "'" [\'\\] "'" -> CharLiteral {reject}
+    "'" EscapeSeq "'" -> CharLiteral
+    "\\" [btnfr\"\'\\] -> EscapeSeq
+    OctaEscape -> EscapeSeq
+    "\\" OctaDigit -> OctaEscape
+    "\\" OctaDigit OctaDigit -> OctaEscape
+    "\\" OctaDigit OctaDigit OctaDigit -> OctaEscape
+    "\\" [4-7] OctaDigit OctaDigit -> OctaEscape {reject}
+    "\"" StringChar* "\"" -> StringLiteral
+    InputChar -> StringChar
+    [\"\\] -> StringChar {reject}
+    EscapeSeq -> StringChar
+
+module java/basic/Java-Keywords
+exports
+  lexical syntax
+    "abstract" -> Keyword
+    "assert" -> Keyword
+    "boolean" -> Keyword
+    "break" -> Keyword
+    "byte" -> Keyword
+    "case" -> Keyword
+    "catch" -> Keyword
+    "char" -> Keyword
+    "class" -> Keyword
+    "const" -> Keyword
+    "continue" -> Keyword
+    "default" -> Keyword
+    "do" -> Keyword
+    "double" -> Keyword
+    "else" -> Keyword
+    "extends" -> Keyword
+    "final" -> Keyword
+    "finally" -> Keyword
+    "float" -> Keyword
+    "for" -> Keyword
+    "goto" -> Keyword
+    "if" -> Keyword
+    "implements" -> Keyword
+    "import" -> Keyword
+    "instanceof" -> Keyword
+    "int" -> Keyword
+    "interface" -> Keyword
+    "long" -> Keyword
+    "native" -> Keyword
+    "new" -> Keyword
+    "package" -> Keyword
+    "private" -> Keyword
+    "protected" -> Keyword
+    "public" -> Keyword
+    "return" -> Keyword
+    "short" -> Keyword
+    "static" -> Keyword
+    "strictfp" -> Keyword
+    "super" -> Keyword
+    "switch" -> Keyword
+    "synchronized" -> Keyword
+    "this" -> Keyword
+    "throw" -> Keyword
+    "throws" -> Keyword
+    "transient" -> Keyword
+    "try" -> Keyword
+    "void" -> Keyword
+    "volatile" -> Keyword
+    "while" -> Keyword
+
+  lexical restrictions
+    "abstract" "assert" "boolean" "break" "byte" "case" "catch" "char" "class" "const" "continue" "default" "do" "double" "else" "extends" "final" "finally" "float" "for" "goto" "if" "implements" "import" "instanceof" "int" "interface" "long" "native" "new" "package" "private" "protected" "public" "return" "short" "static" "strictfp" "super" "switch" "synchronized" "this" "throw" "throws" "transient" "try" "void" "volatile" "while" -/- [A-Za-z0-9\_\$]
+
+module java/basic/Java-Identifiers
+imports java/basic/Java-Keywords
+
+exports
+  sorts Id
+
+  lexical syntax
+    [A-Za-z\_\$] -> JavaLetter
+    [A-Za-z0-9\_\$] -> JavaLetterOrDigit
+    [0-9] -> Digit
+    [1-9] -> NonZeroDigit
+    [0-9a-fA-F] -> HexDigit
+    [0-7] -> OctalDigit
+    JavaLetter JavaLetterOrDigit* -> Id
+    Keyword -> Id {reject}
+    BooleanLiteral -> Id {reject}
+    NullLiteral -> Id {reject}
+
+  lexical restrictions
+    Id -/- [a-zA-Z0-9\_\$]
+
+module java/basic/Java-Comments
+imports java/basic/Java-Literals
+
+exports
+  lexical syntax
+    Comment -> LAYOUT
+    "//" InputChar* LineTerminator -> Comment
+    "/*" ~[\*] | Asterisk* "*/" -> Comment
+    "/**/" -> Comment
+    "/**" ~[\*] | Asterisk* "*/" -> Comment
+    "*" -> Asterisk
+
+  lexical restrictions
+    "/*" -/- [\*]
+    Asterisk -/- [\/]
+
+module java/basic/Java-WhiteSpace
+exports
+  lexical syntax
+    WhiteSpace -> LAYOUT
+    [\13] -> LineTerminator
+    [\n] [\13]? -> LineTerminator
+    [\ \t\12] -> WhiteSpace
+    LineTerminator -> WhiteSpace
+
+  context-free restrictions
+    LAYOUT? -/- [\ \t\n\13]
+
+module java/basic/Java-Lexical
+imports java/basic/Java-WhiteSpace java/basic/Java-Comments java/basic/Java-Identifiers java/basic/Java-Keywords java/basic/Java-Literals
+
+module java/basic/Java
+imports java/basic/Java-Lexical java/basic/Java-Names java/basic/Java-TypeDecs
+
+exports
+  sorts CompilationUnit
+
+  context-free syntax
+    PackageDec? ImportDec* TypeDec+ -> CompilationUnit {cons("CompilationUnit")}
+    "package" PackageName ";" -> PackageDec {cons("PackageDec")}
+    TypeImportDec -> ImportDec {cons("ImportDec")}
+    PackageImportDec -> ImportDec {cons("ImportDec")}
+    ";" -> TypeDec {cons("Semicolon")}
+    "import" TypeName ";" -> TypeImportDec {cons("TypeRef")}
+    "import" PackageName "." "*" ";" -> PackageImportDec {cons("PackageRef")}
+
+module obs/interacting/_AN-Interacting
+imports obs/__AN-K
+
+exports
+  context-free syntax
+    "current" "agent" -> Yielder
+    "current" "time" -> Yielder
+
+  lexical syntax
+    "patiently" -> ActionPrefix
+
+hiddens
+  sorts Yielder ActionPrefix
+
+module obs/datacontrol/_AN-Data-Control
+imports obs/__AN-K
+
+exports
+  context-free syntax
+    Data -> Yielder
+    DataOp -> Yielder
+    DataOpPrefix -> Yielder
+    DataOpPrefix Yielder -> Yielder
+    Yielder DataOpInfix Yielder -> Yielder {left}
+    "(" Yielder "," {Yielder ","}+ ")" -> Yielder
+    "(" Yielder ")" -> Yielder {bracket, prefer}
+    DataPred -> Enquirer
+    DataPredPrefix Yielder -> Enquirer
+    Yielder DataPredInfix Yielder -> Enquirer
+    "(" Enquirer ")" -> Enquirer {bracket}
+    "give" Yielder -> Action
+    Action Yielder -> Action
+    "given" Yielder -> Action
+    "when" Enquirer -> Action
+    "a" DataSort -> DataOpSort
+    "an" DataSort -> DataOpSort
+
+  context-free priorities
+    Action Yielder -> Action >
+    { "give" Yielder -> Action
+      ActionPrefix Action -> Action
+      "provide" Data -> Action
+      "closure" Yielder -> Yielder
+      "bound" "to" Yielder -> Yielder
+      "stored" "in" Yielder -> Yielder } >
+    Action ActionInfix Action -> Action >
+    Yielder DataOpInfix Yielder -> Yielder
+
+  context-free priorities
+    DataOpPrefix Yielder -> Yielder >
+    Yielder DataOpInfix Yielder -> Yielder
+
+  lexical syntax
+    "skip" -> ActionConst
+    "err" -> ActionConst
+    "tentatively" -> ActionPrefix
+    "infallibly" -> ActionPrefix
+
+hiddens
+  sorts Action Yielder Enquirer
+
+module obs/storing/_AN-Storing
+imports obs/__AN-K
+
+exports
+  context-free syntax
+    "stored" "in" Yielder -> Yielder
+
+hiddens
+  sorts Yielder
+
+module obs/aux/structs/Pair[X Y]
+imports obs/layout/Layout
+
+exports
+  context-free syntax
+    pair ( first:X, second:Y ) -> Pair
+
+module obs/data/__AN-K-Pair
+imports obs/data/__AN-K-Data-Contract obs/aux/structs/Pair[Data Data]
+
+exports
+  context-free syntax
+    Pair -> Datum
+
+  lexical syntax
+    "first" -> DataOpPrefix
+    "second" -> DataOpPrefix
+    "pair" -> SortName
+
+hiddens
+  variables
+    "p" [0-9\']* -> Pair {prefer}
+    "d" [0-9\']* -> Data {prefer}
+
+module obs/data/__AN-K-Tree-Set
+imports obs/data/__AN-K-Data-Contract obs/aux/structs/Balanced-Tree[Data] [
+
+
+                                                                          Tree
+
+
+                                                                          =>
+
+
+                                                                          Tree-Set
+                                                                          ]
+
+exports
+  context-free syntax
+    Tree-Set -> Datum
+
+  lexical syntax
+    "t-set" -> DataOpPrefix
+    "t-union" -> DataOpPrefix
+    "t-intersection" -> DataOpPrefix
+    "t-difference" -> DataOpPrefix
+    "t-member" -> DataPredPrefix
+    "t-add" -> DataOpPrefix
+    "tree-set" -> SortName
+
+hiddens
+  variables
+    "s" [0-9\']* -> Tree-Set {prefer}
+    "d" [0-9\']* -> Data {prefer}
+
+module obs/aux/structs/Fixed-Array[X]
+imports obs/data/integers/Int
+
+exports
+  sorts Array X
+
+  context-free syntax
+    create ( Int ) -> Array
+    create-with ( Int, X ) -> Array
+    get-at ( Int, Array ) -> X
+    put-at ( Int, X, Array ) -> Array
+    get-size ( Array ) -> Int
+    Array "[" Int "]" -> X
+
+hiddens
+  context-free syntax
+    "__undef__" -> X
+    list-with ( Int, X ) -> X*
+    get-at ( Int, X* ) -> X
+    put-at ( Int, X, X* ) -> X*
+    Int # X* -> Array
+
+  variables
+    "x" [0-9\']* -> X {prefer}
+    "x*" [0-9\']* -> X* {prefer}
+    "a" [0-9\']* -> Array {prefer}
+    "n" [0-9\']* -> Int {prefer}
+
+module obs/data/__AN-K-Array
+imports obs/aux/structs/Fixed-Array[Datum] [
+
+
+                                           Array
+
+
+                                           =>
+
+
+                                           Datum-Array
+                                           ] obs/data/__AN-K-Data-Contract obs/data/integers/__AN-K-Int
+
+exports
+  sorts Data
+
+  context-free syntax
+    Datum-Array -> Datum
+    "[]" -> DataOpInfix
+    "->" -> DataOpPrefix
+    "array" -> DataOpPrefix
+    "array" -> SortName
+
+hiddens
+  variables
+    "a" -> Datum-Array {prefer}
+    "n" -> Int {prefer}
+    "u" -> Datum {prefer}
+
+module obs/aux/structs/Finite-Set[Elt]
+imports obs/data/booleans/Bool
+
+exports
+  sorts Finite-Set
+
+  context-free syntax
+    empty-set ( ) -> Finite-Set
+    Finite-Set "+" Finite-Set -> Finite-Set {assoc}
+    element-of ( Finite-Set, Elt ) -> Bool
+    add-to-set ( Finite-Set, Elt ) -> Finite-Set
+    set ( Elt ) -> Finite-Set
+    set-union ( Finite-Set, Finite-Set ) -> Finite-Set
+    head ( Finite-Set ) -> Elt
+    tail ( Finite-Set ) -> Finite-Set
+
+hiddens
+  context-free syntax
+    "{" Elt* "}" -> Finite-Set
+
+  variables
+    "e" [0-9\']* -> Elt {prefer}
+    "e*" [0-9\']* -> Elt* {prefer}
+    "s" [0-9\']* -> Finite-Set {prefer}
+
+module obs/data/__AN-K-Set
+imports obs/data/__AN-K-Data-Contract obs/aux/structs/Finite-Set[Data] [
+
+
+                                                                       Finite-Set
+
+
+                                                                       =>
+
+
+                                                                       Set
+                                                                       ] obs/data/lists/__AN-K-List
+
+exports
+  context-free syntax
+    Set -> Datum
+
+  lexical syntax
+    "set" -> DataOpPrefix
+    "union" -> DataOpPrefix
+    "intersection" -> DataOpPrefix
+    "difference" -> DataOpPrefix
+    "member" -> DataPredPrefix
+    "add" -> DataOpPrefix
+    "to-list" -> DataOpPrefix
+    "tuple" -> DataOpPrefix
+    "set" -> SortName
+
+hiddens
+  context-free syntax
+    to-list ( Set ) -> List
+    tuple ( Set ) -> Data
+
+  variables
+    "s" [0-9\']* -> Set {prefer}
+    "d" [0-9\']* -> Data {prefer}
+    "l" [0-9\']* -> List {prefer}
+
+module obs/data/strings/ASCII
+imports obs/data/strings/String
+
+exports
+  context-free syntax
+    ascii-val ( String ) -> Int
+    str-comp ( String, String ) -> Int
+
+hiddens
+  variables
+    "_string" -> String {prefer}
+    "char+" [0-9\']* -> CHAR+ {prefer}
+    "char*" [0-9\']* -> CHAR* {prefer}
+    "char" [0-9\']* -> CHAR {prefer}
+
+module obs/aux/structs/Balanced-Tree[Elt]
+imports obs/layout/Layout obs/data/integers/Int
+
+exports
+  sorts Tree
+
+  context-free syntax
+    elt-lt ( Elt, Elt ) -> Bool
+    elt-gt ( Elt, Elt ) -> Bool
+    size ( Tree ) -> Int
+    empty -> Tree {cons("empty")}
+    tree ( elt:Elt, count:Int, lhs:Tree, rhs:Tree ) -> Tree {cons("tree")}
+    new ( Elt, Tree, Tree ) -> Tree
+    member ( Elt, Tree ) -> Bool
+    find ( Elt, Tree ) -> Elt
+    min ( Tree ) -> Elt
+    weight -> Int
+    b-new ( Elt, Tree, Tree ) -> Tree
+    concat3 ( Elt, Tree, Tree ) -> Tree
+    single-l ( Elt, Tree, Tree ) -> Tree
+    double-l ( Elt, Tree, Tree ) -> Tree
+    single-r ( Elt, Tree, Tree ) -> Tree
+    double-r ( Elt, Tree, Tree ) -> Tree
+    add ( Tree, Elt ) -> Tree
+    delete ( Tree, Elt ) -> Tree
+    del-aux ( Tree, Tree ) -> Tree
+    del-min ( Tree ) -> Tree
+    union ( Tree, Tree ) -> Tree
+    split-lt ( Tree, Elt ) -> Tree
+    split-gt ( Tree, Elt ) -> Tree
+    difference ( Tree, Tree ) -> Tree
+    concat ( Tree, Tree ) -> Tree
+    intersection ( Tree, Tree ) -> Tree
+    trim ( Elt, Elt, Tree ) -> Tree
+    uni-bd ( Tree, Tree, Elt, Elt ) -> Tree
+    trim-lo ( Elt, Tree ) -> Tree
+    trim-hi ( Elt, Tree ) -> Tree
+    uni-hi ( Tree, Tree, Elt ) -> Tree
+    uni-lo ( Tree, Tree, Elt ) -> Tree
+    hedge-union ( Tree, Tree ) -> Tree
+    disjoint-union ( Tree, Tree ) -> Tree
+    elt-list ( Tree ) -> Elt*
+
+hiddens
+  variables
+    "e*" [0-9\']* -> Elt* {prefer}
+    [abcvxyz] [0-9\']* -> Elt {prefer}
+    "lo" -> Elt {prefer}
+    "hi" -> Elt {prefer}
+    [lrstu]+ [0-9\']* -> Tree {prefer}
+    "left" -> Tree {prefer}
+    "right" -> Tree {prefer}
+    "n" [0-9\']* -> Int {prefer}
+
+module obs/aux/structs/Tree-Map[Key Value]
+imports obs/aux/structs/Balanced-Tree[Key # Value] [
+
+
+                                                   Tree
+
+
+                                                   =>
+
+
+                                                   Tree-Map
+                                                   ]
+
+exports
+  sorts Tree-Map
+
+  context-free syntax
+    elt-gt ( Key, Key ) -> Bool
+    elt-lt ( Key, Key ) -> Bool
+    Tree-Map "." Key ":=" Value -> Tree-Map
+    Tree-Map "." Key -> Value
+    get ( Tree-Map, Key ) -> Value
+    put ( Tree-Map, Key, Value ) -> Tree-Map
+    has-key ( Tree-Map, Key ) -> Bool
+    Tree-Map "-" Tree-Map -> Tree-Map {left}
+    "(" Tree-Map ")" -> Tree-Map {bracket}
+    Tree-Map "+" Tree-Map -> Tree-Map {assoc}
+    Tree-Map "+/" Tree-Map -> Tree-Map {assoc}
+    intersect ( Tree-Map, Tree-Map ) -> Tree-Map
+    empty-tree-map ( ) -> Tree-Map
+    domain ( Tree-Map ) -> Key*
+
+hiddens
+  sorts Key # Value Key # Value*
+
+  context-free syntax
+    "NULL" -> Value {cons("NULL")}
+    domain ( Key # Value* ) -> Key*
+
+  variables
+    "t" [0-9\']* -> Tree-Map {prefer}
+    "k" [0-9\']* -> Key {prefer}
+    "k*" [0-9\']* -> Key* {prefer}
+    "kv*" [0-9\']* -> Key#Value* {prefer}
+    "v" [0-9\']* -> Value {prefer}
+
+module obs/data/__AN-K-Bindings
+imports obs/data/__AN-K-Data-Contract obs/aux/structs/Tree-Map[Token Data] [
+
+
+                                                                           Tree-Map
+
+
+                                                                           =>
+
+
+                                                                           Bindings
+                                                                           ] obs/data/strings/__AN-K-Token obs/data/strings/ASCII obs/data/__AN-K-Pair obs/data/__AN-K-Set
+
+exports
+  sorts Bindings
+
+  context-free syntax
+    Bindings -> Datum {cons("bindings")}
+
+  lexical syntax
+    "bindable" -> SortName
+    "bindings" -> SortName
+    "no" LAYOUT+ "bindings" -> DataConst
+    "binding" -> DataOpPrefix
+    "overriding" -> DataOpPrefix
+    "disjoint" LAYOUT+ "union" -> DataOpPrefix
+    "bound" -> DataOpPrefix
+    "graph" -> DataOpPrefix
+
+hiddens
+  context-free syntax
+    graph ( Token*, Bindings ) -> Set
+
+  variables
+    "bs" [0-9\']* -> Bindings {prefer}
+    "tk" [0-9\']* -> Token {prefer}
+    "str" [0-9\']* -> String {prefer}
+    "d" [0-9\']* -> Data {prefer}
+    "d*" [0-9\']* -> Data* {prefer}
+    "char+" [0-9\']* -> CHAR+ {prefer}
+    "char" [0-9\']* -> CHAR {prefer}
+    "tk*" [0-9\']* -> Token* {prefer}
+
+module obs/action/__AN-K-Action
+imports obs/data/__AN-K-Data-Contract
+
+exports
+  context-free syntax
+    Terminated -> Action
+    "(" Action ")" -> Action {bracket, prefer, cons("bracket")}
+    ActionConst -> Action {cons("const")}
+    prefix:ActionPrefix arg:Action -> Action {cons("prefix")}
+    lhs:Action infix:ActionInfix rhs:Action -> Action {left, cons("infix")}
+    "provide" data:Data -> Action {cons("provide")}
+    Action -> Datum {avoid, cons("action")}
+    ActionPrefix -> DataOpPrefix {avoid, cons("action-prefix")}
+    ActionInfix -> DataOpInfix {avoid, cons("action-infix")}
+
+  lexical syntax
+    "action" -> SortName
+    "provide" -> DataOpPrefix {avoid}
+
+hiddens
+  sorts Action ActionPrefix ActionInfix ActionConst Terminated
+
+  variables
+    "A" [0-9\']* -> Action {prefer}
+    "Ai" [0-9\']* -> ActionInfix {prefer}
+    "Ap" [0-9\']* -> ActionPrefix {prefer}
+    "d" [0-9\']* -> Data {prefer}
+    "u" [0-9\']* -> Datum {prefer}
+    "oc" [0-9\']* -> Outcome+ {prefer}
+    "t" [0-9\']* -> Terminated {prefer}
+
+module obs/data/__AN-K-MessageTag
+imports obs/data/strings/__AN-K-Token
+
+exports
+  lexical syntax
+    "message" -> SortName
+    "message-tag" -> SortName
+
+  context-free syntax
+    "<" token:Token ">" -> MessageTag
+    MessageTag -> Datum {cons("message-tag")}
+
+hiddens
+  variables
+    "d" [0-9\']* -> Data {prefer}
+    "tk" [0-9\']* -> Token {prefer}
+
+module obs/data/__AN-K-Cell
+imports obs/data/integers/Int obs/data/__AN-K-Data-Contract
+
+exports
+  lexical syntax
+    "cell" -> SortName
+    "storable" -> SortName
+
+  context-free syntax
+    Cell -> Datum {cons("cell")}
+    new-cell ( Int ) -> Cell
+    cell-to-int ( Cell ) -> Int
+
+hiddens
+  context-free syntax
+    "@" Int -> Cell
+
+  variables
+    "n" [0-9\']* -> Int {prefer}
+    "d" [0-9\']* -> Data {prefer}
+
+module obs/data/__AN-K-Agent
+imports obs/data/integers/Int obs/data/__AN-K-Data-Contract
+
+exports
+  lexical syntax
+    "agent" -> SortName
+
+  context-free syntax
+    new-agent ( Int ) -> Agent
+    agent-to-int ( Agent ) -> Int
+    Agent -> Datum {cons("agent")}
+
+hiddens
+  context-free syntax
+    "$" Int -> Agent
+
+  variables
+    "n" [0-9\']* -> Int {prefer}
+
+module obs/aux/structs/Generic-List[X]
+imports obs/data/integers/Int
+
+exports
+  sorts List
+
+  context-free syntax
+    empty-list ( ) -> List
+    head ( List ) -> X
+    tail ( List ) -> List
+    append ( List, X ) -> List
+    insert ( List, X ) -> List
+    concat ( List, List ) -> List
+    length ( List ) -> Int
+    replace-at ( List, Int, X ) -> List
+    element-at ( List, Int ) -> X
+
+hiddens
+  context-free syntax
+    "[" X* "]" -> List
+
+  variables
+    "x" [0-9\']* -> X {prefer}
+    "x*" [0-9\']* -> X* {prefer}
+    "l" [0-9\']* -> List {prefer}
+    "n" [0-9\']* -> Int {prefer}
+
+module obs/data/lists/__AN-K-List
+imports obs/aux/structs/Generic-List[Data] obs/data/__AN-K-Data-Contract obs/data/integers/__AN-K-Int
+
+exports
+  lexical syntax
+    "tupleToList" -> DataOpPrefix
+    "list" -> SortName
+    "++" -> DataOpInfix
+    "append" -> DataOpPrefix
+    "insert" -> DataOpPrefix
+    "length" -> DataOpPrefix
+    "head" -> DataOpPrefix
+    "tail" -> DataOpPrefix
+    "replace-at" -> DataOpPrefix
+    "element-at" -> DataOpPrefix
+
+  context-free syntax
+    List -> Datum {cons("list")}
+
+hiddens
+  sorts Data
+
+  variables
+    "d" [0-9\']* -> Data {prefer}
+    "l" [0-9\']* -> List {prefer}
+    "n" [0-9\']* -> Int {prefer}
+
+module obs/data/strings/String
+imports obs/data/integers/Int
+
+exports
+  sorts String
+
+  lexical syntax
+    "\"" StringChar* "\"" -> String
+    ~[\\\"\n] -> StringChar
+    [\\] [\\\"] -> StringChar
+
+  context-free syntax
+    length ( String ) -> Int
+
+hiddens
+  variables
+    "char*" [0-9\']* -> CHAR* {prefer}
+    "char" [0-9\']* -> CHAR {prefer}
+
+module obs/data/strings/__AN-K-Token
+imports obs/data/strings/String obs/data/__AN-K-Data-Contract
+
+exports
+  lexical syntax
+    "token" -> SortName
+    "string" -> SortName
+
+  context-free syntax
+    String -> Token
+    Token -> Datum {cons("token")}
+
+hiddens
+  sorts DataOpPrefix Datum SortName DataTypes String Token
+
+  variables
+    "tk" -> Token {prefer}
+
+module obs/data/booleans/__AN-K-Bool
+imports obs/data/booleans/Bool obs/data/__AN-K-Data-Contract
+
+exports
+  lexical syntax
+    "bool" -> SortName
+    "not" -> DataOpPrefix
+
+  context-free syntax
+    BoolConst -> Datum {avoid, cons("datum")}
+
+hiddens
+  sorts BoolConst Bool DataOpPrefix DataConst SortName
+
+module obs/data/__AN-K-DataTypes
+imports obs/layout/Layout
+
+exports
+  context-free syntax
+    SortName -> DataSort {cons("sortname")}
+    DataSort "*" -> DataSort {cons("star")}
+    DataSort "+" -> DataSort {cons("plus")}
+    DataSort "?" -> DataSort {cons("opt")}
+    "(" DataSort "," {DataSort ","}+ ")" -> DataSort {cons("tuple")}
+    DataSort "|" DataSort -> DataSort {assoc}
+    "(" DataSort ")" -> DataSort {bracket, avoid}
+    "(" ")" -> DataSort
+    "action" "[" outcome:Outcome+ "]" -> DataSort {cons("outcome")}
+
+  context-free syntax
+    "taking" DataSort -> Outcome {cons("taking")}
+    "giving" DataSort -> Outcome {cons("giving")}
+    "raising" DataSort -> Outcome {cons("raising")}
+    "failing" -> Outcome {cons("failing")}
+
+  context-free priorities
+    { DataSort "*" -> DataSort {cons("star")}
+      DataSort "+" -> DataSort {cons("plus")}
+      DataSort "?" -> DataSort {cons("opt")} } >
+    DataSort "|" DataSort -> DataSort {assoc}
+
+  lexical syntax
+    "data" -> SortName
+    "datum" -> SortName
+
+  lexical syntax
+    "\"" ~[\"\ \n\t]+ "\"" -> Module
+
+hiddens
+  sorts Module SortName DataOp DataPred OutCome DataSort
+
+module obs/data/__AN-K-Data-Contract
+imports obs/data/__AN-K-DataTypes
+
+exports
+  context-free syntax
+    Datum -> Data {cons("datum")}
+    DataConst -> Data {cons("dataconst")}
+    DataOpSort -> DataOpPrefix {cons("dataopsort")}
+    "the" sort:DataSort -> DataOpSort
+    result DataOp Data -> Data
+    holds DataPred Data -> DataConst
+    storable ( Data ) -> Bool
+    bindable ( Data ) -> Bool
+    sendable ( Data ) -> Bool
+    prefix:DataOpPrefix "_" -> DataOp {cons("dataopprefix")}
+    "_" infix:DataOpInfix "_" -> DataOp {cons("dataopinfix")}
+    prefix:DataPredPrefix "_" -> DataPred {cons("datapredprefix")}
+    "_" infix:DataPredInfix "_" -> DataPred {cons("datapredinfix")}
+
+  lexical syntax
+    "true" -> DataConst
+    "false" -> DataConst
+
+  context-free syntax
+    "(" head:Data "," tail:{Data ","}+ ")" -> Data {cons("tuple")}
+    "(" data:Data ")" -> Data {bracket, prefer, cons("bracket")}
+    "(" ")" -> Data {prefer, cons("empty")}
+
+  context-free syntax
+    nothing -> Data {cons("nothing")}
+    Data "++" Data -> Data {prefer, left}
+
+hiddens
+  sorts DataPredInfix DataPredPrefix DataOpSort DataOpComponent Data DataOpPrefix
+
+  context-free syntax
+    Data "!" Int -> Datum
+
+  variables
+    "o" [0-9\']* -> DataOp {prefer}
+    "d" [0-9\']* -> Data {prefer}
+    "ds" [0-9\']* -> DataSort {prefer}
+    "d+" [0-9\']* -> {Data ","}+ {prefer}
+    "d*" [0-9\']* -> {Data ","}* {prefer}
+    "n" [0-9\']* -> Int {prefer}
+    "p" [0-9\']* -> Nat-Con {prefer}
+    "u" [0-9\']* -> Datum {prefer}
+    "i" [0-9\']* -> Int {prefer}
+    "char+" -> CHAR+ {prefer}
+
+module obs/layout/Layout
+exports
+  lexical syntax
+    "~~" ~[\n]* [\n] -> LAYOUT
+    "%%" ~[\n]* [\n] -> LAYOUT
+    [\ \t\n] -> LAYOUT
+
+  context-free restrictions
+    LAYOUT? -/- [\ \t\n]
+
+module obs/data/booleans/Bool
+imports obs/layout/Layout
+
+exports
+  sorts Bool BoolConst
+
+  context-free syntax
+    "true" -> BoolConst {cons("true")}
+    "false" -> BoolConst {cons("false")}
+    BoolConst -> Bool {cons("bool")}
+    "not" arg:Bool -> Bool {prefer, cons("not")}
+    lhs:Bool "|" rhs:Bool -> Bool {left, cons("or")}
+    lhs:Bool "&" rhs:Bool -> Bool {left, cons("and")}
+    "(" Bool ")" -> Bool {bracket, cons("bracket-bool")}
+
+  context-free priorities
+    Bool "&" Bool -> Bool >
+    Bool "|" Bool -> Bool
+
+hiddens
+  variables
+    "b" [0-9]* -> Bool {prefer}
+
+module obs/data/integers/Int
+imports obs/data/booleans/Bool
+
+exports
+  lexical syntax
+    [0] -> Zero
+    [1-9] [0-9]* -> PosNumeral
+    Zero -> Nat-Con
+    PosNumeral -> Nat-Con
+
+  restrictions
+    PosNumeral -/- [0-9]
+
+  context-free syntax
+    Nat-Con -> Numeral {cons("numeral")}
+    Numeral -> Nat {cons("nat")}
+    Nat -> Int {cons("int")}
+    Nat "-?" Nat -> Nat {left, cons("monus")}
+    "(" Nat ")" -> Nat {bracket, cons("bracket-Nat")}
+    "+" Nat -> Int {cons("unary-plus")}
+    "-" Nat -> Int {cons("unary-minus")}
+    Int "+" Int -> Int {left, prefer, cons("plus")}
+    Int "-" Int -> Int {left, prefer, cons("minus")}
+    Int "*" Int -> Int {left, prefer, cons("times")}
+    Int ">" Int -> Bool {prefer, cons("gt")}
+    Int ">=" Int -> Bool {prefer, cons("ge")}
+    Int "<" Int -> Bool {prefer, cons("lt")}
+    Int "<=" Int -> Bool {prefer, cons("le")}
+    "(" Int ")" -> Int {bracket, cons("bracket-int")}
+
+  context-free priorities
+    Int "*" Int -> Int >
+    { Int "+" Int -> Int {left}
+      Int "-" Int -> Int {left} }
+
+hiddens
+  sorts Int Nat PosNumeral Pos Numeral Nat-Con Zero
+
+  variables
+    "n" [0-9\']* -> Nat {prefer}
+    "p" [0-9\']* -> PosNumeral {prefer}
+    "i" [0-9\']* -> Int {prefer}
+
+hiddens
+  context-free syntax
+    gt "(" Nat "," Nat ")" -> Bool
+    Nat "-//" Nat -> Nat
+    Nat ">-" Nat -> Nat
+
+  variables
+    "char" [0-9]* -> CHAR {prefer}
+    "char*" [0-9]* -> CHAR* {prefer}
+    "char+" [0-9]* -> CHAR+ {prefer}
+
+  context-free priorities
+    Int "*" Int -> Int >
+    { left : Int "+" Int -> Int {left} Int "-" Int -> Int {left} }
+
+module obs/data/integers/__AN-K-Int
+imports obs/data/integers/Int obs/data/__AN-K-Data-Contract
+
+exports
+  lexical syntax
+    ">" -> DataPredInfix
+    "<" -> DataPredInfix
+    ">=" -> DataPredInfix
+    "<=" -> DataPredInfix
+    "nat" -> SortName
+    "pos" -> SortName
+    "int" -> SortName
+    "+" -> DataOpInfix
+    "-?" -> DataOpInfix
+    "*" -> DataOpInfix
+    "-" -> DataOpInfix
+
+  context-free syntax
+    Int -> Datum {cons("int")}
+
+hiddens
+  sorts Int DataOpInfix SortName Datum DataPredInfix
+
+  variables
+    "n" [0-9\']* -> Nat {prefer}
+    "p" [0-9\']* -> PosNumeral {prefer}
+    "i" [0-9\']* -> Int {prefer}
+    "d" [0-9\']* -> Data {prefer}
+    "u" [0-9\']* -> Datum {prefer}
+
+module obs/data/__AN-K-Data
+imports obs/data/integers/__AN-K-Int obs/data/booleans/__AN-K-Bool obs/data/strings/__AN-K-Token obs/data/lists/__AN-K-List obs/data/__AN-K-Agent obs/data/__AN-K-Cell obs/data/__AN-K-MessageTag obs/action/__AN-K-Action obs/data/__AN-K-Bindings obs/data/__AN-K-Array obs/data/__AN-K-Tree-Set obs/data/__AN-K-Pair
+
+exports
+  context-free syntax
+    DataOpComponent -> DataOpPrefix {cons("dataopcomponent")}
+    "#" Nat-Con -> DataOpComponent
+    "#" "-1" -> DataOpComponent
+
+  lexical syntax
+    "=" -> DataPredInfix
+    "def" -> DataPredPrefix
+    "rest" -> DataOpPrefix
+
+hiddens
+  context-free syntax
+    Data "!" Int -> Data
+    is-tuple ( Data ) -> Bool
+
+  variables
+    "o" [0-9\']* -> DataOp {prefer}
+    "d" [0-9\']* -> Data {prefer}
+    "ds" [0-9\']* -> DataSort {prefer}
+    "ds,*" [0-9\']* -> {DataSort ","}* {prefer}
+    "ds,+" [0-9\']* -> {DataSort ","}+ {prefer}
+    "ds|*" [0-9\']* -> {DataSort "|"}* {prefer}
+    "ds|+" [0-9\']* -> {DataSort "|"}+ {prefer}
+    "d+" [0-9\']* -> {Data ","}+ {prefer}
+    "d*" [0-9\']* -> {Data ","}* {prefer}
+    "n" [0-9\']* -> Int {prefer}
+    "p" [0-9\']* -> Nat-Con {prefer}
+    "u" [0-9\']* -> Datum {prefer}
+    "i" [0-9\']* -> Int {prefer}
+    "char+" -> CHAR+ {prefer}
+
+module obs/datacontrol/__AN-K-Data-Control
+imports obs/data/__AN-K-Data
+
+exports
+  lexical syntax
+    "copy" -> ActionConst
+    "then" -> ActionInfix
+    "and" LAYOUT+ "then" -> ActionInfix
+    "and" -> ActionInfix
+    "indivisibly" -> ActionPrefix
+    "raise" -> ActionConst
+    "exceptionally" -> ActionInfix
+    "then" LAYOUT+ "exceptionally" -> ActionInfix
+    "fail" -> ActionConst
+    "otherwise" -> ActionInfix
+    "choose" LAYOUT+ "natural" -> ActionConst
+    "and" LAYOUT+ "exceptionally" -> ActionInfix
+
+  context-free syntax
+    normal data:Data -> Terminated {cons("normal")}
+    exceptional data:Data -> Terminated {cons("exceptional")}
+    failed -> Terminated {cons("failed")}
+    "give" op:DataOp -> Action {cons("give")}
+    "check" pred:DataPred -> Action {cons("check")}
+    "select" "(" {Action "or"}+ ")" -> Action
+
+hiddens
+  sorts ActionConst ActionInfix ActionPrefix DataTypes Action
+
+module obs/binding/__AN-K-Binding
+imports obs/datacontrol/__AN-K-Data-Control
+
+exports
+  lexical syntax
+    "give" LAYOUT+ "current" LAYOUT+ "bindings" -> ActionConst
+    "hence" -> ActionInfix
+
+hiddens
+  sorts DataOpPrefix DataConst ActionInfix ActionConst SortName DataTypes
+
+module obs/enacting/__AN-K-Enacting
+imports obs/binding/__AN-K-Binding
+
+exports
+  lexical syntax
+    "enact" -> ActionConst
+
+hiddens
+  sorts ActionConst DataOpPrefix DataOpInfix DataConst SortName Datum
+
+module obs/storing/__AN-K-Storing
+imports obs/enacting/__AN-K-Enacting
+
+exports
+  lexical syntax
+    "create" -> ActionConst
+    "destroy" -> ActionConst
+    "update" -> ActionConst
+    "inspect" -> ActionConst
+
+hiddens
+  sorts ActionConst SortName DataTypes
+
+module obs/interacting/__AN-K-Interacting
+imports obs/storing/__AN-K-Storing
+
+exports
+  context-free syntax
+    
+
+  lexical syntax
+    "activate" -> ActionConst
+    "deactivate" -> ActionConst
+    "give" LAYOUT+ "current" LAYOUT+ "agent" -> ActionConst
+    "send" -> ActionConst
+    "receive" -> ActionConst
+    "give" LAYOUT+ "current" LAYOUT+ "time" -> ActionConst
+
+hiddens
+  sorts ActionConst SortName MessageTag
+
+module obs/__AN-K
+imports obs/interacting/__AN-K-Interacting
+
+exports
+  sorts Action
+
+module obs/binding/_AN-Binding
+imports obs/__AN-K
+
+exports
+  context-free syntax
+    "current" "bindings" -> Yielder
+    "bound" "to" Yielder -> Yielder
+    "closure" Yielder -> Yielder
+
+  lexical syntax
+    "bind" -> ActionConst
+    "find" -> ActionConst
+    "furthermore" -> ActionPrefix
+    "moreover" -> ActionInfix
+    "before" -> ActionInfix
+    "recursively" -> ActionPrefix
+    "unfolding" -> ActionPrefix
+    "unfold" -> ActionConst
+
+hiddens
+  sorts ActionConst ActionPrefix ActionInfix Yielder
+
+module obs/_AN
+imports obs/binding/_AN-Binding obs/storing/_AN-Storing obs/datacontrol/_AN-Data-Control obs/interacting/_AN-Interacting
+
+exports
+  sorts Action
+
+hiddens
+  variables
+    "A" [1-9] -> Action {prefer}
+    "D" [1-9] -> Data {prefer}
+    "DS" -> DataSort {prefer}
+    "DO" -> DataOp {prefer}
+    "DOP" -> DataOpPrefix {prefer}
+    "DOI" -> DataOpInfix {prefer}
+    "PP" -> DataPredPrefix {prefer}
+    "PI" -> DataPredInfix {prefer}
+    "P" -> DataPred {prefer}
+    "E" -> Enquirer {prefer}
+    "Y" [1-9] -> Yielder {prefer}
+    "Y+" -> {Yielder ","}+ {prefer}
+
+module obs/AN2
+imports obs/_AN
+
+module ajc/AN2-to-Java-Functions
+imports obs/AN2 java/basic/Java obs/aux/structs/Environment
+
+exports
+  sorts ClassBodyDec ClassBodyDdec* Id Expr
+
+  context-free syntax
+    ka-to-class ( ClassMod, Id, Action, Environment ) -> ClassDec
+    ka-to-decls ( Action, Environment ) -> ClassBodyDec*
+    ka-to-identifier ( Action, Environment ) -> Id
+    ka-to-expression ( Action, Expr, Expr, Environment ) -> Expr
+    fa-to-class ( ClassMod, Id, Action, Environment ) -> ClassDec
+    fa-to-decls ( Action, Environment ) -> ClassBodyDec*
+    fa-to-identifier ( Action, Environment ) -> Id
+    fa-to-expression ( Action, Expr, Expr, Environment ) -> Expr
+    make-id ( Action, Int ) -> Id
+
+hiddens
+  variables
+    "A" [0-9\']* -> Action {prefer}
+    "exp" [0-9\']* -> Expr {prefer}
+    "env" [0-9\']* -> Environment {prefer}
+    "char+" [0-9\']* -> CHAR+ {prefer}
+    "char*" [0-9\']* -> CHAR* {prefer}
+    "char" [0-9\']* -> CHAR {prefer}
+    "Ap" [0-9\']* -> ActionPrefix {prefer}
+    "Ac" [0-9\']* -> ActionConst {prefer}
+    "Ai" [0-9\']* -> ActionInfix {prefer}
+
+module ajc/Kernel-AN-to-Java
+imports ajc/AN2-to-Java-Functions ajc/Kernel-Primitive-AN-to-Java obs/aux/structs/Info[Position-Index Int] GEN-Equations
+
+exports
+  context-free syntax
+    "pos" -> Position-Index
+    ka-to-method ( Action, BlockStm*, Environment ) -> MethodDec
+    fa-to-method ( Action, BlockStm*, Environment ) -> MethodDec
+    ka-to-default-expression ( Action, Environment ) -> Expr
+    fa-to-default-expression ( Action, Environment ) -> Expr
+    split-environment ( Environment ) -> EnvironmentEnvironment
+    bindings-parameter ( ) -> Id
+    data-parameter ( ) -> Id
+    bindings-type ( ) -> Id
+    data-type ( ) -> Id
+
+hiddens
+  variables
+    "id" [0-9\']* -> Id {prefer}
+    "str" [0-9\']* -> StringLiteral {prefer}
+    "stat*" [0-9\']* -> BlockStm* {prefer}
+    "stat" [0-9\']* -> BlockStm {prefer}
+    "exp" [0-9\']* -> Expr {prefer}
+    "bs" [0-9\']* -> Bindings {prefer}
+    "t" [0-9\']* -> Terminated {prefer}
+    "ds" [0-9\']* -> DataSort {prefer}
+    "oc" [0-9\']* -> Outcome+ {prefer}
+    "A" [0-9\']* -> Action {prefer}
+    "Ap" [0-9\']* -> ActionPrefix {prefer}
+    "Ac" [0-9\']* -> ActionConst {prefer}
+    "Ai" [0-9\']* -> ActionInfix {prefer}
+    "C" [0-9\']* -> {Action "or"}+ {prefer}
+    "d" [0-9\']* -> Data {prefer}
+    "dc" [0-9\']* -> DataConst {prefer}
+    "d+" [0-9\']* -> {Data ","}+ {prefer}
+    "o" [0-9\']* -> DataOp {prefer}
+    "op" [0-9\']* -> DataOpPrefix {prefer}
+    "oi" [0-9\']* -> DataOpInfix {prefer}
+    "q" [0-9\']* -> DataPred {prefer}
+    "u" [0-9\']* -> Datum {prefer}
+    "n" [0-9\']* -> Int {prefer}
+    "tk" [0-9\']* -> Token {prefer}
+    "nat" [0-9\']* -> Nat {prefer}
+    "pos" [0-9\']* -> Pos {prefer}
+    "nat-con" [0-9\']* -> Nat-Con {prefer}
+    "b" [0-9\']* -> DataConst {prefer}
+    "c" [0-9\']* -> Cell {prefer}
+    "errors" [0-9\']* -> Errors {prefer}
+    "char+" [0-9\']* -> CHAR+ {prefer}
+    "char*" [0-9\']* -> CHAR* {prefer}
+    "b" [0-9\']* -> Bool {prefer}
+    "decl*" [0-9\']* -> ClassBodyDec* {prefer}
+    "decl" [0-9\']* -> ClassBodyDec {prefer}
+    "env" [0-9\']* -> Environment {prefer}
+    "mod" [0-9\']* -> ClassMod {prefer}
+
+module Characters
+exports
+  sorts CHAR
+
+  lexical syntax
+    [\"] ~[\257] [\"] -> CHAR
+
+module Equations
+imports Characters
+
+exports
+  sorts Tag TagId CondEquation Equation Implies Condition Equations
+
+  lexical syntax
+    "===" [\=]* [\>]? -> Implies
+    [A-Za-z0-9\'] -> TagId {avoid}
+    [A-Za-z0-9\'] [A-Za-z0-9\'\-]* [A-Za-z0-9\'] -> TagId {avoid}
+
+  lexical restrictions
+    Implies -/- [\=]
+
+  context-free syntax
+    {Condition ","}+ -> Conditions
+     -> Equations
+    "equations" CondEquation* -> Equations
+    Tag Equation -> CondEquation
+    Tag Conditions Implies Equation -> CondEquation
+    Tag Equation "when" Conditions -> CondEquation
+    "[" "]" -> Tag
+    "[" TagId "]" -> Tag
+    "data-to-expression" -> TagId {reject}
+    "datasort-to-pattern" -> TagId {reject}
+    "datasort-to-identifier" -> TagId {reject}
+    "int-to-integerliteral" -> TagId {reject}
+    "get" -> TagId {reject}
+    "put" -> TagId {reject}
+    "remove" -> TagId {reject}
+    "has-key" -> TagId {reject}
+    "domain" -> TagId {reject}
+    "empty-map" -> TagId {reject}
+    "disjoint-union" -> TagId {reject}
+    "overriding" -> TagId {reject}
+    "new-environment" -> TagId {reject}
+    "if" -> TagId {reject}
+    "if" -> TagId {reject}
+    "else" -> TagId {reject}
+    "while" -> TagId {reject}
+    "do" -> TagId {reject}
+    "while" -> TagId {reject}
+    "for" -> TagId {reject}
+    "break" -> TagId {reject}
+    "continue" -> TagId {reject}
+    "return" -> TagId {reject}
+    "throw" -> TagId {reject}
+    "try" -> TagId {reject}
+    "try" -> TagId {reject}
+    "finally" -> TagId {reject}
+    "catch" -> TagId {reject}
+    "synchronized" -> TagId {reject}
+    "switch" -> TagId {reject}
+    "case" -> TagId {reject}
+    "default" -> TagId {reject}
+    "assert" -> TagId {reject}
+    "assert" -> TagId {reject}
+    "class" -> TagId {reject}
+    "extends" -> TagId {reject}
+    "implements" -> TagId {reject}
+    "static" -> TagId {reject}
+    "this" -> TagId {reject}
+    "super" -> TagId {reject}
+    "super" -> TagId {reject}
+    "this" -> TagId {reject}
+    "this" -> TagId {reject}
+    "new" -> TagId {reject}
+    "new" -> TagId {reject}
+    "super" -> TagId {reject}
+    "super" -> TagId {reject}
+    "new" -> TagId {reject}
+    "new" -> TagId {reject}
+    "super" -> TagId {reject}
+    "super" -> TagId {reject}
+    "instanceof" -> TagId {reject}
+    "-" -> TagId {reject}
+    "--" -> TagId {reject}
+    "--" -> TagId {reject}
+    "-" -> TagId {reject}
+    "boolean" -> TagId {reject}
+    "byte" -> TagId {reject}
+    "short" -> TagId {reject}
+    "int" -> TagId {reject}
+    "long" -> TagId {reject}
+    "char" -> TagId {reject}
+    "float" -> TagId {reject}
+    "double" -> TagId {reject}
+    "void" -> TagId {reject}
+    "throws" -> TagId {reject}
+    "public" -> TagId {reject}
+    "private" -> TagId {reject}
+    "protected" -> TagId {reject}
+    "abstract" -> TagId {reject}
+    "final" -> TagId {reject}
+    "static" -> TagId {reject}
+    "native" -> TagId {reject}
+    "transient" -> TagId {reject}
+    "volatile" -> TagId {reject}
+    "synchronized" -> TagId {reject}
+    "strictfp" -> TagId {reject}
+    "interface" -> TagId {reject}
+    "extends" -> TagId {reject}
+    "true" -> TagId {reject}
+    "false" -> TagId {reject}
+    "null" -> TagId {reject}
+    "class" -> TagId {reject}
+    "void" -> TagId {reject}
+    "class" -> TagId {reject}
+    "package" -> TagId {reject}
+    "import" -> TagId {reject}
+    "import" -> TagId {reject}
+    "current" -> TagId {reject}
+    "agent" -> TagId {reject}
+    "current" -> TagId {reject}
+    "time" -> TagId {reject}
+    "give" -> TagId {reject}
+    "given" -> TagId {reject}
+    "when" -> TagId {reject}
+    "a" -> TagId {reject}
+    "an" -> TagId {reject}
+    "stored" -> TagId {reject}
+    "in" -> TagId {reject}
+    "pair" -> TagId {reject}
+    "create" -> TagId {reject}
+    "create-with" -> TagId {reject}
+    "get-at" -> TagId {reject}
+    "put-at" -> TagId {reject}
+    "get-size" -> TagId {reject}
+    "list-with" -> TagId {reject}
+    "get-at" -> TagId {reject}
+    "put-at" -> TagId {reject}
+    "array" -> TagId {reject}
+    "array" -> TagId {reject}
+    "empty-set" -> TagId {reject}
+    "element-of" -> TagId {reject}
+    "add-to-set" -> TagId {reject}
+    "set" -> TagId {reject}
+    "set-union" -> TagId {reject}
+    "head" -> TagId {reject}
+    "tail" -> TagId {reject}
+    "to-list" -> TagId {reject}
+    "tuple" -> TagId {reject}
+    "ascii-val" -> TagId {reject}
+    "str-comp" -> TagId {reject}
+    "elt-lt" -> TagId {reject}
+    "elt-gt" -> TagId {reject}
+    "size" -> TagId {reject}
+    "empty" -> TagId {reject}
+    "tree" -> TagId {reject}
+    "new" -> TagId {reject}
+    "member" -> TagId {reject}
+    "find" -> TagId {reject}
+    "min" -> TagId {reject}
+    "weight" -> TagId {reject}
+    "b-new" -> TagId {reject}
+    "concat3" -> TagId {reject}
+    "single-l" -> TagId {reject}
+    "double-l" -> TagId {reject}
+    "single-r" -> TagId {reject}
+    "double-r" -> TagId {reject}
+    "add" -> TagId {reject}
+    "delete" -> TagId {reject}
+    "del-aux" -> TagId {reject}
+    "del-min" -> TagId {reject}
+    "union" -> TagId {reject}
+    "split-lt" -> TagId {reject}
+    "split-gt" -> TagId {reject}
+    "difference" -> TagId {reject}
+    "concat" -> TagId {reject}
+    "intersection" -> TagId {reject}
+    "trim" -> TagId {reject}
+    "uni-bd" -> TagId {reject}
+    "trim-lo" -> TagId {reject}
+    "trim-hi" -> TagId {reject}
+    "uni-hi" -> TagId {reject}
+    "uni-lo" -> TagId {reject}
+    "hedge-union" -> TagId {reject}
+    "disjoint-union" -> TagId {reject}
+    "elt-list" -> TagId {reject}
+    "elt-gt" -> TagId {reject}
+    "elt-lt" -> TagId {reject}
+    "get" -> TagId {reject}
+    "put" -> TagId {reject}
+    "has-key" -> TagId {reject}
+    "-" -> TagId {reject}
+    "intersect" -> TagId {reject}
+    "empty-tree-map" -> TagId {reject}
+    "domain" -> TagId {reject}
+    "NULL" -> TagId {reject}
+    "domain" -> TagId {reject}
+    "graph" -> TagId {reject}
+    "provide" -> TagId {reject}
+    "new-cell" -> TagId {reject}
+    "cell-to-int" -> TagId {reject}
+    "new-agent" -> TagId {reject}
+    "agent-to-int" -> TagId {reject}
+    "empty-list" -> TagId {reject}
+    "head" -> TagId {reject}
+    "tail" -> TagId {reject}
+    "append" -> TagId {reject}
+    "insert" -> TagId {reject}
+    "concat" -> TagId {reject}
+    "length" -> TagId {reject}
+    "replace-at" -> TagId {reject}
+    "element-at" -> TagId {reject}
+    "length" -> TagId {reject}
+    "action" -> TagId {reject}
+    "taking" -> TagId {reject}
+    "giving" -> TagId {reject}
+    "raising" -> TagId {reject}
+    "failing" -> TagId {reject}
+    "the" -> TagId {reject}
+    "result" -> TagId {reject}
+    "holds" -> TagId {reject}
+    "storable" -> TagId {reject}
+    "bindable" -> TagId {reject}
+    "sendable" -> TagId {reject}
+    "nothing" -> TagId {reject}
+    "true" -> TagId {reject}
+    "false" -> TagId {reject}
+    "not" -> TagId {reject}
+    "-" -> TagId {reject}
+    "-" -> TagId {reject}
+    "gt" -> TagId {reject}
+    "-1" -> TagId {reject}
+    "is-tuple" -> TagId {reject}
+    "normal" -> TagId {reject}
+    "exceptional" -> TagId {reject}
+    "failed" -> TagId {reject}
+    "give" -> TagId {reject}
+    "check" -> TagId {reject}
+    "select" -> TagId {reject}
+    "current" -> TagId {reject}
+    "bindings" -> TagId {reject}
+    "bound" -> TagId {reject}
+    "to" -> TagId {reject}
+    "closure" -> TagId {reject}
+    "ka-to-class" -> TagId {reject}
+    "ka-to-decls" -> TagId {reject}
+    "ka-to-identifier" -> TagId {reject}
+    "ka-to-expression" -> TagId {reject}
+    "fa-to-class" -> TagId {reject}
+    "fa-to-decls" -> TagId {reject}
+    "fa-to-identifier" -> TagId {reject}
+    "fa-to-expression" -> TagId {reject}
+    "make-id" -> TagId {reject}
+    "pos" -> TagId {reject}
+    "ka-to-method" -> TagId {reject}
+    "fa-to-method" -> TagId {reject}
+    "ka-to-default-expression" -> TagId {reject}
+    "fa-to-default-expression" -> TagId {reject}
+    "split-environment" -> TagId {reject}
+    "bindings-parameter" -> TagId {reject}
+    "data-parameter" -> TagId {reject}
+    "bindings-type" -> TagId {reject}
+    "data-type" -> TagId {reject}
+
+module GEN-LexConsFuncs
+imports Characters
+
+exports
+  context-free syntax
+    "octadigit" "(" CHAR* ")" -> OctaDigit {cons("lexical-constructor")}
+    "decidigit" "(" CHAR* ")" -> DeciDigit {cons("lexical-constructor")}
+    "hexadigit" "(" CHAR* ")" -> HexaDigit {cons("lexical-constructor")}
+    "deciliteral" "(" CHAR* ")" -> DeciLiteral {cons("lexical-constructor")}
+    "hexaliteral" "(" CHAR* ")" -> HexaLiteral {cons("lexical-constructor")}
+    "octaliteral" "(" CHAR* ")" -> OctaLiteral {cons("lexical-constructor")}
+    "decinumeral" "(" CHAR* ")" -> DeciNumeral {cons("lexical-constructor")}
+    "hexanumeral" "(" CHAR* ")" -> HexaNumeral {cons("lexical-constructor")}
+    "octanumeral" "(" CHAR* ")" -> OctaNumeral {cons("lexical-constructor")}
+    "floattypesuffix" "(" CHAR* ")" -> FloatTypeSuffix {cons("lexical-constructor")}
+    "floatliteral" "(" CHAR* ")" -> FloatLiteral {cons("lexical-constructor")}
+    "floatdigits" "(" CHAR* ")" -> FloatDigits {cons("lexical-constructor")}
+    "exponentpart" "(" CHAR* ")" -> ExponentPart {cons("lexical-constructor")}
+    "signedint" "(" CHAR* ")" -> SignedInt {cons("lexical-constructor")}
+    "sign" "(" CHAR* ")" -> Sign {cons("lexical-constructor")}
+    "unicodeescape" "(" CHAR* ")" -> UnicodeEscape {cons("lexical-constructor")}
+    "unicodemarker" "(" CHAR* ")" -> UnicodeMarker {cons("lexical-constructor")}
+    "unicodeinputchar" "(" CHAR* ")" -> UnicodeInputChar {cons("lexical-constructor")}
+    "inputchar" "(" CHAR* ")" -> InputChar {cons("lexical-constructor")}
+    "charliteral" "(" CHAR* ")" -> CharLiteral {cons("lexical-constructor")}
+    "escapeseq" "(" CHAR* ")" -> EscapeSeq {cons("lexical-constructor")}
+    "octaescape" "(" CHAR* ")" -> OctaEscape {cons("lexical-constructor")}
+    "stringliteral" "(" CHAR* ")" -> StringLiteral {cons("lexical-constructor")}
+    "stringchar" "(" CHAR* ")" -> StringChar {cons("lexical-constructor")}
+    "keyword" "(" CHAR* ")" -> Keyword {cons("lexical-constructor")}
+    "javaletter" "(" CHAR* ")" -> JavaLetter {cons("lexical-constructor")}
+    "javaletterordigit" "(" CHAR* ")" -> JavaLetterOrDigit {cons("lexical-constructor")}
+    "digit" "(" CHAR* ")" -> Digit {cons("lexical-constructor")}
+    "nonzerodigit" "(" CHAR* ")" -> NonZeroDigit {cons("lexical-constructor")}
+    "hexdigit" "(" CHAR* ")" -> HexDigit {cons("lexical-constructor")}
+    "octaldigit" "(" CHAR* ")" -> OctalDigit {cons("lexical-constructor")}
+    "id" "(" CHAR* ")" -> Id {cons("lexical-constructor")}
+    "comment" "(" CHAR* ")" -> Comment {cons("lexical-constructor")}
+    "asterisk" "(" CHAR* ")" -> Asterisk {cons("lexical-constructor")}
+    "lineterminator" "(" CHAR* ")" -> LineTerminator {cons("lexical-constructor")}
+    "whitespace" "(" CHAR* ")" -> WhiteSpace {cons("lexical-constructor")}
+    "actionprefix" "(" CHAR* ")" -> ActionPrefix {cons("lexical-constructor")}
+    "actionconst" "(" CHAR* ")" -> ActionConst {cons("lexical-constructor")}
+    "actionprefix" "(" CHAR* ")" -> ActionPrefix {cons("lexical-constructor")}
+    "dataopprefix" "(" CHAR* ")" -> DataOpPrefix {cons("lexical-constructor")}
+    "sortname" "(" CHAR* ")" -> SortName {cons("lexical-constructor")}
+    "dataopprefix" "(" CHAR* ")" -> DataOpPrefix {cons("lexical-constructor")}
+    "datapredprefix" "(" CHAR* ")" -> DataPredPrefix {cons("lexical-constructor")}
+    "sortname" "(" CHAR* ")" -> SortName {cons("lexical-constructor")}
+    "dataopprefix" "(" CHAR* ")" -> DataOpPrefix {cons("lexical-constructor")}
+    "datapredprefix" "(" CHAR* ")" -> DataPredPrefix {cons("lexical-constructor")}
+    "sortname" "(" CHAR* ")" -> SortName {cons("lexical-constructor")}
+    "sortname" "(" CHAR* ")" -> SortName {cons("lexical-constructor")}
+    "dataconst" "(" CHAR* ")" -> DataConst {cons("lexical-constructor")}
+    "dataopprefix" "(" CHAR* ")" -> DataOpPrefix {cons("lexical-constructor")}
+    "sortname" "(" CHAR* ")" -> SortName {cons("lexical-constructor")}
+    "dataopprefix" "(" CHAR* ")" -> DataOpPrefix {cons("lexical-constructor")}
+    "sortname" "(" CHAR* ")" -> SortName {cons("lexical-constructor")}
+    "sortname" "(" CHAR* ")" -> SortName {cons("lexical-constructor")}
+    "sortname" "(" CHAR* ")" -> SortName {cons("lexical-constructor")}
+    "dataopprefix" "(" CHAR* ")" -> DataOpPrefix {cons("lexical-constructor")}
+    "sortname" "(" CHAR* ")" -> SortName {cons("lexical-constructor")}
+    "dataopinfix" "(" CHAR* ")" -> DataOpInfix {cons("lexical-constructor")}
+    "string" "(" CHAR* ")" -> String {cons("lexical-constructor")}
+    "stringchar" "(" CHAR* ")" -> StringChar {cons("lexical-constructor")}
+    "sortname" "(" CHAR* ")" -> SortName {cons("lexical-constructor")}
+    "sortname" "(" CHAR* ")" -> SortName {cons("lexical-constructor")}
+    "dataopprefix" "(" CHAR* ")" -> DataOpPrefix {cons("lexical-constructor")}
+    "sortname" "(" CHAR* ")" -> SortName {cons("lexical-constructor")}
+    "module" "(" CHAR* ")" -> Module {cons("lexical-constructor")}
+    "dataconst" "(" CHAR* ")" -> DataConst {cons("lexical-constructor")}
+    "zero" "(" CHAR* ")" -> Zero {cons("lexical-constructor")}
+    "posnumeral" "(" CHAR* ")" -> PosNumeral {cons("lexical-constructor")}
+    "nat-con" "(" CHAR* ")" -> Nat-Con {cons("lexical-constructor")}
+    "datapredinfix" "(" CHAR* ")" -> DataPredInfix {cons("lexical-constructor")}
+    "sortname" "(" CHAR* ")" -> SortName {cons("lexical-constructor")}
+    "dataopinfix" "(" CHAR* ")" -> DataOpInfix {cons("lexical-constructor")}
+    "datapredinfix" "(" CHAR* ")" -> DataPredInfix {cons("lexical-constructor")}
+    "datapredprefix" "(" CHAR* ")" -> DataPredPrefix {cons("lexical-constructor")}
+    "dataopprefix" "(" CHAR* ")" -> DataOpPrefix {cons("lexical-constructor")}
+    "actionconst" "(" CHAR* ")" -> ActionConst {cons("lexical-constructor")}
+    "actioninfix" "(" CHAR* ")" -> ActionInfix {cons("lexical-constructor")}
+    "actionprefix" "(" CHAR* ")" -> ActionPrefix {cons("lexical-constructor")}
+    "actionconst" "(" CHAR* ")" -> ActionConst {cons("lexical-constructor")}
+    "actioninfix" "(" CHAR* ")" -> ActionInfix {cons("lexical-constructor")}
+    "actionconst" "(" CHAR* ")" -> ActionConst {cons("lexical-constructor")}
+    "actionconst" "(" CHAR* ")" -> ActionConst {cons("lexical-constructor")}
+    "actionconst" "(" CHAR* ")" -> ActionConst {cons("lexical-constructor")}
+    "actionconst" "(" CHAR* ")" -> ActionConst {cons("lexical-constructor")}
+    "actionprefix" "(" CHAR* ")" -> ActionPrefix {cons("lexical-constructor")}
+    "actioninfix" "(" CHAR* ")" -> ActionInfix {cons("lexical-constructor")}
+
+module GEN-Equations
+imports GEN-LexConsFuncs Equations
+
+exports
+  context-free syntax
+    Environment-Key "=" Environment-Key -> Equation
+    Environment-Key "=" Environment-Key -> Condition
+    Environment-Key "!=" Environment-Key -> Condition
+    "amb" "(" {Environment-Key ","}* ")" -> Environment-Key
+    Environment-Value "=" Environment-Value -> Equation
+    Environment-Value "=" Environment-Value -> Condition
+    Environment-Value "!=" Environment-Value -> Condition
+    "amb" "(" {Environment-Value ","}* ")" -> Environment-Value
+    Expr "=" Expr -> Equation
+    Expr "=" Expr -> Condition
+    Expr "!=" Expr -> Condition
+    "amb" "(" {Expr ","}* ")" -> Expr {cons("ambiguity-constructor")}
+    StringLiteral "=" StringLiteral -> Equation
+    StringLiteral "=" StringLiteral -> Condition
+    StringLiteral "!=" StringLiteral -> Condition
+    "amb" "(" {StringLiteral ","}* ")" -> StringLiteral
+    Id "=" Id -> Equation
+    Id "=" Id -> Condition
+    Id "!=" Id -> Condition
+    "amb" "(" {Id ","}* ")" -> Id
+    IntLiteral "=" IntLiteral -> Equation
+    IntLiteral "=" IntLiteral -> Condition
+    IntLiteral "!=" IntLiteral -> Condition
+    "amb" "(" {IntLiteral ","}* ")" -> IntLiteral
+    Finite-Map "=" Finite-Map -> Equation
+    Finite-Map "=" Finite-Map -> Condition
+    Finite-Map "!=" Finite-Map -> Condition
+    "amb" "(" {Finite-Map ","}* ")" -> Finite-Map {cons("ambiguity-constructor")}
+    Value "=" Value -> Equation
+    Value "=" Value -> Condition
+    Value "!=" Value -> Condition
+    "amb" "(" {Value ","}* ")" -> Value {cons("ambiguity-constructor")}
+    Bool "=" Bool -> Equation
+    Bool "=" Bool -> Condition
+    Bool "!=" Bool -> Condition
+    "amb" "(" {Bool ","}* ")" -> Bool
+    Finite-Set "=" Finite-Set -> Equation
+    Finite-Set "=" Finite-Set -> Condition
+    Finite-Set "!=" Finite-Set -> Condition
+    "amb" "(" {Finite-Set ","}* ")" -> Finite-Set
+    Tuple "=" Tuple -> Equation
+    Tuple "=" Tuple -> Condition
+    Tuple "!=" Tuple -> Condition
+    "amb" "(" {Tuple ","}* ")" -> Tuple
+    Environment "=" Environment -> Equation
+    Environment "=" Environment -> Condition
+    Environment "!=" Environment -> Condition
+    "amb" "(" {Environment ","}* ")" -> Environment {cons("ambiguity-constructor")}
+    BlockStm "=" BlockStm -> Equation
+    BlockStm "=" BlockStm -> Condition
+    BlockStm "!=" BlockStm -> Condition
+    "amb" "(" {BlockStm ","}* ")" -> BlockStm {cons("ambiguity-constructor")}
+    Block "=" Block -> Equation
+    Block "=" Block -> Condition
+    Block "!=" Block -> Condition
+    "amb" "(" {Block ","}* ")" -> Block
+    Stm "=" Stm -> Equation
+    Stm "=" Stm -> Condition
+    Stm "!=" Stm -> Condition
+    "amb" "(" {Stm ","}* ")" -> Stm
+    LocalVarDec "=" LocalVarDec -> Equation
+    LocalVarDec "=" LocalVarDec -> Condition
+    LocalVarDec "!=" LocalVarDec -> Condition
+    "amb" "(" {LocalVarDec ","}* ")" -> LocalVarDec
+    ForInit "=" ForInit -> Equation
+    ForInit "=" ForInit -> Condition
+    ForInit "!=" ForInit -> Condition
+    "amb" "(" {ForInit ","}* ")" -> ForInit
+    ForUpdate "=" ForUpdate -> Equation
+    ForUpdate "=" ForUpdate -> Condition
+    ForUpdate "!=" ForUpdate -> Condition
+    "amb" "(" {ForUpdate ","}* ")" -> ForUpdate
+    CatchClause "=" CatchClause -> Equation
+    CatchClause "=" CatchClause -> Condition
+    CatchClause "!=" CatchClause -> Condition
+    "amb" "(" {CatchClause ","}* ")" -> CatchClause
+    Statement "=" Statement -> Equation
+    Statement "=" Statement -> Condition
+    Statement "!=" Statement -> Condition
+    "amb" "(" {Statement ","}* ")" -> Statement
+    SwitchBlock "=" SwitchBlock -> Equation
+    SwitchBlock "=" SwitchBlock -> Condition
+    SwitchBlock "!=" SwitchBlock -> Condition
+    "amb" "(" {SwitchBlock ","}* ")" -> SwitchBlock
+    SwitchGroup "=" SwitchGroup -> Equation
+    SwitchGroup "=" SwitchGroup -> Condition
+    SwitchGroup "!=" SwitchGroup -> Condition
+    "amb" "(" {SwitchGroup ","}* ")" -> SwitchGroup
+    SwitchLabel "=" SwitchLabel -> Equation
+    SwitchLabel "=" SwitchLabel -> Condition
+    SwitchLabel "!=" SwitchLabel -> Condition
+    "amb" "(" {SwitchLabel ","}* ")" -> SwitchLabel
+    ClassDec "=" ClassDec -> Equation
+    ClassDec "=" ClassDec -> Condition
+    ClassDec "!=" ClassDec -> Condition
+    "amb" "(" {ClassDec ","}* ")" -> ClassDec {cons("ambiguity-constructor")}
+    Super "=" Super -> Equation
+    Super "=" Super -> Condition
+    Super "!=" Super -> Condition
+    "amb" "(" {Super ","}* ")" -> Super
+    Interfaces "=" Interfaces -> Equation
+    Interfaces "=" Interfaces -> Condition
+    Interfaces "!=" Interfaces -> Condition
+    "amb" "(" {Interfaces ","}* ")" -> Interfaces
+    ClassBody "=" ClassBody -> Equation
+    ClassBody "=" ClassBody -> Condition
+    ClassBody "!=" ClassBody -> Condition
+    "amb" "(" {ClassBody ","}* ")" -> ClassBody
+    ClassBodyDec "=" ClassBodyDec -> Equation
+    ClassBodyDec "=" ClassBodyDec -> Condition
+    ClassBodyDec "!=" ClassBodyDec -> Condition
+    "amb" "(" {ClassBodyDec ","}* ")" -> ClassBodyDec
+    ClassMemberDec "=" ClassMemberDec -> Equation
+    ClassMemberDec "=" ClassMemberDec -> Condition
+    ClassMemberDec "!=" ClassMemberDec -> Condition
+    "amb" "(" {ClassMemberDec ","}* ")" -> ClassMemberDec
+    FieldDec "=" FieldDec -> Equation
+    FieldDec "=" FieldDec -> Condition
+    FieldDec "!=" FieldDec -> Condition
+    "amb" "(" {FieldDec ","}* ")" -> FieldDec
+    StaticInit "=" StaticInit -> Equation
+    StaticInit "=" StaticInit -> Condition
+    StaticInit "!=" StaticInit -> Condition
+    "amb" "(" {StaticInit ","}* ")" -> StaticInit
+    InstanceInit "=" InstanceInit -> Equation
+    InstanceInit "=" InstanceInit -> Condition
+    InstanceInit "!=" InstanceInit -> Condition
+    "amb" "(" {InstanceInit ","}* ")" -> InstanceInit
+    ConstructorDec "=" ConstructorDec -> Equation
+    ConstructorDec "=" ConstructorDec -> Condition
+    ConstructorDec "!=" ConstructorDec -> Condition
+    "amb" "(" {ConstructorDec ","}* ")" -> ConstructorDec
+    ConstructorBody "=" ConstructorBody -> Equation
+    ConstructorBody "=" ConstructorBody -> Condition
+    ConstructorBody "!=" ConstructorBody -> Condition
+    "amb" "(" {ConstructorBody ","}* ")" -> ConstructorBody
+    CInvoke "=" CInvoke -> Equation
+    CInvoke "=" CInvoke -> Condition
+    CInvoke "!=" CInvoke -> Condition
+    "amb" "(" {CInvoke ","}* ")" -> CInvoke
+    Expr "=" Expr -> Equation
+    Expr "=" Expr -> Condition
+    Expr "!=" Expr -> Condition
+    "amb" "(" {Expr ","}* ")" -> Expr {cons("ambiguity-constructor")}
+    FieldAccess "=" FieldAccess -> Equation
+    FieldAccess "=" FieldAccess -> Condition
+    FieldAccess "!=" FieldAccess -> Condition
+    "amb" "(" {FieldAccess ","}* ")" -> FieldAccess
+    ArrayAccess "=" ArrayAccess -> Equation
+    ArrayAccess "=" ArrayAccess -> Condition
+    ArrayAccess "!=" ArrayAccess -> Condition
+    "amb" "(" {ArrayAccess ","}* ")" -> ArrayAccess
+    ArrayCreationExpr "=" ArrayCreationExpr -> Equation
+    ArrayCreationExpr "=" ArrayCreationExpr -> Condition
+    ArrayCreationExpr "!=" ArrayCreationExpr -> Condition
+    "amb" "(" {ArrayCreationExpr ","}* ")" -> ArrayCreationExpr
+    ArrayBaseType "=" ArrayBaseType -> Equation
+    ArrayBaseType "=" ArrayBaseType -> Condition
+    ArrayBaseType "!=" ArrayBaseType -> Condition
+    "amb" "(" {ArrayBaseType ","}* ")" -> ArrayBaseType
+    DimExpr "=" DimExpr -> Equation
+    DimExpr "=" DimExpr -> Condition
+    DimExpr "!=" DimExpr -> Condition
+    "amb" "(" {DimExpr ","}* ")" -> DimExpr
+    Dim "=" Dim -> Equation
+    Dim "=" Dim -> Condition
+    Dim "!=" Dim -> Condition
+    "amb" "(" {Dim ","}* ")" -> Dim
+    MethodId "=" MethodId -> Equation
+    MethodId "=" MethodId -> Condition
+    MethodId "!=" MethodId -> Condition
+    "amb" "(" {MethodId ","}* ")" -> MethodId
+    LHS "=" LHS -> Equation
+    LHS "=" LHS -> Condition
+    LHS "!=" LHS -> Condition
+    "amb" "(" {LHS ","}* ")" -> LHS
+    VarDec "=" VarDec -> Equation
+    VarDec "=" VarDec -> Condition
+    VarDec "!=" VarDec -> Condition
+    "amb" "(" {VarDec ","}* ")" -> VarDec
+    VarDecId "=" VarDecId -> Equation
+    VarDecId "=" VarDecId -> Condition
+    VarDecId "!=" VarDecId -> Condition
+    "amb" "(" {VarDecId ","}* ")" -> VarDecId
+    Dim "=" Dim -> Equation
+    Dim "=" Dim -> Condition
+    Dim "!=" Dim -> Condition
+    "amb" "(" {Dim ","}* ")" -> Dim
+    VarInit "=" VarInit -> Equation
+    VarInit "=" VarInit -> Condition
+    VarInit "!=" VarInit -> Condition
+    "amb" "(" {VarInit ","}* ")" -> VarInit
+    ArrayInit "=" ArrayInit -> Equation
+    ArrayInit "=" ArrayInit -> Condition
+    ArrayInit "!=" ArrayInit -> Condition
+    "amb" "(" {ArrayInit ","}* ")" -> ArrayInit
+    Comma "=" Comma -> Equation
+    Comma "=" Comma -> Condition
+    Comma "!=" Comma -> Condition
+    "amb" "(" {Comma ","}* ")" -> Comma
+    Type "=" Type -> Equation
+    Type "=" Type -> Condition
+    Type "!=" Type -> Condition
+    "amb" "(" {Type ","}* ")" -> Type
+    PrimType "=" PrimType -> Equation
+    PrimType "=" PrimType -> Condition
+    PrimType "!=" PrimType -> Condition
+    "amb" "(" {PrimType ","}* ")" -> PrimType
+    NumType "=" NumType -> Equation
+    NumType "=" NumType -> Condition
+    NumType "!=" NumType -> Condition
+    "amb" "(" {NumType ","}* ")" -> NumType
+    IntType "=" IntType -> Equation
+    IntType "=" IntType -> Condition
+    IntType "!=" IntType -> Condition
+    "amb" "(" {IntType ","}* ")" -> IntType
+    FloatType "=" FloatType -> Equation
+    FloatType "=" FloatType -> Condition
+    FloatType "!=" FloatType -> Condition
+    "amb" "(" {FloatType ","}* ")" -> FloatType
+    RefType "=" RefType -> Equation
+    RefType "=" RefType -> Condition
+    RefType "!=" RefType -> Condition
+    "amb" "(" {RefType ","}* ")" -> RefType
+    ClassOrInterfaceType "=" ClassOrInterfaceType -> Equation
+    ClassOrInterfaceType "=" ClassOrInterfaceType -> Condition
+    ClassOrInterfaceType "!=" ClassOrInterfaceType -> Condition
+    "amb" "(" {ClassOrInterfaceType ","}* ")" -> ClassOrInterfaceType
+    ClassType "=" ClassType -> Equation
+    ClassType "=" ClassType -> Condition
+    ClassType "!=" ClassType -> Condition
+    "amb" "(" {ClassType ","}* ")" -> ClassType
+    InterfaceType "=" InterfaceType -> Equation
+    InterfaceType "=" InterfaceType -> Condition
+    InterfaceType "!=" InterfaceType -> Condition
+    "amb" "(" {InterfaceType ","}* ")" -> InterfaceType
+    ArrayType "=" ArrayType -> Equation
+    ArrayType "=" ArrayType -> Condition
+    ArrayType "!=" ArrayType -> Condition
+    "amb" "(" {ArrayType ","}* ")" -> ArrayType
+    MethodDec "=" MethodDec -> Equation
+    MethodDec "=" MethodDec -> Condition
+    MethodDec "!=" MethodDec -> Condition
+    "amb" "(" {MethodDec ","}* ")" -> MethodDec
+    MethodHead "=" MethodHead -> Equation
+    MethodHead "=" MethodHead -> Condition
+    MethodHead "!=" MethodHead -> Condition
+    "amb" "(" {MethodHead ","}* ")" -> MethodHead
+    ResultType "=" ResultType -> Equation
+    ResultType "=" ResultType -> Condition
+    ResultType "!=" ResultType -> Condition
+    "amb" "(" {ResultType ","}* ")" -> ResultType
+    FormalParam "=" FormalParam -> Equation
+    FormalParam "=" FormalParam -> Condition
+    FormalParam "!=" FormalParam -> Condition
+    "amb" "(" {FormalParam ","}* ")" -> FormalParam
+    Throws "=" Throws -> Equation
+    Throws "=" Throws -> Condition
+    Throws "!=" Throws -> Condition
+    "amb" "(" {Throws ","}* ")" -> Throws
+    ClassMod "=" ClassMod -> Equation
+    ClassMod "=" ClassMod -> Condition
+    ClassMod "!=" ClassMod -> Condition
+    "amb" "(" {ClassMod ","}* ")" -> ClassMod
+    InterfaceMod "=" InterfaceMod -> Equation
+    InterfaceMod "=" InterfaceMod -> Condition
+    InterfaceMod "!=" InterfaceMod -> Condition
+    "amb" "(" {InterfaceMod ","}* ")" -> InterfaceMod
+    FieldMod "=" FieldMod -> Equation
+    FieldMod "=" FieldMod -> Condition
+    FieldMod "!=" FieldMod -> Condition
+    "amb" "(" {FieldMod ","}* ")" -> FieldMod
+    ConstructorMod "=" ConstructorMod -> Equation
+    ConstructorMod "=" ConstructorMod -> Condition
+    ConstructorMod "!=" ConstructorMod -> Condition
+    "amb" "(" {ConstructorMod ","}* ")" -> ConstructorMod
+    ConstantMod "=" ConstantMod -> Equation
+    ConstantMod "=" ConstantMod -> Condition
+    ConstantMod "!=" ConstantMod -> Condition
+    "amb" "(" {ConstantMod ","}* ")" -> ConstantMod
+    AccessMod "=" AccessMod -> Equation
+    AccessMod "=" AccessMod -> Condition
+    AccessMod "!=" AccessMod -> Condition
+    "amb" "(" {AccessMod ","}* ")" -> AccessMod
+    AMethodMod "=" AMethodMod -> Equation
+    AMethodMod "=" AMethodMod -> Condition
+    AMethodMod "!=" AMethodMod -> Condition
+    "amb" "(" {AMethodMod ","}* ")" -> AMethodMod
+    MethodMod "=" MethodMod -> Equation
+    MethodMod "=" MethodMod -> Condition
+    MethodMod "!=" MethodMod -> Condition
+    "amb" "(" {MethodMod ","}* ")" -> MethodMod
+    Public "=" Public -> Equation
+    Public "=" Public -> Condition
+    Public "!=" Public -> Condition
+    "amb" "(" {Public ","}* ")" -> Public
+    Private "=" Private -> Equation
+    Private "=" Private -> Condition
+    Private "!=" Private -> Condition
+    "amb" "(" {Private ","}* ")" -> Private
+    Protected "=" Protected -> Equation
+    Protected "=" Protected -> Condition
+    Protected "!=" Protected -> Condition
+    "amb" "(" {Protected ","}* ")" -> Protected
+    Abstract "=" Abstract -> Equation
+    Abstract "=" Abstract -> Condition
+    Abstract "!=" Abstract -> Condition
+    "amb" "(" {Abstract ","}* ")" -> Abstract
+    Final "=" Final -> Equation
+    Final "=" Final -> Condition
+    Final "!=" Final -> Condition
+    "amb" "(" {Final ","}* ")" -> Final
+    Static "=" Static -> Equation
+    Static "=" Static -> Condition
+    Static "!=" Static -> Condition
+    "amb" "(" {Static ","}* ")" -> Static
+    Native "=" Native -> Equation
+    Native "=" Native -> Condition
+    Native "!=" Native -> Condition
+    "amb" "(" {Native ","}* ")" -> Native
+    Transient "=" Transient -> Equation
+    Transient "=" Transient -> Condition
+    Transient "!=" Transient -> Condition
+    "amb" "(" {Transient ","}* ")" -> Transient
+    Volatile "=" Volatile -> Equation
+    Volatile "=" Volatile -> Condition
+    Volatile "!=" Volatile -> Condition
+    "amb" "(" {Volatile ","}* ")" -> Volatile
+    Synchronized "=" Synchronized -> Equation
+    Synchronized "=" Synchronized -> Condition
+    Synchronized "!=" Synchronized -> Condition
+    "amb" "(" {Synchronized ","}* ")" -> Synchronized
+    StrictFP "=" StrictFP -> Equation
+    StrictFP "=" StrictFP -> Condition
+    StrictFP "!=" StrictFP -> Condition
+    "amb" "(" {StrictFP ","}* ")" -> StrictFP
+    InterfaceDec "=" InterfaceDec -> Equation
+    InterfaceDec "=" InterfaceDec -> Condition
+    InterfaceDec "!=" InterfaceDec -> Condition
+    "amb" "(" {InterfaceDec ","}* ")" -> InterfaceDec {cons("ambiguity-constructor")}
+    ExtendsInterfaces "=" ExtendsInterfaces -> Equation
+    ExtendsInterfaces "=" ExtendsInterfaces -> Condition
+    ExtendsInterfaces "!=" ExtendsInterfaces -> Condition
+    "amb" "(" {ExtendsInterfaces ","}* ")" -> ExtendsInterfaces
+    InterfaceBody "=" InterfaceBody -> Equation
+    InterfaceBody "=" InterfaceBody -> Condition
+    InterfaceBody "!=" InterfaceBody -> Condition
+    "amb" "(" {InterfaceBody ","}* ")" -> InterfaceBody
+    InterfaceMemberDec "=" InterfaceMemberDec -> Equation
+    InterfaceMemberDec "=" InterfaceMemberDec -> Condition
+    InterfaceMemberDec "!=" InterfaceMemberDec -> Condition
+    "amb" "(" {InterfaceMemberDec ","}* ")" -> InterfaceMemberDec
+    ConstantDec "=" ConstantDec -> Equation
+    ConstantDec "=" ConstantDec -> Condition
+    ConstantDec "!=" ConstantDec -> Condition
+    "amb" "(" {ConstantDec ","}* ")" -> ConstantDec
+    AMethodDec "=" AMethodDec -> Equation
+    AMethodDec "=" AMethodDec -> Condition
+    AMethodDec "!=" AMethodDec -> Condition
+    "amb" "(" {AMethodDec ","}* ")" -> AMethodDec
+    AMethodHead "=" AMethodHead -> Equation
+    AMethodHead "=" AMethodHead -> Condition
+    AMethodHead "!=" AMethodHead -> Condition
+    "amb" "(" {AMethodHead ","}* ")" -> AMethodHead
+    TypeDec "=" TypeDec -> Equation
+    TypeDec "=" TypeDec -> Condition
+    TypeDec "!=" TypeDec -> Condition
+    "amb" "(" {TypeDec ","}* ")" -> TypeDec {cons("ambiguity-constructor")}
+    Name "=" Name -> Equation
+    Name "=" Name -> Condition
+    Name "!=" Name -> Condition
+    "amb" "(" {Name ","}* ")" -> Name
+    PackageName "=" PackageName -> Equation
+    PackageName "=" PackageName -> Condition
+    PackageName "!=" PackageName -> Condition
+    "amb" "(" {PackageName ","}* ")" -> PackageName
+    ClassName "=" ClassName -> Equation
+    ClassName "=" ClassName -> Condition
+    ClassName "!=" ClassName -> Condition
+    "amb" "(" {ClassName ","}* ")" -> ClassName
+    AmbName "=" AmbName -> Equation
+    AmbName "=" AmbName -> Condition
+    AmbName "!=" AmbName -> Condition
+    "amb" "(" {AmbName ","}* ")" -> AmbName
+    MethodName "=" MethodName -> Equation
+    MethodName "=" MethodName -> Condition
+    MethodName "!=" MethodName -> Condition
+    "amb" "(" {MethodName ","}* ")" -> MethodName
+    ExprName "=" ExprName -> Equation
+    ExprName "=" ExprName -> Condition
+    ExprName "!=" ExprName -> Condition
+    "amb" "(" {ExprName ","}* ")" -> ExprName
+    QTypeName "=" QTypeName -> Equation
+    QTypeName "=" QTypeName -> Condition
+    QTypeName "!=" QTypeName -> Condition
+    "amb" "(" {QTypeName ","}* ")" -> QTypeName
+    SimpleTypeName "=" SimpleTypeName -> Equation
+    SimpleTypeName "=" SimpleTypeName -> Condition
+    SimpleTypeName "!=" SimpleTypeName -> Condition
+    "amb" "(" {SimpleTypeName ","}* ")" -> SimpleTypeName
+    TypeName "=" TypeName -> Equation
+    TypeName "=" TypeName -> Condition
+    TypeName "!=" TypeName -> Condition
+    "amb" "(" {TypeName ","}* ")" -> TypeName
+    BooleanLiteral "=" BooleanLiteral -> Equation
+    BooleanLiteral "=" BooleanLiteral -> Condition
+    BooleanLiteral "!=" BooleanLiteral -> Condition
+    "amb" "(" {BooleanLiteral ","}* ")" -> BooleanLiteral {cons("ambiguity-constructor")}
+    NullLiteral "=" NullLiteral -> Equation
+    NullLiteral "=" NullLiteral -> Condition
+    NullLiteral "!=" NullLiteral -> Condition
+    "amb" "(" {NullLiteral ","}* ")" -> NullLiteral {cons("ambiguity-constructor")}
+    IntegerLiteral "=" IntegerLiteral -> Equation
+    IntegerLiteral "=" IntegerLiteral -> Condition
+    IntegerLiteral "!=" IntegerLiteral -> Condition
+    "amb" "(" {IntegerLiteral ","}* ")" -> IntegerLiteral {cons("ambiguity-constructor")}
+    FloatingPointLiteral "=" FloatingPointLiteral -> Equation
+    FloatingPointLiteral "=" FloatingPointLiteral -> Condition
+    FloatingPointLiteral "!=" FloatingPointLiteral -> Condition
+    "amb" "(" {FloatingPointLiteral ","}* ")" -> FloatingPointLiteral {cons("ambiguity-constructor")}
+    Literal "=" Literal -> Equation
+    Literal "=" Literal -> Condition
+    Literal "!=" Literal -> Condition
+    "amb" "(" {Literal ","}* ")" -> Literal {cons("ambiguity-constructor")}
+    IntLiteral "=" IntLiteral -> Equation
+    IntLiteral "=" IntLiteral -> Condition
+    IntLiteral "!=" IntLiteral -> Condition
+    "amb" "(" {IntLiteral ","}* ")" -> IntLiteral
+    BoolLiteral "=" BoolLiteral -> Equation
+    BoolLiteral "=" BoolLiteral -> Condition
+    BoolLiteral "!=" BoolLiteral -> Condition
+    "amb" "(" {BoolLiteral ","}* ")" -> BoolLiteral
+    ClassLiteral "=" ClassLiteral -> Equation
+    ClassLiteral "=" ClassLiteral -> Condition
+    ClassLiteral "!=" ClassLiteral -> Condition
+    "amb" "(" {ClassLiteral ","}* ")" -> ClassLiteral
+    OctaDigit "=" OctaDigit -> Equation
+    OctaDigit "=" OctaDigit -> Condition
+    OctaDigit "!=" OctaDigit -> Condition
+    "amb" "(" {OctaDigit ","}* ")" -> OctaDigit
+    DeciDigit "=" DeciDigit -> Equation
+    DeciDigit "=" DeciDigit -> Condition
+    DeciDigit "!=" DeciDigit -> Condition
+    "amb" "(" {DeciDigit ","}* ")" -> DeciDigit
+    HexaDigit "=" HexaDigit -> Equation
+    HexaDigit "=" HexaDigit -> Condition
+    HexaDigit "!=" HexaDigit -> Condition
+    "amb" "(" {HexaDigit ","}* ")" -> HexaDigit
+    DeciLiteral "=" DeciLiteral -> Equation
+    DeciLiteral "=" DeciLiteral -> Condition
+    DeciLiteral "!=" DeciLiteral -> Condition
+    "amb" "(" {DeciLiteral ","}* ")" -> DeciLiteral
+    HexaLiteral "=" HexaLiteral -> Equation
+    HexaLiteral "=" HexaLiteral -> Condition
+    HexaLiteral "!=" HexaLiteral -> Condition
+    "amb" "(" {HexaLiteral ","}* ")" -> HexaLiteral
+    OctaLiteral "=" OctaLiteral -> Equation
+    OctaLiteral "=" OctaLiteral -> Condition
+    OctaLiteral "!=" OctaLiteral -> Condition
+    "amb" "(" {OctaLiteral ","}* ")" -> OctaLiteral
+    DeciNumeral "=" DeciNumeral -> Equation
+    DeciNumeral "=" DeciNumeral -> Condition
+    DeciNumeral "!=" DeciNumeral -> Condition
+    "amb" "(" {DeciNumeral ","}* ")" -> DeciNumeral
+    HexaNumeral "=" HexaNumeral -> Equation
+    HexaNumeral "=" HexaNumeral -> Condition
+    HexaNumeral "!=" HexaNumeral -> Condition
+    "amb" "(" {HexaNumeral ","}* ")" -> HexaNumeral
+    OctaNumeral "=" OctaNumeral -> Equation
+    OctaNumeral "=" OctaNumeral -> Condition
+    OctaNumeral "!=" OctaNumeral -> Condition
+    "amb" "(" {OctaNumeral ","}* ")" -> OctaNumeral
+    FloatTypeSuffix "=" FloatTypeSuffix -> Equation
+    FloatTypeSuffix "=" FloatTypeSuffix -> Condition
+    FloatTypeSuffix "!=" FloatTypeSuffix -> Condition
+    "amb" "(" {FloatTypeSuffix ","}* ")" -> FloatTypeSuffix
+    FloatLiteral "=" FloatLiteral -> Equation
+    FloatLiteral "=" FloatLiteral -> Condition
+    FloatLiteral "!=" FloatLiteral -> Condition
+    "amb" "(" {FloatLiteral ","}* ")" -> FloatLiteral
+    FloatDigits "=" FloatDigits -> Equation
+    FloatDigits "=" FloatDigits -> Condition
+    FloatDigits "!=" FloatDigits -> Condition
+    "amb" "(" {FloatDigits ","}* ")" -> FloatDigits
+    ExponentPart "=" ExponentPart -> Equation
+    ExponentPart "=" ExponentPart -> Condition
+    ExponentPart "!=" ExponentPart -> Condition
+    "amb" "(" {ExponentPart ","}* ")" -> ExponentPart
+    SignedInt "=" SignedInt -> Equation
+    SignedInt "=" SignedInt -> Condition
+    SignedInt "!=" SignedInt -> Condition
+    "amb" "(" {SignedInt ","}* ")" -> SignedInt
+    Sign "=" Sign -> Equation
+    Sign "=" Sign -> Condition
+    Sign "!=" Sign -> Condition
+    "amb" "(" {Sign ","}* ")" -> Sign
+    UnicodeEscape "=" UnicodeEscape -> Equation
+    UnicodeEscape "=" UnicodeEscape -> Condition
+    UnicodeEscape "!=" UnicodeEscape -> Condition
+    "amb" "(" {UnicodeEscape ","}* ")" -> UnicodeEscape
+    UnicodeMarker "=" UnicodeMarker -> Equation
+    UnicodeMarker "=" UnicodeMarker -> Condition
+    UnicodeMarker "!=" UnicodeMarker -> Condition
+    "amb" "(" {UnicodeMarker ","}* ")" -> UnicodeMarker
+    UnicodeInputChar "=" UnicodeInputChar -> Equation
+    UnicodeInputChar "=" UnicodeInputChar -> Condition
+    UnicodeInputChar "!=" UnicodeInputChar -> Condition
+    "amb" "(" {UnicodeInputChar ","}* ")" -> UnicodeInputChar
+    InputChar "=" InputChar -> Equation
+    InputChar "=" InputChar -> Condition
+    InputChar "!=" InputChar -> Condition
+    "amb" "(" {InputChar ","}* ")" -> InputChar
+    CharLiteral "=" CharLiteral -> Equation
+    CharLiteral "=" CharLiteral -> Condition
+    CharLiteral "!=" CharLiteral -> Condition
+    "amb" "(" {CharLiteral ","}* ")" -> CharLiteral
+    EscapeSeq "=" EscapeSeq -> Equation
+    EscapeSeq "=" EscapeSeq -> Condition
+    EscapeSeq "!=" EscapeSeq -> Condition
+    "amb" "(" {EscapeSeq ","}* ")" -> EscapeSeq
+    OctaEscape "=" OctaEscape -> Equation
+    OctaEscape "=" OctaEscape -> Condition
+    OctaEscape "!=" OctaEscape -> Condition
+    "amb" "(" {OctaEscape ","}* ")" -> OctaEscape
+    StringLiteral "=" StringLiteral -> Equation
+    StringLiteral "=" StringLiteral -> Condition
+    StringLiteral "!=" StringLiteral -> Condition
+    "amb" "(" {StringLiteral ","}* ")" -> StringLiteral
+    StringChar "=" StringChar -> Equation
+    StringChar "=" StringChar -> Condition
+    StringChar "!=" StringChar -> Condition
+    "amb" "(" {StringChar ","}* ")" -> StringChar
+    Keyword "=" Keyword -> Equation
+    Keyword "=" Keyword -> Condition
+    Keyword "!=" Keyword -> Condition
+    "amb" "(" {Keyword ","}* ")" -> Keyword
+    Id "=" Id -> Equation
+    Id "=" Id -> Condition
+    Id "!=" Id -> Condition
+    "amb" "(" {Id ","}* ")" -> Id {cons("ambiguity-constructor")}
+    JavaLetter "=" JavaLetter -> Equation
+    JavaLetter "=" JavaLetter -> Condition
+    JavaLetter "!=" JavaLetter -> Condition
+    "amb" "(" {JavaLetter ","}* ")" -> JavaLetter
+    JavaLetterOrDigit "=" JavaLetterOrDigit -> Equation
+    JavaLetterOrDigit "=" JavaLetterOrDigit -> Condition
+    JavaLetterOrDigit "!=" JavaLetterOrDigit -> Condition
+    "amb" "(" {JavaLetterOrDigit ","}* ")" -> JavaLetterOrDigit
+    Digit "=" Digit -> Equation
+    Digit "=" Digit -> Condition
+    Digit "!=" Digit -> Condition
+    "amb" "(" {Digit ","}* ")" -> Digit
+    NonZeroDigit "=" NonZeroDigit -> Equation
+    NonZeroDigit "=" NonZeroDigit -> Condition
+    NonZeroDigit "!=" NonZeroDigit -> Condition
+    "amb" "(" {NonZeroDigit ","}* ")" -> NonZeroDigit
+    HexDigit "=" HexDigit -> Equation
+    HexDigit "=" HexDigit -> Condition
+    HexDigit "!=" HexDigit -> Condition
+    "amb" "(" {HexDigit ","}* ")" -> HexDigit
+    OctalDigit "=" OctalDigit -> Equation
+    OctalDigit "=" OctalDigit -> Condition
+    OctalDigit "!=" OctalDigit -> Condition
+    "amb" "(" {OctalDigit ","}* ")" -> OctalDigit
+    Comment "=" Comment -> Equation
+    Comment "=" Comment -> Condition
+    Comment "!=" Comment -> Condition
+    "amb" "(" {Comment ","}* ")" -> Comment
+    Asterisk "=" Asterisk -> Equation
+    Asterisk "=" Asterisk -> Condition
+    Asterisk "!=" Asterisk -> Condition
+    "amb" "(" {Asterisk ","}* ")" -> Asterisk
+    LineTerminator "=" LineTerminator -> Equation
+    LineTerminator "=" LineTerminator -> Condition
+    LineTerminator "!=" LineTerminator -> Condition
+    "amb" "(" {LineTerminator ","}* ")" -> LineTerminator
+    WhiteSpace "=" WhiteSpace -> Equation
+    WhiteSpace "=" WhiteSpace -> Condition
+    WhiteSpace "!=" WhiteSpace -> Condition
+    "amb" "(" {WhiteSpace ","}* ")" -> WhiteSpace
+    CompilationUnit "=" CompilationUnit -> Equation
+    CompilationUnit "=" CompilationUnit -> Condition
+    CompilationUnit "!=" CompilationUnit -> Condition
+    "amb" "(" {CompilationUnit ","}* ")" -> CompilationUnit {cons("ambiguity-constructor")}
+    PackageDec "=" PackageDec -> Equation
+    PackageDec "=" PackageDec -> Condition
+    PackageDec "!=" PackageDec -> Condition
+    "amb" "(" {PackageDec ","}* ")" -> PackageDec
+    ImportDec "=" ImportDec -> Equation
+    ImportDec "=" ImportDec -> Condition
+    ImportDec "!=" ImportDec -> Condition
+    "amb" "(" {ImportDec ","}* ")" -> ImportDec
+    TypeDec "=" TypeDec -> Equation
+    TypeDec "=" TypeDec -> Condition
+    TypeDec "!=" TypeDec -> Condition
+    "amb" "(" {TypeDec ","}* ")" -> TypeDec
+    TypeImportDec "=" TypeImportDec -> Equation
+    TypeImportDec "=" TypeImportDec -> Condition
+    TypeImportDec "!=" TypeImportDec -> Condition
+    "amb" "(" {TypeImportDec ","}* ")" -> TypeImportDec
+    PackageImportDec "=" PackageImportDec -> Equation
+    PackageImportDec "=" PackageImportDec -> Condition
+    PackageImportDec "!=" PackageImportDec -> Condition
+    "amb" "(" {PackageImportDec ","}* ")" -> PackageImportDec
+    Yielder "=" Yielder -> Equation
+    Yielder "=" Yielder -> Condition
+    Yielder "!=" Yielder -> Condition
+    "amb" "(" {Yielder ","}* ")" -> Yielder
+    ActionPrefix "=" ActionPrefix -> Equation
+    ActionPrefix "=" ActionPrefix -> Condition
+    ActionPrefix "!=" ActionPrefix -> Condition
+    "amb" "(" {ActionPrefix ","}* ")" -> ActionPrefix
+    Yielder "=" Yielder -> Equation
+    Yielder "=" Yielder -> Condition
+    Yielder "!=" Yielder -> Condition
+    "amb" "(" {Yielder ","}* ")" -> Yielder
+    Enquirer "=" Enquirer -> Equation
+    Enquirer "=" Enquirer -> Condition
+    Enquirer "!=" Enquirer -> Condition
+    "amb" "(" {Enquirer ","}* ")" -> Enquirer
+    Action "=" Action -> Equation
+    Action "=" Action -> Condition
+    Action "!=" Action -> Condition
+    "amb" "(" {Action ","}* ")" -> Action
+    DataOpSort "=" DataOpSort -> Equation
+    DataOpSort "=" DataOpSort -> Condition
+    DataOpSort "!=" DataOpSort -> Condition
+    "amb" "(" {DataOpSort ","}* ")" -> DataOpSort
+    ActionConst "=" ActionConst -> Equation
+    ActionConst "=" ActionConst -> Condition
+    ActionConst "!=" ActionConst -> Condition
+    "amb" "(" {ActionConst ","}* ")" -> ActionConst
+    ActionPrefix "=" ActionPrefix -> Equation
+    ActionPrefix "=" ActionPrefix -> Condition
+    ActionPrefix "!=" ActionPrefix -> Condition
+    "amb" "(" {ActionPrefix ","}* ")" -> ActionPrefix
+    Yielder "=" Yielder -> Equation
+    Yielder "=" Yielder -> Condition
+    Yielder "!=" Yielder -> Condition
+    "amb" "(" {Yielder ","}* ")" -> Yielder
+    Pair "=" Pair -> Equation
+    Pair "=" Pair -> Condition
+    Pair "!=" Pair -> Condition
+    "amb" "(" {Pair ","}* ")" -> Pair
+    Datum "=" Datum -> Equation
+    Datum "=" Datum -> Condition
+    Datum "!=" Datum -> Condition
+    "amb" "(" {Datum ","}* ")" -> Datum
+    DataOpPrefix "=" DataOpPrefix -> Equation
+    DataOpPrefix "=" DataOpPrefix -> Condition
+    DataOpPrefix "!=" DataOpPrefix -> Condition
+    "amb" "(" {DataOpPrefix ","}* ")" -> DataOpPrefix
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName
+    Datum "=" Datum -> Equation
+    Datum "=" Datum -> Condition
+    Datum "!=" Datum -> Condition
+    "amb" "(" {Datum ","}* ")" -> Datum
+    DataOpPrefix "=" DataOpPrefix -> Equation
+    DataOpPrefix "=" DataOpPrefix -> Condition
+    DataOpPrefix "!=" DataOpPrefix -> Condition
+    "amb" "(" {DataOpPrefix ","}* ")" -> DataOpPrefix
+    DataPredPrefix "=" DataPredPrefix -> Equation
+    DataPredPrefix "=" DataPredPrefix -> Condition
+    DataPredPrefix "!=" DataPredPrefix -> Condition
+    "amb" "(" {DataPredPrefix ","}* ")" -> DataPredPrefix
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName
+    Array "=" Array -> Equation
+    Array "=" Array -> Condition
+    Array "!=" Array -> Condition
+    "amb" "(" {Array ","}* ")" -> Array {cons("ambiguity-constructor")}
+    X "=" X -> Equation
+    X "=" X -> Condition
+    X "!=" X -> Condition
+    "amb" "(" {X ","}* ")" -> X {cons("ambiguity-constructor")}
+    Int "=" Int -> Equation
+    Int "=" Int -> Condition
+    Int "!=" Int -> Condition
+    "amb" "(" {Int ","}* ")" -> Int
+    X* "=" X* -> Equation
+    X* "=" X* -> Condition
+    X* "!=" X* -> Condition
+    "amb" "(" {X* ","}* ")" -> X*
+    Data "=" Data -> Equation
+    Data "=" Data -> Condition
+    Data "!=" Data -> Condition
+    "amb" "(" {Data ","}* ")" -> Data {cons("ambiguity-constructor")}
+    Datum "=" Datum -> Equation
+    Datum "=" Datum -> Condition
+    Datum "!=" Datum -> Condition
+    "amb" "(" {Datum ","}* ")" -> Datum
+    DataOpInfix "=" DataOpInfix -> Equation
+    DataOpInfix "=" DataOpInfix -> Condition
+    DataOpInfix "!=" DataOpInfix -> Condition
+    "amb" "(" {DataOpInfix ","}* ")" -> DataOpInfix
+    DataOpPrefix "=" DataOpPrefix -> Equation
+    DataOpPrefix "=" DataOpPrefix -> Condition
+    DataOpPrefix "!=" DataOpPrefix -> Condition
+    "amb" "(" {DataOpPrefix ","}* ")" -> DataOpPrefix
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName
+    Finite-Set "=" Finite-Set -> Equation
+    Finite-Set "=" Finite-Set -> Condition
+    Finite-Set "!=" Finite-Set -> Condition
+    "amb" "(" {Finite-Set ","}* ")" -> Finite-Set {cons("ambiguity-constructor")}
+    Bool "=" Bool -> Equation
+    Bool "=" Bool -> Condition
+    Bool "!=" Bool -> Condition
+    "amb" "(" {Bool ","}* ")" -> Bool
+    Elt "=" Elt -> Equation
+    Elt "=" Elt -> Condition
+    Elt "!=" Elt -> Condition
+    "amb" "(" {Elt ","}* ")" -> Elt
+    Datum "=" Datum -> Equation
+    Datum "=" Datum -> Condition
+    Datum "!=" Datum -> Condition
+    "amb" "(" {Datum ","}* ")" -> Datum
+    DataOpPrefix "=" DataOpPrefix -> Equation
+    DataOpPrefix "=" DataOpPrefix -> Condition
+    DataOpPrefix "!=" DataOpPrefix -> Condition
+    "amb" "(" {DataOpPrefix ","}* ")" -> DataOpPrefix
+    DataPredPrefix "=" DataPredPrefix -> Equation
+    DataPredPrefix "=" DataPredPrefix -> Condition
+    DataPredPrefix "!=" DataPredPrefix -> Condition
+    "amb" "(" {DataPredPrefix ","}* ")" -> DataPredPrefix
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName
+    List "=" List -> Equation
+    List "=" List -> Condition
+    List "!=" List -> Condition
+    "amb" "(" {List ","}* ")" -> List
+    Data "=" Data -> Equation
+    Data "=" Data -> Condition
+    Data "!=" Data -> Condition
+    "amb" "(" {Data ","}* ")" -> Data
+    Int "=" Int -> Equation
+    Int "=" Int -> Condition
+    Int "!=" Int -> Condition
+    "amb" "(" {Int ","}* ")" -> Int
+    Tree "=" Tree -> Equation
+    Tree "=" Tree -> Condition
+    Tree "!=" Tree -> Condition
+    "amb" "(" {Tree ","}* ")" -> Tree {cons("ambiguity-constructor")}
+    Bool "=" Bool -> Equation
+    Bool "=" Bool -> Condition
+    Bool "!=" Bool -> Condition
+    "amb" "(" {Bool ","}* ")" -> Bool
+    Int "=" Int -> Equation
+    Int "=" Int -> Condition
+    Int "!=" Int -> Condition
+    "amb" "(" {Int ","}* ")" -> Int
+    Elt "=" Elt -> Equation
+    Elt "=" Elt -> Condition
+    Elt "!=" Elt -> Condition
+    "amb" "(" {Elt ","}* ")" -> Elt
+    Elt* "=" Elt* -> Equation
+    Elt* "=" Elt* -> Condition
+    Elt* "!=" Elt* -> Condition
+    "amb" "(" {Elt* ","}* ")" -> Elt*
+    Tree-Map "=" Tree-Map -> Equation
+    Tree-Map "=" Tree-Map -> Condition
+    Tree-Map "!=" Tree-Map -> Condition
+    "amb" "(" {Tree-Map ","}* ")" -> Tree-Map {cons("ambiguity-constructor")}
+    Bool "=" Bool -> Equation
+    Bool "=" Bool -> Condition
+    Bool "!=" Bool -> Condition
+    "amb" "(" {Bool ","}* ")" -> Bool
+    Value "=" Value -> Equation
+    Value "=" Value -> Condition
+    Value "!=" Value -> Condition
+    "amb" "(" {Value ","}* ")" -> Value
+    Key* "=" Key* -> Equation
+    Key* "=" Key* -> Condition
+    Key* "!=" Key* -> Condition
+    "amb" "(" {Key* ","}* ")" -> Key*
+    Key # Value "=" Key # Value -> Equation
+    Key # Value "=" Key # Value -> Condition
+    Key # Value "!=" Key # Value -> Condition
+    "amb" "(" {Key # Value ","}* ")" -> Key#Value {cons("ambiguity-constructor")}
+    Key # Value* "=" Key # Value* -> Equation
+    Key # Value* "=" Key # Value* -> Condition
+    Key # Value* "!=" Key # Value* -> Condition
+    "amb" "(" {Key # Value* ","}* ")" -> Key#Value* {cons("ambiguity-constructor")}
+    Bindings "=" Bindings -> Equation
+    Bindings "=" Bindings -> Condition
+    Bindings "!=" Bindings -> Condition
+    "amb" "(" {Bindings ","}* ")" -> Bindings {cons("ambiguity-constructor")}
+    Datum "=" Datum -> Equation
+    Datum "=" Datum -> Condition
+    Datum "!=" Datum -> Condition
+    "amb" "(" {Datum ","}* ")" -> Datum
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName
+    DataConst "=" DataConst -> Equation
+    DataConst "=" DataConst -> Condition
+    DataConst "!=" DataConst -> Condition
+    "amb" "(" {DataConst ","}* ")" -> DataConst
+    DataOpPrefix "=" DataOpPrefix -> Equation
+    DataOpPrefix "=" DataOpPrefix -> Condition
+    DataOpPrefix "!=" DataOpPrefix -> Condition
+    "amb" "(" {DataOpPrefix ","}* ")" -> DataOpPrefix
+    Set "=" Set -> Equation
+    Set "=" Set -> Condition
+    Set "!=" Set -> Condition
+    "amb" "(" {Set ","}* ")" -> Set
+    Action "=" Action -> Equation
+    Action "=" Action -> Condition
+    Action "!=" Action -> Condition
+    "amb" "(" {Action ","}* ")" -> Action
+    Datum "=" Datum -> Equation
+    Datum "=" Datum -> Condition
+    Datum "!=" Datum -> Condition
+    "amb" "(" {Datum ","}* ")" -> Datum
+    DataOpPrefix "=" DataOpPrefix -> Equation
+    DataOpPrefix "=" DataOpPrefix -> Condition
+    DataOpPrefix "!=" DataOpPrefix -> Condition
+    "amb" "(" {DataOpPrefix ","}* ")" -> DataOpPrefix
+    DataOpInfix "=" DataOpInfix -> Equation
+    DataOpInfix "=" DataOpInfix -> Condition
+    DataOpInfix "!=" DataOpInfix -> Condition
+    "amb" "(" {DataOpInfix ","}* ")" -> DataOpInfix
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName
+    ActionPrefix "=" ActionPrefix -> Equation
+    ActionPrefix "=" ActionPrefix -> Condition
+    ActionPrefix "!=" ActionPrefix -> Condition
+    "amb" "(" {ActionPrefix ","}* ")" -> ActionPrefix {cons("ambiguity-constructor")}
+    ActionInfix "=" ActionInfix -> Equation
+    ActionInfix "=" ActionInfix -> Condition
+    ActionInfix "!=" ActionInfix -> Condition
+    "amb" "(" {ActionInfix ","}* ")" -> ActionInfix {cons("ambiguity-constructor")}
+    ActionConst "=" ActionConst -> Equation
+    ActionConst "=" ActionConst -> Condition
+    ActionConst "!=" ActionConst -> Condition
+    "amb" "(" {ActionConst ","}* ")" -> ActionConst {cons("ambiguity-constructor")}
+    Terminated "=" Terminated -> Equation
+    Terminated "=" Terminated -> Condition
+    Terminated "!=" Terminated -> Condition
+    "amb" "(" {Terminated ","}* ")" -> Terminated {cons("ambiguity-constructor")}
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName
+    MessageTag "=" MessageTag -> Equation
+    MessageTag "=" MessageTag -> Condition
+    MessageTag "!=" MessageTag -> Condition
+    "amb" "(" {MessageTag ","}* ")" -> MessageTag
+    Datum "=" Datum -> Equation
+    Datum "=" Datum -> Condition
+    Datum "!=" Datum -> Condition
+    "amb" "(" {Datum ","}* ")" -> Datum
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName
+    Datum "=" Datum -> Equation
+    Datum "=" Datum -> Condition
+    Datum "!=" Datum -> Condition
+    "amb" "(" {Datum ","}* ")" -> Datum
+    Cell "=" Cell -> Equation
+    Cell "=" Cell -> Condition
+    Cell "!=" Cell -> Condition
+    "amb" "(" {Cell ","}* ")" -> Cell
+    Int "=" Int -> Equation
+    Int "=" Int -> Condition
+    Int "!=" Int -> Condition
+    "amb" "(" {Int ","}* ")" -> Int
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName
+    Agent "=" Agent -> Equation
+    Agent "=" Agent -> Condition
+    Agent "!=" Agent -> Condition
+    "amb" "(" {Agent ","}* ")" -> Agent
+    Int "=" Int -> Equation
+    Int "=" Int -> Condition
+    Int "!=" Int -> Condition
+    "amb" "(" {Int ","}* ")" -> Int
+    Datum "=" Datum -> Equation
+    Datum "=" Datum -> Condition
+    Datum "!=" Datum -> Condition
+    "amb" "(" {Datum ","}* ")" -> Datum
+    List "=" List -> Equation
+    List "=" List -> Condition
+    List "!=" List -> Condition
+    "amb" "(" {List ","}* ")" -> List {cons("ambiguity-constructor")}
+    X "=" X -> Equation
+    X "=" X -> Condition
+    X "!=" X -> Condition
+    "amb" "(" {X ","}* ")" -> X
+    Int "=" Int -> Equation
+    Int "=" Int -> Condition
+    Int "!=" Int -> Condition
+    "amb" "(" {Int ","}* ")" -> Int
+    DataOpPrefix "=" DataOpPrefix -> Equation
+    DataOpPrefix "=" DataOpPrefix -> Condition
+    DataOpPrefix "!=" DataOpPrefix -> Condition
+    "amb" "(" {DataOpPrefix ","}* ")" -> DataOpPrefix
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName
+    DataOpInfix "=" DataOpInfix -> Equation
+    DataOpInfix "=" DataOpInfix -> Condition
+    DataOpInfix "!=" DataOpInfix -> Condition
+    "amb" "(" {DataOpInfix ","}* ")" -> DataOpInfix
+    Datum "=" Datum -> Equation
+    Datum "=" Datum -> Condition
+    Datum "!=" Datum -> Condition
+    "amb" "(" {Datum ","}* ")" -> Datum
+    Data "=" Data -> Equation
+    Data "=" Data -> Condition
+    Data "!=" Data -> Condition
+    "amb" "(" {Data ","}* ")" -> Data {cons("ambiguity-constructor")}
+    String "=" String -> Equation
+    String "=" String -> Condition
+    String "!=" String -> Condition
+    "amb" "(" {String ","}* ")" -> String {cons("ambiguity-constructor")}
+    StringChar "=" StringChar -> Equation
+    StringChar "=" StringChar -> Condition
+    StringChar "!=" StringChar -> Condition
+    "amb" "(" {StringChar ","}* ")" -> StringChar
+    Int "=" Int -> Equation
+    Int "=" Int -> Condition
+    Int "!=" Int -> Condition
+    "amb" "(" {Int ","}* ")" -> Int
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName
+    Token "=" Token -> Equation
+    Token "=" Token -> Condition
+    Token "!=" Token -> Condition
+    "amb" "(" {Token ","}* ")" -> Token
+    Datum "=" Datum -> Equation
+    Datum "=" Datum -> Condition
+    Datum "!=" Datum -> Condition
+    "amb" "(" {Datum ","}* ")" -> Datum
+    DataOpPrefix "=" DataOpPrefix -> Equation
+    DataOpPrefix "=" DataOpPrefix -> Condition
+    DataOpPrefix "!=" DataOpPrefix -> Condition
+    "amb" "(" {DataOpPrefix ","}* ")" -> DataOpPrefix {cons("ambiguity-constructor")}
+    DataTypes "=" DataTypes -> Equation
+    DataTypes "=" DataTypes -> Condition
+    DataTypes "!=" DataTypes -> Condition
+    "amb" "(" {DataTypes ","}* ")" -> DataTypes {cons("ambiguity-constructor")}
+    String "=" String -> Equation
+    String "=" String -> Condition
+    String "!=" String -> Condition
+    "amb" "(" {String ","}* ")" -> String {cons("ambiguity-constructor")}
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName
+    DataOpPrefix "=" DataOpPrefix -> Equation
+    DataOpPrefix "=" DataOpPrefix -> Condition
+    DataOpPrefix "!=" DataOpPrefix -> Condition
+    "amb" "(" {DataOpPrefix ","}* ")" -> DataOpPrefix
+    Datum "=" Datum -> Equation
+    Datum "=" Datum -> Condition
+    Datum "!=" Datum -> Condition
+    "amb" "(" {Datum ","}* ")" -> Datum
+    BoolConst "=" BoolConst -> Equation
+    BoolConst "=" BoolConst -> Condition
+    BoolConst "!=" BoolConst -> Condition
+    "amb" "(" {BoolConst ","}* ")" -> BoolConst {cons("ambiguity-constructor")}
+    Bool "=" Bool -> Equation
+    Bool "=" Bool -> Condition
+    Bool "!=" Bool -> Condition
+    "amb" "(" {Bool ","}* ")" -> Bool {cons("ambiguity-constructor")}
+    DataConst "=" DataConst -> Equation
+    DataConst "=" DataConst -> Condition
+    DataConst "!=" DataConst -> Condition
+    "amb" "(" {DataConst ","}* ")" -> DataConst {cons("ambiguity-constructor")}
+    DataSort "=" DataSort -> Equation
+    DataSort "=" DataSort -> Condition
+    DataSort "!=" DataSort -> Condition
+    "amb" "(" {DataSort ","}* ")" -> DataSort
+    Outcome "=" Outcome -> Equation
+    Outcome "=" Outcome -> Condition
+    Outcome "!=" Outcome -> Condition
+    "amb" "(" {Outcome ","}* ")" -> Outcome
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName
+    Module "=" Module -> Equation
+    Module "=" Module -> Condition
+    Module "!=" Module -> Condition
+    "amb" "(" {Module ","}* ")" -> Module
+    DataOp "=" DataOp -> Equation
+    DataOp "=" DataOp -> Condition
+    DataOp "!=" DataOp -> Condition
+    "amb" "(" {DataOp ","}* ")" -> DataOp {cons("ambiguity-constructor")}
+    DataPred "=" DataPred -> Equation
+    DataPred "=" DataPred -> Condition
+    DataPred "!=" DataPred -> Condition
+    "amb" "(" {DataPred ","}* ")" -> DataPred {cons("ambiguity-constructor")}
+    OutCome "=" OutCome -> Equation
+    OutCome "=" OutCome -> Condition
+    OutCome "!=" OutCome -> Condition
+    "amb" "(" {OutCome ","}* ")" -> OutCome {cons("ambiguity-constructor")}
+    Data "=" Data -> Equation
+    Data "=" Data -> Condition
+    Data "!=" Data -> Condition
+    "amb" "(" {Data ","}* ")" -> Data
+    DataOpPrefix "=" DataOpPrefix -> Equation
+    DataOpPrefix "=" DataOpPrefix -> Condition
+    DataOpPrefix "!=" DataOpPrefix -> Condition
+    "amb" "(" {DataOpPrefix ","}* ")" -> DataOpPrefix
+    DataOpSort "=" DataOpSort -> Equation
+    DataOpSort "=" DataOpSort -> Condition
+    DataOpSort "!=" DataOpSort -> Condition
+    "amb" "(" {DataOpSort ","}* ")" -> DataOpSort
+    DataConst "=" DataConst -> Equation
+    DataConst "=" DataConst -> Condition
+    DataConst "!=" DataConst -> Condition
+    "amb" "(" {DataConst ","}* ")" -> DataConst
+    Bool "=" Bool -> Equation
+    Bool "=" Bool -> Condition
+    Bool "!=" Bool -> Condition
+    "amb" "(" {Bool ","}* ")" -> Bool
+    DataOp "=" DataOp -> Equation
+    DataOp "=" DataOp -> Condition
+    DataOp "!=" DataOp -> Condition
+    "amb" "(" {DataOp ","}* ")" -> DataOp
+    DataPred "=" DataPred -> Equation
+    DataPred "=" DataPred -> Condition
+    DataPred "!=" DataPred -> Condition
+    "amb" "(" {DataPred ","}* ")" -> DataPred
+    DataPredInfix "=" DataPredInfix -> Equation
+    DataPredInfix "=" DataPredInfix -> Condition
+    DataPredInfix "!=" DataPredInfix -> Condition
+    "amb" "(" {DataPredInfix ","}* ")" -> DataPredInfix {cons("ambiguity-constructor")}
+    DataPredPrefix "=" DataPredPrefix -> Equation
+    DataPredPrefix "=" DataPredPrefix -> Condition
+    DataPredPrefix "!=" DataPredPrefix -> Condition
+    "amb" "(" {DataPredPrefix ","}* ")" -> DataPredPrefix {cons("ambiguity-constructor")}
+    DataOpComponent "=" DataOpComponent -> Equation
+    DataOpComponent "=" DataOpComponent -> Condition
+    DataOpComponent "!=" DataOpComponent -> Condition
+    "amb" "(" {DataOpComponent ","}* ")" -> DataOpComponent {cons("ambiguity-constructor")}
+    Datum "=" Datum -> Equation
+    Datum "=" Datum -> Condition
+    Datum "!=" Datum -> Condition
+    "amb" "(" {Datum ","}* ")" -> Datum
+    Bool "=" Bool -> Equation
+    Bool "=" Bool -> Condition
+    Bool "!=" Bool -> Condition
+    "amb" "(" {Bool ","}* ")" -> Bool {cons("ambiguity-constructor")}
+    BoolConst "=" BoolConst -> Equation
+    BoolConst "=" BoolConst -> Condition
+    BoolConst "!=" BoolConst -> Condition
+    "amb" "(" {BoolConst ","}* ")" -> BoolConst {cons("ambiguity-constructor")}
+    Zero "=" Zero -> Equation
+    Zero "=" Zero -> Condition
+    Zero "!=" Zero -> Condition
+    "amb" "(" {Zero ","}* ")" -> Zero
+    PosNumeral "=" PosNumeral -> Equation
+    PosNumeral "=" PosNumeral -> Condition
+    PosNumeral "!=" PosNumeral -> Condition
+    "amb" "(" {PosNumeral ","}* ")" -> PosNumeral
+    Nat-Con "=" Nat-Con -> Equation
+    Nat-Con "=" Nat-Con -> Condition
+    Nat-Con "!=" Nat-Con -> Condition
+    "amb" "(" {Nat-Con ","}* ")" -> Nat-Con
+    Numeral "=" Numeral -> Equation
+    Numeral "=" Numeral -> Condition
+    Numeral "!=" Numeral -> Condition
+    "amb" "(" {Numeral ","}* ")" -> Numeral
+    Nat "=" Nat -> Equation
+    Nat "=" Nat -> Condition
+    Nat "!=" Nat -> Condition
+    "amb" "(" {Nat ","}* ")" -> Nat
+    Int "=" Int -> Equation
+    Int "=" Int -> Condition
+    Int "!=" Int -> Condition
+    "amb" "(" {Int ","}* ")" -> Int
+    Bool "=" Bool -> Equation
+    Bool "=" Bool -> Condition
+    Bool "!=" Bool -> Condition
+    "amb" "(" {Bool ","}* ")" -> Bool
+    Pos "=" Pos -> Equation
+    Pos "=" Pos -> Condition
+    Pos "!=" Pos -> Condition
+    "amb" "(" {Pos ","}* ")" -> Pos {cons("ambiguity-constructor")}
+    DataPredInfix "=" DataPredInfix -> Equation
+    DataPredInfix "=" DataPredInfix -> Condition
+    DataPredInfix "!=" DataPredInfix -> Condition
+    "amb" "(" {DataPredInfix ","}* ")" -> DataPredInfix
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName
+    DataOpInfix "=" DataOpInfix -> Equation
+    DataOpInfix "=" DataOpInfix -> Condition
+    DataOpInfix "!=" DataOpInfix -> Condition
+    "amb" "(" {DataOpInfix ","}* ")" -> DataOpInfix
+    Datum "=" Datum -> Equation
+    Datum "=" Datum -> Condition
+    Datum "!=" Datum -> Condition
+    "amb" "(" {Datum ","}* ")" -> Datum
+    Int "=" Int -> Equation
+    Int "=" Int -> Condition
+    Int "!=" Int -> Condition
+    "amb" "(" {Int ","}* ")" -> Int {cons("ambiguity-constructor")}
+    DataOpPrefix "=" DataOpPrefix -> Equation
+    DataOpPrefix "=" DataOpPrefix -> Condition
+    DataOpPrefix "!=" DataOpPrefix -> Condition
+    "amb" "(" {DataOpPrefix ","}* ")" -> DataOpPrefix
+    DataOpComponent "=" DataOpComponent -> Equation
+    DataOpComponent "=" DataOpComponent -> Condition
+    DataOpComponent "!=" DataOpComponent -> Condition
+    "amb" "(" {DataOpComponent ","}* ")" -> DataOpComponent
+    DataPredInfix "=" DataPredInfix -> Equation
+    DataPredInfix "=" DataPredInfix -> Condition
+    DataPredInfix "!=" DataPredInfix -> Condition
+    "amb" "(" {DataPredInfix ","}* ")" -> DataPredInfix
+    DataPredPrefix "=" DataPredPrefix -> Equation
+    DataPredPrefix "=" DataPredPrefix -> Condition
+    DataPredPrefix "!=" DataPredPrefix -> Condition
+    "amb" "(" {DataPredPrefix ","}* ")" -> DataPredPrefix
+    Data "=" Data -> Equation
+    Data "=" Data -> Condition
+    Data "!=" Data -> Condition
+    "amb" "(" {Data ","}* ")" -> Data
+    Bool "=" Bool -> Equation
+    Bool "=" Bool -> Condition
+    Bool "!=" Bool -> Condition
+    "amb" "(" {Bool ","}* ")" -> Bool
+    ActionConst "=" ActionConst -> Equation
+    ActionConst "=" ActionConst -> Condition
+    ActionConst "!=" ActionConst -> Condition
+    "amb" "(" {ActionConst ","}* ")" -> ActionConst
+    ActionInfix "=" ActionInfix -> Equation
+    ActionInfix "=" ActionInfix -> Condition
+    ActionInfix "!=" ActionInfix -> Condition
+    "amb" "(" {ActionInfix ","}* ")" -> ActionInfix
+    ActionPrefix "=" ActionPrefix -> Equation
+    ActionPrefix "=" ActionPrefix -> Condition
+    ActionPrefix "!=" ActionPrefix -> Condition
+    "amb" "(" {ActionPrefix ","}* ")" -> ActionPrefix
+    Terminated "=" Terminated -> Equation
+    Terminated "=" Terminated -> Condition
+    Terminated "!=" Terminated -> Condition
+    "amb" "(" {Terminated ","}* ")" -> Terminated
+    Action "=" Action -> Equation
+    Action "=" Action -> Condition
+    Action "!=" Action -> Condition
+    "amb" "(" {Action ","}* ")" -> Action
+    DataTypes "=" DataTypes -> Equation
+    DataTypes "=" DataTypes -> Condition
+    DataTypes "!=" DataTypes -> Condition
+    "amb" "(" {DataTypes ","}* ")" -> DataTypes {cons("ambiguity-constructor")}
+    ActionConst "=" ActionConst -> Equation
+    ActionConst "=" ActionConst -> Condition
+    ActionConst "!=" ActionConst -> Condition
+    "amb" "(" {ActionConst ","}* ")" -> ActionConst
+    ActionInfix "=" ActionInfix -> Equation
+    ActionInfix "=" ActionInfix -> Condition
+    ActionInfix "!=" ActionInfix -> Condition
+    "amb" "(" {ActionInfix ","}* ")" -> ActionInfix
+    DataOpPrefix "=" DataOpPrefix -> Equation
+    DataOpPrefix "=" DataOpPrefix -> Condition
+    DataOpPrefix "!=" DataOpPrefix -> Condition
+    "amb" "(" {DataOpPrefix ","}* ")" -> DataOpPrefix {cons("ambiguity-constructor")}
+    DataConst "=" DataConst -> Equation
+    DataConst "=" DataConst -> Condition
+    DataConst "!=" DataConst -> Condition
+    "amb" "(" {DataConst ","}* ")" -> DataConst {cons("ambiguity-constructor")}
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName {cons("ambiguity-constructor")}
+    DataTypes "=" DataTypes -> Equation
+    DataTypes "=" DataTypes -> Condition
+    DataTypes "!=" DataTypes -> Condition
+    "amb" "(" {DataTypes ","}* ")" -> DataTypes {cons("ambiguity-constructor")}
+    ActionConst "=" ActionConst -> Equation
+    ActionConst "=" ActionConst -> Condition
+    ActionConst "!=" ActionConst -> Condition
+    "amb" "(" {ActionConst ","}* ")" -> ActionConst
+    DataOpPrefix "=" DataOpPrefix -> Equation
+    DataOpPrefix "=" DataOpPrefix -> Condition
+    DataOpPrefix "!=" DataOpPrefix -> Condition
+    "amb" "(" {DataOpPrefix ","}* ")" -> DataOpPrefix {cons("ambiguity-constructor")}
+    DataOpInfix "=" DataOpInfix -> Equation
+    DataOpInfix "=" DataOpInfix -> Condition
+    DataOpInfix "!=" DataOpInfix -> Condition
+    "amb" "(" {DataOpInfix ","}* ")" -> DataOpInfix {cons("ambiguity-constructor")}
+    DataConst "=" DataConst -> Equation
+    DataConst "=" DataConst -> Condition
+    DataConst "!=" DataConst -> Condition
+    "amb" "(" {DataConst ","}* ")" -> DataConst {cons("ambiguity-constructor")}
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName {cons("ambiguity-constructor")}
+    Datum "=" Datum -> Equation
+    Datum "=" Datum -> Condition
+    Datum "!=" Datum -> Condition
+    "amb" "(" {Datum ","}* ")" -> Datum {cons("ambiguity-constructor")}
+    ActionConst "=" ActionConst -> Equation
+    ActionConst "=" ActionConst -> Condition
+    ActionConst "!=" ActionConst -> Condition
+    "amb" "(" {ActionConst ","}* ")" -> ActionConst
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName {cons("ambiguity-constructor")}
+    DataTypes "=" DataTypes -> Equation
+    DataTypes "=" DataTypes -> Condition
+    DataTypes "!=" DataTypes -> Condition
+    "amb" "(" {DataTypes ","}* ")" -> DataTypes {cons("ambiguity-constructor")}
+    ActionConst "=" ActionConst -> Equation
+    ActionConst "=" ActionConst -> Condition
+    ActionConst "!=" ActionConst -> Condition
+    "amb" "(" {ActionConst ","}* ")" -> ActionConst
+    SortName "=" SortName -> Equation
+    SortName "=" SortName -> Condition
+    SortName "!=" SortName -> Condition
+    "amb" "(" {SortName ","}* ")" -> SortName {cons("ambiguity-constructor")}
+    MessageTag "=" MessageTag -> Equation
+    MessageTag "=" MessageTag -> Condition
+    MessageTag "!=" MessageTag -> Condition
+    "amb" "(" {MessageTag ","}* ")" -> MessageTag {cons("ambiguity-constructor")}
+    Action "=" Action -> Equation
+    Action "=" Action -> Condition
+    Action "!=" Action -> Condition
+    "amb" "(" {Action ","}* ")" -> Action {cons("ambiguity-constructor")}
+    Yielder "=" Yielder -> Equation
+    Yielder "=" Yielder -> Condition
+    Yielder "!=" Yielder -> Condition
+    "amb" "(" {Yielder ","}* ")" -> Yielder
+    ActionConst "=" ActionConst -> Equation
+    ActionConst "=" ActionConst -> Condition
+    ActionConst "!=" ActionConst -> Condition
+    "amb" "(" {ActionConst ","}* ")" -> ActionConst
+    ActionPrefix "=" ActionPrefix -> Equation
+    ActionPrefix "=" ActionPrefix -> Condition
+    ActionPrefix "!=" ActionPrefix -> Condition
+    "amb" "(" {ActionPrefix ","}* ")" -> ActionPrefix
+    ActionInfix "=" ActionInfix -> Equation
+    ActionInfix "=" ActionInfix -> Condition
+    ActionInfix "!=" ActionInfix -> Condition
+    "amb" "(" {ActionInfix ","}* ")" -> ActionInfix
+    Action "=" Action -> Equation
+    Action "=" Action -> Condition
+    Action "!=" Action -> Condition
+    "amb" "(" {Action ","}* ")" -> Action {cons("ambiguity-constructor")}
+    ClassBodyDec "=" ClassBodyDec -> Equation
+    ClassBodyDec "=" ClassBodyDec -> Condition
+    ClassBodyDec "!=" ClassBodyDec -> Condition
+    "amb" "(" {ClassBodyDec ","}* ")" -> ClassBodyDec {cons("ambiguity-constructor")}
+    ClassBodyDdec* "=" ClassBodyDdec* -> Equation
+    ClassBodyDdec* "=" ClassBodyDdec* -> Condition
+    ClassBodyDdec* "!=" ClassBodyDdec* -> Condition
+    "amb" "(" {ClassBodyDdec* ","}* ")" -> ClassBodyDdec* {cons("ambiguity-constructor")}
+    Id "=" Id -> Equation
+    Id "=" Id -> Condition
+    Id "!=" Id -> Condition
+    "amb" "(" {Id ","}* ")" -> Id {cons("ambiguity-constructor")}
+    Expr "=" Expr -> Equation
+    Expr "=" Expr -> Condition
+    Expr "!=" Expr -> Condition
+    "amb" "(" {Expr ","}* ")" -> Expr {cons("ambiguity-constructor")}
+    ClassDec "=" ClassDec -> Equation
+    ClassDec "=" ClassDec -> Condition
+    ClassDec "!=" ClassDec -> Condition
+    "amb" "(" {ClassDec ","}* ")" -> ClassDec
+    ClassBodyDec* "=" ClassBodyDec* -> Equation
+    ClassBodyDec* "=" ClassBodyDec* -> Condition
+    ClassBodyDec* "!=" ClassBodyDec* -> Condition
+    "amb" "(" {ClassBodyDec* ","}* ")" -> ClassBodyDec*
+    Position-Index "=" Position-Index -> Equation
+    Position-Index "=" Position-Index -> Condition
+    Position-Index "!=" Position-Index -> Condition
+    "amb" "(" {Position-Index ","}* ")" -> Position-Index
+    MethodDec "=" MethodDec -> Equation
+    MethodDec "=" MethodDec -> Condition
+    MethodDec "!=" MethodDec -> Condition
+    "amb" "(" {MethodDec ","}* ")" -> MethodDec
+    Expr "=" Expr -> Equation
+    Expr "=" Expr -> Condition
+    Expr "!=" Expr -> Condition
+    "amb" "(" {Expr ","}* ")" -> Expr
+    EnvironmentEnvironment "=" EnvironmentEnvironment -> Equation
+    EnvironmentEnvironment "=" EnvironmentEnvironment -> Condition
+    EnvironmentEnvironment "!=" EnvironmentEnvironment -> Condition
+    "amb" "(" {EnvironmentEnvironment ","}* ")" -> EnvironmentEnvironment
+    Id "=" Id -> Equation
+    Id "=" Id -> Condition
+    Id "!=" Id -> Condition
+    "amb" "(" {Id ","}* ")" -> Id

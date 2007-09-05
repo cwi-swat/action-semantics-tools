@@ -1,0 +1,6 @@
+module an/syn/abbrev/Full-AN
+
+imports an/syn/abbrev/Data-Control-Action
+	an/syn/abbrev/Binding-Action
+	an/syn/abbrev/Storing-Action
+	an/syn/abbrev/Interacting-Action

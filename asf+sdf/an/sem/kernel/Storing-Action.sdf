@@ -1,0 +1,26 @@
+module an/sem/kernel/Storing-Action
+
+imports an/syn/kernel/Storing-Action
+	an/sem/kernel/Storage-Flow 
+	an/sem/kernel/Data-Flow 
+	dn/sem/internal/Cell
+
+exports
+
+context-free syntax
+
+hiddens
+
+imports basic/Comments
+
+context-free syntax
+	new-cell(Cells) -> Cell {cons("new-cell")}
+
+variables
+	"st"[0-9\']* -> Storage
+	"a"[0-9\']* -> Arbitrary
+	"i"[0-9\']* -> Arbitrary
+	"s"[0-9\']* -> IndexedState
+	"cs"[0-9\']* -> Cells
+	"c"[0-9\']* -> Cell
+	"sv"[0-9\']* -> Datum

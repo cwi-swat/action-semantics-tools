@@ -1,0 +1,2283 @@
+definition
+
+module obs/aux/structs/Info[Key Value]
+
+imports obs/aux/structs/Environment
+
+exports
+
+context-free syntax
+
+Key -> Environment-Key
+Value -> Environment-Value
+
+module ajc/Kernel-Primitive-AN-to-Java
+
+imports ajc/Data-to-Java
+
+
+hiddens
+variables
+"id"[0-9\']* -> Id
+"str"[0-9\']* -> StringLiteral
+"exp"[0-9\']* -> Expr
+"bs"[0-9\']* -> Bindings
+"t"[0-9\']* -> Terminated
+"ds"[0-9\']* -> DataSort
+"oc"[0-9\']* -> Outcome+
+"A"[0-9\']* -> Action
+"Ap"[0-9\']* -> ActionPrefix
+"Ac"[0-9\']* -> ActionConst
+"Ai"[0-9\']* -> ActionInfix
+"C"[0-9\']* -> {Action "or"}+
+"d"[0-9\']* -> Data
+"dc"[0-9\']* -> DataConst
+"d+"[0-9\']* -> {Data ","}+
+"o"[0-9\']* -> DataOp
+"op"[0-9\']* -> DataOpPrefix
+"oi"[0-9\']* -> DataOpInfix
+"q"[0-9\']* -> DataPred
+"u"[0-9\']* -> Datum
+"n"[0-9\']* -> Int
+"tk"[0-9\']* -> Token
+"nat"[0-9\']* -> Nat
+"pos"[0-9\']* -> Pos
+"nat-con"[0-9\']* -> Nat-Con
+"b"[0-9\']* -> DataConst
+"c"[0-9\']* -> Cell
+"char+"[0-9\']* -> CHAR+
+"char*"[0-9\']* -> CHAR*
+"b"[0-9\']* -> Bool
+"env"[0-9\']* -> Environment
+
+module ajc/AN2-to-Java-Functions
+
+imports obs/AN2 
+	%%an/Full-AN2-Syntax
+	%%dn/DN2-Syntax
+	java/basic/Java
+	obs/aux/structs/Environment
+
+exports
+
+sorts ClassBodyDec ClassBodyDdec* Id Expr
+
+context-free syntax
+
+ka-to-class(ClassMod,Id,Action,Environment) -> ClassDec
+ka-to-decls(Action,Environment) -> ClassBodyDec*
+ka-to-identifier(Action,Environment) -> Id
+ka-to-expression(Action,Expr,Expr,Environment) -> Expr
+
+fa-to-class(ClassMod,Id,Action,Environment) -> ClassDec
+fa-to-decls(Action,Environment) -> ClassBodyDec*
+fa-to-identifier(Action,Environment) -> Id
+fa-to-expression(Action,Expr,Expr,Environment) -> Expr
+
+make-id(Action, Int) -> Id
+
+hiddens
+variables
+"A"[0-9\']* -> Action
+"exp"[0-9\']* -> Expr
+"env"[0-9\']* -> Environment
+"char+"[0-9\']* -> CHAR+
+"char*"[0-9\']* -> CHAR*
+"char"[0-9\']* -> CHAR
+"Ap"[0-9\']* -> ActionPrefix
+"Ac"[0-9\']* -> ActionConst
+"Ai"[0-9\']* -> ActionInfix
+module obs/aux/structs/Environment
+
+imports obs/aux/structs/Finite-Map[Environment-Key Environment-Value]
+		  [Finite-Map => Environment]
+
+exports
+
+sorts Environment
+
+context-free syntax
+
+new-environment() -> Environment
+module obs/aux/structs/Finite-Map[Key Value]
+
+imports obs/data/booleans/Bool 
+	obs/aux/structs/Finite-Set[Key]
+
+exports
+
+sorts Finite-Map Value
+
+context-free syntax
+
+Finite-Map "." Key ":=" Value -> Finite-Map
+Finite-Map "." Key -> Value
+
+"(" Finite-Map ")" -> Finite-Map {bracket}
+
+Finite-Map "+" Finite-Map -> Finite-Map {assoc}
+
+get(Finite-Map, Key) -> Value
+put(Finite-Map, Key, Value) -> Finite-Map
+remove(Finite-Map, Key) -> Finite-Map
+
+has-key(Finite-Map, Key) -> Bool
+
+domain(Finite-Map) -> Finite-Set
+
+empty-map() -> Finite-Map
+
+disjoint-union(Finite-Map, Finite-Map) -> Finite-Map
+overriding(Finite-Map, Finite-Map) -> Finite-Map
+
+
+%%aliases
+Key # Value -> Tuple
+
+context-free syntax
+
+"{" Tuple* "}" -> Finite-Map
+
+
+hiddens
+
+variables
+"k"[0-9\']* -> Key
+"v"[0-9\']* -> Value
+"m"[0-9\']* -> Finite-Map
+"tup"[0-9\']* -> Tuple
+"tup*"[0-9\']* -> Tuple*
+
+
+
+module obs/aux/structs/Finite-Set[Elt]
+
+imports obs/data/booleans/Bool 
+
+exports 
+
+sorts Finite-Set
+
+context-free syntax
+
+empty-set() -> Finite-Set
+
+Finite-Set "+" Finite-Set -> Finite-Set {assoc}
+
+element-of(Finite-Set, Elt) -> Bool
+add-to-set(Finite-Set, Elt) -> Finite-Set
+set(Elt) -> Finite-Set
+set-union(Finite-Set, Finite-Set) -> Finite-Set
+head(Finite-Set) -> Elt
+tail(Finite-Set) -> Finite-Set
+
+hiddens
+context-free syntax
+
+"{" Elt* "}" -> Finite-Set
+
+variables
+"e"[0-9\']* -> Elt
+"e*"[0-9\']* -> Elt*
+"s"[0-9\']* -> Finite-Set
+
+
+module obs/data/booleans/Bool
+
+imports obs/layout/Layout
+
+exports
+  sorts Bool BoolConst
+  context-free syntax
+
+  "true"        -> BoolConst {cons("true")}
+  "false"       -> BoolConst {cons("false")}
+  BoolConst     -> Bool {cons("bool")}
+
+  "not" arg:Bool    -> Bool {prefer, cons("not")}
+
+  lhs:Bool "|" rhs:Bool -> Bool {left, cons("or")}
+  lhs:Bool "&" rhs:Bool -> Bool {left, cons("and")}
+  "(" Bool ")"       -> Bool {bracket, cons("bracket-bool")}
+
+context-free priorities
+  Bool "&" Bool -> Bool >
+  Bool "|" Bool -> Bool
+
+hiddens
+  variables
+    "b"[0-9]* -> Bool
+
+
+module obs/layout/Layout
+
+exports lexical syntax
+  %% added by TVDS
+  "~~" ~[\n]* [\n] -> LAYOUT
+  "%%" ~[\n]* [\n] -> LAYOUT
+
+  [\ \t\n]      -> LAYOUT
+
+context-free restrictions
+
+  LAYOUT? -/- [\ \t\n]
+
+
+
+
+
+module ajc/Data-to-Java
+
+imports ajc/AN2-to-Java-Functions
+
+exports
+
+sorts Expr
+
+context-free syntax
+
+%% Use global module for data-to-aterm
+%% and define here, aterm-to-expression(ATerm)->Expression.
+
+data-to-expression(Data,Environment) -> Expr {prefer}
+datasort-to-pattern(DataSort) -> StringLiteral {prefer}
+datasort-to-identifier(DataSort) -> Id {prefer}
+int-to-integerliteral(Int) -> IntLiteral
+
+hiddens
+variables
+"id"[0-9\']* -> Id
+"str"[0-9\']* -> StringLiteral
+"exp"[0-9\']* -> Expr
+"bs"[0-9\']* -> Bindings
+"t"[0-9\']* -> Terminated
+"ds"[0-9\']* -> DataSort
+"oc"[0-9\']* -> Outcome+
+"A"[0-9\']* -> Action
+"Ap"[0-9\']* -> ActionPrefix
+"Ac"[0-9\']* -> ActionConst
+"Ai"[0-9\']* -> ActionInfix
+"C"[0-9\']* -> {Action "or"}+
+"d"[0-9\']* -> Data
+"dc"[0-9\']* -> DataConst
+"d+"[0-9\']* -> {Data ","}+
+"o"[0-9\']* -> DataOp
+"op"[0-9\']* -> DataOpPrefix
+"oi"[0-9\']* -> DataOpInfix
+"q"[0-9\']* -> DataPred
+"u"[0-9\']* -> Datum
+"n"[0-9\']* -> Int
+"tk"[0-9\']* -> Token
+"nat"[0-9\']* -> Natural
+"nat-con"[0-9\']* -> Nat-Con
+"b"[0-9\']* -> DataConst
+"char+"[0-9\']* -> CHAR+
+"char*"[0-9\']* -> CHAR*
+"b"[0-9\']* -> Boolean
+"env"[0-9\']* -> Environment
+module java/basic/Java
+imports java/basic/Java-Lexical
+        java/basic/Java-Names
+        java/basic/Java-TypeDecs
+exports
+  sorts CompilationUnit
+
+  context-free syntax
+
+    PackageDec? ImportDec* TypeDec+ -> CompilationUnit   {cons("CompilationUnit")}
+
+    "package" PackageName ";" -> PackageDec {cons("PackageDec")}
+
+    TypeImportDec             -> ImportDec {cons("ImportDec")} 
+    PackageImportDec          -> ImportDec {cons("ImportDec")}
+
+    ";" -> TypeDec {cons("Semicolon")}
+
+    "import" TypeName ";"     -> TypeImportDec  {cons("TypeRef")}
+    "import" PackageName "." "*" ";"  -> PackageImportDec {cons("PackageRef")}
+
+
+module obs/AN2
+
+imports obs/_AN
+
+module java/basic/Java-TypeDecs
+imports java/basic/Java-Interfaces
+        java/basic/Java-Classes
+
+exports
+  sorts TypeDec
+
+  context-free syntax
+    ClassDec      -> TypeDec
+    InterfaceDec  -> TypeDec
+
+
+module java/basic/Java-Names
+imports java/basic/Java-Identifiers
+
+exports
+
+  context-free syntax
+
+  %% TODO: is layout allowed between parts of names?
+  %% javac accepts layout
+
+    {Id "."}+  -> Name
+
+    Name -> PackageName {cons("PackageName")}
+    Name -> ClassName   {cons("ClassName")}
+
+    Name -> AmbName {cons("AmbName")}
+
+    AmbName "." Id -> MethodName  {cons("MethodName")}
+                Id -> MethodName  {cons("MethodName")}
+
+    AmbName "." Id -> ExprName {cons("ExprName")}
+                Id -> ExprName {cons("ExprName")}
+
+    Name "." Id -> QTypeName      {cons("QTypeName")}
+             Id -> SimpleTypeName {cons("TypeName")}
+
+    SimpleTypeName -> TypeName
+    QTypeName      -> TypeName
+
+
+module java/basic/Java-Lexical
+imports java/basic/Java-WhiteSpace
+        java/basic/Java-Comments
+        java/basic/Java-Identifiers
+        java/basic/Java-Keywords
+        java/basic/Java-Literals 
+
+
+module java/basic/Java-Classes
+imports java/basic/Java-Names
+        java/basic/Java-Modifiers
+        java/basic/Java-MethodDecs
+        java/basic/Java-Statements
+        java/basic/Java-Types
+
+exports
+  sorts ClassDec
+
+  context-free syntax
+
+    ClassMod* "class" Id  Super? Interfaces? ClassBody -> ClassDec {cons("ClassDec")}
+    
+    "extends" ClassType                 -> Super      {cons("Extends")}
+    "implements" {InterfaceType ","}+   -> Interfaces {cons("Implements")}
+
+    "{" ClassBodyDec* "}" -> ClassBody {cons("ClassBody")}
+
+    StaticInit     -> ClassBodyDec
+    InstanceInit   -> ClassBodyDec
+    ClassMemberDec -> ClassBodyDec
+    ConstructorDec -> ClassBodyDec
+
+    FieldDec     -> ClassMemberDec
+    MethodDec    -> ClassMemberDec
+    ClassDec     -> ClassMemberDec
+    InterfaceDec -> ClassMemberDec
+    ";"          -> ClassMemberDec {cons("Semicolon")}
+
+    FieldMod* Type { VarDec ","}+ ";" -> FieldDec {cons("FieldDec")}
+
+    "static" Block -> StaticInit   {cons("StaticInit")}
+             Block -> InstanceInit {cons("InstanceInit")}
+
+    ConstructorMod* SimpleTypeName "(" {FormalParam ","}* ")" Throws? ConstructorBody
+          ->  ConstructorDec {cons("ConstructorDec")}
+
+    "{" CInvoke? BlockStm* "}" -> ConstructorBody {cons("ConstructorBody")}
+
+              "this" "(" {Expr ","}* ")" ";" -> CInvoke {cons("CInvoke")}
+             "super" "(" {Expr ","}* ")" ";" -> CInvoke {cons("SuperCInvoke")}
+    Expr "." "super" "(" {Expr ","}* ")" ";" -> CInvoke {cons("QSuperCInvoke")}
+
+
+
+module java/basic/Java-Interfaces
+imports java/basic/Java-Names
+        java/basic/Java-Modifiers
+        java/basic/Java-MethodDecs
+        java/basic/Java-Types
+        java/basic/Java-VarDecs
+
+exports
+  sorts InterfaceDec
+
+  context-free syntax
+
+    InterfaceMod* "interface" Id ExtendsInterfaces? InterfaceBody -> InterfaceDec {cons("InterfaceDec")}
+    
+    "extends" {InterfaceType ","}+   -> ExtendsInterfaces {cons("ExtendsInterfaces")}
+
+    "{" InterfaceMemberDec* "}" -> InterfaceBody {cons("InterfaceBody")}
+
+    ConstantDec  -> InterfaceMemberDec
+    AMethodDec   -> InterfaceMemberDec
+    ClassDec     -> InterfaceMemberDec
+    InterfaceDec -> InterfaceMemberDec
+    ";"          -> InterfaceMemberDec {cons("Semicolon")}
+
+    ConstantMod* Type { VarDec ","}+ ";" -> ConstantDec {cons("ConstantDec")}
+
+    AMethodHead ";" -> AMethodDec {cons("MethodDec")}
+
+    AMethodMod* ResultType Id "(" {FormalParam ","}* ")" Throws?      -> AMethodHead {cons("Head")}
+    AMethodMod* ResultType Id "(" {FormalParam ","}* ")" Dim+ Throws? -> AMethodHead {cons("DeprHead")}
+
+
+
+module java/basic/Java-Types
+imports java/basic/Java-Names
+
+exports
+
+  context-free syntax
+    PrimType -> Type
+    RefType  -> Type
+
+    NumType   -> PrimType
+    "boolean" -> PrimType {cons("Boolean")}
+
+    IntType   -> NumType
+    FloatType -> NumType
+
+    "byte"   -> IntType   {cons("Byte")}
+    "short"  -> IntType   {cons("Short")}
+    "int"    -> IntType   {cons("Int")}
+    "long"   -> IntType   {cons("Long")}
+    "char"   -> IntType   {cons("Char")}
+    "float"  -> FloatType {cons("Float")}
+    "double" -> FloatType {cons("Double")}
+
+    ClassOrInterfaceType -> RefType
+    ArrayType            -> RefType
+
+    ClassType -> ClassOrInterfaceType
+
+    TypeName -> ClassType {cons("ClassType")}
+    TypeName -> InterfaceType {cons("InterfaceType")}
+
+    Type "[" "]" -> ArrayType  {cons("ArrayType")}
+
+
+module java/basic/Java-Statements
+imports java/basic/Java-Expressions 
+	java/basic/Java-Types
+
+exports
+  sorts BlockStm
+
+  context-free syntax
+    "{" BlockStm* "}" -> Block {cons("Block")}
+
+    Block       -> Stm
+
+    LocalVarDec -> BlockStm
+    Stm         -> BlockStm
+    ClassDec    -> BlockStm
+
+    Type {VarDec ","}+ ";" -> LocalVarDec {cons("LocalVarDec")}
+
+    %% TODO: not all expressions are allowed as statements. 
+    %% I do not want to inject certain specific expressions in a statement,
+    %% but reject the illegal ones.
+
+    Expr ";" -> Stm {cons("Expr")}
+
+    ";" -> Stm {cons("Empty")}
+    Id ":" Stm -> Stm {cons("Labeled")}
+
+    "if" "(" Expr ")" Stm -> Stm {cons("If")}
+    "if" "(" Expr ")" Stm "else" Stm -> Stm {cons("If")}
+
+    "while" "(" Expr ")" Stm -> Stm {cons("While")}
+    "do" Stm "while" "(" Expr ")" ";" -> Stm {cons("DoWhile")}
+
+    "for" "(" ForInit? ";" Expr? ";" ForUpdate? ")" Stm -> Stm {cons("For")}
+
+    LocalVarDec    -> ForInit
+    {StmExpr ","}+ -> ForInit   
+    {StmExpr ","}+ -> ForUpdate
+
+    "break"    Id? ";"   -> Stm {cons("Break")}
+    "continue" Id? ";"   -> Stm {cons("Continue")}
+    "return"   Expr? ";" -> Stm {cons("Return")}
+
+    "throw"    Expr  ";" -> Stm {cons("Throw")}
+    "try" Block CatchClause+ -> Stm {cons("Try")}
+    "try" Block CatchClause* "finally" Block -> Stm {cons("Try")}
+    "catch" "(" FormalParam ")" Block -> CatchClause {cons("Catch")}
+
+    "synchronized" "(" Expr ")" Block -> Stm {cons("Synchronized")}
+
+    "switch" "(" Expr ")" SwitchBlock -> Statement {cons("Switch")}
+    "{" SwitchGroup* SwitchLabel* "}" -> SwitchBlock {cons("SwitchBlock")}
+    SwitchLabel+ BlockStm+ -> SwitchGroup  {cons("SwitchGroup")}
+
+    "case" Expr ":" -> SwitchLabel {cons("Case")}
+    "default"   ":" -> SwitchLabel {cons("Default")}
+
+    "assert" Expr          ";" -> Stm  {cons("Assert")}
+    "assert" Expr ":" Expr ";" -> Stm  {cons("Assert")}
+
+  context-free priorities
+      "if" "(" Expr ")" Stm "else" Stm -> Stm
+    > "if" "(" Expr ")" Stm -> Stm
+
+
+module java/basic/Java-MethodDecs
+imports java/basic/Java-Lexical
+        java/basic/Java-Modifiers 
+        java/basic/Java-Types
+        java/basic/Java-Names
+        java/basic/Java-VarDecs
+exports
+
+  context-free syntax
+
+    MethodHead Block -> MethodDec {cons("MethodDec")}
+    MethodHead ";"   -> MethodDec {cons("MethodDec")}
+
+    %% TODO: that array MethodDeclarator is really extremely ugly... include it and how?
+
+    MethodMod* ResultType Id "(" {FormalParam ","}* ")" Throws?      -> MethodHead {cons("Head")}
+    MethodMod* ResultType Id "(" {FormalParam ","}* ")" Dim+ Throws? -> MethodHead {cons("DeprHead")}
+
+    Type   -> ResultType
+    "void" -> ResultType {cons("Void")}
+
+    Final? Type VarDecId -> FormalParam {cons("Param")}
+    "throws" {ClassType ","}+ -> Throws {cons("Throws")}
+
+
+
+module java/basic/Java-Modifiers
+
+exports
+  context-free syntax
+
+    AccessMod      -> ClassMod
+    Static         -> ClassMod
+    Abstract       -> ClassMod
+    Final          -> ClassMod
+    StrictFP       -> ClassMod
+
+    AccessMod      -> InterfaceMod
+    Static         -> InterfaceMod
+    Abstract       -> InterfaceMod
+    StrictFP       -> InterfaceMod
+
+    AccessMod      -> FieldMod
+    Static         -> FieldMod
+    Transient      -> FieldMod
+    Volatile       -> FieldMod
+    Final          -> FieldMod
+
+    AccessMod      -> ConstructorMod
+
+    Public         -> ConstantMod
+    Static         -> ConstantMod
+    Final          -> ConstantMod
+
+    Public         -> AccessMod
+    Protected      -> AccessMod
+    Private        -> AccessMod
+
+    Abstract       -> AMethodMod
+    Public         -> AMethodMod
+
+    AccessMod      -> MethodMod
+    Static         -> MethodMod
+    Abstract       -> MethodMod
+    Final          -> MethodMod
+    Synchronized   -> MethodMod
+    Native         -> MethodMod
+    StrictFP       -> MethodMod
+
+    "public"       -> Public       {cons("Public")}
+    "private"      -> Private      {cons("Private")}
+    "protected"    -> Protected    {cons("Protected")}
+
+    "abstract"     -> Abstract     {cons("Abstract")}
+    "final"        -> Final        {cons("Final")}
+    "static"       -> Static       {cons("Static")}
+    "native"       -> Native       {cons("Native")}
+    "transient"    -> Transient    {cons("Transient")}
+    "volatile"     -> Volatile     {cons("Volatile")}
+    "synchronized" -> Synchronized {cons("Synchronized")}
+    "strictfp"     -> StrictFP     {cons("StrictFP")}
+
+
+module java/basic/Java-Identifiers
+imports java/basic/Java-Keywords
+
+exports
+  sorts Id
+
+  lexical syntax
+    [A-Za-z\_\$]    -> JavaLetter
+    [A-Za-z0-9\_\$] -> JavaLetterOrDigit
+
+    [0-9]       -> Digit
+    [1-9]       -> NonZeroDigit
+    [0-9a-fA-F] -> HexDigit
+    [0-7]       -> OctalDigit
+
+    JavaLetter JavaLetterOrDigit* -> Id
+
+    Keyword         -> Id {reject}
+    BooleanLiteral  -> Id {reject}
+    NullLiteral     -> Id {reject}
+
+  lexical restrictions
+    Id -/- [a-zA-Z0-9\_\$]
+
+
+module java/basic/Java-Keywords
+
+exports
+
+  lexical syntax
+    "abstract"      -> Keyword
+    "assert"        -> Keyword
+    "boolean"       -> Keyword
+    "break"         -> Keyword
+    "byte"          -> Keyword
+    "case"          -> Keyword
+    "catch"         -> Keyword
+    "char"          -> Keyword
+    "class"         -> Keyword
+    "const"         -> Keyword
+    "continue"      -> Keyword
+    "default"       -> Keyword
+    "do"            -> Keyword
+    "double"        -> Keyword
+    "else"          -> Keyword
+    "extends"       -> Keyword
+    "final"         -> Keyword
+    "finally"       -> Keyword
+    "float"         -> Keyword
+    "for"           -> Keyword
+    "goto"          -> Keyword
+    "if"            -> Keyword
+    "implements"    -> Keyword
+    "import"        -> Keyword
+    "instanceof"    -> Keyword
+    "int"           -> Keyword
+    "interface"     -> Keyword
+    "long"          -> Keyword
+    "native"        -> Keyword
+    "new"           -> Keyword
+    "package"       -> Keyword
+    "private"       -> Keyword
+    "protected"     -> Keyword
+    "public"        -> Keyword
+    "return"        -> Keyword
+    "short"         -> Keyword
+    "static"        -> Keyword
+    "strictfp"      -> Keyword
+    "super"         -> Keyword
+    "switch"        -> Keyword
+    "synchronized"  -> Keyword
+    "this"          -> Keyword
+    "throw"         -> Keyword
+    "throws"        -> Keyword
+    "transient"     -> Keyword
+    "try"           -> Keyword
+    "void"          -> Keyword
+    "volatile"      -> Keyword
+    "while"         -> Keyword
+
+  lexical restrictions
+
+    "abstract"
+    "assert"
+    "boolean" 
+    "break"   
+    "byte"    
+    "case"    
+    "catch"   
+    "char"     
+    "class"
+    "const"    
+    "continue" 
+    "default"  
+    "do"       
+    "double"   
+    "else"     
+    "extends"  
+    "final"     
+    "finally"   
+    "float"     
+    "for"       
+    "goto"       
+    "if"         
+    "implements" 
+    "import"     
+    "instanceof" 
+    "int"        
+    "interface"  
+    "long"       
+    "native"     
+    "new"        
+    "package"    
+    "private"    
+    "protected"   
+    "public"       
+    "return"       
+    "short"        
+    "static"     
+    "strictfp"
+    "super"        
+    "switch"       
+    "synchronized" 
+    "this"         
+    "throw"        
+    "throws"       
+    "transient"    
+    "try"          
+    "void"         
+    "volatile"     
+    "while"       -/- [A-Za-z0-9\_\$]
+
+
+module java/basic/Java-Expressions
+imports java/basic/Java-Literals
+
+exports
+  sorts Expr
+
+  context-free syntax
+
+    %% .class expressions are ClassLiterals
+
+    "(" Expr ")"          -> Expr {bracket}
+    Literal               -> Expr {cons("Lit")}
+    "this"                -> Expr {cons("This")}
+    ClassName "." "this"  -> Expr {cons("QThis")}
+    "(" Type ")" Expr     -> Expr {cons("Cast")}
+    ExprName              -> Expr {cons("Name")}
+
+             "new" ClassOrInterfaceType "(" {Expr ","}* ")" ClassBody? -> Expr {cons("NewInstance")}
+    Expr "." "new" Id                   "(" {Expr ","}* ")" ClassBody? -> Expr {cons("QNewInstance")}
+
+                     Expr "." Id -> FieldAccess {cons("Field")}
+                 ExprName "." Id -> FieldAccess {reject}
+                  "super" "." Id -> FieldAccess {cons("SuperField")}
+    ClassName "." "super" "." Id -> FieldAccess {cons("QSuperField")}
+
+    Expr "[" Expr "]" -> ArrayAccess {cons("ArrayAccess")}
+    ArrayCreationExpr "[" Expr "]" -> ArrayAccess {reject}
+
+    "new" ArrayBaseType DimExpr+ Dim*  -> ArrayCreationExpr {cons("NewArray")}
+    "new" ArrayBaseType Dim+ ArrayInit -> ArrayCreationExpr {cons("NewArray")}
+
+    FieldAccess       -> Expr
+    ArrayAccess       -> Expr
+    ArrayCreationExpr -> Expr
+
+    ClassOrInterfaceType -> ArrayBaseType
+    PrimType             -> ArrayBaseType
+
+    "[" Expr "]" -> DimExpr {cons("Dim")}
+    "[" "]"      -> Dim     {cons("Dim")}
+
+
+    MethodId "(" {Expr ","}* ")" -> Expr {cons("Invoke")}
+
+                      MethodName -> MethodId {prefer, cons("Method")}
+                     Expr "." Id -> MethodId {cons("Method")}
+                  "super" "." Id -> MethodId {cons("SuperMethod")}
+    ClassName "." "super" "." Id -> MethodId {cons("QSuperMethod")}
+
+    Expr "instanceof" RefType -> Expr {cons("InstanceOf")}
+
+    "+" Expr -> Expr {cons("Plus")}
+    "-" Expr -> Expr {cons("Minus")}
+
+    "++" Expr -> Expr {cons("PreIncr")}
+    "--" Expr -> Expr {cons("PreDecr")}
+
+    Expr "++" -> Expr {cons("PostIncr")}
+    Expr "--" -> Expr {cons("PostDecr")}
+
+    Expr "*"   Expr -> Expr  {left, cons("Mul")}
+    Expr "/"   Expr -> Expr  {left, cons("Div")}
+    Expr "%"   Expr -> Expr  {left, cons("Remain")}
+
+    Expr "+"   Expr -> Expr  {left, cons("Plus")}
+    Expr "-"   Expr -> Expr  {left, cons("Minus")}
+
+    Expr "<<"  Expr -> Expr  {left, cons("LeftShift")}
+    Expr ">>"  Expr -> Expr  {left, cons("RightShift")}
+    Expr ">>>" Expr -> Expr  {left, cons("URightShift")}
+
+    Expr "<"   Expr -> Expr  {left, cons("Lt")}
+    Expr ">"   Expr -> Expr  {left, cons("Gt")}
+    Expr "<="  Expr -> Expr  {left, cons("LtEq")}
+    Expr ">="  Expr -> Expr  {left, cons("GtEq")}
+    Expr "=="  Expr -> Expr  {left, cons("Eq")}
+    Expr "!="  Expr -> Expr  {left, cons("NotEq")}
+
+    Expr "&&"  Expr -> Expr  {left, cons("LazyAnd")}
+    Expr "||"  Expr -> Expr  {left, cons("LazyOr")}
+
+    Expr "&" Expr -> Expr {left, cons("And")}
+    Expr "^" Expr -> Expr {left, cons("ExcOr")}
+    Expr "|" Expr -> Expr {left, cons("Or")}
+
+    "~" Expr -> Expr {cons("Complement")}
+    "!" Expr -> Expr {cons("Not")}
+
+    Expr "?" Expr ":" Expr -> Expr {right, cons("Cond")}
+
+    LHS "="    Expr -> Expr {cons("Assign")}
+    LHS "*="   Expr -> Expr {cons("AssignMul")}
+    LHS "/="   Expr -> Expr {cons("AssignDiv")}
+    LHS "%="   Expr -> Expr {cons("AssignRemain")}
+    LHS "+="   Expr -> Expr {cons("AssignPlus")}
+    LHS "-="   Expr -> Expr {cons("AssignMinus")}
+    LHS "<<="  Expr -> Expr {cons("AssignLeftShift")}
+    LHS ">>="  Expr -> Expr {cons("AssignRightShift")}
+    LHS ">>>=" Expr -> Expr {cons("AssignURightShift")}
+    LHS "&="   Expr -> Expr {cons("AssignAnd")}
+    LHS "^="   Expr -> Expr {cons("AssignExcOr")}
+    LHS "|="   Expr -> Expr {cons("AssignOr")}
+
+    ExprName    -> LHS
+    FieldAccess -> LHS
+    ArrayAccess -> LHS
+
+  lexical restrictions
+    "+" -/- [\+]
+    "-" -/- [\-]
+    "/" -/- [\/]
+
+  context-free priorities
+      Expr "." Id -> FieldAccess
+  >   Expr "." Id -> MethodId
+  >
+    {right:
+      Expr "++" -> Expr
+      Expr "--" -> Expr
+    }
+  > {right:
+      "++" Expr -> Expr
+      "--" Expr -> Expr
+      "+"  Expr -> Expr
+      "-"  Expr -> Expr
+      "~"  Expr -> Expr
+      "!"  Expr -> Expr
+      "(" Type ")" Expr -> Expr
+    }
+  > {left:
+      Expr "*" Expr -> Expr
+      Expr "/" Expr -> Expr
+      Expr "%" Expr -> Expr
+    } 
+  > {left:
+      Expr "+" Expr -> Expr
+      Expr "-" Expr -> Expr
+    }
+  > {left:
+      Expr "<<"  Expr -> Expr
+      Expr ">>"  Expr -> Expr
+      Expr ">>>" Expr -> Expr
+    }
+  > {left:
+      Expr "instanceof" RefType -> Expr
+      Expr "<"   Expr -> Expr
+      Expr ">"   Expr -> Expr
+      Expr "<="  Expr -> Expr
+      Expr ">="  Expr -> Expr
+    }
+  > {left:
+      Expr "=="  Expr -> Expr
+      Expr "!="  Expr -> Expr
+    }
+  >   Expr "&"   Expr -> Expr
+  >   Expr "^"   Expr -> Expr
+  >   Expr "|"   Expr -> Expr
+  >   Expr "&&"  Expr -> Expr
+  >   Expr "||"  Expr -> Expr
+  >   Expr "?" Expr ":" Expr -> Expr
+  > {right:
+      LHS "="    Expr -> Expr
+      LHS "*="   Expr -> Expr
+      LHS "/="   Expr -> Expr
+      LHS "%="   Expr -> Expr
+      LHS "+="   Expr -> Expr
+      LHS "-="   Expr -> Expr
+      LHS "<<="  Expr -> Expr
+      LHS ">>="  Expr -> Expr
+      LHS ">>>=" Expr -> Expr
+      LHS "&="   Expr -> Expr
+      LHS "^="   Expr -> Expr
+      LHS "|="   Expr -> Expr
+    }
+
+
+module java/basic/Java-Literals
+
+exports
+  sorts BooleanLiteral NullLiteral IntegerLiteral FloatingPointLiteral Literal
+
+  context-free syntax
+
+      IntLiteral -> Literal
+    FloatLiteral -> Literal {cons("Float")}
+     BoolLiteral -> Literal {cons("Bool")}
+     CharLiteral -> Literal {cons("Char")}
+   StringLiteral -> Literal {cons("String")}
+     NullLiteral -> Literal
+    ClassLiteral -> Literal {cons("Class")}
+
+    DeciLiteral -> IntLiteral {cons("Deci")}
+    HexaLiteral -> IntLiteral {cons("Hexa")}
+    OctaLiteral -> IntLiteral {cons("Octa")}
+
+    "true"  -> BoolLiteral {cons("True")  }
+    "false" -> BoolLiteral {cons("False") }
+    "null"  -> NullLiteral {cons("Null")}
+
+%% module Java-ClassLiterals
+
+  context-free syntax
+
+    Type "." "class"   -> ClassLiteral
+    "void" "." "class" -> ClassLiteral {cons("Void")}
+
+%% module Java-IntegerLiterals
+
+  lexical syntax
+    [0-7]       -> OctaDigit
+    [0-9]       -> DeciDigit
+    [0-9a-fA-F] -> HexaDigit
+
+    DeciNumeral [lL]? -> DeciLiteral
+    HexaNumeral [lL]? -> HexaLiteral
+    OctaNumeral [lL]? -> OctaLiteral
+
+        DeciDigit+  -> DeciNumeral
+    [0] DeciDigit+  -> DeciNumeral {reject}
+
+    [0][xX] HexaDigit+ -> HexaNumeral
+    [0]     OctaDigit+ -> OctaNumeral
+
+
+%% module Java-FloatingPointLiterals
+
+    [fFdD] -> FloatTypeSuffix
+
+    FloatDigits ExponentPart?  FloatTypeSuffix? -> FloatLiteral
+    DeciDigit+ -> FloatLiteral {reject}
+
+    DeciDigit* "." DeciDigit* -> FloatDigits
+    "."        -> FloatDigits {reject}
+    DeciDigit+ -> FloatDigits
+
+    [eE] SignedInt -> ExponentPart
+
+    Sign? DeciDigit+ -> SignedInt
+    [\-\+] -> Sign
+
+%% module Java-CharacterLiterals
+
+    "\\" UnicodeMarker HexaDigit HexaDigit HexaDigit HexaDigit -> UnicodeEscape
+    [u]+ -> UnicodeMarker
+    
+    UnicodeEscape -> UnicodeInputChar
+    ~[]           -> UnicodeInputChar
+    
+    UnicodeInputChar -> InputChar
+    [\12\13]         -> InputChar {reject}
+
+    "'" InputChar "'" -> CharLiteral
+    "'" [\'\\]    "'" -> CharLiteral {reject}
+    "'" EscapeSeq "'" -> CharLiteral
+
+    "\\" [btnfr\"\'\\] -> EscapeSeq
+    OctaEscape         -> EscapeSeq
+
+    "\\" OctaDigit                     -> OctaEscape
+    "\\" OctaDigit OctaDigit           -> OctaEscape
+    "\\" OctaDigit OctaDigit OctaDigit -> OctaEscape
+    "\\" [4-7]     OctaDigit OctaDigit -> OctaEscape {reject}
+
+%% module Java-StringLiterals
+
+    "\"" StringChar* "\"" -> StringLiteral
+
+    InputChar -> StringChar
+    [\"\\]    -> StringChar {reject}
+    EscapeSeq -> StringChar
+
+
+module java/basic/Java-VarDecs
+imports java/basic/Java-Expressions
+        java/basic/Java-Types
+
+exports
+
+  context-free syntax
+
+    VarDecId             -> VarDec {cons("VarDec")}
+    VarDecId "=" VarInit -> VarDec {cons("VarDec")}
+
+    Id      -> VarDecId {cons("VarId")}
+    Id Dim+ -> VarDecId {cons("VarId")}
+
+    "[" "]" -> Dim {cons("Dim")}
+
+    Expr      -> VarInit
+    ArrayInit -> VarInit
+
+    "{" {VarInit ","}* Comma? "}" -> ArrayInit {cons("ArrayInit")}
+
+    "," -> Comma {cons("Comma")}
+
+
+module java/basic/Java-Comments
+imports java/basic/Java-Literals
+
+exports
+  lexical syntax
+    Comment -> LAYOUT
+
+    "//" InputChar* LineTerminator  -> Comment
+    "/*" (~[\*] | Asterisk)* "*/"  -> Comment
+
+    "/**/"                         -> Comment %% Strange javadoc comment
+    "/**" (~[\*] | Asterisk)* "*/" -> Comment
+
+    "*" -> Asterisk
+
+  lexical restrictions
+    "/*" -/- [\*]
+    Asterisk -/- [\/]
+
+
+module java/basic/Java-WhiteSpace
+exports
+  lexical syntax
+    WhiteSpace     -> LAYOUT
+
+    [\13]          -> LineTerminator
+    [\n][\13]?     -> LineTerminator
+
+    [\ \t\12]      -> WhiteSpace
+    LineTerminator -> WhiteSpace
+
+  context-free restrictions
+    LAYOUT? -/- [\ \t\n\13]
+
+%%% f = 12
+%%% r = 13
+
+
+module obs/_AN
+
+imports
+        obs/binding/_AN-Binding 
+	obs/storing/_AN-Storing 
+	obs/datacontrol/_AN-Data-Control 
+	obs/interacting/_AN-Interacting
+
+exports sorts Action
+
+hiddens variables
+
+  "A"[1-9]      -> Action
+
+  "D"[1-9]      -> Data
+
+  "DS"          -> DataSort
+  "DO"          -> DataOp
+  "DOP"         -> DataOpPrefix
+  "DOI"         -> DataOpInfix
+  "PP"          -> DataPredPrefix 
+  "PI"          -> DataPredInfix 
+  "P"           -> DataPred
+  "E"           -> Enquirer
+  "Y"[1-9]      -> Yielder
+  "Y+"          -> {Yielder ","}+
+
+
+
+module obs/interacting/_AN-Interacting
+
+imports obs/__AN-K
+
+exports context-free syntax
+
+
+        "current" "agent"       -> Yielder
+        "current" "time"        -> Yielder
+
+lexical syntax
+
+        "patiently"                     -> ActionPrefix
+
+
+hiddens sorts
+
+        Yielder ActionPrefix
+
+module obs/datacontrol/_AN-Data-Control
+
+imports obs/__AN-K
+
+exports context-free syntax
+
+        Data                                    -> Yielder
+        DataOp                                  -> Yielder
+        DataOpPrefix                            -> Yielder
+        DataOpPrefix Yielder                    -> Yielder
+        Yielder DataOpInfix Yielder             -> Yielder {left}
+        "(" Yielder "," {Yielder ","}+ ")"      -> Yielder
+        "(" Yielder ")"                         -> Yielder {bracket, prefer} 
+
+        DataPred                        -> Enquirer
+        DataPredPrefix Yielder          -> Enquirer
+        Yielder DataPredInfix Yielder   -> Enquirer
+        "(" Enquirer ")"                -> Enquirer {bracket}
+
+        "give" Yielder          -> Action 
+        Action Yielder          -> Action 
+        "given" Yielder         -> Action
+        "when" Enquirer         -> Action
+
+        "a" DataSort -> DataOpSort
+        "an" DataSort -> DataOpSort
+
+context-free priorities 
+        Action Yielder -> Action >
+        {"give" Yielder -> Action
+         ActionPrefix Action -> Action 
+         "provide" Data -> Action
+         "closure" Yielder -> Yielder 
+         "bound" "to" Yielder -> Yielder 
+         "stored" "in" Yielder -> Yielder } >
+        Action ActionInfix Action -> Action >
+        Yielder DataOpInfix Yielder -> Yielder
+        
+
+context-free priorities 
+        DataOpPrefix Yielder    -> Yielder >
+        Yielder DataOpInfix Yielder     -> Yielder
+
+
+lexical syntax
+
+        "skip"                  -> ActionConst
+        "err"                   -> ActionConst
+        "tentatively"           -> ActionPrefix
+        "infallibly"            -> ActionPrefix
+
+
+hiddens sorts
+
+        Action Yielder Enquirer
+
+module obs/storing/_AN-Storing
+
+imports obs/__AN-K 
+
+exports context-free syntax
+        "stored" "in" Yielder   -> Yielder
+
+
+hiddens sorts
+
+        Yielder
+
+module obs/binding/_AN-Binding
+
+imports obs/__AN-K 
+
+exports context-free syntax
+
+        "current" "bindings"    -> Yielder
+        "bound" "to" Yielder    -> Yielder
+        "closure" Yielder       -> Yielder
+
+lexical syntax
+
+        "bind"                  -> ActionConst
+        "find"                  -> ActionConst
+        "furthermore"           -> ActionPrefix
+        "moreover"              -> ActionInfix
+        "before"                -> ActionInfix
+        "recursively"           -> ActionPrefix
+        "unfolding"             -> ActionPrefix
+        "unfold"                -> ActionConst
+
+
+hiddens sorts
+
+        ActionConst ActionPrefix ActionInfix Yielder
+
+module obs/__AN-K
+
+imports 
+	obs/interacting/__AN-K-Interacting
+
+exports 
+
+sorts Action
+
+
+module obs/interacting/__AN-K-Interacting
+
+imports obs/storing/__AN-K-Storing
+
+exports 
+context-free syntax
+lexical syntax
+
+  "activate"                                    -> ActionConst
+  "deactivate"                                  -> ActionConst
+  "give" LAYOUT+  "current" LAYOUT+ "agent"      -> ActionConst 
+  "send"                                        -> ActionConst 
+  "receive"                                     -> ActionConst 
+  "give" LAYOUT+ "current" LAYOUT+ "time"       -> ActionConst 
+
+
+hiddens sorts
+
+        ActionConst SortName MessageTag
+
+module obs/storing/__AN-K-Storing
+
+imports obs/enacting/__AN-K-Enacting
+
+exports 
+
+lexical  syntax
+  "create"      -> ActionConst %%{cons("create-ActionConst")}
+  "destroy"     -> ActionConst %%{cons("destroy-ActionConst")}
+  "update"      -> ActionConst %%{cons("update-ActionConst")}
+  "inspect"     -> ActionConst %%{cons("inspect-ActionConst")}
+
+hiddens sorts 
+
+        ActionConst SortName DataTypes
+
+module obs/enacting/__AN-K-Enacting
+
+imports obs/binding/__AN-K-Binding
+
+exports 
+
+lexical syntax
+  "enact"       -> ActionConst 
+
+
+hiddens sorts
+
+        ActionConst DataOpPrefix DataOpInfix DataConst 
+        SortName Datum
+
+module obs/binding/__AN-K-Binding
+
+imports
+  obs/datacontrol/__AN-K-Data-Control
+
+exports 
+
+lexical syntax
+
+"give" LAYOUT+ "current" LAYOUT+  "bindings" -> ActionConst
+"hence"                       -> ActionInfix
+
+hiddens sorts
+
+        DataOpPrefix DataConst ActionInfix ActionConst SortName DataTypes
+
+
+
+module obs/datacontrol/__AN-K-Data-Control
+
+imports obs/data/__AN-K-Data
+
+exports 
+
+lexical syntax
+
+  "copy"                        -> ActionConst
+  "then"                        -> ActionInfix
+  "and" LAYOUT+ "then"          -> ActionInfix
+  "and"                         -> ActionInfix
+  "indivisibly"                 -> ActionPrefix
+  "raise"                       -> ActionConst
+  "exceptionally"               -> ActionInfix
+  "then" LAYOUT+ "exceptionally"-> ActionInfix
+  "fail"                        -> ActionConst
+  "otherwise"                   -> ActionInfix
+  "choose" LAYOUT+ "natural"    -> ActionConst
+
+   "and" LAYOUT+ "exceptionally" -> ActionInfix
+
+
+context-free syntax
+
+normal data:Data -> Terminated  {cons("normal")}
+exceptional data:Data -> Terminated {cons("exceptional")}
+failed -> Terminated {cons("failed")}
+
+  "give" op:DataOp                 -> Action {cons("give")}
+  "check" pred:DataPred              -> Action {cons("check")}
+%%  "select" "(" choices:{Action "or"}+ ")"  -> Action {cons("select")}
+%% If to be compiled:
+  "select" "(" {Action "or"}+ ")"  -> Action 
+
+hiddens sorts
+
+        ActionConst ActionInfix ActionPrefix DataTypes Action
+
+
+
+
+module obs/data/__AN-K-Data
+
+imports obs/data/integers/__AN-K-Int 
+	obs/data/booleans/__AN-K-Bool 
+	obs/data/strings/__AN-K-Token 
+	obs/data/lists/__AN-K-List
+	obs/data/__AN-K-Agent 
+	obs/data/__AN-K-Cell 
+	obs/data/__AN-K-MessageTag
+	obs/action/__AN-K-Action 
+	obs/data/__AN-K-Bindings 
+	obs/data/__AN-K-Array
+	obs/data/__AN-K-Tree-Set 
+	obs/data/__AN-K-Pair
+
+exports
+
+context-free syntax
+
+	DataOpComponent -> DataOpPrefix {cons("dataopcomponent")}
+	"#" Nat-Con -> DataOpComponent 
+	"#" "-1" -> DataOpComponent
+
+lexical syntax
+
+	"="  -> DataPredInfix 
+	"def" -> DataPredPrefix 
+	"rest" -> DataOpPrefix
+
+hiddens 
+
+context-free syntax
+
+Data "!" Int -> Data
+is-tuple(Data) -> Bool
+
+variables
+"o"[0-9\']* -> DataOp
+"d"[0-9\']* -> Data
+"ds"[0-9\']* -> DataSort
+"ds,*"[0-9\']* -> {DataSort ","}*
+"ds,+"[0-9\']* -> {DataSort ","}+
+"ds|*"[0-9\']* -> {DataSort "|"}*
+"ds|+"[0-9\']* -> {DataSort "|"}+
+"d+"[0-9\']* -> {Data ","}+
+"d*"[0-9\']* -> {Data ","}*
+"n"[0-9\']* -> Int 
+"p"[0-9\']* -> Nat-Con 
+"u"[0-9\']* -> Datum
+"i"[0-9\']* -> Int
+"char+" -> CHAR+
+
+
+module obs/data/__AN-K-Pair
+
+imports obs/data/__AN-K-Data-Contract 
+	obs/aux/structs/Pair[Data Data]
+
+exports
+
+context-free syntax
+
+Pair -> Datum
+
+lexical syntax
+"first" -> DataOpPrefix
+"second" -> DataOpPrefix
+"pair" -> SortName
+
+hiddens
+variables
+"p"[0-9\']* -> Pair
+"d"[0-9\']* -> Data
+
+module obs/data/__AN-K-Tree-Set
+
+imports obs/data/__AN-K-Data-Contract 
+	obs/aux/structs/Balanced-Tree[Data][Tree=>Tree-Set]
+
+exports
+
+context-free syntax
+
+Tree-Set -> Datum
+
+lexical syntax
+"t-set" -> DataOpPrefix
+"t-union" -> DataOpPrefix
+"t-intersection" -> DataOpPrefix
+"t-difference" -> DataOpPrefix
+"t-member" -> DataPredPrefix
+"t-add" -> DataOpPrefix
+
+"tree-set" -> SortName
+
+hiddens
+variables
+"s"[0-9\']* -> Tree-Set
+"d"[0-9\']* -> Data
+
+module obs/data/__AN-K-Array
+
+imports obs/aux/structs/Fixed-Array[Datum][Array => Datum-Array]
+	obs/data/__AN-K-Data-Contract 
+	obs/data/integers/__AN-K-Int
+
+exports
+
+sorts Data
+
+context-free syntax
+
+Datum-Array -> Datum
+
+"[]" -> DataOpInfix
+"->" -> DataOpPrefix
+"array" -> DataOpPrefix
+"array" -> SortName
+
+hiddens
+variables
+"a" -> Datum-Array
+"n" -> Int
+"u" -> Datum
+
+module obs/data/__AN-K-Bindings
+
+imports obs/data/__AN-K-Data-Contract 
+	obs/aux/structs/Tree-Map[Token Data][Tree-Map => Bindings]
+	obs/data/strings/__AN-K-Token 
+	obs/data/strings/ASCII 
+	obs/data/__AN-K-Pair 
+	obs/data/__AN-K-Set
+
+exports sorts Bindings
+
+context-free syntax
+
+Bindings -> Datum {cons("bindings")}
+
+lexical syntax
+"bindable"                    -> SortName
+"bindings"                    -> SortName
+"no" LAYOUT+ "bindings"       -> DataConst 
+"binding"                     -> DataOpPrefix
+"overriding"                  -> DataOpPrefix
+"disjoint" LAYOUT+ "union"    -> DataOpPrefix
+"bound"                       -> DataOpPrefix
+
+"graph" -> DataOpPrefix
+
+
+hiddens
+
+context-free syntax
+
+graph(Token*, Bindings) -> Set
+
+variables
+"bs"[0-9\']* -> Bindings
+"tk"[0-9\']* -> Token
+"str"[0-9\']* -> String
+"d"[0-9\']* -> Data
+"d*"[0-9\']* -> Data*
+"char+"[0-9\']* -> CHAR+
+"char"[0-9\']* -> CHAR
+"tk*"[0-9\']* -> Token*
+
+module obs/action/__AN-K-Action
+
+imports obs/data/__AN-K-Data-Contract
+
+
+exports 
+
+context-free syntax
+
+Terminated -> Action %%{cons("terminated")}
+
+"(" Action ")" -> Action {bracket, prefer, cons("bracket")}
+ActionConst -> Action {cons("const")}
+prefix:ActionPrefix arg:Action -> Action {cons("prefix")}
+lhs:Action infix:ActionInfix rhs:Action -> Action {left, cons("infix")}
+"provide" data:Data -> Action {cons("provide")}
+Action -> Datum {avoid,cons("action")}
+ActionPrefix -> DataOpPrefix {avoid,cons("action-prefix")}
+ActionInfix -> DataOpInfix {avoid,cons("action-infix")}
+
+lexical syntax
+"action" -> SortName 
+"provide" -> DataOpPrefix {avoid}
+ 
+hiddens 
+
+sorts Action ActionPrefix ActionInfix ActionConst Terminated
+
+variables
+"A"[0-9\']* -> Action
+"Ai"[0-9\']* -> ActionInfix
+"Ap"[0-9\']* -> ActionPrefix
+"d"[0-9\']* -> Data
+"u"[0-9\']* -> Datum
+"oc"[0-9\']* -> Outcome+
+"t"[0-9\']* -> Terminated
+
+
+
+
+
+
+module obs/data/__AN-K-MessageTag
+
+imports obs/data/strings/__AN-K-Token
+
+exports
+
+lexical syntax
+
+  "message"             -> SortName 
+  "message-tag"         -> SortName 
+
+context-free syntax
+
+"<" token:Token ">" -> MessageTag 
+
+MessageTag -> Datum {cons("message-tag")}
+
+hiddens
+variables
+"d"[0-9\']* -> Data
+"tk"[0-9\']* -> Token
+module obs/data/__AN-K-Cell
+
+imports obs/data/integers/Int 
+	obs/data/__AN-K-Data-Contract
+
+exports
+
+lexical syntax
+"cell" -> SortName
+
+%% This should move.
+"storable" -> SortName
+
+
+context-free syntax
+
+Cell -> Datum {cons("cell")}
+
+new-cell(Int) -> Cell
+cell-to-int(Cell) -> Int
+
+hiddens
+
+context-free syntax
+"@" Int -> Cell
+
+variables
+"n"[0-9\']* -> Int
+"d"[0-9\']* -> Data
+
+module obs/data/__AN-K-Agent
+
+imports obs/data/integers/Int 
+	obs/data/__AN-K-Data-Contract
+
+exports
+
+lexical syntax
+  "agent"               -> SortName
+
+context-free syntax
+
+new-agent(Int) -> Agent
+agent-to-int(Agent) -> Int
+Agent -> Datum {cons("agent")}
+
+hiddens
+
+context-free syntax
+"$" Int -> Agent
+
+
+variables
+"n"[0-9\']* -> Int
+module obs/data/lists/__AN-K-List
+
+imports obs/aux/structs/Generic-List[Data] 
+	obs/data/__AN-K-Data-Contract
+	obs/data/integers/__AN-K-Int
+
+exports 
+
+lexical syntax
+  "tupleToList"         -> DataOpPrefix 
+  "list"                -> SortName 
+  "++" -> DataOpInfix
+  "append" -> DataOpPrefix
+  "insert" -> DataOpPrefix
+  "length" -> DataOpPrefix
+  "head" -> DataOpPrefix
+  "tail" -> DataOpPrefix
+  "replace-at" -> DataOpPrefix
+  "element-at" -> DataOpPrefix
+
+context-free syntax
+
+  List                  -> Datum {cons("list")}
+
+hiddens sorts Data
+
+variables
+"d"[0-9\']* -> Data
+"l"[0-9\']* -> List
+"n"[0-9\']* -> Int
+
+
+
+module obs/data/strings/__AN-K-Token
+
+imports obs/data/strings/String obs/data/__AN-K-Data-Contract
+
+exports 
+
+lexical syntax
+  "token"               -> SortName 
+  "string"              -> SortName 
+context-free syntax
+  String        -> Token 
+  Token         -> Datum {cons("token")}
+
+hiddens 
+
+sorts
+        DataOpPrefix Datum SortName DataTypes String Token
+
+variables
+"tk" -> Token
+
+
+module obs/data/booleans/__AN-K-Bool
+
+imports obs/data/booleans/Bool 
+	obs/data/__AN-K-Data-Contract
+
+exports
+
+
+lexical syntax
+  "bool"        -> SortName 
+  "not"         -> DataOpPrefix 
+
+context-free syntax
+   BoolConst -> Datum {avoid, cons("datum")}
+
+hiddens sorts
+
+        BoolConst Bool DataOpPrefix DataConst SortName
+
+
+
+module obs/data/integers/__AN-K-Int
+
+imports obs/data/integers/Int 
+	obs/data/__AN-K-Data-Contract
+
+exports 
+
+lexical syntax
+
+">" -> DataPredInfix
+"<" -> DataPredInfix
+">=" -> DataPredInfix
+"<=" -> DataPredInfix
+"nat" -> SortName
+"pos" -> SortName
+"int" -> SortName
+
+"+" -> DataOpInfix
+"-?" -> DataOpInfix
+"*" -> DataOpInfix
+"-" -> DataOpInfix
+
+context-free syntax
+
+Int           -> Datum {cons("int")}
+
+hiddens sorts
+        Int DataOpInfix SortName Datum DataPredInfix
+
+
+variables
+    "n" [0-9\']* -> Nat 
+    "p" [0-9\']* -> PosNumeral
+    "i" [0-9\']* -> Int
+    "d" [0-9\']* -> Data
+    "u" [0-9\']* -> Datum
+
+
+
+
+
+module obs/aux/structs/Pair[X Y]
+
+imports obs/layout/Layout
+
+exports
+
+context-free syntax
+
+pair(first:X,second:Y) -> Pair
+
+module obs/data/__AN-K-Data-Contract
+
+imports obs/data/__AN-K-DataTypes 
+
+exports
+
+context-free syntax
+
+	Datum -> Data {cons("datum")}
+
+	DataConst  -> Data {cons("dataconst")}
+
+	DataOpSort -> DataOpPrefix {cons("dataopsort")}
+
+	"the" sort:DataSort -> DataOpSort 
+
+	result DataOp Data  -> Data 
+	holds DataPred Data -> DataConst 
+	storable(Data) -> Bool
+	bindable(Data) -> Bool
+	sendable(Data) -> Bool
+
+	prefix:DataOpPrefix "_"              -> DataOp {cons("dataopprefix")}
+	"_" infix:DataOpInfix "_"           -> DataOp {cons("dataopinfix")}
+
+	prefix:DataPredPrefix "_"   -> DataPred {cons("datapredprefix")}
+	"_" infix:DataPredInfix "_"  -> DataPred {cons("datapredinfix")}
+
+
+lexical syntax
+   "true" -> DataConst 
+   "false" -> DataConst 
+
+
+context-free syntax
+
+	"(" head:Data "," tail:{Data ","}+ ")" -> Data {cons("tuple")}
+	"(" data:Data ")" -> Data {bracket, prefer,cons("bracket")}
+	"(" ")" -> Data {prefer,cons("empty")}
+
+context-free syntax
+	nothing -> Data {cons("nothing")}
+
+	Data "++" Data -> Data {prefer, left}
+
+hiddens 
+
+sorts
+        DataPredInfix DataPredPrefix DataOpSort
+        DataOpComponent Data DataOpPrefix 
+
+context-free syntax
+
+Data "!" Int -> Datum
+
+variables
+"o"[0-9\']* -> DataOp
+"d"[0-9\']* -> Data
+"ds"[0-9\']* -> DataSort
+"d+"[0-9\']* -> {Data ","}+
+"d*"[0-9\']* -> {Data ","}*
+"n"[0-9\']* -> Int 
+"p"[0-9\']* -> Nat-Con 
+"u"[0-9\']* -> Datum
+"i"[0-9\']* -> Int
+"char+" -> CHAR+
+
+
+module obs/data/__AN-K-DataTypes
+
+imports obs/layout/Layout
+
+exports
+
+context-free syntax
+  SortName                              -> DataSort {cons("sortname")}
+  DataSort "*"                          -> DataSort {cons("star")}
+  DataSort "+"                          -> DataSort {cons("plus")}
+  DataSort "?"                          -> DataSort {cons("opt")}
+  "(" DataSort "," {DataSort ","}+ ")"               -> DataSort {cons("tuple")}
+%%  "(" {DataSort "|"}+ ")"               -> DataSort {cons("alt")}
+
+  DataSort "|" DataSort -> DataSort {assoc}
+  "(" DataSort ")" -> DataSort {bracket,avoid}
+  "("")" -> DataSort
+
+  "action" "[" outcome:Outcome+ "]"             -> DataSort {cons("outcome")}
+
+
+context-free syntax
+  "taking"  DataSort    -> Outcome {cons("taking")}
+  "giving"  DataSort    -> Outcome {cons("giving")}
+  "raising" DataSort    -> Outcome {cons("raising")}
+  "failing"             -> Outcome {cons("failing")}
+
+context-free priorities
+{  DataSort "*"                          -> DataSort {cons("star")}
+  DataSort "+"                          -> DataSort {cons("plus")}
+  DataSort "?"                          -> DataSort {cons("opt")}
+}
+>
+  DataSort "|" DataSort -> DataSort {assoc}
+
+
+lexical syntax
+
+  "data"                        -> SortName 
+  "datum"                       -> SortName 
+
+lexical syntax
+  "\"" ~[\"\ \n\t]+ "\""        -> Module
+
+hiddens
+sorts
+
+        Module SortName
+        DataOp DataPred OutCome DataSort  
+
+
+
+module obs/aux/structs/Balanced-Tree[Elt]
+
+imports obs/layout/Layout obs/data/integers/Int
+
+exports 
+
+sorts Tree
+
+context-free syntax
+
+%%Int -> Elt
+
+elt-lt(Elt, Elt) -> Bool
+elt-gt(Elt, Elt) -> Bool
+
+size(Tree) -> Int
+
+empty -> Tree {cons("empty")}
+tree(elt:Elt, count:Int, lhs:Tree, rhs:Tree) -> Tree {cons("tree")}
+new(Elt, Tree, Tree) -> Tree
+member(Elt, Tree) -> Bool
+find(Elt, Tree) -> Elt
+min(Tree) -> Elt
+weight -> Int
+b-new(Elt, Tree, Tree) -> Tree
+concat3(Elt, Tree, Tree) -> Tree
+
+single-l(Elt, Tree, Tree) -> Tree
+double-l(Elt, Tree, Tree) -> Tree
+single-r(Elt, Tree, Tree) -> Tree
+double-r(Elt, Tree, Tree) -> Tree
+
+add(Tree, Elt) -> Tree
+delete(Tree, Elt) -> Tree
+del-aux(Tree, Tree) -> Tree
+del-min(Tree) -> Tree
+
+union(Tree, Tree) -> Tree
+split-lt(Tree, Elt) -> Tree
+split-gt(Tree, Elt) -> Tree
+
+difference(Tree, Tree) -> Tree
+concat(Tree, Tree) -> Tree
+intersection(Tree, Tree) -> Tree
+
+trim(Elt, Elt, Tree) -> Tree
+uni-bd(Tree, Tree, Elt, Elt) -> Tree
+trim-lo(Elt, Tree) -> Tree
+trim-hi(Elt, Tree) -> Tree
+uni-hi(Tree, Tree, Elt) -> Tree
+uni-lo(Tree, Tree, Elt) -> Tree
+hedge-union(Tree, Tree) -> Tree
+disjoint-union(Tree, Tree) -> Tree
+
+elt-list(Tree) -> Elt*
+
+hiddens
+variables
+"e*"[0-9\']* -> Elt*
+[abcvxyz][0-9\']* -> Elt
+"lo" -> Elt
+"hi" -> Elt
+[lrstu]+[0-9\']* -> Tree
+"left" -> Tree
+"right" -> Tree
+"n"[0-9\']* -> Int
+
+module obs/data/integers/Int
+
+imports obs/data/booleans/Bool
+   
+exports
+
+lexical syntax
+[0]           -> Zero %%{cons("Zero")}
+[1-9][0-9]*   -> PosNumeral %%{cons("PosNumeral")}
+Zero -> Nat-Con %%{cons("zero-Nat-Con")}
+PosNumeral -> Nat-Con %%{cons("posnumeral-Nat-Con")}
+
+restrictions
+	PosNumeral -/- [0-9]
+
+context-free syntax
+
+Nat-Con -> Numeral {cons("numeral")}
+
+Numeral       -> Nat {cons("nat")}
+%%PosNumeral    -> Pos {cons("posnumeral-Pos")}
+Nat           -> Int {cons("int")}
+Nat "-?" Nat  -> Nat {left, cons("monus")}
+"(" Nat ")"            -> Nat {bracket, cons("bracket-Nat")}
+"+" Nat                -> Int {cons("unary-plus")}
+"-" Nat                -> Int {cons("unary-minus")}
+
+Int "+" Int   -> Int {left, prefer, cons("plus")}
+Int "-" Int   -> Int {left, prefer, cons("minus")}
+Int "*" Int   -> Int {left, prefer, cons("times")}
+Int ">" Int       -> Bool {prefer, cons("gt")}
+Int ">=" Int      -> Bool {prefer, cons("ge")}
+Int "<" Int       -> Bool {prefer, cons("lt")}
+Int "<=" Int      -> Bool {prefer, cons("le")}
+"(" Int ")"       -> Int {bracket, cons("bracket-int")}
+
+context-free priorities
+
+Int "*" Int -> Int > 
+{ Int "+" Int -> Int {left}
+  Int "-" Int -> Int {left}
+}
+
+
+
+hiddens
+
+sorts 
+  Int Nat PosNumeral Pos Numeral Nat-Con Zero
+	
+  variables
+    "n" [0-9\']* -> Nat 
+    "p" [0-9\']* -> PosNumeral
+    "i" [0-9\']* -> Int
+
+
+hiddens
+  context-free syntax
+    gt "(" Nat "," Nat ")" -> Bool %%{cons("hidden-nat-gt")}
+    Nat "-//" Nat          -> Nat  %%{cons("hidden-nat-minus")}
+    Nat ">-" Nat           -> Nat  %%{cons("hidden-nat-arrow")}
+
+  variables 
+    "char" [0-9]* -> CHAR
+    "char*" [0-9]* -> CHAR*
+    "char+" [0-9]* -> CHAR+
+
+  context-free priorities
+    Int "*" Int -> Int >
+    {left: Int "+" Int -> Int {left} 
+           Int "-" Int -> Int {left}
+    }
+
+
+
+
+module obs/aux/structs/Fixed-Array[X]
+
+imports obs/data/integers/Int
+
+exports
+
+sorts Array X
+
+context-free syntax
+
+create(Int) -> Array
+create-with(Int, X) -> Array
+get-at(Int, Array) -> X
+put-at(Int, X, Array) -> Array
+get-size(Array) -> Int
+
+Array "[" Int "]" -> X
+
+
+
+hiddens
+
+context-free syntax
+"__undef__" -> X
+list-with(Int,X) -> X*
+get-at(Int, X*) -> X
+put-at(Int, X, X*) -> X*
+Int # X*  -> Array
+
+variables
+"x"[0-9\']* -> X
+"x*"[0-9\']* -> X*
+"a"[0-9\']* -> Array
+"n"[0-9\']* -> Int
+
+
+
+module obs/data/__AN-K-Set
+
+imports obs/data/__AN-K-Data-Contract 
+	obs/aux/structs/Finite-Set[Data][Finite-Set=>Set]
+	obs/data/lists/__AN-K-List
+
+exports
+
+context-free syntax
+
+Set -> Datum
+
+lexical syntax
+"set" -> DataOpPrefix
+"union" -> DataOpPrefix
+"intersection" -> DataOpPrefix
+"difference" -> DataOpPrefix
+"member" -> DataPredPrefix
+"add" -> DataOpPrefix
+"to-list" -> DataOpPrefix
+"tuple" -> DataOpPrefix
+
+"set" -> SortName
+
+hiddens
+
+context-free syntax
+
+to-list(Set) -> List
+tuple(Set) -> Data
+
+variables
+"s"[0-9\']* -> Set
+"d"[0-9\']* -> Data
+"l"[0-9\']* -> List
+
+module obs/data/strings/ASCII
+
+imports obs/data/strings/String
+
+exports 
+
+context-free syntax
+
+ascii-val(String)  -> Int
+
+str-comp(String,String) -> Int
+
+hiddens
+variables
+"_string" -> String
+"char+"[0-9\']* -> CHAR+
+"char*"[0-9\']* -> CHAR*
+"char"[0-9\']* -> CHAR
+
+
+
+module obs/aux/structs/Tree-Map[Key Value]
+
+%% Note: to use this, implement elt-gt and elt-lt for Key!
+
+imports obs/aux/structs/Balanced-Tree[Key # Value] [Tree => Tree-Map] 
+
+
+exports
+
+sorts Tree-Map
+
+context-free syntax
+
+elt-gt(Key,Key) -> Bool
+elt-lt(Key,Key) -> Bool
+
+Tree-Map "." Key ":=" Value -> Tree-Map
+Tree-Map "." Key -> Value
+
+get(Tree-Map, Key) -> Value
+put(Tree-Map, Key, Value) -> Tree-Map
+has-key(Tree-Map, Key) -> Bool
+
+Tree-Map "-" Tree-Map -> Tree-Map {left}
+"(" Tree-Map ")" -> Tree-Map {bracket}
+
+Tree-Map "+" Tree-Map -> Tree-Map {assoc}
+
+Tree-Map "+/" Tree-Map -> Tree-Map {assoc}
+
+intersect(Tree-Map,Tree-Map) -> Tree-Map
+
+empty-tree-map() -> Tree-Map
+
+domain(Tree-Map) -> Key*
+
+hiddens
+
+sorts Key # Value (Key # Value)*
+
+context-free syntax
+
+"NULL" -> Value {cons("NULL")}
+domain((Key # Value)*) -> Key*
+
+variables
+"t"[0-9\']* -> Tree-Map
+"k"[0-9\']* -> Key
+"k*"[0-9\']* -> Key*
+"kv*"[0-9\']* -> (Key # Value)*
+"v"[0-9\']* -> Value
+
+
+module obs/aux/structs/Generic-List[X]
+
+imports obs/data/integers/Int
+
+exports
+
+sorts List
+
+context-free syntax
+
+empty-list() -> List
+head(List) -> X
+tail(List) -> List
+append(List, X) -> List
+insert(List, X) -> List
+concat(List,List) -> List
+length(List) -> Int
+replace-at(List, Int, X) -> List
+element-at(List, Int) -> X
+
+hiddens
+
+context-free syntax
+"[" X* "]" -> List
+
+variables
+"x"[0-9\']* -> X
+"x*"[0-9\']* -> X*
+"l"[0-9\']* -> List
+"n"[0-9\']* -> Int
+module obs/data/strings/String
+
+imports obs/data/integers/Int
+
+exports
+
+sorts String
+
+lexical syntax
+   "\"" StringChar* "\"" -> String
+    ~[\\\"\n] -> StringChar
+    [\\] [\\\"] -> StringChar
+
+context-free syntax
+
+length(String) -> Int
+
+hiddens
+variables
+"char*"[0-9\']* -> CHAR*
+"char"[0-9\']* -> CHAR
+
+
+
+module ajc/Kernel-AN-to-Java
+
+imports ajc/AN2-to-Java-Functions 
+	ajc/Kernel-Primitive-AN-to-Java
+	obs/aux/structs/Info[Position-Index Int]
+
+exports
+
+context-free syntax
+
+"pos" -> Position-Index
+
+ka-to-method(Action, BlockStm*, Environment) -> MethodDec
+fa-to-method(Action, BlockStm*, Environment) -> MethodDec
+ka-to-default-expression(Action, Environment) -> Expr
+fa-to-default-expression(Action, Environment) -> Expr
+split-environment(Environment) -> Env-Pair
+Environment Environment -> Env-Pair
+bindings-parameter() -> Id
+data-parameter() -> Id
+bindings-type() -> Id
+data-type() -> Id
+
+
+hiddens
+variables
+"id"[0-9\']* -> Id
+"str"[0-9\']* -> StringLiteral
+"stat*"[0-9\']* -> BlockStm*
+"stat"[0-9\']* -> BlockStm
+"exp"[0-9\']* -> Expr
+"bs"[0-9\']* -> Bindings
+"t"[0-9\']* -> Terminated
+"ds"[0-9\']* -> DataSort
+"oc"[0-9\']* -> Outcome+
+"A"[0-9\']* -> Action
+"Ap"[0-9\']* -> ActionPrefix
+"Ac"[0-9\']* -> ActionConst
+"Ai"[0-9\']* -> ActionInfix
+"C"[0-9\']* -> {Action "or"}+
+"d"[0-9\']* -> Data
+"dc"[0-9\']* -> DataConst
+"d+"[0-9\']* -> {Data ","}+
+"o"[0-9\']* -> DataOp
+"op"[0-9\']* -> DataOpPrefix
+"oi"[0-9\']* -> DataOpInfix
+"q"[0-9\']* -> DataPred
+"u"[0-9\']* -> Datum
+"n"[0-9\']* -> Int
+"tk"[0-9\']* -> Token
+"nat"[0-9\']* -> Nat
+"pos"[0-9\']* -> Pos
+"nat-con"[0-9\']* -> Nat-Con
+"b"[0-9\']* -> DataConst
+"c"[0-9\']* -> Cell
+"errors"[0-9\']* -> Errors
+"char+"[0-9\']* -> CHAR+
+"char*"[0-9\']* -> CHAR*
+"b"[0-9\']* -> Bool
+"decl*"[0-9\']* -> ClassBodyDec*
+"decl"[0-9\']* -> ClassBodyDec
+"env"[0-9\']* -> Environment
+"mod"[0-9\']* -> ClassMod

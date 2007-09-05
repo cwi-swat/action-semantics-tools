@@ -1,0 +1,4 @@
+module obs/aux/structs/EmittedInfo[Act]
+
+imports obs/aux/structs/Monoid[Act]
+	obs/aux/structs/Label[Monoid]

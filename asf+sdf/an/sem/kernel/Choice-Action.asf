@@ -1,0 +1,3 @@
+equations
+
+[sos40]	s |- choose natural = <normal 0, s>

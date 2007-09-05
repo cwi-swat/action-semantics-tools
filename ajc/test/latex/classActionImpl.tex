@@ -1,0 +1,486 @@
+\hypertarget{classActionImpl}{
+\section{Action\-Impl  Class Reference}
+\label{classActionImpl}\index{ActionImpl@{Action\-Impl}}
+}
+Inheritance diagram for Action\-Impl:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{classActionImpl__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Action\-Impl:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{classActionImpl__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceEnactable}{Enactable} \hyperlink{classActionImpl_a0}{get\-Enactable} ()
+\item 
+\hyperlink{interfaceData}{Data} \hyperlink{classActionImpl_a1}{enact} ()
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classActionImpl_a2}{give\-Then} (\hyperlink{interfaceAction}{Action} action)
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classActionImpl_a3}{give\-And\-Then} (\hyperlink{interfaceAction}{Action} action)
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classActionImpl_a4}{give\-And} (\hyperlink{interfaceAction}{Action} action)
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classActionImpl_a5}{give\-Exceptionally} (\hyperlink{interfaceAction}{Action} action)
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classActionImpl_a6}{give\-And\-Exceptionally} (\hyperlink{interfaceAction}{Action} action)
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classActionImpl_a7}{give\-Otherwise} (\hyperlink{interfaceAction}{Action} action)
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classActionImpl_a8}{give\-Hence} (\hyperlink{interfaceAction}{Action} action)
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classActionImpl_a9}{give\-Indivisibly} ()
+\item 
+\hyperlink{interfaceEnactable}{Enactable} \hyperlink{classActionImpl_a10}{enactable\-Value} ()
+\item 
+\hyperlink{interfaceData}{Data} \hyperlink{classActionImpl_a11}{enact} () throws \hyperlink{classExceptional}{Exceptional}, \hyperlink{classFailed}{Failed}
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classActionImpl_a12}{then} (\hyperlink{interfaceAction}{Action} action)
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classActionImpl_a13}{and\-Then} (\hyperlink{interfaceAction}{Action} action)
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classActionImpl_a14}{and} (\hyperlink{interfaceAction}{Action} action)
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classActionImpl_a15}{exceptionally} (\hyperlink{interfaceAction}{Action} action)
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classActionImpl_a16}{and\-Exceptionally} (\hyperlink{interfaceAction}{Action} action)
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classActionImpl_a17}{otherwise} (\hyperlink{interfaceAction}{Action} action)
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classActionImpl_a18}{hence} (\hyperlink{interfaceAction}{Action} action)
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classActionImpl_a19}{indivisibly} ()
+\item 
+void \hyperlink{classActionImpl_a20}{run} ()
+\item 
+\hyperlink{interfaceEmpty}{Empty} \hyperlink{classActionImpl_a21}{equals} (\hyperlink{interfaceData}{Data} data) throws \hyperlink{classExceptional}{Exceptional}
+\end{CompactItemize}
+\subsection*{Private Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{classActionImpl_c0}{Action\-Impl} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory}, \hyperlink{interfaceEnactable}{Enactable} \hyperlink{classActionImpl_o1}{enactable})
+\item 
+\hyperlink{classActionImpl_c1}{Action\-Impl} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory})
+\item 
+\hyperlink{classActionImpl_c2}{Action\-Impl} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory}, \hyperlink{interfaceEnactable}{Enactable} \hyperlink{classActionImpl_o1}{enactable})
+\item 
+\hyperlink{classActionImpl_c3}{Action\-Impl} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory})
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceData}{Data} \hyperlink{classActionImpl_o0}{result}
+\item 
+\hyperlink{interfaceEnactable}{Enactable} \hyperlink{classActionImpl_o1}{enactable}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classActionImpl_c0}{
+\index{ActionImpl@{Action\-Impl}!ActionImpl@{ActionImpl}}
+\index{ActionImpl@{ActionImpl}!ActionImpl@{Action\-Impl}}
+\subsubsection[ActionImpl]{\setlength{\rightskip}{0pt plus 5cm}Action\-Impl::Action\-Impl (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory}, \hyperlink{interfaceEnactable}{Enactable} {\em enactable})\hspace{0.3cm}{\tt  \mbox{[}inline, private\mbox{]}}}}
+\label{classActionImpl_c0}
+
+
+
+
+Definition at line 17 of file Abstract\-Action.java.\footnotesize\begin{verbatim}00017                                                          {
+00018         super(factory);
+00019         this.enactable = enactable;
+00020     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_c1}{
+\index{ActionImpl@{Action\-Impl}!ActionImpl@{ActionImpl}}
+\index{ActionImpl@{ActionImpl}!ActionImpl@{Action\-Impl}}
+\subsubsection[ActionImpl]{\setlength{\rightskip}{0pt plus 5cm}Action\-Impl::Action\-Impl (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory})\hspace{0.3cm}{\tt  \mbox{[}inline, private\mbox{]}}}}
+\label{classActionImpl_c1}
+
+
+
+
+Definition at line 22 of file Abstract\-Action.java.\footnotesize\begin{verbatim}00022                                     {
+00023         this(factory, null);
+00024     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_c2}{
+\index{ActionImpl@{Action\-Impl}!ActionImpl@{ActionImpl}}
+\index{ActionImpl@{ActionImpl}!ActionImpl@{Action\-Impl}}
+\subsubsection[ActionImpl]{\setlength{\rightskip}{0pt plus 5cm}Action\-Impl::Action\-Impl (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory}, \hyperlink{interfaceEnactable}{Enactable} {\em enactable})\hspace{0.3cm}{\tt  \mbox{[}inline, private\mbox{]}}}}
+\label{classActionImpl_c2}
+
+
+
+
+Definition at line 13 of file Action\-Impl.java.\footnotesize\begin{verbatim}00013                                                          {
+00014         super(factory);
+00015         this.enactable = enactable;
+00016     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_c3}{
+\index{ActionImpl@{Action\-Impl}!ActionImpl@{ActionImpl}}
+\index{ActionImpl@{ActionImpl}!ActionImpl@{Action\-Impl}}
+\subsubsection[ActionImpl]{\setlength{\rightskip}{0pt plus 5cm}Action\-Impl::Action\-Impl (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory})\hspace{0.3cm}{\tt  \mbox{[}inline, private\mbox{]}}}}
+\label{classActionImpl_c3}
+
+
+
+
+Definition at line 18 of file Action\-Impl.java.\footnotesize\begin{verbatim}00018                                     {
+00019         this(factory, null);
+00020     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classActionImpl_a14}{
+\index{ActionImpl@{Action\-Impl}!and@{and}}
+\index{and@{and}!ActionImpl@{Action\-Impl}}
+\subsubsection[and]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Action\-Impl::and (\hyperlink{interfaceAction}{Action} {\em action})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a14}
+
+
+
+
+Reimplemented from \hyperlink{interfaceAction_a4}{Action}.
+
+Definition at line 38 of file Action\-Impl.java.\footnotesize\begin{verbatim}00038                                      {
+00039         return new And(factory, enactable, action.enactableValue());
+00040     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a16}{
+\index{ActionImpl@{Action\-Impl}!andExceptionally@{andExceptionally}}
+\index{andExceptionally@{andExceptionally}!ActionImpl@{Action\-Impl}}
+\subsubsection[andExceptionally]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Action\-Impl::and\-Exceptionally (\hyperlink{interfaceAction}{Action} {\em action})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a16}
+
+
+
+
+Reimplemented from \hyperlink{interfaceAction_a6}{Action}.
+
+Definition at line 44 of file Action\-Impl.java.\footnotesize\begin{verbatim}00044                                                   {
+00045         return new AndExceptionally(factory, enactable, action.enactableValue());
+00046     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a13}{
+\index{ActionImpl@{Action\-Impl}!andThen@{andThen}}
+\index{andThen@{andThen}!ActionImpl@{Action\-Impl}}
+\subsubsection[andThen]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Action\-Impl::and\-Then (\hyperlink{interfaceAction}{Action} {\em action})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a13}
+
+
+
+
+Reimplemented from \hyperlink{interfaceAction_a3}{Action}.
+
+Definition at line 35 of file Action\-Impl.java.\footnotesize\begin{verbatim}00035                                          {
+00036         return new AndThen(factory, enactable, action.enactableValue());
+00037     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a11}{
+\index{ActionImpl@{Action\-Impl}!enact@{enact}}
+\index{enact@{enact}!ActionImpl@{Action\-Impl}}
+\subsubsection[enact]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceData}{Data} Action\-Impl::enact ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a11}
+
+
+
+
+Reimplemented from \hyperlink{interfaceAction_a1}{Action}.
+
+Definition at line 28 of file Action\-Impl.java.\footnotesize\begin{verbatim}00028                                                    {
+00029         return enactable.enact(factory.makeEmpty(), factory.makeNoBindings());
+00030     }   
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a1}{
+\index{ActionImpl@{Action\-Impl}!enact@{enact}}
+\index{enact@{enact}!ActionImpl@{Action\-Impl}}
+\subsubsection[enact]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceData}{Data} Action\-Impl::enact ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a1}
+
+
+
+
+Reimplemented from \hyperlink{interfaceAction_a1}{Action}.
+
+Definition at line 32 of file Abstract\-Action.java.\footnotesize\begin{verbatim}00032                         {
+00033         return enactable.enact(factory.makeEmpty(), factory.makeNoBindings());
+00034     }   
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a10}{
+\index{ActionImpl@{Action\-Impl}!enactableValue@{enactableValue}}
+\index{enactableValue@{enactableValue}!ActionImpl@{Action\-Impl}}
+\subsubsection[enactableValue]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceEnactable}{Enactable} Action\-Impl::enactable\-Value ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a10}
+
+
+
+
+Reimplemented from \hyperlink{interfaceAction_a0}{Action}.
+
+Definition at line 24 of file Action\-Impl.java.\footnotesize\begin{verbatim}00024                                       {
+00025         return enactable;
+00026     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a21}{
+\index{ActionImpl@{Action\-Impl}!equals@{equals}}
+\index{equals@{equals}!ActionImpl@{Action\-Impl}}
+\subsubsection[equals]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceEmpty}{Empty} Action\-Impl::equals (\hyperlink{interfaceData}{Data} {\em data})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a21}
+
+
+
+
+Reimplemented from \hyperlink{classDataValueImpl_a5}{Data\-Value\-Impl}.
+
+Definition at line 68 of file Action\-Impl.java.\footnotesize\begin{verbatim}00068                                                       {
+00069         if (data instanceof Action)
+00070             if (enactable == ((Action)data).enactableValue())
+00071                 return factory.makeEmpty();
+00072         throw new Exceptional(factory.makeEmpty());
+00073     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a15}{
+\index{ActionImpl@{Action\-Impl}!exceptionally@{exceptionally}}
+\index{exceptionally@{exceptionally}!ActionImpl@{Action\-Impl}}
+\subsubsection[exceptionally]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Action\-Impl::exceptionally (\hyperlink{interfaceAction}{Action} {\em action})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a15}
+
+
+
+
+Reimplemented from \hyperlink{interfaceAction_a5}{Action}.
+
+Definition at line 41 of file Action\-Impl.java.\footnotesize\begin{verbatim}00041                                                {
+00042         return new Exceptionally(factory, enactable, action.enactableValue());
+00043     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a0}{
+\index{ActionImpl@{Action\-Impl}!getEnactable@{getEnactable}}
+\index{getEnactable@{getEnactable}!ActionImpl@{Action\-Impl}}
+\subsubsection[getEnactable]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceEnactable}{Enactable} Action\-Impl::get\-Enactable ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a0}
+
+
+
+
+Definition at line 28 of file Abstract\-Action.java.\footnotesize\begin{verbatim}00028                                     {
+00029         return enactable;
+00030     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a4}{
+\index{ActionImpl@{Action\-Impl}!giveAnd@{giveAnd}}
+\index{giveAnd@{giveAnd}!ActionImpl@{Action\-Impl}}
+\subsubsection[giveAnd]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Action\-Impl::give\-And (\hyperlink{interfaceAction}{Action} {\em action})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a4}
+
+
+
+
+Definition at line 42 of file Abstract\-Action.java.\footnotesize\begin{verbatim}00042                                          {
+00043         return new And(factory, enactable, action.getEnactable());
+00044     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a6}{
+\index{ActionImpl@{Action\-Impl}!giveAndExceptionally@{giveAndExceptionally}}
+\index{giveAndExceptionally@{giveAndExceptionally}!ActionImpl@{Action\-Impl}}
+\subsubsection[giveAndExceptionally]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Action\-Impl::give\-And\-Exceptionally (\hyperlink{interfaceAction}{Action} {\em action})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a6}
+
+
+
+
+Definition at line 48 of file Abstract\-Action.java.\footnotesize\begin{verbatim}00048                                                       {
+00049         return new AndExceptionally(factory, enactable, action.getEnactable());
+00050     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a3}{
+\index{ActionImpl@{Action\-Impl}!giveAndThen@{giveAndThen}}
+\index{giveAndThen@{giveAndThen}!ActionImpl@{Action\-Impl}}
+\subsubsection[giveAndThen]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Action\-Impl::give\-And\-Then (\hyperlink{interfaceAction}{Action} {\em action})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a3}
+
+
+
+
+Definition at line 39 of file Abstract\-Action.java.\footnotesize\begin{verbatim}00039                                              {
+00040         return new AndThen(factory, enactable, action.getEnactable());
+00041     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a5}{
+\index{ActionImpl@{Action\-Impl}!giveExceptionally@{giveExceptionally}}
+\index{giveExceptionally@{giveExceptionally}!ActionImpl@{Action\-Impl}}
+\subsubsection[giveExceptionally]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Action\-Impl::give\-Exceptionally (\hyperlink{interfaceAction}{Action} {\em action})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a5}
+
+
+
+
+Definition at line 45 of file Abstract\-Action.java.\footnotesize\begin{verbatim}00045                                                    {
+00046         return new Exceptionally(factory, enactable, action.getEnactable());
+00047     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a8}{
+\index{ActionImpl@{Action\-Impl}!giveHence@{giveHence}}
+\index{giveHence@{giveHence}!ActionImpl@{Action\-Impl}}
+\subsubsection[giveHence]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Action\-Impl::give\-Hence (\hyperlink{interfaceAction}{Action} {\em action})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a8}
+
+
+
+
+Definition at line 54 of file Abstract\-Action.java.\footnotesize\begin{verbatim}00054                                            {
+00055         return new Hence(factory, enactable, action.getEnactable());
+00056     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a9}{
+\index{ActionImpl@{Action\-Impl}!giveIndivisibly@{giveIndivisibly}}
+\index{giveIndivisibly@{giveIndivisibly}!ActionImpl@{Action\-Impl}}
+\subsubsection[giveIndivisibly]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Action\-Impl::give\-Indivisibly ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a9}
+
+
+
+
+Definition at line 57 of file Abstract\-Action.java.\footnotesize\begin{verbatim}00057                                     {
+00058         return new Indivisibly(factory, enactable);
+00059     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a7}{
+\index{ActionImpl@{Action\-Impl}!giveOtherwise@{giveOtherwise}}
+\index{giveOtherwise@{giveOtherwise}!ActionImpl@{Action\-Impl}}
+\subsubsection[giveOtherwise]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Action\-Impl::give\-Otherwise (\hyperlink{interfaceAction}{Action} {\em action})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a7}
+
+
+
+
+Definition at line 51 of file Abstract\-Action.java.\footnotesize\begin{verbatim}00051                                                {
+00052         return new AndOtherwise(factory, enactable, action.getEnactable());
+00053     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a2}{
+\index{ActionImpl@{Action\-Impl}!giveThen@{giveThen}}
+\index{giveThen@{giveThen}!ActionImpl@{Action\-Impl}}
+\subsubsection[giveThen]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Action\-Impl::give\-Then (\hyperlink{interfaceAction}{Action} {\em action})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a2}
+
+
+
+
+Definition at line 36 of file Abstract\-Action.java.\footnotesize\begin{verbatim}00036                                           {
+00037         return new Then(factory, enactable, action.getEnactable());
+00038     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a18}{
+\index{ActionImpl@{Action\-Impl}!hence@{hence}}
+\index{hence@{hence}!ActionImpl@{Action\-Impl}}
+\subsubsection[hence]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Action\-Impl::hence (\hyperlink{interfaceAction}{Action} {\em action})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a18}
+
+
+
+
+Reimplemented from \hyperlink{interfaceAction_a8}{Action}.
+
+Definition at line 50 of file Action\-Impl.java.\footnotesize\begin{verbatim}00050                                        {
+00051         return new Hence(factory, enactable, action.enactableValue());
+00052     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a19}{
+\index{ActionImpl@{Action\-Impl}!indivisibly@{indivisibly}}
+\index{indivisibly@{indivisibly}!ActionImpl@{Action\-Impl}}
+\subsubsection[indivisibly]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Action\-Impl::indivisibly ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a19}
+
+
+
+
+Reimplemented from \hyperlink{interfaceAction_a9}{Action}.
+
+Definition at line 53 of file Action\-Impl.java.\footnotesize\begin{verbatim}00053                                 {
+00054         return new Indivisibly(factory, enactable);
+00055     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a17}{
+\index{ActionImpl@{Action\-Impl}!otherwise@{otherwise}}
+\index{otherwise@{otherwise}!ActionImpl@{Action\-Impl}}
+\subsubsection[otherwise]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Action\-Impl::otherwise (\hyperlink{interfaceAction}{Action} {\em action})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a17}
+
+
+
+
+Reimplemented from \hyperlink{interfaceAction_a7}{Action}.
+
+Definition at line 47 of file Action\-Impl.java.\footnotesize\begin{verbatim}00047                                            {
+00048         return new Otherwise(factory, enactable, action.enactableValue());
+00049     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a20}{
+\index{ActionImpl@{Action\-Impl}!run@{run}}
+\index{run@{run}!ActionImpl@{Action\-Impl}}
+\subsubsection[run]{\setlength{\rightskip}{0pt plus 5cm}void Action\-Impl::run ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a20}
+
+
+
+
+Definition at line 58 of file Action\-Impl.java.\footnotesize\begin{verbatim}00058                       {
+00059         try {
+00060             Data result = enact();
+00061         }
+00062         catch (Exception e) {
+00063             System.out.println("Agent exited abnormally.");
+00064         }
+00065     }
+\end{verbatim}\normalsize 
+\hypertarget{classActionImpl_a12}{
+\index{ActionImpl@{Action\-Impl}!then@{then}}
+\index{then@{then}!ActionImpl@{Action\-Impl}}
+\subsubsection[then]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Action\-Impl::then (\hyperlink{interfaceAction}{Action} {\em action})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classActionImpl_a12}
+
+
+
+
+Reimplemented from \hyperlink{interfaceAction_a2}{Action}.
+
+Definition at line 32 of file Action\-Impl.java.\footnotesize\begin{verbatim}00032                                       {
+00033         return new Then(factory, enactable, action.enactableValue());
+00034     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classActionImpl_o1}{
+\index{ActionImpl@{Action\-Impl}!enactable@{enactable}}
+\index{enactable@{enactable}!ActionImpl@{Action\-Impl}}
+\subsubsection[enactable]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceEnactable}{Enactable} Action\-Impl::enactable\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classActionImpl_o1}
+
+
+
+
+Definition at line 9 of file Action\-Impl.java.\hypertarget{classActionImpl_o0}{
+\index{ActionImpl@{Action\-Impl}!result@{result}}
+\index{result@{result}!ActionImpl@{Action\-Impl}}
+\subsubsection[result]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceData}{Data} Action\-Impl::result\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classActionImpl_o0}
+
+
+
+
+Definition at line 12 of file Abstract\-Action.java.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{AbstractAction_8java-source}{Abstract\-Action.java}\item 
+\hyperlink{ActionImpl_8java-source}{Action\-Impl.java}\end{CompactItemize}

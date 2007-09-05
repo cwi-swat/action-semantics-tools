@@ -1,0 +1,9 @@
+module c/ParameterDeclarators
+exports
+  context-free syntax
+    ( DeclarationQualifierList | TypeQualifier+ | DeclarationSpecifier | TypeSpecifier ) ( AbstractDeclarator | IdentifierDeclarator )? -> ParameterDeclaration {cons("ParamDecl")}
+    ( DeclarationSpecifier | TypeSpecifier ) TypedefDeclarator -> ParameterDeclaration {cons("ParamDecl2")}
+
+  context-free syntax
+    ( TypeSpecifier | TypeQualifier+ ) AbstractDeclarator? -> TypeName {cons("TypeName")}
+

@@ -1,0 +1,10 @@
+module dn/sem/lib/List
+
+imports dn/syn/lib/List
+	dn/sem/kernel/Interface
+
+hiddens
+variables
+	"d"[0-9\']* -> Data
+	"l"[0-9\']* -> List
+

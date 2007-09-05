@@ -1,0 +1,27 @@
+module aux/Queue[X]
+
+imports basic/Booleans
+
+exports
+
+sorts Queue
+
+context-free syntax
+	queue(X, Queue) -> Queue
+	queued(Queue) -> X
+	dequeue(Queue) -> Queue
+	is-empty(Queue) -> Boolean
+	empty-queue() -> Queue
+
+hiddens
+
+imports 
+	asf/syntax/Comments
+
+context-free syntax
+	"[" X* "]" -> Queue
+
+variables
+	"x"[0-9\']* -> X
+	"x*"[0-9\']* -> X*
+	"q"[0-9\']* -> Queue

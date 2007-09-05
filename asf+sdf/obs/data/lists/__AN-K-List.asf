@@ -1,0 +1,22 @@
+equations
+
+[]	result tupleToList _ d = insert(empty-list(), d)
+
+[]	result the list_ l = l
+
+[]	result _++_ (l1,l2) = concat(l1,l2)
+
+[]	result append_ (l,d) = append(l,d)
+
+[]	result insert_ (l,d) = insert(l,d)
+
+[]	result head_ l = head(l)
+
+[]	result tail_ l = tail(l)
+
+[]	result length_ l = length(l)
+
+[]	result replace-at_ (l,n,d) = replace-at(l,n,d)
+
+[]	result element-at_ (l,n) = element-at(l,n)
+

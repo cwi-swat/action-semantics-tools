@@ -1,0 +1,26 @@
+module obs/data/booleans/Bool
+
+imports obs/layout/Layout
+
+exports
+  sorts Bool BoolConst
+  context-free syntax
+
+  "true"        -> BoolConst {cons("true")}
+  "false"       -> BoolConst {cons("false")}
+  BoolConst     -> Bool {cons("bool")}
+
+  "not" arg:Bool    -> Bool {prefer, cons("not")}
+
+  lhs:Bool "|" rhs:Bool -> Bool {left, cons("or")}
+  lhs:Bool "&" rhs:Bool -> Bool {left, cons("and")}
+  "(" Bool ")"       -> Bool {bracket, cons("bracket-bool")}
+
+context-free priorities
+  Bool "&" Bool -> Bool >
+  Bool "|" Bool -> Bool
+
+hiddens
+  variables
+    "b"[0-9]* -> Bool
+

@@ -1,0 +1,12 @@
+module an/sem/kernel/Exceptional-Action
+
+imports an/syn/kernel/Exceptional-Action
+	an/sem/kernel/Data-Flow
+
+hiddens
+
+variables
+	"A"[0-9\']* -> Action
+	"s"[0-9\']* -> IndexedState
+	"d"[0-9\']* -> Data
+	"t"[0-9\']* -> Terminated

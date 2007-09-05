@@ -1,0 +1,14 @@
+module an/syn/kernel/Enacting-Action
+
+imports dn/syn/internal/Action
+	an/syn/kernel/Normal-Action 
+	an/syn/kernel/Exceptional-Outcome
+	an/syn/kernel/Binding-Action
+
+exports
+
+sorts Action
+
+context-free syntax
+	"enact" -> Action {cons("enact")}
+

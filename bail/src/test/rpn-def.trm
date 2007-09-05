@@ -1,0 +1,8 @@
+definition RPN {
+	push <term>;
+	add;
+	sub;
+	mul;
+	div;
+	output;
+}

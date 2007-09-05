@@ -1,0 +1,19 @@
+module an/sem/lib/Output-Action
+
+imports an/sem/kernel/Normal-Action
+
+exports
+
+context-free syntax
+	"write" -> Action {cons("write-action")}
+
+hiddens
+
+imports system/FileIO[Data]
+	system/Shell
+
+variables
+	"d"[0-9\']* -> Data
+	"s"[0-9\']* -> IndexedState
+	"str"[0-9\']* -> String
+

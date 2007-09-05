@@ -1,0 +1,411 @@
+definition
+
+module obs/aux/structs/Finite-Map[Key Value]
+
+imports obs/data/booleans/Bool 
+	obs/aux/structs/Finite-Set[Key]
+
+exports
+
+sorts Finite-Map Value
+
+context-free syntax
+
+Finite-Map "." Key ":=" Value -> Finite-Map
+Finite-Map "." Key -> Value
+
+"(" Finite-Map ")" -> Finite-Map {bracket}
+
+Finite-Map "+" Finite-Map -> Finite-Map {assoc}
+
+get(Finite-Map, Key) -> Value
+put(Finite-Map, Key, Value) -> Finite-Map
+remove(Finite-Map, Key) -> Finite-Map
+
+has-key(Finite-Map, Key) -> Bool
+
+domain(Finite-Map) -> Finite-Set
+
+empty-map() -> Finite-Map
+
+disjoint-union(Finite-Map, Finite-Map) -> Finite-Map
+overriding(Finite-Map, Finite-Map) -> Finite-Map
+
+
+%%aliases
+Key # Value -> Tuple
+
+context-free syntax
+
+"{" Tuple* "}" -> Finite-Map
+
+
+hiddens
+
+variables
+"k"[0-9\']* -> Key
+"v"[0-9\']* -> Value
+"m"[0-9\']* -> Finite-Map
+"tup"[0-9\']* -> Tuple
+"tup*"[0-9\']* -> Tuple*
+
+
+
+module obs/aux/structs/Vector[Elt]
+
+imports obs/data/booleans/Bool
+
+exports
+
+sorts Vector
+
+context-free syntax
+
+prepend(Vector, Elt) -> Vector
+append(Vector, Elt) -> Vector
+
+get-first(Vector) -> Elt
+get-last(Vector) -> Elt
+remove-last(Vector) -> Vector
+remove(Vector, Elt) -> Vector
+rotate(Vector) -> Vector
+
+has-element(Vector, Elt) -> Bool
+
+is-empty-vector(Vector) -> Bool
+
+empty-vector() -> Vector
+
+hiddens
+
+context-free syntax
+
+"[" Elt* "]" -> Vector
+
+variables
+"e"[0-9\']* -> Elt
+"e*"[0-9\']* -> Elt*
+
+
+module obs/data/__AN-K-Agent
+
+imports obs/data/integers/Int 
+	obs/data/__AN-K-Data-Contract
+
+exports
+
+lexical syntax
+  "agent"               -> SortName
+
+context-free syntax
+
+new-agent(Int) -> Agent
+agent-to-int(Agent) -> Int
+Agent -> Datum {cons("agent")}
+
+hiddens
+
+context-free syntax
+"$" Int -> Agent
+
+
+variables
+"n"[0-9\']* -> Int
+module obs/data/integers/Int
+
+imports obs/data/booleans/Bool
+   
+exports
+
+lexical syntax
+[0]           -> Zero %%{cons("Zero")}
+[1-9][0-9]*   -> PosNumeral %%{cons("PosNumeral")}
+Zero -> Nat-Con %%{cons("zero-Nat-Con")}
+PosNumeral -> Nat-Con %%{cons("posnumeral-Nat-Con")}
+
+restrictions
+	PosNumeral -/- [0-9]
+
+context-free syntax
+
+Nat-Con -> Numeral {cons("numeral")}
+
+Numeral       -> Nat {cons("nat")}
+%%PosNumeral    -> Pos {cons("posnumeral-Pos")}
+Nat           -> Int {cons("int")}
+Nat "-?" Nat  -> Nat {left, cons("monus")}
+"(" Nat ")"            -> Nat {bracket, cons("bracket-Nat")}
+"+" Nat                -> Int {cons("unary-plus")}
+"-" Nat                -> Int {cons("unary-minus")}
+
+Int "+" Int   -> Int {left, prefer, cons("plus")}
+Int "-" Int   -> Int {left, prefer, cons("minus")}
+Int "*" Int   -> Int {left, prefer, cons("times")}
+Int ">" Int       -> Bool {prefer, cons("gt")}
+Int ">=" Int      -> Bool {prefer, cons("ge")}
+Int "<" Int       -> Bool {prefer, cons("lt")}
+Int "<=" Int      -> Bool {prefer, cons("le")}
+"(" Int ")"       -> Int {bracket, cons("bracket-int")}
+
+context-free priorities
+
+Int "*" Int -> Int > 
+{ Int "+" Int -> Int {left}
+  Int "-" Int -> Int {left}
+}
+
+
+
+hiddens
+
+sorts 
+  Int Nat PosNumeral Pos Numeral Nat-Con Zero
+	
+  variables
+    "n" [0-9\']* -> Nat 
+    "p" [0-9\']* -> PosNumeral
+    "i" [0-9\']* -> Int
+
+
+hiddens
+  context-free syntax
+    gt "(" Nat "," Nat ")" -> Bool %%{cons("hidden-nat-gt")}
+    Nat "-//" Nat          -> Nat  %%{cons("hidden-nat-minus")}
+    Nat ">-" Nat           -> Nat  %%{cons("hidden-nat-arrow")}
+
+  variables 
+    "char" [0-9]* -> CHAR
+    "char*" [0-9]* -> CHAR*
+    "char+" [0-9]* -> CHAR+
+
+  context-free priorities
+    Int "*" Int -> Int >
+    {left: Int "+" Int -> Int {left} 
+           Int "-" Int -> Int {left}
+    }
+
+
+
+
+module obs/aux/structs/Finite-Set[Elt]
+
+imports obs/data/booleans/Bool 
+
+exports 
+
+sorts Finite-Set
+
+context-free syntax
+
+empty-set() -> Finite-Set
+
+Finite-Set "+" Finite-Set -> Finite-Set {assoc}
+
+element-of(Finite-Set, Elt) -> Bool
+add-to-set(Finite-Set, Elt) -> Finite-Set
+set(Elt) -> Finite-Set
+set-union(Finite-Set, Finite-Set) -> Finite-Set
+head(Finite-Set) -> Elt
+tail(Finite-Set) -> Finite-Set
+
+hiddens
+context-free syntax
+
+"{" Elt* "}" -> Finite-Set
+
+variables
+"e"[0-9\']* -> Elt
+"e*"[0-9\']* -> Elt*
+"s"[0-9\']* -> Finite-Set
+
+
+module obs/data/booleans/Bool
+
+imports obs/layout/Layout
+
+exports
+  sorts Bool BoolConst
+  context-free syntax
+
+  "true"        -> BoolConst {cons("true")}
+  "false"       -> BoolConst {cons("false")}
+  BoolConst     -> Bool {cons("bool")}
+
+  "not" arg:Bool    -> Bool {prefer, cons("not")}
+
+  lhs:Bool "|" rhs:Bool -> Bool {left, cons("or")}
+  lhs:Bool "&" rhs:Bool -> Bool {left, cons("and")}
+  "(" Bool ")"       -> Bool {bracket, cons("bracket-bool")}
+
+context-free priorities
+  Bool "&" Bool -> Bool >
+  Bool "|" Bool -> Bool
+
+hiddens
+  variables
+    "b"[0-9]* -> Bool
+
+
+module obs/layout/Layout
+
+exports lexical syntax
+  %% added by TVDS
+  "~~" ~[\n]* [\n] -> LAYOUT
+  "%%" ~[\n]* [\n] -> LAYOUT
+
+  [\ \t\n]      -> LAYOUT
+
+context-free restrictions
+
+  LAYOUT? -/- [\ \t\n]
+
+
+
+
+
+module obs/data/__AN-K-Data-Contract
+
+imports obs/data/__AN-K-DataTypes 
+
+exports
+
+context-free syntax
+
+	Datum -> Data {cons("datum")}
+
+	DataConst  -> Data {cons("dataconst")}
+
+	DataOpSort -> DataOpPrefix {cons("dataopsort")}
+
+	"the" sort:DataSort -> DataOpSort 
+
+	result DataOp Data  -> Data 
+	holds DataPred Data -> DataConst 
+	storable(Data) -> Bool
+	bindable(Data) -> Bool
+	sendable(Data) -> Bool
+
+	prefix:DataOpPrefix "_"              -> DataOp {cons("dataopprefix")}
+	"_" infix:DataOpInfix "_"           -> DataOp {cons("dataopinfix")}
+
+	prefix:DataPredPrefix "_"   -> DataPred {cons("datapredprefix")}
+	"_" infix:DataPredInfix "_"  -> DataPred {cons("datapredinfix")}
+
+
+lexical syntax
+   "true" -> DataConst 
+   "false" -> DataConst 
+
+
+context-free syntax
+
+	"(" head:Data "," tail:{Data ","}+ ")" -> Data {cons("tuple")}
+	"(" data:Data ")" -> Data {bracket, prefer,cons("bracket")}
+	"(" ")" -> Data {prefer,cons("empty")}
+
+context-free syntax
+	nothing -> Data {cons("nothing")}
+
+	Data "++" Data -> Data {prefer, left}
+
+hiddens 
+
+sorts
+        DataPredInfix DataPredPrefix DataOpSort
+        DataOpComponent Data DataOpPrefix 
+
+context-free syntax
+
+Data "!" Int -> Datum
+
+variables
+"o"[0-9\']* -> DataOp
+"d"[0-9\']* -> Data
+"ds"[0-9\']* -> DataSort
+"d+"[0-9\']* -> {Data ","}+
+"d*"[0-9\']* -> {Data ","}*
+"n"[0-9\']* -> Int 
+"p"[0-9\']* -> Nat-Con 
+"u"[0-9\']* -> Datum
+"i"[0-9\']* -> Int
+"char+" -> CHAR+
+
+
+module obs/data/__AN-K-DataTypes
+
+imports obs/layout/Layout
+
+exports
+
+context-free syntax
+  SortName                              -> DataSort {cons("sortname")}
+  DataSort "*"                          -> DataSort {cons("star")}
+  DataSort "+"                          -> DataSort {cons("plus")}
+  DataSort "?"                          -> DataSort {cons("opt")}
+  "(" DataSort "," {DataSort ","}+ ")"               -> DataSort {cons("tuple")}
+%%  "(" {DataSort "|"}+ ")"               -> DataSort {cons("alt")}
+
+  DataSort "|" DataSort -> DataSort {assoc}
+  "(" DataSort ")" -> DataSort {bracket,avoid}
+  "("")" -> DataSort
+
+  "action" "[" outcome:Outcome+ "]"             -> DataSort {cons("outcome")}
+
+
+context-free syntax
+  "taking"  DataSort    -> Outcome {cons("taking")}
+  "giving"  DataSort    -> Outcome {cons("giving")}
+  "raising" DataSort    -> Outcome {cons("raising")}
+  "failing"             -> Outcome {cons("failing")}
+
+context-free priorities
+{  DataSort "*"                          -> DataSort {cons("star")}
+  DataSort "+"                          -> DataSort {cons("plus")}
+  DataSort "?"                          -> DataSort {cons("opt")}
+}
+>
+  DataSort "|" DataSort -> DataSort {assoc}
+
+
+lexical syntax
+
+  "data"                        -> SortName 
+  "datum"                       -> SortName 
+
+lexical syntax
+  "\"" ~[\"\ \n\t]+ "\""        -> Module
+
+hiddens
+sorts
+
+        Module SortName
+        DataOp DataPred OutCome DataSort  
+
+
+
+module obs/aux/__AN-K-Agents
+
+
+imports obs/data/integers/Int obs/data/__AN-K-Agent
+	obs/aux/structs/Vector[Agent][Vector=>Schedule]
+	obs/aux/structs/Finite-Map[Agent Action][Finite-Map=>Actions]
+
+exports
+
+context-free syntax
+
+"main" -> Agent
+
+empty-actions() -> Actions
+empty-schedule() -> Schedule
+empty-agents() -> Agents
+
+new-agent(Agents) -> Agent
+update-agents(Agents) -> Agents
+
+hiddens
+context-free syntax
+"!" Int -> Agents
+
+variables
+"n"[0-9\']* -> Int

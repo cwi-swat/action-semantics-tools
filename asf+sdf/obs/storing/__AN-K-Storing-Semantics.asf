@@ -1,0 +1,55 @@
+equations
+
+[]	has-key(a, cells) = false,
+	has-key(a, storage) = false
+	===
+	check-cells(a) = 
+		put(put(a, cells, empty-cells()), storage, empty-storage())
+
+[default]
+	check-cells(a) = a
+
+[60]	a1 = check-cells(a),
+	a1.storage = s,
+	a1.cells = cs,
+	a1.data = sv, 
+	c = new-cell(cs),
+	a2 = a1.cells := update-cells(cs),
+	a3 = a2.storage := put(s, c, sv)
+	===
+	exec(create, a) = <normal c, a3>
+
+[default-61]
+	exec(create, a) = <exceptional (), a>
+
+[62]	a.storage = s,
+	a.data = c,
+	has-key(s, c) = true,
+	a' = a.storage := remove(s, c)
+	===
+	exec(destroy, a) = <normal (), a'>
+
+[default-63-64]
+	exec(destroy, a) = <exceptional (), a>
+
+[65]	a.storage = s,
+	a.data = (c, sv),
+	s = a.storage,
+	has-key(s, c) = true,
+	a' = a.storage := put(s, c, sv)
+	===
+	exec(update, a) = <normal (), a'>
+
+[default-66-67]
+	exec(update, a) = <exceptional (), a>
+	
+[68]	a.storage = s,
+	a.data = c,
+	has-key(s, c) = true,
+	sv = get(s, c)
+	===
+	exec(inspect, a) = <normal sv, a>
+
+[default-69-70]
+	exec(inspect, a) = <exceptional (), a>
+

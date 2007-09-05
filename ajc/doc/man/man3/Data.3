@@ -1,0 +1,66 @@
+.TH "Data" 3 "13 Sep 2002" "Action Java Compiler Runtime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Data \- 
+.SH SYNOPSIS
+.br
+.PP
+Inherited by \fBDataImpl\fP, and \fBDataValue\fP.
+.PP
+.SS "Public Methods"
+
+.in +1c
+.ti -1c
+.RI "Data \fBconcat\fP (Data data)"
+.br
+.ti -1c
+.RI "\fBList\fP \fBtupleToList\fP ()"
+.br
+.ti -1c
+.RI "\fBDataValue\fP \fBfirst\fP () throws \fBExceptional\fP"
+.br
+.ti -1c
+.RI "Data \fBrest\fP ()"
+.br
+.ti -1c
+.RI "\fBDataValue\fP \fBat\fP (int n) throws \fBExceptional\fP"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBprovide\fP ()"
+.br
+.in -1c
+.SH "MEMBER FUNCTION DOCUMENTATION"
+.PP 
+.SS "\fBDataValue\fP Data::at (int n)"
+.PP
+Reimplemented in \fBDataImpl\fP, \fBDataValueImpl\fP, and \fBEmptyImpl\fP.
+.PP
+Referenced by DataImpl::at().
+.PP
+.SS "Data Data::concat (Data data)"
+.PP
+Reimplemented in \fBDataImpl\fP, \fBDataValueImpl\fP, and \fBEmptyImpl\fP.
+.PP
+Referenced by DataImpl::concat().
+.PP
+.SS "\fBDataValue\fP Data::first ()"
+.PP
+Reimplemented in \fBDataImpl\fP, \fBDataValueImpl\fP, and \fBEmptyImpl\fP.
+.SS "\fBAction\fP Data::provide ()"
+.PP
+Reimplemented in \fBDataImpl\fP.
+.SS "Data Data::rest ()"
+.PP
+Reimplemented in \fBDataImpl\fP, and \fBDataValueImpl\fP.
+.SS "\fBList\fP Data::tupleToList ()"
+.PP
+Reimplemented in \fBDataImpl\fP, \fBDataValueImpl\fP, and \fBEmptyImpl\fP.
+.PP
+Referenced by DataImpl::tupleToList().
+.PP
+
+
+.SH "AUTHOR"
+.PP 
+Generated automatically by Doxygen for Action Java Compiler Runtime from the source code.

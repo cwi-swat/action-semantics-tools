@@ -1,0 +1,50 @@
+module ai/Outcome-Analysis
+
+imports obs/data/__AN-K-DataTypes
+	obs/data/booleans/Bool
+
+exports
+
+sorts Bool
+
+context-free syntax
+
+"{" Outcome* "}" -> Outcomes
+
+Modus "(" Outcomes ")" -> Bool
+
+"giving" -> Prim-Modus
+"failing" -> Prim-Modus
+"raising" -> Prim-Modus
+Prim-Modus -> Modus
+"[]" Prim-Modus -> Modus
+"<>" Prim-Modus -> Modus
+
+Outcomes "[" Prim-Modus "]" -> Outcome
+Outcomes "/" Prim-Modus -> Outcomes {prefer}
+Outcomes "+" Outcomes -> Outcomes {assoc}
+"(" Outcomes ")" -> Outcomes {bracket}
+
+hiddens
+context-free syntax
+
+is-giving(Outcomes) -> Bool
+is-failing(Outcomes) -> Bool
+is-raising(Outcomes) -> Bool
+
+get-given(Outcomes) -> DataSort
+get-raised(Outcomes) -> DataSort
+
+get-raising(Outcomes) -> Outcome
+get-failing(Outcomes) -> Outcome
+get-giving(Outcomes) -> Outcome
+
+hiddens
+variables
+"ds"[0-9\']* -> DataSort
+"oc+"[0-9\']* -> Outcome+
+"oc*"[0-9\']* -> Outcome*
+"oc"[0-9\']* -> Outcome
+"ocs"[0-9\']* -> Outcomes
+"m"[0-9\']* -> Modus
+"p"[0-9\']* -> Prim-Modus

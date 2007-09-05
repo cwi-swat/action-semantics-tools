@@ -1,0 +1,71 @@
+equations
+
+[newc1]	new-cell(cs) = first-cell() 
+		when cs = empty-list()
+
+[newc2]	new-cell(cs) = next-cell(head(cs)) 
+		when cs != empty-list()
+
+[sos60]	s@storage = st,
+	s@cells = cs,
+	s@data = sv,
+	storable(sv) = true,
+	c = new-cell(cs),
+	cs' = insert(c, cs),
+	s' = s[st[sv/c]/storage][cs'/cells]
+	===
+	s |- create = <normal c, s'>
+
+[default-sos61]
+	s |- create = <exceptional (), s>
+
+[sos62]	s@storage = st,
+	s@data = c,
+	has-key(c,st) = true,
+	s' = s[st - c/storage]
+	===
+	s |- destroy = <normal (), s'>
+
+[sos63]	s@storage = st,
+	s@data = c,
+	has-key(c,st) = false
+	===
+	s |- destroy = <exceptional (), s>
+
+[default-sos64]
+	s |- destroy = <exceptional (), s>
+
+
+[sos65]	s@storage = st,
+	s@data = (c, sv),
+	has-key(c,st) = true,
+	storable(sv) = true,
+	s' = s[st[sv/c]/storage]
+	===
+	s |- update = <normal (), s'>
+
+[sos66]	s@storage = st,
+	s@data = (c, sv),
+	has-key(c,st) = false
+	===
+	s |- update = <exceptional (), s>
+
+[default-sos67]
+	s |- update = <exceptional (), s>
+
+[sos68]	s@storage = st,
+	s@data = c,
+	stored(st,c) = sv
+	===
+	s |- inspect = <normal sv, s>
+
+[sos69]	s@storage = st,
+	s@data = c,
+	has-key(c, st) = false
+	===
+	s |- inspect = <exceptional (), s>
+
+[default-sos70]
+	s |- inspect = <exceptional (), s>
+
+

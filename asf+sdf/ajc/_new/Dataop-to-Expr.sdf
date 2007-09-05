@@ -1,0 +1,16 @@
+module ajc/Dataop-to-Expr
+
+imports ajc/AJC-Functions
+	dn/Default-DN
+
+
+exports
+
+sorts Expr
+
+hiddens
+variables
+	"expr"[0-9\']* -> Expr
+	"env"[0-9\']* -> Environment
+	"A"[0-9\']* -> Action
+

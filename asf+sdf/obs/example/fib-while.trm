@@ -1,0 +1,15 @@
+execute[[
+
+{
+	int n = 4;
+	int i = 1;
+	int j = 0;
+	int k = 0;
+	while (k < n) {
+		j = i+j;
+		i = j-i;
+		k = k + 1;
+	}
+}
+
+]]

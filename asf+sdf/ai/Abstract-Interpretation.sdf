@@ -1,0 +1,51 @@
+module ai/Abstract-Interpretation
+
+imports ai/Type-Inference-Data
+	ai/Outcome-Analysis
+
+exports
+
+sorts Annotated-Action
+
+context-free syntax
+
+Data "," Data "|-" Action -> Action
+
+
+Action Outcomes -> Action
+
+
+Data -> DataSort
+
+
+is-flat(Data) -> Bool
+is-sharp(DataSort) -> Bool
+
+alpha(Data) -> DataSort
+gamma(DataSort) -> Data
+
+alpha(Action) -> Outcomes
+gamma(Action) -> Action
+
+hiddens
+
+context-free syntax
+"<" SortName ">" -> Datum
+
+pure-data(Data) -> Bool
+pure-type(DataSort) -> Bool
+data-to-type(Data) -> DataSort
+type-to-data(DataSort) -> Data
+get-outcomes(Annotated-Action) -> Outcome*
+
+variables
+"d"[0-9\']* -> Data
+"d+"[0-9\']* -> {Data ","}+
+"u"[0-9\']* -> Datum
+"t"[0-9\']* -> DataSort
+"s"[0-9\']* -> SortName
+"t+"[0-9\']* -> {DataSort ","}+
+"A"[0-9\']* -> Action
+"oc+"[0-9\']* -> Outcome+
+"oc*"[0-9\']* -> Outcome*
+

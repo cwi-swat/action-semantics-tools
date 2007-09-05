@@ -1,0 +1,32 @@
+equations
+
+[]	result the set_ s = s
+
+[]	result set_ d = set(d)
+
+[]	result union_ (s1,s2) = set-union(s1,s2)
+
+[]	result to-list_ s = to-list(s)
+
+[]	result tuple_ s = tuple(s)
+
+[]	empty-set() = s
+	===
+	to-list(s) = empty-list()
+
+
+[default]	
+	d = head(s),
+	l = to-list(tail(s))
+	===
+	to-list(s) = insert(l, d)
+
+[]	empty-set() = s
+	===
+	tuple(s) = ()
+
+[default]	
+	d1 = head(s),
+	d2 = tuple(tail(s))
+	===
+	tuple(s) = d1 ++ d2

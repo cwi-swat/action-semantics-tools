@@ -1,0 +1,4 @@
+equations
+
+[]	perform(A) = exec+(normal () then (normal no bindings hence A), 
+		new-environment())

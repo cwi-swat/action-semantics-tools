@@ -1,0 +1,25 @@
+module msos/SmallStep-MSOS[Construct Terminated]
+
+imports msos/Indexed-Trace[IndexedTrace => Arbitrary]
+	basic/Booleans
+exports
+
+sorts Arbitrary Construct Configuration
+
+context-free syntax
+
+	Terminated -> Construct
+
+	IndexedState "|-" Construct -> Configuration {cons("non-terminal")}
+	"<" Construct "," IndexedState ">"   -> Configuration {cons("terminal")}
+	IndexedState "|-+" Construct -> Configuration {cons("trans-closure")}
+
+hiddens
+
+imports basic/Comments
+
+variables
+	"c"[0-9\']* -> Construct
+	"a"[0-9\']* -> Arbitrary
+	"s"[0-9\']* -> IndexedState
+	"t"[0-9\']* -> Terminated

@@ -1,0 +1,46 @@
+equations
+
+[sos1]	s |- provide d = <normal d, s>
+
+
+[sos2]	s@data = d
+	===
+	s |- copy = <normal d, s>
+
+
+[sos3]	s |- A1 = <A1', s'>
+	===
+	s |- A1 then A2 = <A1' then A2, s'>
+
+[sos4]	s' = s[d1/data],
+	s' |- A2 = <A2', s''>
+	===
+	s |- normal d1 then A2 = <normal d1 then A2', s / s''>
+
+[sos5]	s |- normal d1 then t2 = <t2, s>
+
+[sos6]	s |- A1 = <A1', s'>
+	===
+	s |- A1 and then A2 = <A1' and then A2, s'>
+
+[sos7]	s |- A2 = <A2', s'>
+	===
+	s |- normal d1 and then A2 = <normal d1 and then A2', s'>
+
+[sos8]	s |- normal d1 and then normal d2 = <normal d1++d2, s>
+
+[sos9]	s |- A1 = <A1', s'>
+	===
+	s |- A1 and A2 = <A1' and A2, s'>
+
+[sos10]	s |- A2 = <A2', s'>
+	===
+	s |- A1 and A2 = <A1 and A2', s'>
+
+[sos11]	s |- normal d1 and normal d2 = <normal d1++d2, s>
+
+
+[sos12]	s |-+ A = <t, s'>
+	===
+	s |- indivisibly A = <t, s'>
+

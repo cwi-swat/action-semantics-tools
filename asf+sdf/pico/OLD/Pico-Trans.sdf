@@ -1,0 +1,15 @@
+module pico/Trans
+
+imports pico/Lex
+	an/AN2
+
+exports
+
+context-free syntax
+	"token" "of" "[[" PICO-ID "]]" -> Token
+	"integer" "of" "[[" PICO-INT "]]" -> Int
+	"string" "of" "[[" PICO-STR "]]" -> String
+
+hiddens
+variables
+"char+"[0-9\']* -> CHAR+

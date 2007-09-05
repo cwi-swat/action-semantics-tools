@@ -1,0 +1,14 @@
+
+package ajc.data;
+
+import ajc.*;
+
+import java.util.Map;
+
+public interface Bindings extends Datum {
+    public Map mapValue();
+    public Bindings binding(Token token, Bindable bindable);
+    public Bindable bound(Token token) throws Exceptional;
+    public Bindings overriding(Bindings bindings);
+    public Bindings disjointUnion(Bindings bindings);
+}

@@ -1,0 +1,7 @@
+equations
+
+[]	new-cell(#n) = new-cell(n)
+
+[]	empty-cells() = #0
+
+[]	update-cells(#n) = #n+1

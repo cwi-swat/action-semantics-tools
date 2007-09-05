@@ -1,0 +1,8 @@
+module dn/sem/lib/Token
+
+imports dn/syn/lib/Token
+	dn/sem/kernel/Interface
+
+hiddens
+variables
+	"tk"[0-9\']* -> Token

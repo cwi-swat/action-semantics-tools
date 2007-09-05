@@ -1,0 +1,79 @@
+\hypertarget{classAndThen}{
+\section{And\-Then  Class Reference}
+\label{classAndThen}\index{AndThen@{And\-Then}}
+}
+Inheritance diagram for And\-Then:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{classAndThen__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for And\-Then:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{classAndThen__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{classAndThen_a0}{And\-Then} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory}, \hyperlink{interfaceEnactable}{Enactable} \hyperlink{classAbstractInfixCombinator_o0}{enactable1}, \hyperlink{interfaceEnactable}{Enactable} \hyperlink{classAbstractInfixCombinator_o1}{enactable2})
+\item 
+\hyperlink{interfaceData}{Data} \hyperlink{classAndThen_a1}{enact} (\hyperlink{interfaceData}{Data} data, \hyperlink{interfaceBindings}{Bindings} bindings) throws \hyperlink{classExceptional}{Exceptional}, \hyperlink{classFailed}{Failed}
+\item 
+\hyperlink{classAndThen_a2}{And\-Then} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory}, \hyperlink{interfaceEnactable}{Enactable} \hyperlink{classAbstractInfixCombinator_o0}{enactable1}, \hyperlink{interfaceEnactable}{Enactable} \hyperlink{classAbstractInfixCombinator_o1}{enactable2})
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classAndThen_a0}{
+\index{AndThen@{And\-Then}!AndThen@{AndThen}}
+\index{AndThen@{AndThen}!AndThen@{And\-Then}}
+\subsubsection[AndThen]{\setlength{\rightskip}{0pt plus 5cm}And\-Then::And\-Then (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory}, \hyperlink{interfaceEnactable}{Enactable} {\em enactable1}, \hyperlink{interfaceEnactable}{Enactable} {\em enactable2})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classAndThen_a0}
+
+
+
+
+Definition at line 73 of file Abstract\-Action.java.\footnotesize\begin{verbatim}00073                                                                                     {
+00074         super(factory, enactable1, enactable2);
+00075     }
+\end{verbatim}\normalsize 
+\hypertarget{classAndThen_a2}{
+\index{AndThen@{And\-Then}!AndThen@{AndThen}}
+\index{AndThen@{AndThen}!AndThen@{And\-Then}}
+\subsubsection[AndThen]{\setlength{\rightskip}{0pt plus 5cm}And\-Then::And\-Then (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory}, \hyperlink{interfaceEnactable}{Enactable} {\em enactable1}, \hyperlink{interfaceEnactable}{Enactable} {\em enactable2})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classAndThen_a2}
+
+
+
+
+Definition at line 98 of file Action\-Impl.java.\footnotesize\begin{verbatim}00098                                                                                     {
+00099         super(factory, enactable1, enactable2);
+00100         enactable = new _AndThen();
+00101     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classAndThen_a1}{
+\index{AndThen@{And\-Then}!enact@{enact}}
+\index{enact@{enact}!AndThen@{And\-Then}}
+\subsubsection[enact]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceData}{Data} And\-Then::enact (\hyperlink{interfaceData}{Data} {\em data}, \hyperlink{interfaceBindings}{Bindings} {\em bindings})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classAndThen_a1}
+
+
+
+
+Definition at line 76 of file Abstract\-Action.java.\footnotesize\begin{verbatim}00076                                                                                {
+00077         Data d1 = enactable1.enact(data, bindings);
+00078         Data d2 = enactable2.enact(data, bindings);
+00079         return d1.merge(d2);
+00080     }
+\end{verbatim}\normalsize 
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{AbstractAction_8java-source}{Abstract\-Action.java}\item 
+\hyperlink{ActionImpl_8java-source}{Action\-Impl.java}\end{CompactItemize}

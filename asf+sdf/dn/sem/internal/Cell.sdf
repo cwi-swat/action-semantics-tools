@@ -1,0 +1,24 @@
+module dn/sem/internal/Cell
+
+imports dn/syn/internal/Cell
+	dn/sem/kernel/Interface
+
+exports
+
+sorts Cell
+
+context-free syntax
+	first-cell() -> Cell {cons("first-cell")}
+	next-cell(Cell) -> Cell {cons("next-cell")}
+
+exports
+
+imports basic/Integers
+
+hiddens
+context-free syntax
+	"@" Integer -> Cell {cons("cell")}
+
+variables
+	"n"[0-9\']* -> Integer
+	

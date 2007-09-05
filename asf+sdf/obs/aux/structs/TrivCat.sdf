@@ -1,0 +1,3 @@
+module obs/aux/structs/TrivCat
+
+imports obs/aux/structs/Category[Identity Unit][Arrow=>TrivCat]

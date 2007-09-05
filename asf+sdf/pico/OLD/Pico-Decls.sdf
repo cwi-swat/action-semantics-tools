@@ -1,0 +1,21 @@
+module Pico-Decls
+
+imports 
+	Pico-Types
+	Pico-Lex
+
+exports
+
+sorts DECLS ID-TYPE
+
+context-free syntax
+    "declare" ID-TYPES ";"                                 -> DECLS
+    PICO-ID ":" TYPE                                              -> ID-TYPE
+
+aliases
+{ID-TYPE  ","}* -> ID-TYPES
+
+  variables
+    "Decls" [0-9\']*        -> DECLS
+    "Id-Types"[0-9]*     -> ID-TYPES
+

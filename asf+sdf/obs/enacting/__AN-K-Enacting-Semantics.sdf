@@ -1,0 +1,19 @@
+module obs/enacting/__AN-K-Enacting-Semantics
+
+imports obs/enacting/__AN-K-Enacting
+	obs/binding/__AN-K-Binding-Semantics
+
+hiddens
+variables
+
+[ia][0-9\']* -> Environment
+"A"[0-9\']* -> Action
+"Ai"[0-9\']* -> ActionInfix
+"Ap"[0-9\']* -> ActionPrefix
+"d"[0-9\']* -> Data
+"u"[0-9\']* -> Datum
+"oc"[0-9\']* -> Outcome+
+
+
+
+

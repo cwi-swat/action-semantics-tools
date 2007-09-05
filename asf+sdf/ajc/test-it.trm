@@ -1,0 +1,8 @@
+toUnit(
+(provide () then raise)
+and exceptionally 
+(give the data _ then give tupleToList_ and 
+	(provide "break" then give tupleToList_) then 
+		(check _=_ exceptionally fail and copy) then 
+			provide () otherwise raise)
+)

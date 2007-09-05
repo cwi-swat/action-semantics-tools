@@ -1,0 +1,11 @@
+module dn/sem/internal/Action
+
+imports dn/syn/internal/Action
+	dn/sem/kernel/Interface
+
+hiddens
+variables
+	"A"[0-9\']* -> Action
+	"Ai"[0-9\']* -> ActionInfix
+	"Ap"[0-9\']* -> ActionPrefix
+	"d"[0-9\']* -> Data

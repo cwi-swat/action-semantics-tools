@@ -1,0 +1,85 @@
+{
+		frame @l2;
+	@l1: 	tryf @l11;
+			tryf @l101;
+			copy;
+		push;
+		copy;
+		prov int(0);
+		merge;
+		publish;
+		trye @l100002;
+			cast [<appl(<term>)>,<appl(<term>)>];
+		eq;
+		catch @l100003;
+	@l100002:		epublish;
+			fail;
+			unpublish;
+	@l100003:
+		unpublish;
+		publish;
+		prov int(1);
+		unpublish;
+		catch @l102;
+	@l101:		copy;
+			copy;
+		push;
+		copy;
+		prov int(1);
+		merge;
+		publish;
+		trye @l100102;
+			cast [<appl(<term>)>,<appl(<term>)>];
+		eq;
+		catch @l100103;
+	@l100102:		epublish;
+			fail;
+			unpublish;
+	@l100103:
+		unpublish;
+		publish;
+		prov int(1);
+		unpublish;
+	@l102:
+		catch @l12;
+	@l11:		copy;
+			copy;
+		push;
+		copy;
+		prov int(2);
+		merge;
+		publish;
+		cast [int(<term>),int(<term>)];
+		sub;
+		unpublish;
+		publish;
+		frame @l101001;
+		goto @l1;
+	@l101001:
+		unpublish;
+		push;
+		copy;
+		copy;
+		push;
+		copy;
+		prov int(1);
+		merge;
+		publish;
+		cast [int(<term>),int(<term>)];
+		sub;
+		unpublish;
+		publish;
+		frame @l101011;
+		goto @l1;
+	@l101011:
+		unpublish;
+		merge;
+		publish;
+		cast [int(<term>),int(<term>)];
+		add;
+		unpublish;
+	@l12:
+		return;
+	@l2:
+		return;
+	}

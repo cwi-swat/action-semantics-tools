@@ -1,0 +1,12 @@
+module dn/syn/lib/List
+
+imports aux/List[Data]
+
+exports
+
+context-free syntax
+	List -> Datum
+	"list" -> SortName {cons("list-sortname")}
+	"list" -> DataOpPrefix {cons("list-dataopprefix")}
+
+

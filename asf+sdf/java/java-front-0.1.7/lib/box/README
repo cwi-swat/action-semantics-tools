@@ -1,0 +1,26 @@
+  This grammar is part of the Grammar Base which is located at
+        http://www.program-transformation.org/gb/
+ 
+    Grammar: box
+    Version: 1
+   Maturity: Volatile
+
+Description:
+
+  Language independent markup language to specify the layout of text
+
+Authors:
+
+   Eelco Visser, Mark van den Brand, and Merijn de Jonge
+
+Remarks:
+
+BOX is a language independent mark-up language designed to describe the
+intended layout of text. BOX is used in pretty-printers [1,2] as
+intermediate representation to connect language specific front-ends to
+output format specific back-ends.
+
+
+[1] Generation of Formatters for context-free languages. M. G. J. van den
+    Brand and E. Visser.
+[2] A Pretty-Printer for Every Occasion. M. de Jonge.

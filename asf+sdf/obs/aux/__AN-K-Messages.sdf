@@ -1,0 +1,18 @@
+module obs/aux/__AN-K-Messages
+
+imports obs/data/__AN-K-Agent 
+	obs/data/__AN-K-MessageTag
+	obs/data/__AN-K-Data 
+	obs/data/integers/Int
+	obs/aux/structs/Finite-Map[Agent TaggedBuffers][Finite-Map=>Buffers]
+	obs/aux/structs/Finite-Map[MessageTag Messages][Finite-Map=>TaggedBuffers]
+	obs/aux/structs/Queue[Data][Queue=>Messages]
+
+
+exports
+
+context-free syntax
+
+%% To disambiguate
+empty-buffers() -> Buffers
+empty-taggedbuffers() -> TaggedBuffers

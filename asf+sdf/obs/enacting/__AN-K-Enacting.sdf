@@ -1,0 +1,14 @@
+module obs/enacting/__AN-K-Enacting
+
+imports obs/binding/__AN-K-Binding
+
+exports 
+
+lexical syntax
+  "enact"       -> ActionConst 
+
+
+hiddens sorts
+
+        ActionConst DataOpPrefix DataOpInfix DataConst 
+        SortName Datum

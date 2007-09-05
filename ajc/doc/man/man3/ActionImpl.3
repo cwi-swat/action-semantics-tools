@@ -1,0 +1,178 @@
+.TH "ActionImpl" 3 "13 Sep 2002" "Action Java Compiler Runtime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ActionImpl \- 
+.SH SYNOPSIS
+.br
+.PP
+Inherits \fBDatumImpl\fP, and \fBAction\fP.
+.PP
+Inherited by \fBAbstractInfixCombinator\fP, \fBAbstractPrefixCombinator\fP, and \fBProvide\fP.
+.PP
+.SS "Public Methods"
+
+.in +1c
+.ti -1c
+.RI "\fBEnactable\fP \fBgetEnactable\fP ()"
+.br
+.ti -1c
+.RI "\fBData\fP \fBenact\fP ()"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBgiveThen\fP (\fBAction\fP action)"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBgiveAndThen\fP (\fBAction\fP action)"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBgiveAnd\fP (\fBAction\fP action)"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBgiveExceptionally\fP (\fBAction\fP action)"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBgiveAndExceptionally\fP (\fBAction\fP action)"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBgiveOtherwise\fP (\fBAction\fP action)"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBgiveHence\fP (\fBAction\fP action)"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBgiveIndivisibly\fP ()"
+.br
+.ti -1c
+.RI "\fBEnactable\fP \fBenactableValue\fP ()"
+.br
+.ti -1c
+.RI "\fBData\fP \fBenact\fP () throws \fBExceptional\fP, \fBFailed\fP, \fBUnfold\fP"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBthen\fP (\fBAction\fP action)"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBandThen\fP (\fBAction\fP action)"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBand\fP (\fBAction\fP action)"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBexceptionally\fP (\fBAction\fP action)"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBandExceptionally\fP (\fBAction\fP action)"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBotherwise\fP (\fBAction\fP action)"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBhence\fP (\fBAction\fP action)"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBindivisibly\fP ()"
+.br
+.ti -1c
+.RI "void \fBrun\fP ()"
+.br
+.ti -1c
+.RI "\fBEmpty\fP \fBequals\fP (\fBData\fP data) throws \fBExceptional\fP"
+.br
+.in -1c
+.SH "MEMBER FUNCTION DOCUMENTATION"
+.PP 
+.SS "\fBAction\fP ActionImpl::and (\fBAction\fP action)"
+.PP
+Reimplemented from \fBAction\fP.
+.PP
+Definition at line 38 of file ActionImpl.java.
+.SS "\fBAction\fP ActionImpl::andExceptionally (\fBAction\fP action)"
+.PP
+Reimplemented from \fBAction\fP.
+.PP
+Definition at line 44 of file ActionImpl.java.
+.SS "\fBAction\fP ActionImpl::andThen (\fBAction\fP action)"
+.PP
+Reimplemented from \fBAction\fP.
+.PP
+Definition at line 35 of file ActionImpl.java.
+.SS "\fBData\fP ActionImpl::enact ()"
+.PP
+Reimplemented from \fBAction\fP.
+.PP
+Definition at line 28 of file ActionImpl.java.
+.SS "\fBData\fP ActionImpl::enact ()"
+.PP
+Reimplemented from \fBAction\fP.
+.PP
+Definition at line 32 of file AbstractAction.java.
+.SS "\fBEnactable\fP ActionImpl::enactableValue ()"
+.PP
+Reimplemented from \fBAction\fP.
+.PP
+Definition at line 24 of file ActionImpl.java.
+.SS "\fBEmpty\fP ActionImpl::equals (\fBData\fP data)"
+.PP
+Reimplemented from \fBDataValueImpl\fP.
+.PP
+Definition at line 68 of file ActionImpl.java.
+.SS "\fBAction\fP ActionImpl::exceptionally (\fBAction\fP action)"
+.PP
+Reimplemented from \fBAction\fP.
+.PP
+Definition at line 41 of file ActionImpl.java.
+.SS "\fBEnactable\fP ActionImpl::getEnactable ()"
+.PP
+Definition at line 28 of file AbstractAction.java.
+.SS "\fBAction\fP ActionImpl::giveAnd (\fBAction\fP action)"
+.PP
+Definition at line 42 of file AbstractAction.java.
+.SS "\fBAction\fP ActionImpl::giveAndExceptionally (\fBAction\fP action)"
+.PP
+Definition at line 48 of file AbstractAction.java.
+.SS "\fBAction\fP ActionImpl::giveAndThen (\fBAction\fP action)"
+.PP
+Definition at line 39 of file AbstractAction.java.
+.SS "\fBAction\fP ActionImpl::giveExceptionally (\fBAction\fP action)"
+.PP
+Definition at line 45 of file AbstractAction.java.
+.SS "\fBAction\fP ActionImpl::giveHence (\fBAction\fP action)"
+.PP
+Definition at line 54 of file AbstractAction.java.
+.SS "\fBAction\fP ActionImpl::giveIndivisibly ()"
+.PP
+Definition at line 57 of file AbstractAction.java.
+.SS "\fBAction\fP ActionImpl::giveOtherwise (\fBAction\fP action)"
+.PP
+Definition at line 51 of file AbstractAction.java.
+.SS "\fBAction\fP ActionImpl::giveThen (\fBAction\fP action)"
+.PP
+Definition at line 36 of file AbstractAction.java.
+.SS "\fBAction\fP ActionImpl::hence (\fBAction\fP action)"
+.PP
+Reimplemented from \fBAction\fP.
+.PP
+Definition at line 50 of file ActionImpl.java.
+.SS "\fBAction\fP ActionImpl::indivisibly ()"
+.PP
+Reimplemented from \fBAction\fP.
+.PP
+Definition at line 53 of file ActionImpl.java.
+.SS "\fBAction\fP ActionImpl::otherwise (\fBAction\fP action)"
+.PP
+Reimplemented from \fBAction\fP.
+.PP
+Definition at line 47 of file ActionImpl.java.
+.SS "void ActionImpl::run ()"
+.PP
+Definition at line 58 of file ActionImpl.java.
+.SS "\fBAction\fP ActionImpl::then (\fBAction\fP action)"
+.PP
+Reimplemented from \fBAction\fP.
+.PP
+Definition at line 32 of file ActionImpl.java.
+
+.SH "AUTHOR"
+.PP 
+Generated automatically by Doxygen for Action Java Compiler Runtime from the source code.

@@ -1,0 +1,11 @@
+equations
+
+~~ Equations for | en & to be provided.
+
+[1]	result not _ true = false
+[2]	result not _ false = true
+[3]	result the bool_ true = true
+[4]	result the bool_ false = false
+
+
+

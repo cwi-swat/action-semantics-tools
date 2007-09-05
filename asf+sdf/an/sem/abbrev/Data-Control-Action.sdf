@@ -1,0 +1,18 @@
+module an/sem/abbrev/Data-Control-Action
+
+imports an/syn/abbrev/Data-Control-Action
+	an/sem/abbrev/Data
+	an/sem/kernel/Kernel-Action
+	dn/sem/lib/List
+
+hiddens
+variables
+	"A"[0-9\']* -> Action
+	"Y"[0-9\']* -> Yielder
+	"d"[0-9\']* -> Data
+	"o"[0-9\']* -> DataOp
+	"op"[0-9\']* -> DataOpPrefix
+	"oi"[0-9\']* -> DataOpInfix
+	"p"[0-9\']* -> DataPred
+	"pp"[0-9\']* -> DataPredPrefix
+	"pi"[0-9\']* -> DataPredInfix

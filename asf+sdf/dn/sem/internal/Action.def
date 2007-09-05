@@ -1,0 +1,166 @@
+definition
+
+module dn/syn/kernel/DataSort
+imports aux/Tuple[SortName] [
+
+
+                            Tuple
+
+
+                            =>
+
+
+                            DataSort
+                            ]
+
+exports
+  sorts DataSort
+
+  context-free syntax
+    SortName "+" -> DataSort {cons("sortname-plus")}
+    SortName "*" -> DataSort {cons("sortname-star")}
+    SortName "?" -> DataSort {cons("sortname-opt")}
+    SortName -> DataSort  
+
+%% Add outcomes later.
+
+
+
+
+module dn/sem/kernel/DataSort
+imports dn/syn/kernel/DataSort
+
+exports
+  sorts DataSort
+
+module dn/sem/kernel/Data
+imports dn/syn/kernel/Data
+
+hiddens
+  variables
+    "u" [0-9\']* -> Datum
+    "d" [0-9\']* -> Data
+    "u+" [0-9\']* -> {Datum ","}+
+
+module dn/sem/kernel/Interface
+imports dn/sem/kernel/Data dn/sem/kernel/DataSort basic/Booleans basic/Whitespace
+
+exports
+  context-free syntax
+    "_" DataOpInfix "_" -> DataOp {cons("dataop-infix")}
+    DataOpPrefix "_" -> DataOp {cons("dataop-prefix")}
+    "_" DataPredInfix "_" -> DataPred {cons("datapred-infix")}
+    DataPredPrefix "_" -> DataPred {cons("datapred-prefix")}
+    "the" DataSort -> DataOpPrefix {cons("ascription-prefix")}
+    "result" DataOp Data -> Data {cons("result-of-dataop")}
+    "holds" DataPred Data -> Boolean {cons("holding-of-datapred")}
+    "nothing" -> Data {cons("nothing-data")}
+    storable ( Datum ) -> Boolean {cons("storable")}
+    bindable ( Datum ) -> Boolean {cons("bindable")}
+
+hiddens
+  variables
+    "o" [0-9\']* -> DataOp
+    "q" [0-9\']* -> DataPred
+    "d" [0-9\']* -> Data
+    "u" [0-9\']* -> Datum
+
+module aux/Tuple[X]
+imports basic/Integers basic/Whitespace
+
+exports
+  sorts Tuple
+
+  context-free syntax
+    "(" {X ","}* ")" -> Tuple {cons("tuple")}
+    X "::" Tuple -> Tuple {cons("tuple-insert")}
+    Tuple "++" Tuple -> Tuple {left, cons("tuple-concat")}
+    Tuple "!" Integer -> X {cons("tuple-projection")}
+
+hiddens
+  variables
+    "n" [0-9\']* -> Integer
+    "t" [0-9\']* -> Tuple
+    "x" [0-9\']* -> X
+    "x*" [0-9\']* -> {X ","}*
+    "x+" [0-9\']* -> {X ","}+
+
+module dn/syn/kernel/Data
+imports aux/Tuple[Datum] [
+
+
+                         Tuple
+
+
+                         =>
+
+
+                         Data
+                         ]
+
+exports
+  sorts Data Datum
+
+  context-free syntax
+    Datum -> Data
+
+module an/syn/kernel/Action
+imports basic/Whitespace
+
+exports
+  sorts Action
+
+  context-free syntax
+    Action ActionInfix Action -> Action {left, cons("action-infix")}
+    ActionPrefix Action -> Action {cons("action-prefix")}
+    "(" Action ")" -> Action {bracket, prefer, cons("action-bracket")}
+
+  context-free priorities
+    ActionPrefix Action -> Action >
+    Action ActionInfix Action -> Action {left}
+
+module an/syn/kernel/Normal-Outcome
+imports an/syn/kernel/Action dn/syn/kernel/Data
+
+exports
+  sorts Terminated
+
+  context-free syntax
+    "normal" Data -> Terminated {cons("normal")}
+
+module an/syn/kernel/Normal-Action
+imports an/syn/kernel/Normal-Outcome
+
+exports
+  sorts Action ActionInfix ActionPrefix
+
+  context-free syntax
+    "provide" Data -> Action {cons("provide-data")}
+    "copy" -> Action {cons("copy")}
+    "then" -> ActionInfix {cons("then-infix")}
+    "and" "then" -> ActionInfix {cons("and-then-infix")}
+    "and" -> ActionInfix {cons("and-infix")}
+    "indivisibly" -> ActionPrefix {cons("indivisibly-prefix")}
+
+module dn/syn/internal/Action
+imports an/syn/kernel/Normal-Action
+
+exports
+  sorts Data
+
+  context-free syntax
+    Action -> Datum
+    "action" -> SortName {cons("action-sortname")}
+    ActionInfix -> DataOpInfix
+    ActionPrefix -> DataOpPrefix
+    "provide" -> DataOpPrefix {avoid, cons("provide-dataopprefix")}
+
+module dn/sem/internal/Action
+imports dn/syn/internal/Action dn/sem/kernel/Interface
+
+hiddens
+  variables
+    "A" [0-9\']* -> Action
+    "Ai" [0-9\']* -> ActionInfix
+    "Ap" [0-9\']* -> ActionPrefix
+    "d" [0-9\']* -> Data

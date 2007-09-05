@@ -1,0 +1,92 @@
+.TH "DataValueImpl" 3 "13 Sep 2002" "Action Java Compiler Runtime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DataValueImpl \- 
+.SH SYNOPSIS
+.br
+.PP
+Inherits \fBDataImpl\fP, and \fBDataValue\fP.
+.PP
+Inherited by \fBDataConstImpl\fP, and \fBDatumImpl\fP.
+.PP
+.SS "Public Methods"
+
+.in +1c
+.ti -1c
+.RI "\fBDataValue\fP \fBfirst\fP () throws \fBExceptional\fP"
+.br
+.ti -1c
+.RI "\fBData\fP \fBrest\fP ()"
+.br
+.ti -1c
+.RI "\fBList\fP \fBtupleToList\fP ()"
+.br
+.ti -1c
+.RI "\fBData\fP \fBconcat\fP (\fBData\fP data)"
+.br
+.ti -1c
+.RI "\fBDataValue\fP \fBat\fP (int n) throws \fBExceptional\fP"
+.br
+.ti -1c
+.RI "\fBEmpty\fP \fBequals\fP (\fBData\fP data) throws \fBExceptional\fP"
+.br
+.in -1c
+.SS "Protected Methods"
+
+.in +1c
+.ti -1c
+.RI "\fBDataValueImpl\fP (\fBPureFactory\fP factory)"
+.br
+.in -1c
+.SH "CONSTRUCTOR & DESTRUCTOR DOCUMENTATION"
+.PP 
+.SS "DataValueImpl::DataValueImpl (\fBPureFactory\fP factory)\fC [protected]\fP"
+.PP
+Definition at line 9 of file DataValueImpl.java.
+.SH "MEMBER FUNCTION DOCUMENTATION"
+.PP 
+.SS "\fBDataValue\fP DataValueImpl::at (int n)"
+.PP
+Reimplemented from \fBDataImpl\fP.
+.PP
+Reimplemented in \fBEmptyImpl\fP.
+.PP
+Definition at line 27 of file DataValueImpl.java.
+.SS "\fBData\fP DataValueImpl::concat (\fBData\fP data)"
+.PP
+Reimplemented from \fBDataImpl\fP.
+.PP
+Reimplemented in \fBEmptyImpl\fP.
+.PP
+Definition at line 23 of file DataValueImpl.java.
+.SS "\fBEmpty\fP DataValueImpl::equals (\fBData\fP data)"
+.PP
+Reimplemented from \fBDataValue\fP.
+.PP
+Reimplemented in \fBActionImpl\fP, \fBBoolImpl\fP, \fBIntImpl\fP, \fBListImpl\fP, and \fBTextImpl\fP.
+.PP
+Definition at line 37 of file DataValueImpl.java.
+.SS "\fBDataValue\fP DataValueImpl::first ()"
+.PP
+Reimplemented from \fBDataImpl\fP.
+.PP
+Reimplemented in \fBEmptyImpl\fP.
+.PP
+Definition at line 12 of file DataValueImpl.java.
+.SS "\fBData\fP DataValueImpl::rest ()"
+.PP
+Reimplemented from \fBDataImpl\fP.
+.PP
+Definition at line 15 of file DataValueImpl.java.
+.SS "\fBList\fP DataValueImpl::tupleToList ()"
+.PP
+Reimplemented from \fBDataImpl\fP.
+.PP
+Reimplemented in \fBEmptyImpl\fP.
+.PP
+Definition at line 19 of file DataValueImpl.java.
+
+.SH "AUTHOR"
+.PP 
+Generated automatically by Doxygen for Action Java Compiler Runtime from the source code.

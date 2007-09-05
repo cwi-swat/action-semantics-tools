@@ -1,0 +1,32 @@
+module ai/Type-Order
+
+imports ai/Type-Normalization obs/data/booleans/Bool
+
+exports
+
+sorts DataSort Bool
+
+context-free syntax
+
+DataSort "<:" DataSort -> Bool
+DataSort ":>" DataSort -> Bool
+DataSort ":><:" DataSort -> Bool
+DataSort "<<:" DataSort -> Bool
+DataSort ":>>" DataSort -> Bool
+DataSort ":=:" DataSort -> Bool
+DataSort ":<>:" DataSort -> Bool
+
+super-type(SortName) -> SortName
+
+inf(DataSort,DataSort) -> DataSort
+sup(DataSort,DataSort) -> DataSort
+
+"bot" -> DataSort
+
+hiddens
+variables
+"t"[0-9\']* -> DataSort
+"tl"[0-9\']* -> {DataSort ","}+
+"s"[0-9\']* -> SortName
+"oc*"[0-9\']* -> Outcome*
+"oc+"[0-9\']* -> Outcome+

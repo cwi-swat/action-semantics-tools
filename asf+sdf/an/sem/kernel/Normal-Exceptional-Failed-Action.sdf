@@ -1,0 +1,13 @@
+module an/sem/kernel/Normal-Exceptional-Failed-Action
+
+imports an/sem/kernel/Normal-Exceptional-Action
+	an/sem/kernel/Alternative-Action
+
+hiddens
+
+variables
+	"A"[0-9\']* -> Action
+	"i"[0-9\']* -> Arbitrary
+	"s"[0-9\']* -> IndexedState
+	"d"[0-9\']* -> Data
+

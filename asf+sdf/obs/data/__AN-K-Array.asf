@@ -1,0 +1,9 @@
+equations
+
+[]	result the array_ a = a
+
+[]	result _[]_ (n,a) = get-at(n,a)
+
+[]	result ->_ (n,u,a) = put-at(n,u,a)
+
+[]	result array_ n = create(n)

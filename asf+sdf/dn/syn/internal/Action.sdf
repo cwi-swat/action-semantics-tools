@@ -1,0 +1,17 @@
+module dn/syn/internal/Action
+
+imports an/syn/kernel/Normal-Action %% an/syn/kernel/Action
+
+exports
+
+sorts Data
+
+context-free syntax
+	Action -> Datum
+	"action" -> SortName {cons("action-sortname")}
+
+	ActionInfix -> DataOpInfix
+	ActionPrefix -> DataOpPrefix
+
+	"provide" -> DataOpPrefix {avoid,cons("provide-dataopprefix")}
+

@@ -1,0 +1,15 @@
+equations
+
+[th1]	result the bindings_ b = b
+
+[nob]	no bindings = []
+
+[bin]	bindable(u) = true
+	===
+	result binding_ (tk,u) = [][u/tk]
+
+[bon]	result bound_ (b,tk) = eval(tk,b)
+
+[dun]	result disjoint union_ (b1,b2) = b1 + b2
+
+[ovr]	result overriding_ (b1, b2) = b2 + b1

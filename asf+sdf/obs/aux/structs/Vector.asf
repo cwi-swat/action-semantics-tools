@@ -1,0 +1,32 @@
+equations
+
+[]	empty-vector() = []
+
+[]	is-empty-vector([]) = true
+
+[]	is-empty-vector([e e*]) = false
+
+[]	prepend([e*], e) = [e e*]
+
+[]	append([e*], e) = [e* e]
+
+[]	get-first([e e*]) = e
+
+[]	get-last([e* e]) = e
+
+[]	remove-last([e* e]) = [e*]
+
+[]	remove([e*1 e e*2], e) = [e*1 e*2]
+
+[default]
+	remove([e*], e) = [e*]
+
+[]	has-element([e*1 e e*2], e) = true
+
+[default]
+	has-element([e*], e) = false
+
+[]	rotate([e1 e* e2]) = [e2 e1 e*]
+
+[default]
+	rotate([e*]) = [e*]

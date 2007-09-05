@@ -1,0 +1,14 @@
+module an/sem/internal/Messages
+
+imports an/sem/internal/Natural-Map[Message]
+	[Natural-Map => Messages Natural-Entry=>Messages-Entry]
+	
+	aux/Finite-Map[MessageTag Messages]
+	[Finite-Map => TaggedBuffers Entry=>TaggedBuffers-Entry]
+	
+	aux/Finite-Map[Agent TaggedBuffers]
+	[Finite-Map => Buffers Entry => Buffers-Entry]
+
+exports
+
+sorts Messages TaggedBuffers Buffers

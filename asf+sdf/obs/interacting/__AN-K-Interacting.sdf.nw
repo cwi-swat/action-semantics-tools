@@ -1,0 +1,31 @@
+\section{AN2-Kernel/__AN-K-Interacting.sdf}
+<<AN2-Kernel/__AN-K-Interacting.sdf>>=
+module __AN-K-Interacting
+
+imports __AN-K-Data __AN-K-Action
+
+exports context-free syntax
+
+  "AN-K-Interacting"	-> DataTypes
+
+
+lexical syntax
+
+  "agent"		-> SortName
+  "message"		-> SortName
+  "message-tag"		-> SortName
+
+  "activate" 					-> ActionConst
+  "deactivate" 					-> ActionConst
+  "give" LAYOUT+ "current" LAYOUT+ "agent"	-> ActionConst
+  "send" 					-> ActionConst
+  "receive" 					-> ActionConst
+  "give" LAYOUT+ "current" LAYOUT+ "time"	-> ActionConst
+
+
+hiddens sorts
+
+	ActionConst SortName DataTypes
+@
+
+

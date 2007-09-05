@@ -1,0 +1,14 @@
+module an/sem/abbrev/Binding-Action
+
+imports an/syn/abbrev/Binding-Action
+	an/sem/abbrev/Data-Control-Action
+
+hiddens
+
+context-free syntax
+	"unf" -> Token {cons("unf-token")}
+	"rec" -> Token {cons("rec-token")}
+
+variables
+	"A"[0-9\']* -> Action
+	"Y"[0-9\']* -> Yielder

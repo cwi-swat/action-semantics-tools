@@ -1,0 +1,1 @@
+replace-at(insert(insert(insert(empty-list(), 1), 2), 3), 0, 5)

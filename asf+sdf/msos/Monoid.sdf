@@ -1,0 +1,7 @@
+module msos/Monoid[S]
+
+exports
+
+context-free syntax
+
+	S "*" S -> S {assoc}

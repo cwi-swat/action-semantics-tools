@@ -1,0 +1,188 @@
+definition
+
+module obs/data/integers/Int
+
+imports obs/data/booleans/Bool
+   
+exports
+
+lexical syntax
+[0]           -> Zero %%{cons("Zero")}
+[1-9][0-9]*   -> PosNumeral %%{cons("PosNumeral")}
+Zero -> Nat-Con %%{cons("zero-Nat-Con")}
+PosNumeral -> Nat-Con %%{cons("posnumeral-Nat-Con")}
+
+restrictions
+	PosNumeral -/- [0-9]
+
+context-free syntax
+
+Nat-Con -> Numeral {cons("numeral")}
+
+Numeral       -> Nat {cons("nat")}
+%%PosNumeral    -> Pos {cons("posnumeral-Pos")}
+Nat           -> Int {cons("int")}
+Nat "-?" Nat  -> Nat {left, cons("monus")}
+"(" Nat ")"            -> Nat {bracket, cons("bracket-Nat")}
+"+" Nat                -> Int {cons("unary-plus")}
+"-" Nat                -> Int {cons("unary-minus")}
+
+Int "+" Int   -> Int {left, prefer, cons("plus")}
+Int "-" Int   -> Int {left, prefer, cons("minus")}
+Int "*" Int   -> Int {left, prefer, cons("times")}
+Int ">" Int       -> Bool {prefer, cons("gt")}
+Int ">=" Int      -> Bool {prefer, cons("ge")}
+Int "<" Int       -> Bool {prefer, cons("lt")}
+Int "<=" Int      -> Bool {prefer, cons("le")}
+"(" Int ")"       -> Int {bracket, cons("bracket-int")}
+
+context-free priorities
+
+Int "*" Int -> Int > 
+{ Int "+" Int -> Int {left}
+  Int "-" Int -> Int {left}
+}
+
+
+
+hiddens
+
+sorts 
+  Int Nat PosNumeral Pos Numeral Nat-Con Zero
+	
+  variables
+    "n" [0-9\']* -> Nat 
+    "p" [0-9\']* -> PosNumeral
+    "i" [0-9\']* -> Int
+
+
+hiddens
+  context-free syntax
+    gt "(" Nat "," Nat ")" -> Bool %%{cons("hidden-nat-gt")}
+    Nat "-//" Nat          -> Nat  %%{cons("hidden-nat-minus")}
+    Nat ">-" Nat           -> Nat  %%{cons("hidden-nat-arrow")}
+
+  variables 
+    "char" [0-9]* -> CHAR
+    "char*" [0-9]* -> CHAR*
+    "char+" [0-9]* -> CHAR+
+
+  context-free priorities
+    Int "*" Int -> Int >
+    {left: Int "+" Int -> Int {left} 
+           Int "-" Int -> Int {left}
+    }
+
+
+
+
+module obs/layout/Layout
+
+exports lexical syntax
+  %% added by TVDS
+  "~~" ~[\n]* [\n] -> LAYOUT
+  "%%" ~[\n]* [\n] -> LAYOUT
+
+  [\ \t\n]      -> LAYOUT
+
+context-free restrictions
+
+  LAYOUT? -/- [\ \t\n]
+
+
+
+
+
+module obs/data/booleans/Bool
+
+imports obs/layout/Layout
+
+exports
+  sorts Bool BoolConst
+  context-free syntax
+
+  "true"        -> BoolConst {cons("true")}
+  "false"       -> BoolConst {cons("false")}
+  BoolConst     -> Bool {cons("bool")}
+
+  "not" arg:Bool    -> Bool {prefer, cons("not")}
+
+  lhs:Bool "|" rhs:Bool -> Bool {left, cons("or")}
+  lhs:Bool "&" rhs:Bool -> Bool {left, cons("and")}
+  "(" Bool ")"       -> Bool {bracket, cons("bracket-bool")}
+
+context-free priorities
+  Bool "&" Bool -> Bool >
+  Bool "|" Bool -> Bool
+
+hiddens
+  variables
+    "b"[0-9]* -> Bool
+
+
+module obs/aux/structs/Balanced-Tree[Elt]
+
+imports obs/layout/Layout obs/data/integers/Int
+
+exports 
+
+sorts Tree
+
+context-free syntax
+
+%%Int -> Elt
+
+elt-lt(Elt, Elt) -> Bool
+elt-gt(Elt, Elt) -> Bool
+
+size(Tree) -> Int
+
+empty -> Tree {cons("empty")}
+tree(elt:Elt, count:Int, lhs:Tree, rhs:Tree) -> Tree {cons("tree")}
+new(Elt, Tree, Tree) -> Tree
+member(Elt, Tree) -> Bool
+find(Elt, Tree) -> Elt
+min(Tree) -> Elt
+weight -> Int
+b-new(Elt, Tree, Tree) -> Tree
+concat3(Elt, Tree, Tree) -> Tree
+
+single-l(Elt, Tree, Tree) -> Tree
+double-l(Elt, Tree, Tree) -> Tree
+single-r(Elt, Tree, Tree) -> Tree
+double-r(Elt, Tree, Tree) -> Tree
+
+add(Tree, Elt) -> Tree
+delete(Tree, Elt) -> Tree
+del-aux(Tree, Tree) -> Tree
+del-min(Tree) -> Tree
+
+union(Tree, Tree) -> Tree
+split-lt(Tree, Elt) -> Tree
+split-gt(Tree, Elt) -> Tree
+
+difference(Tree, Tree) -> Tree
+concat(Tree, Tree) -> Tree
+intersection(Tree, Tree) -> Tree
+
+trim(Elt, Elt, Tree) -> Tree
+uni-bd(Tree, Tree, Elt, Elt) -> Tree
+trim-lo(Elt, Tree) -> Tree
+trim-hi(Elt, Tree) -> Tree
+uni-hi(Tree, Tree, Elt) -> Tree
+uni-lo(Tree, Tree, Elt) -> Tree
+hedge-union(Tree, Tree) -> Tree
+disjoint-union(Tree, Tree) -> Tree
+
+elt-list(Tree) -> Elt*
+
+hiddens
+variables
+"e*"[0-9\']* -> Elt*
+[abcvxyz][0-9\']* -> Elt
+"lo" -> Elt
+"hi" -> Elt
+[lrstu]+[0-9\']* -> Tree
+"left" -> Tree
+"right" -> Tree
+"n"[0-9\']* -> Int

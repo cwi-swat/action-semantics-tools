@@ -1,0 +1,13 @@
+equations
+
+[l]	list(x) = [x]
+
+[e]	empty-list() = []
+
+[h]     head([x x*]) = x
+
+[t]     tail([x x*]) = [x*]
+
+[a]     append(x, [x*]) = [x* x]
+
+[i]     insert(x, [x*]) = [x x*]

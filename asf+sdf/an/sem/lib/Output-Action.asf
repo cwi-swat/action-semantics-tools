@@ -1,0 +1,7 @@
+equations
+
+[sos]	s@data = d,
+	d' = write-term-to-file(".tmp_output", d),
+	str = shell("unparsePT -i .tmp_output")
+	===
+	s |- write = <normal (), s>

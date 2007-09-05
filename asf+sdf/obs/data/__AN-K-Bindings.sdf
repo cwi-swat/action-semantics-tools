@@ -1,0 +1,42 @@
+module obs/data/__AN-K-Bindings
+
+imports obs/data/__AN-K-Data-Contract 
+	obs/aux/structs/Tree-Map[Token Data][Tree-Map => Bindings]
+	obs/data/strings/__AN-K-Token 
+	obs/data/strings/ASCII 
+	obs/data/__AN-K-Pair 
+	obs/data/__AN-K-Set
+
+exports sorts Bindings
+
+context-free syntax
+
+Bindings -> Datum {cons("bindings")}
+
+lexical syntax
+"bindable"                    -> SortName
+"bindings"                    -> SortName
+"no" LAYOUT+ "bindings"       -> DataConst 
+"binding"                     -> DataOpPrefix
+"overriding"                  -> DataOpPrefix
+"disjoint" LAYOUT+ "union"    -> DataOpPrefix
+"bound"                       -> DataOpPrefix
+
+"graph" -> DataOpPrefix
+
+
+hiddens
+
+context-free syntax
+
+graph(Token*, Bindings) -> Set
+
+variables
+"bs"[0-9\']* -> Bindings
+"tk"[0-9\']* -> Token
+"str"[0-9\']* -> String
+"d"[0-9\']* -> Data
+"d*"[0-9\']* -> Data*
+"char+"[0-9\']* -> CHAR+
+"char"[0-9\']* -> CHAR
+"tk*"[0-9\']* -> Token*

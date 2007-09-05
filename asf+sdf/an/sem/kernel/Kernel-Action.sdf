@@ -1,0 +1,7 @@
+module an/sem/kernel/Kernel-Action
+
+imports an/sem/kernel/Data-Control-Action
+	an/sem/kernel/Enacting-Action
+	an/sem/kernel/Binding-Action
+	an/sem/kernel/Storing-Action
+	an/sem/kernel/Interacting-Action

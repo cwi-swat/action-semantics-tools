@@ -1,0 +1,49 @@
+equations
+
+[nrm1]	it1 $ (it2 $ it3) = (it1 $ it2) $ it3
+
+%%[comp]	(it1[t1/i]) $ (it2[t2/i]) = (it1 $ it2)[(t1 $ t2)/i]
+
+[comp1]	it2@i = t2,
+	t = t1 $ t2
+	===
+	(it1[t1/i]) $ it2 = (it1 $ it2)[t/i]
+
+[default-comp2]
+	[] $ it = []
+
+
+[comp3]	[] $ [] = []
+
+
+[div1]	is2@i = s2,
+	t = t1 // s2
+	===
+	(it1[t1/i]) // is2 = (it1 // is2)[t/i]
+
+[default-div2]
+	[] // is = []
+
+
+[div1]	is2@i = s2,
+	s = s1 / s2
+	===
+	(is1[s1/i]) / is2 = (is1 / is2)[s/i]
+
+[default-div2]
+	[] / is = []
+
+
+[div3]	[] / [] = []
+
+[pr1]	pre(it[t/i]) = pre(it)[pre(t)/i]
+
+[pr2]	pre([]) = []
+
+[po1]	post(it[t/i]) = post(it)[post(t)/i]
+
+[po2]	post([]) = []
+
+[un1]	unobs(is[s/i]) = unobs(is)[unobs(s)/i]
+
+[un2]	unobs([]) = []

@@ -1,0 +1,6 @@
+module an/syn/kernel/Normal-Exceptional-Failed-Action
+
+imports an/syn/kernel/Normal-Exceptional-Action
+	an/syn/kernel/Alternative-Action
+
+

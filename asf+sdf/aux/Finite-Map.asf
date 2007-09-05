@@ -1,0 +1,60 @@
+equations
+
+[ovr1]	m[v/k][v'/k] = m[v'/k]
+
+[ovr2]	has-key(k, m) = true
+	===
+	m[v/k] = (m - k) + [v/k]
+
+[ev1]	eval(k, m[v/k]) = v
+
+[ev2]	eval(k, m[v/k']) = eval(k,m) when k != k'
+
+[at]	m @ k = eval(k, m)
+
+[plus1]	m + [v/k] = m[v/k]
+
+[plus2]	[] + m = m
+
+[plus3]	m + [] = m
+
+[plus4]	m[v/k] + (m'[v'/k']) = (m + m') + [v/k] + [v'/k']
+
+[min1]	[] - [v/k] = []
+
+[min2]	m[v/k] - [v/k] = m
+
+[min3]	m[v/k] - [v'/k'] = m - [v'/k'] + [v/k]
+		when v != v'
+
+[min3']	m[v/k] - [v'/k'] = m - [v'/k'] + [v/k]
+		when k != k'
+
+
+[min4]	[] - k = []
+
+[min5]	m[v/k] - k = m
+
+[min6]	m[v/k] - k' = m - k' + [v/k]
+		when k != k'
+
+[min7]	[] -- v = []
+
+[min8]	m[v/k] -- v = m -- v
+
+[min9]	m[v/k] -- v' = m -- v' + [v/k]
+		when v != v'
+
+[hk1]	has-key(k, []) = false
+
+[hk2]	has-key(k, m[v/k]) = true
+
+[hk3]	has-key(k, m[v/k']) = has-key(k, m)
+		when k != k'
+
+[hv1]	has-value(v, []) = false
+
+[hv2]	has-value(v, m[v/k]) = true
+
+[hv3]	has-value(v, m[v'/k]) = has-value(v, m)
+		when v != v'

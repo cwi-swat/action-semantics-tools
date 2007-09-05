@@ -1,0 +1,18 @@
+module obs/data/integers/__AN-K-Int-Semantics
+
+imports obs/data/integers/__AN-K-Int 
+	obs/data/booleans/__AN-K-Bool-Semantics
+
+hiddens
+
+%%sorts Int Nat Datum Data PosNumeral 
+variables
+    "n" [0-9\']* -> Nat 
+    "p" [0-9\']* -> PosNumeral
+    "i" [0-9\']* -> Int
+    "d" [0-9\']* -> Data
+    "u" [0-9\']* -> Datum
+
+
+
+

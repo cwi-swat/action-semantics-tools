@@ -1,0 +1,109 @@
+\hypertarget{classTaggedBuffers}{
+\section{Tagged\-Buffers  Class Reference}
+\label{classTaggedBuffers}\index{TaggedBuffers@{Tagged\-Buffers}}
+}
+Inheritance diagram for Tagged\-Buffers:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=53pt]{classTaggedBuffers__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Tagged\-Buffers:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=86pt]{classTaggedBuffers__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{classTaggedBuffers_a0}{Tagged\-Buffers} (\hyperlink{interfaceDataFactory}{Data\-Factory} \hyperlink{classTaggedBuffers_o0}{factory})
+\item 
+void \hyperlink{classTaggedBuffers_a1}{queue} (\hyperlink{interfaceMessageTag}{Message\-Tag} message\-Tag, \hyperlink{interfaceMessage}{Message} message)
+\item 
+\hyperlink{interfaceMessage}{Message} \hyperlink{classTaggedBuffers_a2}{dequeue} (\hyperlink{interfaceMessageTag}{Message\-Tag} message\-Tag) throws \hyperlink{classExceptional}{Exceptional}
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceDataFactory}{Data\-Factory} \hyperlink{classTaggedBuffers_o0}{factory}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classTaggedBuffers_a0}{
+\index{TaggedBuffers@{Tagged\-Buffers}!TaggedBuffers@{TaggedBuffers}}
+\index{TaggedBuffers@{TaggedBuffers}!TaggedBuffers@{Tagged\-Buffers}}
+\subsubsection[TaggedBuffers]{\setlength{\rightskip}{0pt plus 5cm}Tagged\-Buffers::Tagged\-Buffers (\hyperlink{interfaceDataFactory}{Data\-Factory} {\em factory})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classTaggedBuffers_a0}
+
+
+
+
+Definition at line 11 of file Tagged\-Buffers.java.\footnotesize\begin{verbatim}00011                                               {
+00012         super();
+00013         this.factory = factory;
+00014     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classTaggedBuffers_a2}{
+\index{TaggedBuffers@{Tagged\-Buffers}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!TaggedBuffers@{Tagged\-Buffers}}
+\subsubsection[dequeue]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceMessage}{Message} Tagged\-Buffers::dequeue (\hyperlink{interfaceMessageTag}{Message\-Tag} {\em message\-Tag})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classTaggedBuffers_a2}
+
+
+
+
+Definition at line 26 of file Tagged\-Buffers.java.
+
+Referenced by Schedule::receive().
+
+\footnotesize\begin{verbatim}00026                                                                      {
+00027         if (!containsKey(messageTag))
+00028             throw new Exceptional(factory.makeEmpty());
+00029         return (Message)((LinkedList)get(messageTag)).removeFirst();
+00030     }
+\end{verbatim}\normalsize 
+\hypertarget{classTaggedBuffers_a1}{
+\index{TaggedBuffers@{Tagged\-Buffers}!queue@{queue}}
+\index{queue@{queue}!TaggedBuffers@{Tagged\-Buffers}}
+\subsubsection[queue]{\setlength{\rightskip}{0pt plus 5cm}void Tagged\-Buffers::queue (\hyperlink{interfaceMessageTag}{Message\-Tag} {\em message\-Tag}, \hyperlink{interfaceMessage}{Message} {\em message})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classTaggedBuffers_a1}
+
+
+
+
+Definition at line 16 of file Tagged\-Buffers.java.
+
+Referenced by Schedule::send().
+
+\footnotesize\begin{verbatim}00016                                                               {
+00017         if (!containsKey(messageTag)) {
+00018             LinkedList messages = new LinkedList();
+00019             messages.add(message);
+00020             put(messageTag, messages);
+00021         }
+00022         else 
+00023             ((LinkedList)get(messageTag)).add(message);
+00024     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classTaggedBuffers_o0}{
+\index{TaggedBuffers@{Tagged\-Buffers}!factory@{factory}}
+\index{factory@{factory}!TaggedBuffers@{Tagged\-Buffers}}
+\subsubsection[factory]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceDataFactory}{Data\-Factory} Tagged\-Buffers::factory\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classTaggedBuffers_o0}
+
+
+
+
+Definition at line 10 of file Tagged\-Buffers.java.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{TaggedBuffers_8java-source}{Tagged\-Buffers.java}\end{CompactItemize}

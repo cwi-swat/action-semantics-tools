@@ -1,0 +1,27 @@
+module obs/aux/structs/Stack[X]
+
+imports obs/data/booleans/Bool
+
+exports
+
+sorts Stack
+
+context-free syntax
+
+empty-stack() -> Stack
+
+push(Stack, X) -> Stack
+drop(Stack) -> Stack
+top(Stack) -> X
+is-empty(Stack) -> Bool
+
+hiddens
+
+context-free syntax
+
+bottom -> Stack
+stack(X, Stack) -> Stack
+
+variables
+"s"[0-9\']* -> Stack
+"x"[0-9\']* -> X

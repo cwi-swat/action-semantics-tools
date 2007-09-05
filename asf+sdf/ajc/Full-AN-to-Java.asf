@@ -1,0 +1,102 @@
+equations
+
+%%[meth]	id = fa-to-identifier(A, env),
+%%	<A',n, true> = env.unf	
+%%	===
+%%	fa-to-method(A, stat*, env) =
+%%private data-type() id(data-type() data-parameter(), 
+%%		       bindings-type() bindings-parameter()) 
+%%			throws Exceptional, Failed, Unfold {
+%%	stat*
+%%}
+
+
+
+[]	is-unfolding(A) = true,
+	nat-con(char+) = env.pos
+	===
+	fa-to-identifier(A, env) = id("u""n""f""o""l""d""i""n""g""$"char+)
+
+[]	<A, nat-con(char+), false> = env.unf
+	===
+	fa-to-identifier(A, env) = id("u""n""f""o""l""d""$"char+)
+
+[]	is-unfolding(A) = true,
+	get-unfolding(A) = A',
+	is-tail-recursive(A) = false,
+	n = env.pos, n' = n + 2,
+	env1 = env.unf := <A', n', false>,
+	env2 = env1.pos := n'
+	===
+	fa-to-decls(A, env) = 
+fa-to-decls(A', env2)
+fa-to-method(A,
+	return fa-to-default-expression(A', env2);, env)
+
+[]	is-unfolding(A) = true,
+	get-unfolding(A) = A',
+	is-tail-recursive(A) = true,
+	n = env.pos, n' = n  + 2,
+	env1 = env.unf := <A', n', true>,
+	env2 = env1.pos := n'
+	===
+	fa-to-decls(A, env) = 
+fa-to-decls(A', env2)
+fa-to-method(A, 
+while (true) {
+	try {
+		return (fa-to-default-expression(A', env2));
+	} 
+	catch (Unfold unf) {
+		data-parameter() = unf.getData();
+		bindings-parameter() = unf.getBindings();
+        }
+}, env)
+
+
+
+[]	is-unfold(A2) = true,
+	<A',n', true> = env.unf,
+	n = env.pos, n1 = n + 2,
+	env1 = env.pos := n1
+	===
+	fa-to-decls(A1 and A2, env) =
+fa-to-decls(A1, env1)
+fa-to-method(A1 and A2,
+	Data d = fa-to-default-expression(A1, env1);
+	return null;, env)
+
+[]	is-unfold(A2) = true,
+	<A',n', true> = env.unf,
+	n = env.pos, n1 = n + 2,
+	env1 = env.pos := n1
+	===
+	fa-to-decls(A1 and then A2, env) =
+fa-to-decls(A1, env1)
+fa-to-method(A1 and then A2,
+	Data d = fa-to-default-expression(A1, env1);
+	return null;, env)
+
+[]	is-unfold(A) = true
+	===
+	fa-to-decls(A, env) = 
+
+
+[]	is-unfold(A) = true,
+	<A',n,false> = env.unf,
+	env' = env.pos := n
+	===
+	fa-to-expression(A, exp1, exp2, env) =
+		fa-to-expression(A', exp1, exp2, env')
+
+[]	is-unfold(A) = true,
+	<A',n, true> = env.unf
+	===
+	fa-to-expression(A, exp1, exp2, env) = null
+
+[]	is-unfold(A) = true,
+	has-key(env, unf) = false
+	===
+	fa-to-expression(A, exp1, exp2, env) = ERROR_UNFOLD_WITHOUT_UNFOLDING
+
+

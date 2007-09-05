@@ -1,0 +1,17 @@
+module an/syn/kernel/Action
+
+imports basic/Whitespace
+
+exports
+
+sorts Action
+
+context-free syntax
+	Action ActionInfix Action -> Action {left,cons("action-infix")}
+	ActionPrefix Action -> Action {cons("action-prefix")}
+	"(" Action ")" -> Action {bracket,prefer,cons("action-bracket")}
+
+context-free priorities
+	ActionPrefix Action -> Action >
+	Action ActionInfix Action -> Action {left}
+	

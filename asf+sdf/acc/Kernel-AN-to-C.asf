@@ -1,0 +1,221 @@
+equations
+
+%% Default fa functions to ka functions
+
+[default-1] fa-to-decls(A,env) = ka-to-decls(A,env)
+
+[default-2] fa-to-identifier(A,env) = ka-to-identifier(A,env)
+
+[default-3] fa-to-expression(A,exp1,exp2,env) = 
+		ka-to-expression(A,exp1,exp2,env)
+
+[default-4] fa-to-default-expression(A,env) = 
+		ka-to-default-expression(A,env)
+
+[default-5] fa-to-function(A,decls stats,env) = 
+		ka-to-function(A,decls stats,env)
+
+
+
+%% Defaults for kernel actions
+
+[default-6]	
+	ka-to-decls(A,env) =
+
+[default-7]	
+	ka-to-expression(A,exp1,exp2,env) = 
+		pa-to-expression(A,exp1,exp2,env)
+
+
+[default-8]
+	n = env.pos
+	===
+	ka-to-identifier(A, env) =
+		make-id(A, n)
+
+%% kernel actions to expressions
+
+[k]	ka-to-expression(A1 Ai A2,exp1,exp2,env) =
+		fa-to-identifier(A1 Ai A2,env)(exp1,exp2)
+
+[k]	ka-to-expression(Ap A,exp1,exp2,env) =
+		fa-to-identifier(Ap A,env)(exp1,exp2)
+
+%% Default expression
+
+[kde]	ka-to-default-expression(A,env) = 
+	fa-to-expression(A,data-parameter(),bindings-parameter(),env)
+
+
+%% construction of Functions
+
+[kf]	ka-to-function(A, decls stats, env) =
+static AN_Data fa-to-identifier(A,env)(data-type() data-parameter(),
+				bindings-type() bindings-parameter()) {
+		decls
+		stats
+}
+
+
+%% Special cases of provide
+
+[kd0]	n = env.pos,
+	n' = n + 2,
+	env' = env.pos := n'
+	===
+	ka-to-decls(provide A, env) =
+fa-to-decls(A, env')
+
+[kd0]	ka-to-decls(provide (d1,d2), env) =
+		fa-to-decls(provide d1 and provide d2, env)
+
+[kd0]	ka-to-decls(provide (d1,d2,d+), env) =
+		fa-to-decls(provide d1 and provide (d2,d+), env)
+
+[ke0]	n = env.pos,
+	n' = n + 2,
+	env' = env.pos := n'
+	===
+	ka-to-expression(provide A, exp1,exp2, env) = 
+		AN_make_action(AN_make_action_code(&fa-to-identifier(A, env')))
+
+[ke0]	ka-to-expression(provide (d1,d2),exp1,exp2, env) =
+		fa-to-expression(provide d1 and provide d2,exp1,exp2, env)
+
+[ke0]	ka-to-expression(provide (d1,d2,d+),exp1,exp2, env) =
+		fa-to-expression(provide d1 and provide (d2,d+),exp1,exp2, env)
+
+
+
+%% THEN
+
+[kd1]	env1 env2 = split-environment(env)
+	===
+	ka-to-decls(A1 then A2, env) =
+fa-to-decls(A1, env1)
+fa-to-function(A1 then A2, 
+	register data-type() d1 = fa-to-default-expression(A1,env1);
+	register data-type() d2 = fa-to-expression(A2,d1,bindings-parameter(),env2);
+	return d2;, env)
+fa-to-decls(A2, env2)
+
+%% AND THEN
+
+[kd2]	env1 env2 = split-environment(env)
+	===
+	ka-to-decls(A1 and then A2, env) =
+fa-to-decls(A1, env1)
+fa-to-function(A1 and then A2, 
+	register data-type() d1 = fa-to-default-expression(A1,env1);
+	register data-type() d2 = fa-to-default-expression(A2,env2);
+	return ACC_merge(d1,d2);, env)
+fa-to-decls(A2, env2)
+
+
+%% AND
+
+[kd3]	env1 env2 = split-environment(env)
+	===
+	ka-to-decls(A1 and  A2, env) =
+fa-to-decls(A1, env1)
+fa-to-function(A1 and A2, 
+	register data-type() d1 = fa-to-default-expression(A1,env1);
+	register data-type() d2 = fa-to-default-expression(A2,env2);
+	return ACC_merge(d1,d2);, env)
+fa-to-decls(A2, env2)
+
+%% EXCEPTIONALLY
+
+[kd4]	env1 env2 = split-environment(env)
+	===
+	ka-to-decls(A1 exceptionally A2, env) =
+fa-to-decls(A1, env1)
+fa-to-function(A1 exceptionally A2, 
+if (!ACC_try())
+	return fa-to-default-expression(A1,env1);
+else
+	return fa-to-expression(A2,ACC_catch_exception(), 
+		bindings-parameter(),env2);, env)
+fa-to-decls(A2, env2)
+
+%% AND EXCEPTIONALLY
+
+[kd5]	env1 env2 = split-environment(env)
+	===
+	ka-to-decls(A1 and exceptionally A2, env) =
+fa-to-decls(A1, env1)
+fa-to-function(A1 and exceptionally A2, 
+if (!ACC_try())
+	return fa-to-default-expression(A1,env1);
+else {
+	register data-type() d = ACC_catch_exception();
+	if (!ACC_try()) 
+		return fa-to-default-expression(A2,env2);
+	else
+		ACC_throw_exception(ACC_merge(d,ACC_catch_exception()));
+}, env)
+fa-to-decls(A2, env2)
+
+
+%% OTHERWISE
+
+[kd5]	env1 env2 = split-environment(env)
+	===
+	ka-to-decls(A1 otherwise A2, env) =
+fa-to-decls(A1, env1)
+fa-to-function(A1 exceptionally A2, 
+if (!ACC_try())
+	return fa-to-default-expression(A1,env1);
+else {
+	ACC_catch_failure();
+	return fa-to-default-expression(A2,env2);
+}, env)
+fa-to-decls(A2, env2)
+
+
+%% SELECT
+
+[kd6]	ka-to-decls(select(A), env) = fa-to-decls(A, env)
+
+[kd7]	ka-to-decls(select (A or C), env) =
+		fa-to-decls(A otherwise select(C), env)
+
+[ke6]	ka-to-expression(select(A),exp1,exp2,env) =
+		fa-to-expression(A,exp1,exp2,env)
+
+[ke7]	ka-to-expression(select(A or C),exp1,exp2,env) =
+		fa-to-expression(A otherwise select(C),exp1,exp2,env)
+
+[ki6]	ka-to-identifier(select(A), env) =
+		fa-to-identifier(A, env)
+
+[ki7]	ka-to-identifier(select(A or C),env) =
+		fa-to-identifier(A otherwise select(C), env)
+
+
+
+%% HENCE
+
+[kd8]	env1 env2 = split-environment(env)
+	===
+	ka-to-decls(A1 hence A2, env) =
+fa-to-decls(A1, env1)
+fa-to-function(A1 hence A2, 
+register bindings-type() new_bindings = fa-to-default-expression(A1,env1);
+if (AN_is_bindings(new-bindings)) 
+	return fa-to-expression(A2,data-parameter(), new_bindings, env2);
+ACC_throw_exception(AN_emptyData);,env)
+fa-to-decls(A2, env2)
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Utilities %%%%%%%%%%%%%%%%%%%%%%
+
+[senv]  nat-con(char+) = env.pos,
+        n1 = nat-con(char+ "0"),
+        n2 = nat-con(char+ "1"),
+        env1 = env.pos := n1,
+        env2 = env.pos := n2
+        ===
+        split-environment(env) = env1 env2

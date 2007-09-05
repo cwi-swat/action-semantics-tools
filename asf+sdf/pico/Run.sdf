@@ -1,0 +1,11 @@
+module pico/Run
+
+imports pico/Execute
+	pico/Declare
+	pico/Program
+
+exports
+
+context-free syntax
+
+"run" "[[" PROGRAM "]]" -> Action {cons("pico-run")}

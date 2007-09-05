@@ -1,0 +1,55 @@
+module obs/datacontrol/_AN-Data-Control
+
+imports obs/__AN-K
+
+exports context-free syntax
+
+        Data                                    -> Yielder
+        DataOp                                  -> Yielder
+        DataOpPrefix                            -> Yielder
+        DataOpPrefix Yielder                    -> Yielder
+        Yielder DataOpInfix Yielder             -> Yielder {left}
+        "(" Yielder "," {Yielder ","}+ ")"      -> Yielder
+        "(" Yielder ")"                         -> Yielder {bracket, prefer} 
+
+        DataPred                        -> Enquirer
+        DataPredPrefix Yielder          -> Enquirer
+        Yielder DataPredInfix Yielder   -> Enquirer
+        "(" Enquirer ")"                -> Enquirer {bracket}
+
+        "give" Yielder          -> Action 
+        Action Yielder          -> Action 
+        "given" Yielder         -> Action
+        "when" Enquirer         -> Action
+
+        "a" DataSort -> DataOpSort
+        "an" DataSort -> DataOpSort
+
+context-free priorities 
+        Action Yielder -> Action >
+        {"give" Yielder -> Action
+         ActionPrefix Action -> Action 
+         "provide" Data -> Action
+         "closure" Yielder -> Yielder 
+         "bound" "to" Yielder -> Yielder 
+         "stored" "in" Yielder -> Yielder } >
+        Action ActionInfix Action -> Action >
+        Yielder DataOpInfix Yielder -> Yielder
+        
+
+context-free priorities 
+        DataOpPrefix Yielder    -> Yielder >
+        Yielder DataOpInfix Yielder     -> Yielder
+
+
+lexical syntax
+
+        "skip"                  -> ActionConst
+        "err"                   -> ActionConst
+        "tentatively"           -> ActionPrefix
+        "infallibly"            -> ActionPrefix
+
+
+hiddens sorts
+
+        Action Yielder Enquirer

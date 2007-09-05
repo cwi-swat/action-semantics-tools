@@ -1,0 +1,9 @@
+module obs/aux/Test-Store
+
+imports obs/data/integers/Int obs/aux/Store[Int Int]
+
+exports
+
+sorts Int Store
+
+

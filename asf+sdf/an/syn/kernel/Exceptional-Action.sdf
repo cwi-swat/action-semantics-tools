@@ -1,0 +1,13 @@
+module an/syn/kernel/Exceptional-Action
+
+imports an/syn/kernel/Exceptional-Outcome 
+
+exports
+
+sorts Action ActionInfix
+
+context-free syntax
+	"raise" -> Action {cons("raise")}
+	"exceptionally"  -> ActionInfix {cons("exceptionally-infix")}
+	"and" "exceptionally" -> ActionInfix {cons("and-exceptionally-infix")}
+

@@ -1,0 +1,13 @@
+module obs/aux/structs/Discrete[Env]
+
+imports obs/aux/structs/Category[Env Env][Arrow => Discrete]
+
+exports
+
+sorts Discrete
+
+hiddens
+variables
+"e"[0-9\']* -> 
+
+

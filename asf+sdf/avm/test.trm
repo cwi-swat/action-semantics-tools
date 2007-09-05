@@ -1,0 +1,5 @@
+fa-to-program(
+unfolding (copy and provide 0 then check _>_
+   and then (copy and provide 1) then give _-_ then unfold
+   exceptionally provide ())
+, new-environment().pos:=1)

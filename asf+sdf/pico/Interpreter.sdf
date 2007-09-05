@@ -1,0 +1,13 @@
+module pico/Interpreter
+
+imports pico/Run
+
+exports sorts Configuration
+
+context-free syntax
+	pico-interpreter(PROGRAM) -> Configuration {cons("pico-interpreter")}
+
+hiddens
+variables
+	"n" -> Integer
+	"c" -> Cell

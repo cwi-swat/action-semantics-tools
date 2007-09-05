@@ -1,0 +1,17 @@
+module msos/Monoid-Unit[S]
+
+imports msos/Monoid[S]
+
+exports
+
+context-free syntax
+	"1" -> Unit
+	Unit -> S
+
+hiddens
+
+imports
+	basic/Whitespace
+
+variables
+	"s"[0-9\']* -> S

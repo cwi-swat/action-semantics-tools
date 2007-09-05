@@ -1,0 +1,19 @@
+
+acc: 	specification of An2 to C compiler
+ai:	attempt to abstractly interpret actions
+ail:	Action Intermediate language grammar
+ajc:	specification of An2 to Java compiler
+an:	specification of MSOS for AN2 in Asf+Sdf (evalan)
+at:	ATerm syntax
+aux:	auxiliar structures (maps, sets etc.)
+avm:	specification of An2 to AIL compiler
+c:	C grammar
+d2a:	translation of data to ATerms
+dn:	a data notation for use with evalan
+java:	Java grammar
+msos:	Modular SOS modules
+obs:	obsolete version of evalan (many tools depend on this version:-(.
+pico:	Action semantic description of pico
+terms:	input terms
+test:	test modules
+

@@ -1,0 +1,30 @@
+module obs/aux/structs/Generic-List[X]
+
+imports obs/data/integers/Int
+
+exports
+
+sorts List
+
+context-free syntax
+
+empty-list() -> List
+head(List) -> X
+tail(List) -> List
+append(List, X) -> List
+insert(List, X) -> List
+concat(List,List) -> List
+length(List) -> Int
+replace-at(List, Int, X) -> List
+element-at(List, Int) -> X
+
+hiddens
+
+context-free syntax
+"[" X* "]" -> List
+
+variables
+"x"[0-9\']* -> X
+"x*"[0-9\']* -> X*
+"l"[0-9\']* -> List
+"n"[0-9\']* -> Int

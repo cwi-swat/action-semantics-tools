@@ -1,0 +1,16 @@
+
+result element-at_ (insert(empty-list(), 4), 0)
+
+~~perform(
+~~execute[[
+~~{
+~~	list l = [];
+~~	list m = [];
+~~	int x = 0;
+~~	l = insert(l, 32);
+~~	l = append(l, 26);
+~~	m = tail(l);
+~~	x = element_at(l,0);
+~~}
+~~]]
+~~)

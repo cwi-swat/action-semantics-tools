@@ -1,0 +1,620 @@
+
+#include <stdio.h>
+#include <lightning.h>
+
+#include "reflection.h"
+
+static jit_insn buffer[1024];
+
+
+static AN2Data merge(AN2Data d1, AN2Data d2) {
+  return an2_merge_data(d1,d2);
+}
+
+/* Memotable to prevent multiple jits of the same function. */
+/* And... this should be a hashtable. */
+
+#define THEN                 0
+#define AND_THEN             1
+#define AND                  2
+#define EXCEPTIONALLY        3
+#define AND_EXCEPTIONALLY    4
+#define OTHERWISE            5
+#define PROVIDE              6
+#define INDIVISIBLY          7
+#define HENCE                8
+
+#define NUM_OF_FUNCTOR_TYPES 9
+
+typedef struct memo_entry {
+  void *arg1,*arg2;
+  AN2Functor result;
+  struct memo_entry *next;
+} *memo_entry;
+
+static memo_entry memo_table[NUM_OF_FUNCTOR_TYPES] = {};
+
+void an2_init_jitter() {
+  int i = 0;
+  while (i < NUM_OF_FUNCTOR_TYPES) 
+    memo_table[i++] = NULL;
+}
+
+AN2Functor find_memoized_functor(int type, void *a1, void *a2) {
+  memo_entry m = memo_table[type];
+  while (m) {
+    if (m->arg1 == a1 && m->arg2 == a2)
+      return m->result;
+    m = m->next;
+  }
+  return NULL;
+}
+
+void memoize_functor(int type, void *a1, void *a2, AN2Functor result) {
+  memo_entry m = (memo_entry)malloc(sizeof(struct memo_entry));
+  m->arg1 = a1;
+  m->arg2 = a2;
+  m->result = result;
+  if (memo_table[type])
+    m->next = memo_table[type];
+  else
+    m->next = NULL;
+  memo_table[type] = m;
+}
+
+/***************************************************************
+ *
+ * THEN
+ *
+ ***************************************************************/
+
+inline AN2Functor an2_jit_then(AN2Functor a1, AN2Functor a2) {
+  char *start, *end;
+  int data_offset,  bindings_offset;
+  AN2Functor f;
+  if (f = find_memoized_functor(THEN, a1, a2))
+    return f;
+  f = (AN2Functor)(jit_set_ip(buffer).pptr);
+  start = jit_get_ip().ptr;
+  jit_prolog(2);
+  data_offset = jit_arg_p();
+  bindings_offset = jit_arg_p();
+  jit_getarg_p(JIT_V0, data_offset);
+  jit_getarg_p(JIT_V1, bindings_offset);
+  jit_prepare(2);
+  jit_pusharg_p(JIT_V1);
+  jit_pusharg_p(JIT_V0);
+  jit_finish(a1);
+  jit_retval(JIT_V2);
+  jit_prepare(2);
+  jit_pusharg_p(JIT_V1);
+  jit_pusharg_p(JIT_V2);
+  jit_finish(a2);
+  jit_retval(JIT_RET);
+  jit_ret();
+  end = jit_get_ip().ptr;
+  jit_flush_code(start,end);
+
+  memoize_functor(THEN, a1, a2, f);
+  return f;
+}
+
+/***************************************************************
+ *
+ * AND THEN
+ *
+ ***************************************************************/
+
+inline AN2Functor an2_jit_and_then(AN2Functor a1, AN2Functor a2) {
+  char *start, *end;
+  int data_offset,  bindings_offset;
+  AN2Functor f;
+
+  if (f = find_memoized_functor(AND_THEN, a1, a2))
+    return f;
+
+  f = (AN2Functor)(jit_set_ip(buffer).pptr);
+  start = jit_get_ip().ptr;
+  jit_prolog(2);
+  data_offset = jit_arg_p();
+  bindings_offset = jit_arg_p();
+
+  jit_getarg_p(JIT_V1, data_offset);
+  jit_getarg_p(JIT_V2, bindings_offset);
+
+  jit_prepare(2);
+  jit_pusharg_p(JIT_V2);
+  jit_pusharg_p(JIT_V1);
+  jit_finish(a1);
+  jit_retval(JIT_V0);
+
+  jit_prepare(2);
+  jit_pusharg_p(JIT_V2);
+  jit_pusharg_p(JIT_V1);
+  jit_finish(a2);
+  jit_retval(JIT_V1);
+  
+  jit_prepare(2);
+  jit_pusharg_p(JIT_V1);
+  jit_pusharg_p(JIT_V0);
+  jit_finish(merge);
+  jit_retval(JIT_RET);
+  jit_ret();
+  end = jit_get_ip().ptr;
+  jit_flush_code(start,end);
+
+  memoize_functor(AND_THEN, a1, a2, f);
+  return f;
+}
+
+/* AN2Data pop_exception_data() { */
+/*   AN2Data d = ATgetFirst(exceptional_data_stack); */
+/*   exceptional_data_stack = ATgetNext(exceptional_data_stack); */
+/*   return d; */
+/* } */
+
+/* void push_exception_data(AN2Data d) { */
+/*   exceptional_data_stack = ATinsert(exceptional_data_stack,d); */
+/* } */
+  
+
+/***************************************************************
+ *
+ * EXCEPTIONALLY
+ *
+ ***************************************************************/
+
+inline AN2Functor an2_jit_exceptionally(AN2Functor a1, AN2Functor a2) {
+  char *start, *end;
+  int data_offset,  bindings_offset;
+  jit_insn *handler, *re_fail;
+  AN2Functor f;
+
+  if (f = find_memoized_functor(EXCEPTIONALLY, a1, a2))
+    return f;
+
+  /* Start jitting. */
+  f = (AN2Functor)(jit_set_ip(buffer).pptr);
+  start = jit_get_ip().ptr;
+
+  /* Prologue for a function accepting to arguments. */
+  jit_prolog(2);
+
+  /* Get offsets for arguments. */
+  data_offset = jit_arg_p();
+  bindings_offset = jit_arg_p();
+
+  /* Increment the global throw_stack. */
+  //  jit_ldi_p(JIT_R0, &throw_stack);             /* R0 = throw_stack */
+  //  jit_addi_p(JIT_R1, JIT_R0, 1);               /* R1 = throw_stack + 1 */
+  //  jit_sti_p(&throw_stack, JIT_R1);             /* throw_stack = R1 */
+  //  jit_movi_i(JIT_R0, AN2_EXCEPTIONAL);         /* R0 = AN2_EXCEPTIONALLY */
+  //  jit_str_i(JIT_R1, JIT_R0);                   /* *throw_stack = R0 */
+  
+  /* Set the choice point. */
+  jit_calli(setChoicePoint);
+  jit_retval(JIT_R0);
+  
+  /* Check the result for non-zero. */
+  handler = jit_bnei_i(jit_forward(), JIT_R0, 0);
+
+  /* If setChoicePoint returned 0, continue. */
+  jit_calli(AN2_try_exceptionally);
+
+  /* Call the first argument. */
+  jit_getarg_p(JIT_V1, data_offset);
+  jit_getarg_p(JIT_V2, bindings_offset);
+  
+  /* Prepare for functor 1. */
+  jit_prepare(2);
+  jit_pusharg_p(JIT_V2);
+  jit_pusharg_p(JIT_V1);
+  
+  /* Call functor 1 cleaning the argument stack. */
+  jit_finish(a1); 
+  jit_retval(JIT_V0);
+
+  /* Pop the throw stack if we arrive here. */
+  jit_calli(AN2_end_try);
+  
+  /* Return. */
+  jit_movr_p(JIT_RET, JIT_V0);
+  jit_ret();  
+
+  /* Handle failure or exception. */
+  jit_patch(handler); {
+
+    /* Load top of throw_stack. */
+    //jit_ldi_p(JIT_R0, &throw_stack);             /* R0 = throw_stack */
+    //jit_ldr_i(JIT_R1, JIT_R0);                   /* R1 = *throw_stack */
+    
+    /* Check if AN2_EXCEPTIONAL is on top of throw_stack. */
+    //re_fail = jit_bnei_i(jit_forward(), JIT_R1, AN2_EXCEPTIONAL);
+    
+    /* If AN2_EXCEPTIONAL is on top of stack, pop stack */
+    //jit_subi_p(JIT_R1, JIT_R0, 1);               /* R1 = throw_stack - 1 */
+    //jit_sti_p(&throw_stack, JIT_R1);             /* throw_stack = R1 */
+    
+    /* Get the exceptional data. */
+    //jit_calli(AN2_get_raised_data);
+
+    jit_calli(AN2_catch_exception);
+    
+    /* If we arrive here, we have an exception and can get the data. */
+    //jit_calli(AN2_get_raised_data);
+    jit_retval(JIT_V1);
+
+    /* Call second argument. */
+    jit_prepare(2);
+    jit_pusharg_p(JIT_V2);
+    jit_pusharg_p(JIT_V1);
+    jit_finish(a2);
+    jit_retval(JIT_RET);
+    jit_ret();  
+
+    /* If top of stack != AN2_EXCEPTIONAL. */
+/*     jit_patch(re_fail); { */
+/*       jit_calli(my_fail); */
+/*     } */
+  }
+
+  /* Finish code. */
+  end = jit_get_ip().ptr;
+  jit_flush_code(start,end);
+
+  memoize_functor(EXCEPTIONALLY, a1, a2, f);
+  return f;
+}  
+
+
+/***************************************************************
+ *
+ * AND EXCEPTIONALLY
+ *
+ ***************************************************************/
+
+inline AN2Functor an2_jit_and_exceptionally(AN2Functor a1, AN2Functor a2) {
+  char *start, *end;
+  int data_offset,  bindings_offset;
+  jit_insn *handler, *re_handler, *re_fail, *re_re_fail;
+  AN2Functor f;
+
+  if (f = find_memoized_functor(EXCEPTIONALLY, a1, a2))
+    return f;
+
+  /* Start jitting. */
+  f = (AN2Functor)(jit_set_ip(buffer).pptr);
+  start = jit_get_ip().ptr;
+
+  /* Prologue for a function accepting to arguments. */
+  jit_prolog(2);
+
+  /* Get offsets for arguments. */
+  data_offset = jit_arg_p();
+  bindings_offset = jit_arg_p();
+
+  /* Increment the global throw_stack. */
+  //  jit_ldi_p(JIT_R0, &throw_stack);             /* R0 = throw_stack */
+  //jit_addi_p(JIT_R1, JIT_R0, 1);               /* R1 = throw_stack + 1 */
+  //jit_sti_p(&throw_stack, JIT_R1);             /* throw_stack = R1 */
+  //jit_movi_i(JIT_R0, AN2_EXCEPTIONAL);         /* R0 = AN2_EXCEPTIONALLY */
+  //jit_str_i(JIT_R1, JIT_R0);                   /* *throw_stack = R0 */
+  
+  /* Set the choice point. */
+  jit_calli(setChoicePoint);
+  jit_retval(JIT_R0);
+  
+  /* Check the result for non-zero. */
+  handler = jit_bnei_i(jit_forward(), JIT_R0, 0);
+
+  /* If setChoicePoint returned 0, continue. */
+  jit_calli(AN2_try_exceptionally);
+
+  /* Call the first argument. */
+  jit_getarg_p(JIT_V1, data_offset);
+  jit_getarg_p(JIT_V2, bindings_offset);
+  
+  /* Prepare for functor 1. */
+  jit_prepare(2);
+  jit_pusharg_p(JIT_V2);
+  jit_pusharg_p(JIT_V1);
+  
+  /* Call functor 1 cleaning the argument stack. */
+  jit_finish(a1); 
+  jit_retval(JIT_V0);
+
+  /* Pop the throw stack if we arrive here. */
+  //jit_subi_p(JIT_R1, JIT_R0, 1);               /* R1 = throw_stack - 1 */
+  //jit_sti_p(&throw_stack, JIT_R1);             /* throw_stack = R1 */
+  
+  jit_calli(AN2_end_try);
+
+  /* Return. */
+  jit_movr_p(JIT_RET, JIT_V0);
+  jit_ret();  
+
+  /* Handle failure or exception. */
+  jit_patch(handler); {
+
+    jit_calli(AN2_catch_exception);
+    jit_retval(JIT_R0);
+
+    /* Load top of throw_stack. */
+    //jit_ldi_p(JIT_R0, &throw_stack);             /* R0 = throw_stack */
+    //jit_ldr_i(JIT_R1, JIT_R0);                   /* R1 = *throw_stack */
+    
+    /* Check if AN2_EXCEPTIONAL is on top of throw_stack. */
+    //re_fail = jit_bnei_i(jit_forward(), JIT_R1, AN2_EXCEPTIONAL);
+
+    /* Set the choice point a second time. */
+    jit_calli(setChoicePoint);
+    jit_retval(JIT_R2);
+  
+    /* Check the result for non-zero. */
+    re_handler = jit_bnei_i(jit_forward(), JIT_R2, 0);
+
+    /* If setChoicePoint returned 0, continue. */
+    jit_calli(AN2_try_exceptionally);
+
+    /* Call second argument. */
+    jit_prepare(2);
+    jit_pusharg_p(JIT_V2);
+    jit_pusharg_p(JIT_V1);
+    jit_finish(a2);
+    jit_retval(JIT_V0);
+
+    jit_calli(AN2_end_try);
+
+    /* Return. */
+    jit_movr_p(JIT_RET, JIT_V0);
+    jit_ret();  
+
+    jit_patch(re_handler); {
+
+      jit_calli(AN2_catch_exception);
+      jit_retval(JIT_R1);
+
+      /* Load top of throw_stack. */
+      //jit_ldi_p(JIT_R0, &throw_stack);             /* R0 = throw_stack */
+      //jit_ldr_i(JIT_R1, JIT_R0);                   /* R1 = *throw_stack */
+
+      /* Check if AN2_EXCEPTIONAL is on top of throw_stack. */
+      //re_re_fail = jit_bnei_i(jit_forward(), JIT_R1, AN2_EXCEPTIONAL);
+
+      /* If AN2_EXCEPTIONAL is on top of stack, pop stack */
+      //jit_subi_p(JIT_R1, JIT_R0, 1);               /* R1 = throw_stack - 1 */
+      //jit_sti_p(&throw_stack, JIT_R1);             /* throw_stack = R1 */
+
+      /* Get two exception datums. */
+/*       jit_calli(pop_exception_data); */
+/*       jit_retval(JIT_V1); */
+/*       jit_calli(pop_exception_data); */
+/*       jit_retval(JIT_V2); */
+/*       jit_prepare(2); */
+      jit_pusharg_p(JIT_R1);
+      jit_pusharg_p(JIT_R0);
+      jit_finish(merge);
+      jit_retval(JIT_R2);
+      jit_prepare(1);
+      jit_pusharg_p(JIT_R2);
+      jit_finish(AN2_raise);
+	
+
+/*       jit_prepare(1); */
+/*       jit_pusharg_p(JIT_V0); */
+/*       jit_finish(push_exception_data); */
+      
+/*       jit_patch(re_re_fail); { */
+/* 	jit_calli(my_fail); */
+/*       } */
+
+    }
+    /* If top of stack != AN2_EXCEPTIONAL. */
+/*     jit_patch(re_fail); { */
+/*       jit_calli(my_fail); */
+/*     } */
+  }
+  /* Finish code. */
+  end = jit_get_ip().ptr;
+  jit_flush_code(start,end);
+
+  memoize_functor(AND_EXCEPTIONALLY, a1, a2, f);
+  return f;
+}  
+
+/***************************************************************
+ *
+ * OTHERWISE
+ *
+ ***************************************************************/
+
+inline AN2Functor an2_jit_otherwise(AN2Functor a1, AN2Functor a2) {
+  char *start, *end;
+  int data_offset,  bindings_offset;
+  jit_insn *handler, *re_fail;
+  AN2Functor f;
+
+  if (f = find_memoized_functor(OTHERWISE, a1, a2))
+    return f;
+
+  /* Start jitting. */
+  f = (AN2Functor)(jit_set_ip(buffer).pptr);
+  start = jit_get_ip().ptr;
+
+  /* Prologue for a function accepting to arguments. */
+  jit_prolog(2);
+
+  /* Get offsets for arguments. */
+  data_offset = jit_arg_p();
+  bindings_offset = jit_arg_p();
+
+  /* Increment the global throw_stack. */
+  //jit_ldi_p(JIT_R0, &throw_stack);             /* R0 = throw_stack */
+  //jit_addi_p(JIT_R1, JIT_R0, 1);               /* R1 = throw_stack + 1 */
+  //jit_sti_p(&throw_stack, JIT_R1);             /* throw_stack = R1 */
+  //jit_movi_i(JIT_R0, AN2_FAILED);              /* R0 = AN2_FAILED */
+  //jit_str_i(JIT_R1, JIT_R0);                   /* *throw_stack = R0 */
+  
+  /* Set the choice point. */
+  jit_calli(setChoicePoint); 
+  jit_retval(JIT_R0); 
+
+  /* Check the result for non-zero. */
+  handler = jit_bnei_i(jit_forward(), JIT_R0, 0);
+
+  /* If setChoicePoint returned 0, continue. */
+  //jit_calli(AN2_try_otherwise);
+
+  /* Call the first argument. */
+  jit_getarg_p(JIT_V1, data_offset);
+  jit_getarg_p(JIT_V2, bindings_offset);
+  
+  /* Prepare for functor 1. */
+  jit_prepare(2);
+  jit_pusharg_p(JIT_V2);
+  jit_pusharg_p(JIT_V1);
+  
+  /* Call functor 1 cleaning the argument stack. */
+  jit_finish(a1); 
+  //jit_retval(JIT_V0);
+  jit_retval(JIT_RET);
+  jit_ret();
+
+  /* Pop the throw stack if we arrive here. */
+  //jit_subi_p(JIT_R1, JIT_R0, 1);               /* R1 = throw_stack - 1 */
+  //jit_sti_p(&throw_stack, JIT_R1);             /* throw_stack = R1 */
+
+  //jit_calli(AN2_end_try);
+
+  /* Return. */
+  //jit_movr_p(JIT_RET, JIT_V0);
+  //jit_ret();  
+
+  /* Handle failure or exception. */
+  jit_patch(handler); {
+    
+    //    jit_calli(AN2_catch_failure);
+    jit_calli(AN2_catch_failure);
+
+    /* Load top of throw_stack. */
+    //jit_ldi_p(JIT_R0, &throw_stack);             /* R0 = throw_stack */
+    //jit_ldr_i(JIT_R1, JIT_R0);                   /* R1 = *throw_stack */
+    
+    /* Check if AN2_FAILED is on top of throw_stack. */
+    //re_fail = jit_bnei_i(jit_forward(), JIT_R1, AN2_FAILED);
+    
+    /* If AN2_FAILED is on top of stack, pop stack */
+    //jit_subi_p(JIT_R1, JIT_R0, 1);               /* R1 = throw_stack - 1 */
+    //jit_sti_p(&throw_stack, JIT_R1);             /* throw_stack = R1 */
+    
+    /* Call second argument. */
+/*     jit_getarg_p(JIT_V1, data); */
+/*     jit_getarg_p(JIT_V2, bindings); */
+
+    jit_prepare(2);
+    jit_pusharg_p(JIT_V2);
+    jit_pusharg_p(JIT_V1);
+    jit_finish(a2);
+    jit_retval(JIT_RET);
+    jit_ret();  
+
+    /* If top of stack != AN2_FAILED. */
+/*     jit_patch(re_fail); { */
+/*       jit_calli(my_fail); */
+/*     } */
+  }
+
+  /* Finish code. */
+  end = jit_get_ip().ptr;
+  jit_flush_code(start,end);
+
+  memoize_functor(OTHERWISE, a1, a2, f);
+  return f;
+}  
+  
+  
+inline AN2Functor an2_jit_provide(AN2Data d) {
+  char *start, *end;
+  int data_offset,  bindings_offset;
+  AN2Functor f;
+  if (f = find_memoized_functor(PROVIDE, d, NULL))
+    return f;
+
+  f = (AN2Functor)(jit_set_ip(buffer).pptr);
+  start = jit_get_ip().ptr;
+  jit_prolog(2);
+
+  /* Protection of d has to be taken care of elsewhere. */
+  jit_movi_p(JIT_RET, d);
+  jit_ret();
+  end = jit_get_ip().ptr;
+  jit_flush_code(start,end);
+
+  memoize_functor(PROVIDE, d, NULL, f);
+  return f;
+}
+
+  
+
+
+/***************************************************************
+ *
+ * HENCE
+ *
+ ***************************************************************/
+
+inline AN2Functor an2_jit_hence(AN2Functor a1, AN2Functor a2) {
+  char *start, *end;
+  int data_offset,  bindings_offset;
+  jit_insn *error;
+  AN2Functor f;
+  if (f = find_memoized_functor(HENCE, a1, a2))
+    return f;
+  f = (AN2Functor)(jit_set_ip(buffer).pptr);
+  start = jit_get_ip().ptr;
+  jit_prolog(2);
+  data_offset = jit_arg_p();
+  bindings_offset = jit_arg_p();
+  jit_getarg_p(JIT_V0, data_offset);
+  jit_getarg_p(JIT_V1, bindings_offset);
+  jit_prepare(2);
+  jit_pusharg_p(JIT_V1);
+  jit_pusharg_p(JIT_V0);
+  jit_finish(a1);
+  jit_retval(JIT_V2);
+
+  /* Test for bindings type. */
+  jit_movi_p(JIT_R0, an2_type_label);
+  jit_prepare(2);
+  jit_pusharg_p(JIT_R0);
+  jit_pusharg_p(JIT_V2);
+  jit_finish(ATgetAnnotation);
+  jit_retval(JIT_R1);
+  error = jit_bnei_p(jit_forward(), JIT_R1, AN2_BINDINGS_TYPE);
+
+  /* If the type is correct, continue */
+  jit_prepare(2);
+  jit_pusharg_p(JIT_V1);
+  jit_pusharg_p(JIT_V2);
+  jit_finish(a2);
+  jit_retval(JIT_RET);
+  jit_ret();
+
+  jit_patch(error); {
+    jit_movi_p(JIT_R0, an2_make_empty());
+    jit_prepare(1);
+    jit_pusharg_p(JIT_R0);
+    jit_calli(AN2_raise);
+    /* jit_movi_p(JIT_R0, an2_make_empty()); */
+    /*     jit_prepare(1); */
+    /*     jit_pusharg_p(JIT_R0); */
+    /*     jit_finish(push_exception_data); */
+    /*     jit_calli(my_fail); */
+  }
+
+  end = jit_get_ip().ptr;
+  jit_flush_code(start,end);
+
+  memoize_functor(HENCE, a1, a2, f);
+  return f;
+}

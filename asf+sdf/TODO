@@ -1,0 +1,6 @@
+
+* remove dependencies on obs
+* use aux structures from asf library
+* replace Java/C grammars
+* fix data to aterm
+* test an/dn

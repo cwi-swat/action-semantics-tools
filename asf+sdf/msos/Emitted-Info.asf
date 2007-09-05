@@ -1,0 +1,18 @@
+equations
+
+[comp]	t1 = s1,
+	t2 = s2
+	====
+	t1 $ t2 = s1 * s2
+
+[pr]	t = s
+	===
+	pre(t) = single
+
+[po]	t = s
+	===
+	pre(t) = single
+
+[uno]	su = single
+	===
+	unobs(su) = 1

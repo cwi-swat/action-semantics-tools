@@ -1,0 +1,35 @@
+module obs/data/__AN-K-Set
+
+imports obs/data/__AN-K-Data-Contract 
+	obs/aux/structs/Finite-Set[Data][Finite-Set=>Set]
+	obs/data/lists/__AN-K-List
+
+exports
+
+context-free syntax
+
+Set -> Datum
+
+lexical syntax
+"set" -> DataOpPrefix
+"union" -> DataOpPrefix
+"intersection" -> DataOpPrefix
+"difference" -> DataOpPrefix
+"member" -> DataPredPrefix
+"add" -> DataOpPrefix
+"to-list" -> DataOpPrefix
+"tuple" -> DataOpPrefix
+
+"set" -> SortName
+
+hiddens
+
+context-free syntax
+
+to-list(Set) -> List
+tuple(Set) -> Data
+
+variables
+"s"[0-9\']* -> Set
+"d"[0-9\']* -> Data
+"l"[0-9\']* -> List

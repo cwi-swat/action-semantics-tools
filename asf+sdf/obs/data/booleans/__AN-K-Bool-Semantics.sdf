@@ -1,0 +1,14 @@
+module obs/data/booleans/__AN-K-Bool-Semantics
+
+imports obs/data/booleans/__AN-K-Bool 
+	obs/data/__AN-K-Data-Contract
+
+hiddens
+variables
+
+"d" -> Data
+
+
+
+
+

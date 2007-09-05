@@ -1,0 +1,25 @@
+module obs/data/__AN-K-Tree-Set
+
+imports obs/data/__AN-K-Data-Contract 
+	obs/aux/structs/Balanced-Tree[Data][Tree=>Tree-Set]
+
+exports
+
+context-free syntax
+
+Tree-Set -> Datum
+
+lexical syntax
+"t-set" -> DataOpPrefix
+"t-union" -> DataOpPrefix
+"t-intersection" -> DataOpPrefix
+"t-difference" -> DataOpPrefix
+"t-member" -> DataPredPrefix
+"t-add" -> DataOpPrefix
+
+"tree-set" -> SortName
+
+hiddens
+variables
+"s"[0-9\']* -> Tree-Set
+"d"[0-9\']* -> Data

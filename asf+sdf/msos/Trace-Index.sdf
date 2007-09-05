@@ -1,0 +1,12 @@
+module msos/Trace-Index[Index State Trace]
+
+imports msos/Indexed-Trace[IndexedTrace => Arbitrary]
+
+exports
+
+sorts Arbitrary 
+
+context-free syntax
+	State -> StateUniv
+	Trace -> TraceUniv
+	Index -> IndexUniv

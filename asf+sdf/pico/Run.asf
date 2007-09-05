@@ -1,0 +1,4 @@
+equations
+
+[]	run[[ begin Decls Series end ]] = 
+		declare[[ Decls ]] hence execute[[ Series ]]

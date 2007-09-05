@@ -1,0 +1,12 @@
+equations
+
+      [B1]   true | b   = true
+      [B2]   false | b  = b
+
+      [B3]   true & b   = b
+      [B4]   false & b  = false
+
+      [B5]   not false = true
+      [B6]   not true   = false
+
+

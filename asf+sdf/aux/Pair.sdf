@@ -1,0 +1,19 @@
+module aux/Pair[X Y]
+
+imports basic/Whitespace
+
+exports
+
+sorts Pair
+
+context-free syntax
+
+	pair(X,Y) -> Pair {cons("pair")}
+	first(Pair) -> X {cons("first-of-pair")}
+	second(Pair) -> Y {cons("second-of-pair")}
+
+hiddens
+variables
+	"p"[0-9\']* -> Pair
+	"x"[0-9\']* -> X
+	"y"[0-9\']* -> Y

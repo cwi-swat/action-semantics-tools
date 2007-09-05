@@ -1,0 +1,1380 @@
+In file included from ail.c:5:
+ail.h:41: redefinition of `AIL_ATermList'
+ail.h:35: `AIL_ATermList' previously declared here
+ail.h:86: parse error before `head'
+ail.h:87: parse error before `head'
+ail.h:88: parse error before `id'
+ail.h:89: parse error before `id'
+ail.h:90: parse error before `Label'
+ail.h:93: parse error before `Number'
+ail.h:94: parse error before `Label'
+ail.h:161: parse error before `AIL_getIdListHead'
+ail.h:161: warning: data definition has no type or storage class
+ail.h:162: parse error before `AIL_Id'
+ail.h:177: parse error before `AIL_getInstructionId'
+ail.h:177: warning: data definition has no type or storage class
+ail.h:178: parse error before `AIL_Id'
+ail.h:184: conflicting types for `arg'
+ail.h:184: previous declaration of `arg'
+ail.h:193: parse error before `AIL_getStatementLabel'
+ail.h:193: warning: data definition has no type or storage class
+ail.h:194: parse error before `AIL_Label'
+ail.h:216: parse error before `AIL_getArgNumber'
+ail.h:216: warning: data definition has no type or storage class
+ail.h:217: parse error before `AIL_Number'
+ail.h:219: parse error before `AIL_getArgLabel'
+ail.h:219: warning: data definition has no type or storage class
+ail.h:220: parse error before `AIL_Label'
+ail.h:395: parse error before `AIL_Id'
+ail.h:395: warning: parameter names (without types) in function declaration
+ail.h:395: `AIL_visitIdList' declared as function returning a function
+ail.h:395: parse error before `*'
+ail.h:395: `AIL_Layout' declared as function returning a function
+ail.h:395: `AIL_Layout' redeclared as different kind of symbol
+ail.h:16: previous declaration of `AIL_Layout'
+ail.h:395: parse error before `)'
+ail.h:396: parse error before `AIL_Id'
+ail.h:396: warning: parameter names (without types) in function declaration
+ail.h:396: `AIL_visitInstruction' declared as function returning a function
+ail.h:396: parse error before `*'
+ail.h:396: warning: parameter names (without types) in function declaration
+ail.h:396: `AIL_Layout' declared as function returning a function
+ail.h:396: parse error before `*'
+ail.h:396: `AIL_Arg' declared as function returning a function
+ail.h:396: `AIL_Arg' redeclared as different kind of symbol
+ail.h:32: previous declaration of `AIL_Arg'
+ail.h:396: parse error before `)'
+ail.h:397: parse error before `AIL_Label'
+ail.h:397: warning: parameter names (without types) in function declaration
+ail.h:397: `AIL_visitStatement' declared as function returning a function
+ail.h:397: parse error before `*'
+ail.h:397: warning: parameter names (without types) in function declaration
+ail.h:397: `AIL_Layout' declared as function returning a function
+ail.h:397: parse error before `*'
+ail.h:397: `AIL_Instruction' declared as function returning a function
+ail.h:397: `AIL_Instruction' redeclared as different kind of symbol
+ail.h:30: previous declaration of `AIL_Instruction'
+ail.h:397: parse error before `*'
+ail.h:397: warning: parameter names (without types) in function declaration
+ail.h:397: `AIL_Layout' declared as function returning a function
+ail.h:397: parse error before `)'
+ail.h:398: parse error before `arg'
+ail.h:398: `AIL_visitArg' declared as function returning a function
+ail.h:398: parse error before `*'
+ail.h:398: warning: parameter names (without types) in function declaration
+ail.h:398: `AIL_Number' declared as function returning a function
+ail.h:398: parse error before `*'
+ail.h:398: warning: parameter names (without types) in function declaration
+ail.h:398: `AIL_Label' declared as function returning a function
+ail.h:398: parse error before `)'
+ail.h:400: parse error before `AIL_Layout'
+ail.h:400: parse error before `)'
+ail.h:401: parse error before `AIL_Layout'
+ail.h:401: warning: parameter names (without types) in function declaration
+ail.h:401: `AIL_visitATermList' declared as function returning a function
+ail.h:401: parse error before `*'
+ail.h:401: `AIL_ATerms' declared as function returning a function
+ail.h:401: `AIL_ATerms' redeclared as different kind of symbol
+ail.h:40: previous declaration of `AIL_ATerms'
+ail.h:401: parse error before `*'
+ail.h:401: warning: parameter names (without types) in function declaration
+ail.h:401: `AIL_Layout' declared as function returning a function
+ail.h:401: parse error before `)'
+ail.h:404: parse error before `AIL_Layout'
+ail.h:404: warning: parameter names (without types) in function declaration
+ail.h:404: `AIL_visitATerm' declared as function returning a function
+ail.h:404: parse error before `*'
+ail.h:404: `AIL_Ann' declared as function returning a function
+ail.h:404: `AIL_Ann' redeclared as different kind of symbol
+ail.h:39: previous declaration of `AIL_Ann'
+ail.h:404: parse error before `*'
+ail.h:404: `AIL_ATermList' declared as function returning a function
+ail.h:404: `AIL_ATermList' redeclared as different kind of symbol
+ail.h:41: previous declaration of `AIL_ATermList'
+ail.h:404: parse error before `*'
+ail.h:404: warning: parameter names (without types) in function declaration
+ail.h:404: `AIL_Layout' declared as function returning a function
+ail.h:404: parse error before `*'
+ail.h:404: `AIL_AFun' declared as function returning a function
+ail.h:404: `AIL_AFun' redeclared as different kind of symbol
+ail.h:37: previous declaration of `AIL_AFun'
+ail.h:404: parse error before `*'
+ail.h:404: warning: parameter names (without types) in function declaration
+ail.h:404: `AIL_Layout' declared as function returning a function
+ail.h:404: parse error before `*'
+ail.h:404: warning: parameter names (without types) in function declaration
+ail.h:404: `AIL_Layout' declared as function returning a function
+ail.h:404: parse error before `*'
+ail.h:404: warning: parameter names (without types) in function declaration
+ail.h:404: `AIL_ATerms' declared as function returning a function
+ail.h:404: parse error before `*'
+ail.h:404: warning: parameter names (without types) in function declaration
+ail.h:404: `AIL_Layout' declared as function returning a function
+ail.h:404: parse error before `*'
+ail.h:404: warning: parameter names (without types) in function declaration
+ail.h:404: `AIL_Layout' declared as function returning a function
+ail.h:404: parse error before `)'
+ail.h:405: parse error before `arg'
+ail.h:405: warning: parameter names (without types) in function declaration
+ail.h:405: `AIL_visitAnn' declared as function returning a function
+ail.h:405: parse error before `*'
+ail.h:405: warning: parameter names (without types) in function declaration
+ail.h:405: `AIL_ATerms' declared as function returning a function
+ail.h:405: parse error before `*'
+ail.h:405: warning: parameter names (without types) in function declaration
+ail.h:405: `AIL_Layout' declared as function returning a function
+ail.h:405: parse error before `)'
+ail.h:406: parse error before `arg'
+ail.h:406: parse error before `)'
+ail.h:407: parse error before `arg'
+ail.h:407: `AIL_visitATermList' declared as function returning a function
+ail.h:407: parse error before `*'
+ail.h:407: warning: parameter names (without types) in function declaration
+ail.h:407: `AIL_Layout' declared as function returning a function
+ail.h:407: parse error before `char'
+ail.h:408: parse error before `AIL_Layout'
+ail.h:408: warning: parameter names (without types) in function declaration
+ail.h:408: `AIL_visitIntCon' declared as function returning a function
+ail.h:408: parse error before `*'
+ail.h:408: warning: parameter names (without types) in function declaration
+ail.h:408: `AIL_Layout' declared as function returning a function
+ail.h:408: parse error before `)'
+ail.c:22: redefinition of `_AIL_ATermList'
+ail.c:16: `_AIL_ATermList' previously declared here
+ail.c:72: parse error before `AIL_InstructionFromTerm'
+ail.c:73: conflicting types for `AIL_InstructionFromTerm'
+ail.h:54: previous declaration of `AIL_InstructionFromTerm'
+ail.c: In function `AIL_InstructionFromTerm':
+ail.c:74: parse error before `t'
+ail.c: At top level:
+ail.c:80: parse error before `arg'
+ail.c: In function `AIL_InstructionToTerm':
+ail.c:81: number of arguments doesn't match prototype
+ail.h:55: prototype declaration
+ail.c:82: `arg' undeclared (first use in this function)
+ail.c:82: (Each undeclared identifier is reported only once
+ail.c:82: for each function it appears in.)
+ail.c: At top level:
+ail.c:104: parse error before `AIL_ArgFromTerm'
+ail.c:105: conflicting types for `AIL_ArgFromTerm'
+ail.h:58: previous declaration of `AIL_ArgFromTerm'
+ail.c: In function `AIL_ArgFromTerm':
+ail.c:106: parse error before `t'
+ail.c: At top level:
+ail.c:112: parse error before `arg'
+ail.c: In function `AIL_ArgToTerm':
+ail.c:113: number of arguments doesn't match prototype
+ail.h:59: prototype declaration
+ail.c:114: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:152: parse error before `AIL_ATermListFromTerm'
+ail.c:153: conflicting types for `AIL_ATermListFromTerm'
+ail.h:76: previous declaration of `AIL_ATermListFromTerm'
+ail.c: In function `AIL_ATermListFromTerm':
+ail.c:154: parse error before `t'
+ail.c: At top level:
+ail.c:160: parse error before `arg'
+ail.c: In function `AIL_ATermListToTerm':
+ail.c:161: number of arguments doesn't match prototype
+ail.h:77: prototype declaration
+ail.c:162: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:184: parse error before `AIL_AFunFromTerm'
+ail.c:185: conflicting types for `AIL_AFunFromTerm'
+ail.h:68: previous declaration of `AIL_AFunFromTerm'
+ail.c: In function `AIL_AFunFromTerm':
+ail.c:186: parse error before `t'
+ail.c: At top level:
+ail.c:192: parse error before `arg'
+ail.c: In function `AIL_AFunToTerm':
+ail.c:193: number of arguments doesn't match prototype
+ail.h:69: prototype declaration
+ail.c:194: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:216: parse error before `AIL_AnnFromTerm'
+ail.c:217: conflicting types for `AIL_AnnFromTerm'
+ail.h:72: previous declaration of `AIL_AnnFromTerm'
+ail.c: In function `AIL_AnnFromTerm':
+ail.c:218: parse error before `t'
+ail.c: At top level:
+ail.c:224: parse error before `arg'
+ail.c: In function `AIL_AnnToTerm':
+ail.c:225: number of arguments doesn't match prototype
+ail.h:73: prototype declaration
+ail.c:226: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:232: parse error before `AIL_ATermsFromTerm'
+ail.c:233: conflicting types for `AIL_ATermsFromTerm'
+ail.h:74: previous declaration of `AIL_ATermsFromTerm'
+ail.c: In function `AIL_ATermsFromTerm':
+ail.c:234: parse error before `t'
+ail.c: At top level:
+ail.c:240: parse error before `arg'
+ail.c: In function `AIL_ATermsToTerm':
+ail.c:241: number of arguments doesn't match prototype
+ail.h:75: prototype declaration
+ail.c:242: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:248: parse error before `AIL_ATermListFromTerm'
+ail.c:249: redefinition of `AIL_ATermListFromTerm'
+ail.c:153: `AIL_ATermListFromTerm' previously defined here
+ail.c: In function `AIL_ATermListFromTerm':
+ail.c:250: parse error before `t'
+ail.c: At top level:
+ail.c:256: parse error before `arg'
+ail.c:257: redefinition of `AIL_ATermListToTerm'
+ail.c:161: `AIL_ATermListToTerm' previously defined here
+ail.c: In function `AIL_ATermListToTerm':
+ail.c:257: number of arguments doesn't match prototype
+ail.c:161: prototype declaration
+ail.c:258: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:284: parse error before `wsAfterBracketOpen'
+ail.c: In function `AIL_makeInstructionsDefault':
+ail.c:285: number of arguments doesn't match prototype
+ail.h:84: prototype declaration
+ail.c:286: `wsAfterList' undeclared (first use in this function)
+ail.c:286: `list' undeclared (first use in this function)
+ail.c:286: `wsAfterBracketOpen' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:300: parse error before `head'
+ail.c: In function `AIL_makeIdListSingle':
+ail.c:302: `head' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:308: parse error before `head'
+ail.c: In function `AIL_makeIdListMany':
+ail.c:310: `tail' undeclared (first use in this function)
+ail.c:310: `wsAfterFirst' undeclared (first use in this function)
+ail.c:310: `head' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:316: parse error before `AIL_makeInstructionNoargIns'
+ail.c:316: parse error before `id'
+ail.c:317: conflicting types for `AIL_makeInstructionNoargIns'
+ail.h:88: previous declaration of `AIL_makeInstructionNoargIns'
+ail.c: In function `AIL_makeInstructionNoargIns':
+ail.c:318: parse error before `ATerm'
+ail.c: At top level:
+ail.c:324: parse error before `AIL_makeInstructionArgIns'
+ail.c:324: parse error before `id'
+ail.c:325: conflicting types for `AIL_makeInstructionArgIns'
+ail.h:89: previous declaration of `AIL_makeInstructionArgIns'
+ail.c: In function `AIL_makeInstructionArgIns':
+ail.c:326: parse error before `ATerm'
+ail.c: At top level:
+ail.c:332: parse error before `Label'
+ail.c: In function `AIL_makeStatementLabelStat':
+ail.c:334: `wsAfterLabel' undeclared (first use in this function)
+ail.c:334: `Label' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:340: parse error before `Instruction'
+ail.c: In function `AIL_makeStatementInsStat':
+ail.c:341: number of arguments doesn't match prototype
+ail.h:91: prototype declaration
+ail.c:342: `wsAfterInstruction' undeclared (first use in this function)
+ail.c:342: `Instruction' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:348: parse error before `AIL_makeArgAterm'
+ail.c:349: conflicting types for `AIL_makeArgAterm'
+ail.h:92: previous declaration of `AIL_makeArgAterm'
+ail.c: In function `AIL_makeArgAterm':
+ail.c:350: parse error before `ATmakeAppl2'
+ail.c: At top level:
+ail.c:356: parse error before `AIL_makeArgNumber'
+ail.c:356: parse error before `Number'
+ail.c:357: conflicting types for `AIL_makeArgNumber'
+ail.h:93: previous declaration of `AIL_makeArgNumber'
+ail.c: In function `AIL_makeArgNumber':
+ail.c:358: parse error before `ATerm'
+ail.c: At top level:
+ail.c:364: parse error before `AIL_makeArgLabel'
+ail.c:364: parse error before `Label'
+ail.c:365: conflicting types for `AIL_makeArgLabel'
+ail.h:94: previous declaration of `AIL_makeArgLabel'
+ail.c: In function `AIL_makeArgLabel':
+ail.c:366: parse error before `ATerm'
+ail.c: At top level:
+ail.c:396: parse error before `AIL_Layout'
+ail.c: In function `AIL_makeStatementListMany':
+ail.c:397: number of arguments doesn't match prototype
+ail.h:98: prototype declaration
+ail.c:398: `tail' undeclared (first use in this function)
+ail.c:398: `wsAfterFirst' undeclared (first use in this function)
+ail.c:398: `head' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:404: parse error before `AIL_makeATermListATerms'
+ail.c:404: parse error before `wsAfterBracketOpen'
+ail.c:405: conflicting types for `AIL_makeATermListATerms'
+ail.h:99: previous declaration of `AIL_makeATermListATerms'
+ail.c: In function `AIL_makeATermListATerms':
+ail.c:406: parse error before `ATerm'
+ail.c: At top level:
+ail.c:420: parse error before `AIL_makeAFunLiteral'
+ail.c:421: conflicting types for `AIL_makeAFunLiteral'
+ail.h:101: previous declaration of `AIL_makeAFunLiteral'
+ail.c: In function `AIL_makeAFunLiteral':
+ail.c:422: parse error before `ATerm'
+ail.c: At top level:
+ail.c:428: parse error before `AIL_Layout'
+ail.c: In function `AIL_makeATermAConAnn':
+ail.c:429: number of arguments doesn't match prototype
+ail.h:102: prototype declaration
+ail.c:430: `Ann' undeclared (first use in this function)
+ail.c:430: `wsAfterACon' undeclared (first use in this function)
+ail.c:430: `ACon' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:444: parse error before `ATermList'
+ail.c: In function `AIL_makeATermATermListAnn':
+ail.c:445: number of arguments doesn't match prototype
+ail.h:104: prototype declaration
+ail.c:446: `Ann' undeclared (first use in this function)
+ail.c:446: `wsAfterATermList' undeclared (first use in this function)
+ail.c:446: parse error before `ATermList'
+ail.c: At top level:
+ail.c:460: parse error before `AFun'
+ail.c: In function `AIL_makeATermAFunAnn':
+ail.c:461: number of arguments doesn't match prototype
+ail.h:106: prototype declaration
+ail.c:462: `Ann' undeclared (first use in this function)
+ail.c:462: `wsAfterAFun' undeclared (first use in this function)
+ail.c:462: parse error before `AFun'
+ail.c: At top level:
+ail.c:476: parse error before `AFun'
+ail.c: In function `AIL_makeATermAFunATermsAnn':
+ail.c:477: number of arguments doesn't match prototype
+ail.h:108: prototype declaration
+ail.c:478: `Ann' undeclared (first use in this function)
+ail.c:478: `wsAfterParenClose' undeclared (first use in this function)
+ail.c:478: `wsAfterATerms' undeclared (first use in this function)
+ail.c:478: `ATerms' undeclared (first use in this function)
+ail.c:478: `wsAfterParenOpen' undeclared (first use in this function)
+ail.c:478: `wsAfterAFun' undeclared (first use in this function)
+ail.c:478: parse error before `AFun'
+ail.c: At top level:
+ail.c:492: parse error before `AIL_makeAnnDefault'
+ail.c:492: parse error before `wsAfterBraceOpen'
+ail.c:493: conflicting types for `AIL_makeAnnDefault'
+ail.h:110: previous declaration of `AIL_makeAnnDefault'
+ail.c: In function `AIL_makeAnnDefault':
+ail.c:494: parse error before `ATerm'
+ail.c: At top level:
+ail.c:500: parse error before `AIL_makeATermsDefault'
+ail.c:500: parse error before `list'
+ail.c:501: conflicting types for `AIL_makeATermsDefault'
+ail.h:111: previous declaration of `AIL_makeATermsDefault'
+ail.c: In function `AIL_makeATermsDefault':
+ail.c:502: parse error before `ATerm'
+ail.c: At top level:
+ail.c:508: parse error before `AIL_makeATermListEmpty'
+ail.c:509: conflicting types for `AIL_makeATermListEmpty'
+ail.h:112: previous declaration of `AIL_makeATermListEmpty'
+ail.c: In function `AIL_makeATermListEmpty':
+ail.c:510: parse error before `ATerm'
+ail.c: At top level:
+ail.c:516: parse error before `AIL_makeATermListSingle'
+ail.c:517: conflicting types for `AIL_makeATermListSingle'
+ail.h:113: previous declaration of `AIL_makeATermListSingle'
+ail.c: In function `AIL_makeATermListSingle':
+ail.c:518: parse error before `ATerm'
+ail.c: At top level:
+ail.c:524: parse error before `AIL_makeATermListMany'
+ail.c:524: parse error before `AIL_Layout'
+ail.c:525: conflicting types for `AIL_makeATermListMany'
+ail.h:114: previous declaration of `AIL_makeATermListMany'
+ail.c: In function `AIL_makeATermListMany':
+ail.c:526: parse error before `ATerm'
+ail.c: At top level:
+ail.c:540: parse error before `wsAfterPlus'
+ail.c: In function `AIL_makeIntConPlus':
+ail.c:541: number of arguments doesn't match prototype
+ail.h:116: prototype declaration
+ail.c:542: `NatCon' undeclared (first use in this function)
+ail.c:542: `wsAfterPlus' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:548: parse error before `wsAfter'
+ail.c: In function `AIL_makeIntConMinus':
+ail.c:549: number of arguments doesn't match prototype
+ail.h:117: prototype declaration
+ail.c:550: `NatCon' undeclared (first use in this function)
+ail.c:550: `wsAfter' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:568: parse error before `arg0'
+ail.c: In function `AIL_isEqualInstruction':
+ail.c:569: number of arguments doesn't match prototype
+ail.h:124: prototype declaration
+ail.c:570: `arg0' undeclared (first use in this function)
+ail.c:570: `arg1' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:578: parse error before `arg0'
+ail.c: In function `AIL_isEqualArg':
+ail.c:579: number of arguments doesn't match prototype
+ail.h:126: prototype declaration
+ail.c:580: `arg0' undeclared (first use in this function)
+ail.c:580: `arg1' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:593: parse error before `arg0'
+ail.c: In function `AIL_isEqualATermList':
+ail.c:594: number of arguments doesn't match prototype
+ail.h:135: prototype declaration
+ail.c:595: `arg0' undeclared (first use in this function)
+ail.c:595: `arg1' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:603: parse error before `arg0'
+ail.c: In function `AIL_isEqualAFun':
+ail.c:604: number of arguments doesn't match prototype
+ail.h:131: prototype declaration
+ail.c:605: `arg0' undeclared (first use in this function)
+ail.c:605: `arg1' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:613: parse error before `arg0'
+ail.c: In function `AIL_isEqualAnn':
+ail.c:614: number of arguments doesn't match prototype
+ail.h:133: prototype declaration
+ail.c:615: `arg0' undeclared (first use in this function)
+ail.c:615: `arg1' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:618: parse error before `arg0'
+ail.c: In function `AIL_isEqualATerms':
+ail.c:619: number of arguments doesn't match prototype
+ail.h:134: prototype declaration
+ail.c:620: `arg0' undeclared (first use in this function)
+ail.c:620: `arg1' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:623: parse error before `arg0'
+ail.c:624: redefinition of `AIL_isEqualATermList'
+ail.c:594: `AIL_isEqualATermList' previously defined here
+ail.c: In function `AIL_isEqualATermList':
+ail.c:624: number of arguments doesn't match prototype
+ail.c:594: prototype declaration
+ail.c:625: `arg0' undeclared (first use in this function)
+ail.c:625: `arg1' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:672: parse error before `AIL_getInstructionsWsAfterBracketOpen'
+ail.c:673: conflicting types for `AIL_getInstructionsWsAfterBracketOpen'
+ail.h:144: previous declaration of `AIL_getInstructionsWsAfterBracketOpen'
+ail.c: In function `AIL_getInstructionsWsAfterBracketOpen':
+ail.c:675: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:681: parse error before `AIL_Layout'
+ail.c: In function `AIL_setInstructionsWsAfterBracketOpen':
+ail.c:682: number of arguments doesn't match prototype
+ail.h:145: prototype declaration
+ail.c:683: `arg' undeclared (first use in this function)
+ail.c:684: `wsAfterBracketOpen' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:738: parse error before `AIL_getInstructionsWsAfterList'
+ail.c:739: conflicting types for `AIL_getInstructionsWsAfterList'
+ail.h:150: previous declaration of `AIL_getInstructionsWsAfterList'
+ail.c: In function `AIL_getInstructionsWsAfterList':
+ail.c:741: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:747: parse error before `AIL_Layout'
+ail.c: In function `AIL_setInstructionsWsAfterList':
+ail.c:748: number of arguments doesn't match prototype
+ail.h:151: prototype declaration
+ail.c:749: `arg' undeclared (first use in this function)
+ail.c:750: `wsAfterList' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:860: parse error before `AIL_getIdListHead'
+ail.c: In function `AIL_getIdListHead':
+ail.c:863: `AIL_Id' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:872: parse error before `AIL_Id'
+ail.c: In function `AIL_setIdListHead':
+ail.c:874: `arg' undeclared (first use in this function)
+ail.c:875: `head' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:899: parse error before `AIL_getIdListWsAfterFirst'
+ail.c:900: conflicting types for `AIL_getIdListWsAfterFirst'
+ail.h:164: previous declaration of `AIL_getIdListWsAfterFirst'
+ail.c: In function `AIL_getIdListWsAfterFirst':
+ail.c:902: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:908: parse error before `AIL_Layout'
+ail.c: In function `AIL_setIdListWsAfterFirst':
+ail.c:909: number of arguments doesn't match prototype
+ail.h:165: prototype declaration
+ail.c:910: `arg' undeclared (first use in this function)
+ail.c:911: `wsAfterFirst' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:958: parse error before `arg'
+ail.c: In function `AIL_isValidInstruction':
+ail.c:959: number of arguments doesn't match prototype
+ail.h:173: prototype declaration
+ail.c:960: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:972: parse error before `arg'
+ail.c: In function `AIL_isInstructionNoargIns':
+ail.c:973: number of arguments doesn't match prototype
+ail.h:174: prototype declaration
+ail.c:979: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:994: parse error before `arg'
+ail.c: In function `AIL_isInstructionArgIns':
+ail.c:995: number of arguments doesn't match prototype
+ail.h:175: prototype declaration
+ail.c:1001: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1016: parse error before `arg'
+ail.c: In function `AIL_hasInstructionId':
+ail.c:1017: number of arguments doesn't match prototype
+ail.h:176: prototype declaration
+ail.c:1018: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1030: parse error before `AIL_getInstructionId'
+ail.c:1030: parse error before `arg'
+ail.c: In function `AIL_getInstructionId':
+ail.c:1031: number of arguments doesn't match prototype
+ail.h:177: prototype declaration
+ail.c:1032: `arg' undeclared (first use in this function)
+ail.c:1033: `AIL_Id' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1042: parse error before `AIL_setInstructionId'
+ail.c:1042: parse error before `arg'
+ail.c:1043: conflicting types for `AIL_setInstructionId'
+ail.h:178: previous declaration of `AIL_setInstructionId'
+ail.c: In function `AIL_setInstructionId':
+ail.c:1044: `arg' undeclared (first use in this function)
+ail.c:1045: parse error before `ATsetArgument'
+ail.c:1048: parse error before `ATsetArgument'
+ail.c: At top level:
+ail.c:1058: parse error before `arg'
+ail.c: In function `AIL_hasInstructionWsAfterId':
+ail.c:1059: number of arguments doesn't match prototype
+ail.h:179: prototype declaration
+ail.c:1060: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1069: parse error before `AIL_getInstructionWsAfterId'
+ail.c:1069: parse error before `arg'
+ail.c:1070: conflicting types for `AIL_getInstructionWsAfterId'
+ail.h:180: previous declaration of `AIL_getInstructionWsAfterId'
+ail.c: In function `AIL_getInstructionWsAfterId':
+ail.c:1072: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:1078: parse error before `AIL_setInstructionWsAfterId'
+ail.c:1078: parse error before `arg'
+ail.c:1079: conflicting types for `AIL_setInstructionWsAfterId'
+ail.h:181: previous declaration of `AIL_setInstructionWsAfterId'
+ail.c: In function `AIL_setInstructionWsAfterId':
+ail.c:1080: `arg' undeclared (first use in this function)
+ail.c:1081: parse error before `ATsetArgument'
+ail.c: At top level:
+ail.c:1091: parse error before `arg'
+ail.c: In function `AIL_hasInstructionArg':
+ail.c:1092: number of arguments doesn't match prototype
+ail.h:182: prototype declaration
+ail.c:1093: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1102: parse error before `AIL_getInstructionArg'
+ail.c:1102: parse error before `arg'
+ail.c:1103: conflicting types for `AIL_getInstructionArg'
+ail.h:183: previous declaration of `AIL_getInstructionArg'
+ail.c: In function `AIL_getInstructionArg':
+ail.c:1105: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:1111: parse error before `AIL_setInstructionArg'
+ail.c:1111: parse error before `arg'
+ail.c:1112: conflicting types for `AIL_setInstructionArg'
+ail.h:184: previous declaration of `AIL_setInstructionArg'
+ail.c: In function `AIL_setInstructionArg':
+ail.c:1113: `arg' undeclared (first use in this function)
+ail.c:1114: parse error before `ATsetArgument'
+ail.c: At top level:
+ail.c:1197: parse error before `AIL_getStatementLabel'
+ail.c:1206: parse error before `AIL_Label'
+ail.c: In function `AIL_setStatementLabel':
+ail.c:1208: `arg' undeclared (first use in this function)
+ail.c:1209: `Label' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1230: parse error before `AIL_getStatementWsAfterLabel'
+ail.c:1231: conflicting types for `AIL_getStatementWsAfterLabel'
+ail.h:196: previous declaration of `AIL_getStatementWsAfterLabel'
+ail.c: In function `AIL_getStatementWsAfterLabel':
+ail.c:1233: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:1239: parse error before `AIL_Layout'
+ail.c: In function `AIL_setStatementWsAfterLabel':
+ail.c:1240: number of arguments doesn't match prototype
+ail.h:197: prototype declaration
+ail.c:1241: `arg' undeclared (first use in this function)
+ail.c:1242: `wsAfterLabel' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1263: parse error before `AIL_getStatementInstruction'
+ail.c:1264: conflicting types for `AIL_getStatementInstruction'
+ail.h:199: previous declaration of `AIL_getStatementInstruction'
+ail.c:1272: parse error before `AIL_Instruction'
+ail.c: In function `AIL_setStatementInstruction':
+ail.c:1273: number of arguments doesn't match prototype
+ail.h:200: prototype declaration
+ail.c:1274: `arg' undeclared (first use in this function)
+ail.c:1275: `Instruction' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1296: parse error before `AIL_getStatementWsAfterInstruction'
+ail.c:1297: conflicting types for `AIL_getStatementWsAfterInstruction'
+ail.h:202: previous declaration of `AIL_getStatementWsAfterInstruction'
+ail.c: In function `AIL_getStatementWsAfterInstruction':
+ail.c:1299: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:1305: parse error before `AIL_Layout'
+ail.c: In function `AIL_setStatementWsAfterInstruction':
+ail.c:1306: number of arguments doesn't match prototype
+ail.h:203: prototype declaration
+ail.c:1307: `arg' undeclared (first use in this function)
+ail.c:1308: `wsAfterInstruction' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1322: parse error before `arg'
+ail.c: In function `AIL_isValidArg':
+ail.c:1323: number of arguments doesn't match prototype
+ail.h:208: prototype declaration
+ail.c:1324: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1339: parse error before `arg'
+ail.c: In function `AIL_isArgAterm':
+ail.c:1340: number of arguments doesn't match prototype
+ail.h:209: prototype declaration
+ail.c:1346: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1361: parse error before `arg'
+ail.c: In function `AIL_isArgNumber':
+ail.c:1362: number of arguments doesn't match prototype
+ail.h:210: prototype declaration
+ail.c:1368: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1383: parse error before `arg'
+ail.c: In function `AIL_isArgLabel':
+ail.c:1384: number of arguments doesn't match prototype
+ail.h:211: prototype declaration
+ail.c:1390: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1405: parse error before `arg'
+ail.c: In function `AIL_hasArgATerm':
+ail.c:1406: number of arguments doesn't match prototype
+ail.h:212: prototype declaration
+ail.c:1407: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1416: parse error before `arg'
+ail.c: In function `AIL_getArgATerm':
+ail.c:1417: number of arguments doesn't match prototype
+ail.h:213: prototype declaration
+ail.c:1419: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1425: parse error before `AIL_setArgATerm'
+ail.c:1425: parse error before `arg'
+ail.c:1426: conflicting types for `AIL_setArgATerm'
+ail.h:214: previous declaration of `AIL_setArgATerm'
+ail.c: In function `AIL_setArgATerm':
+ail.c:1427: `arg' undeclared (first use in this function)
+ail.c:1428: parse error before `ATsetArgument'
+ail.c: At top level:
+ail.c:1438: parse error before `arg'
+ail.c: In function `AIL_hasArgNumber':
+ail.c:1439: number of arguments doesn't match prototype
+ail.h:215: prototype declaration
+ail.c:1440: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1449: parse error before `AIL_getArgNumber'
+ail.c:1449: parse error before `arg'
+ail.c: In function `AIL_getArgNumber':
+ail.c:1450: number of arguments doesn't match prototype
+ail.h:216: prototype declaration
+ail.c:1452: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1458: parse error before `AIL_setArgNumber'
+ail.c:1458: parse error before `arg'
+ail.c:1459: conflicting types for `AIL_setArgNumber'
+ail.h:217: previous declaration of `AIL_setArgNumber'
+ail.c: In function `AIL_setArgNumber':
+ail.c:1460: `arg' undeclared (first use in this function)
+ail.c:1461: parse error before `ATsetArgument'
+ail.c: At top level:
+ail.c:1471: parse error before `arg'
+ail.c: In function `AIL_hasArgLabel':
+ail.c:1472: number of arguments doesn't match prototype
+ail.h:218: prototype declaration
+ail.c:1473: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1482: parse error before `AIL_getArgLabel'
+ail.c:1482: parse error before `arg'
+ail.c: In function `AIL_getArgLabel':
+ail.c:1483: number of arguments doesn't match prototype
+ail.h:219: prototype declaration
+ail.c:1485: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1491: parse error before `AIL_setArgLabel'
+ail.c:1491: parse error before `arg'
+ail.c:1492: conflicting types for `AIL_setArgLabel'
+ail.h:220: previous declaration of `AIL_setArgLabel'
+ail.c: In function `AIL_setArgLabel':
+ail.c:1493: `arg' undeclared (first use in this function)
+ail.c:1494: parse error before `ATsetArgument'
+ail.c: At top level:
+ail.c:1703: parse error before `AIL_getStatementListWsAfterFirst'
+ail.c:1704: conflicting types for `AIL_getStatementListWsAfterFirst'
+ail.h:242: previous declaration of `AIL_getStatementListWsAfterFirst'
+ail.c: In function `AIL_getStatementListWsAfterFirst':
+ail.c:1706: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:1712: parse error before `AIL_Layout'
+ail.c: In function `AIL_setStatementListWsAfterFirst':
+ail.c:1713: number of arguments doesn't match prototype
+ail.h:243: prototype declaration
+ail.c:1714: `arg' undeclared (first use in this function)
+ail.c:1715: `wsAfterFirst' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1762: parse error before `arg'
+ail.c: In function `AIL_isValidATermList':
+ail.c:1763: number of arguments doesn't match prototype
+ail.h:354: prototype declaration
+ail.c:1764: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1773: parse error before `arg'
+ail.c: In function `AIL_isATermListATerms':
+ail.c:1774: number of arguments doesn't match prototype
+ail.h:252: prototype declaration
+ail.c:1776: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1785: parse error before `arg'
+ail.c: In function `AIL_hasATermListWsAfterBracketOpen':
+ail.c:1786: number of arguments doesn't match prototype
+ail.h:253: prototype declaration
+ail.c:1787: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1796: parse error before `AIL_getATermListWsAfterBracketOpen'
+ail.c:1796: parse error before `arg'
+ail.c:1797: conflicting types for `AIL_getATermListWsAfterBracketOpen'
+ail.h:254: previous declaration of `AIL_getATermListWsAfterBracketOpen'
+ail.c: In function `AIL_getATermListWsAfterBracketOpen':
+ail.c:1799: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:1805: parse error before `AIL_setATermListWsAfterBracketOpen'
+ail.c:1805: parse error before `arg'
+ail.c:1806: conflicting types for `AIL_setATermListWsAfterBracketOpen'
+ail.h:255: previous declaration of `AIL_setATermListWsAfterBracketOpen'
+ail.c: In function `AIL_setATermListWsAfterBracketOpen':
+ail.c:1807: `arg' undeclared (first use in this function)
+ail.c:1808: parse error before `ATsetArgument'
+ail.c: At top level:
+ail.c:1818: parse error before `arg'
+ail.c: In function `AIL_hasATermListATerms':
+ail.c:1819: number of arguments doesn't match prototype
+ail.h:256: prototype declaration
+ail.c:1820: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1829: parse error before `AIL_getATermListATerms'
+ail.c:1829: parse error before `arg'
+ail.c:1830: conflicting types for `AIL_getATermListATerms'
+ail.h:257: previous declaration of `AIL_getATermListATerms'
+ail.c: In function `AIL_getATermListATerms':
+ail.c:1832: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:1838: parse error before `AIL_setATermListATerms'
+ail.c:1838: parse error before `arg'
+ail.c:1839: conflicting types for `AIL_setATermListATerms'
+ail.h:258: previous declaration of `AIL_setATermListATerms'
+ail.c: In function `AIL_setATermListATerms':
+ail.c:1840: `arg' undeclared (first use in this function)
+ail.c:1841: parse error before `ATsetArgument'
+ail.c: At top level:
+ail.c:1851: parse error before `arg'
+ail.c: In function `AIL_hasATermListWsAfterATerms':
+ail.c:1852: number of arguments doesn't match prototype
+ail.h:259: prototype declaration
+ail.c:1853: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1862: parse error before `AIL_getATermListWsAfterATerms'
+ail.c:1862: parse error before `arg'
+ail.c:1863: conflicting types for `AIL_getATermListWsAfterATerms'
+ail.h:260: previous declaration of `AIL_getATermListWsAfterATerms'
+ail.c: In function `AIL_getATermListWsAfterATerms':
+ail.c:1865: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:1871: parse error before `AIL_setATermListWsAfterATerms'
+ail.c:1871: parse error before `arg'
+ail.c:1872: conflicting types for `AIL_setATermListWsAfterATerms'
+ail.h:261: previous declaration of `AIL_setATermListWsAfterATerms'
+ail.c: In function `AIL_setATermListWsAfterATerms':
+ail.c:1873: `arg' undeclared (first use in this function)
+ail.c:1874: parse error before `ATsetArgument'
+ail.c: At top level:
+ail.c:1948: parse error before `arg'
+ail.c: In function `AIL_isValidAFun':
+ail.c:1949: number of arguments doesn't match prototype
+ail.h:275: prototype declaration
+ail.c:1950: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1959: parse error before `arg'
+ail.c: In function `AIL_isAFunLiteral':
+ail.c:1960: number of arguments doesn't match prototype
+ail.h:276: prototype declaration
+ail.c:1962: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1971: parse error before `arg'
+ail.c: In function `AIL_hasAFunLiteral':
+ail.c:1972: number of arguments doesn't match prototype
+ail.h:277: prototype declaration
+ail.c:1973: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1982: parse error before `arg'
+ail.c: In function `AIL_getAFunLiteral':
+ail.c:1983: number of arguments doesn't match prototype
+ail.h:278: prototype declaration
+ail.c:1985: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:1991: parse error before `AIL_setAFunLiteral'
+ail.c:1991: parse error before `arg'
+ail.c:1992: conflicting types for `AIL_setAFunLiteral'
+ail.h:279: previous declaration of `AIL_setAFunLiteral'
+ail.c: In function `AIL_setAFunLiteral':
+ail.c:1993: `arg' undeclared (first use in this function)
+ail.c:1994: parse error before `ATsetArgument'
+ail.c: At top level:
+ail.c:2269: parse error before `AIL_getATermWsAfterACon'
+ail.c:2270: conflicting types for `AIL_getATermWsAfterACon'
+ail.h:297: previous declaration of `AIL_getATermWsAfterACon'
+ail.c: In function `AIL_getATermWsAfterACon':
+ail.c:2272: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:2278: parse error before `AIL_Layout'
+ail.c: In function `AIL_setATermWsAfterACon':
+ail.c:2279: number of arguments doesn't match prototype
+ail.h:298: prototype declaration
+ail.c:2280: `arg' undeclared (first use in this function)
+ail.c:2281: `wsAfterACon' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2311: parse error before `AIL_getATermAnn'
+ail.c:2312: conflicting types for `AIL_getATermAnn'
+ail.h:300: previous declaration of `AIL_getATermAnn'
+ail.c: In function `AIL_getATermAnn':
+ail.c:2314: parse error before `ATelementAt'
+ail.c:2317: parse error before `ATelementAt'
+ail.c:2320: parse error before `ATelementAt'
+ail.c:2323: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:2329: parse error before `AIL_Ann'
+ail.c: In function `AIL_setATermAnn':
+ail.c:2330: number of arguments doesn't match prototype
+ail.h:301: prototype declaration
+ail.c:2331: `arg' undeclared (first use in this function)
+ail.c:2332: `Ann' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2365: parse error before `AIL_getATermATermList'
+ail.c:2366: conflicting types for `AIL_getATermATermList'
+ail.h:303: previous declaration of `AIL_getATermATermList'
+ail.c:2377: parse error before `AIL_ATermList'
+ail.c: In function `AIL_setATermATermList':
+ail.c:2378: number of arguments doesn't match prototype
+ail.h:304: prototype declaration
+ail.c:2379: `arg' undeclared (first use in this function)
+ail.c:2380: parse error before `ATermList'
+ail.c:2380: parse error before `;'
+ail.c: At top level:
+ail.c:2404: parse error before `AIL_getATermWsAfterATermList'
+ail.c:2405: conflicting types for `AIL_getATermWsAfterATermList'
+ail.h:306: previous declaration of `AIL_getATermWsAfterATermList'
+ail.c: In function `AIL_getATermWsAfterATermList':
+ail.c:2407: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:2413: parse error before `AIL_Layout'
+ail.c: In function `AIL_setATermWsAfterATermList':
+ail.c:2414: number of arguments doesn't match prototype
+ail.h:307: prototype declaration
+ail.c:2415: `arg' undeclared (first use in this function)
+ail.c:2416: `wsAfterATermList' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2446: parse error before `AIL_getATermAFun'
+ail.c:2447: conflicting types for `AIL_getATermAFun'
+ail.h:309: previous declaration of `AIL_getATermAFun'
+ail.c:2464: parse error before `AIL_AFun'
+ail.c: In function `AIL_setATermAFun':
+ail.c:2465: number of arguments doesn't match prototype
+ail.h:310: prototype declaration
+ail.c:2466: `arg' undeclared (first use in this function)
+ail.c:2467: parse error before `AFun'
+ail.c:2467: parse error before `;'
+ail.c:2473: parse error before `AFun'
+ail.c:2473: parse error before `;'
+ail.c: At top level:
+ail.c:2503: parse error before `AIL_getATermWsAfterAFun'
+ail.c:2504: conflicting types for `AIL_getATermWsAfterAFun'
+ail.h:312: previous declaration of `AIL_getATermWsAfterAFun'
+ail.c: In function `AIL_getATermWsAfterAFun':
+ail.c:2506: parse error before `ATelementAt'
+ail.c:2509: parse error before `ATelementAt'
+ail.c:2512: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:2518: parse error before `AIL_Layout'
+ail.c: In function `AIL_setATermWsAfterAFun':
+ail.c:2519: number of arguments doesn't match prototype
+ail.h:313: prototype declaration
+ail.c:2520: `arg' undeclared (first use in this function)
+ail.c:2521: `wsAfterAFun' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2551: parse error before `AIL_getATermWsAfterParenOpen'
+ail.c:2552: conflicting types for `AIL_getATermWsAfterParenOpen'
+ail.h:315: previous declaration of `AIL_getATermWsAfterParenOpen'
+ail.c: In function `AIL_getATermWsAfterParenOpen':
+ail.c:2554: parse error before `ATelementAt'
+ail.c:2557: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:2563: parse error before `AIL_Layout'
+ail.c: In function `AIL_setATermWsAfterParenOpen':
+ail.c:2564: number of arguments doesn't match prototype
+ail.h:316: prototype declaration
+ail.c:2565: `arg' undeclared (first use in this function)
+ail.c:2566: `wsAfterParenOpen' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2593: parse error before `AIL_getATermATerms'
+ail.c:2594: conflicting types for `AIL_getATermATerms'
+ail.h:318: previous declaration of `AIL_getATermATerms'
+ail.c: In function `AIL_getATermATerms':
+ail.c:2596: parse error before `ATelementAt'
+ail.c:2599: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:2605: parse error before `AIL_ATerms'
+ail.c: In function `AIL_setATermATerms':
+ail.c:2606: number of arguments doesn't match prototype
+ail.h:319: prototype declaration
+ail.c:2607: `arg' undeclared (first use in this function)
+ail.c:2608: `ATerms' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2635: parse error before `AIL_getATermWsAfterATerms'
+ail.c:2636: conflicting types for `AIL_getATermWsAfterATerms'
+ail.h:321: previous declaration of `AIL_getATermWsAfterATerms'
+ail.c: In function `AIL_getATermWsAfterATerms':
+ail.c:2638: parse error before `ATelementAt'
+ail.c:2641: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:2647: parse error before `AIL_Layout'
+ail.c: In function `AIL_setATermWsAfterATerms':
+ail.c:2648: number of arguments doesn't match prototype
+ail.h:322: prototype declaration
+ail.c:2649: `arg' undeclared (first use in this function)
+ail.c:2650: `wsAfterATerms' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2674: parse error before `AIL_getATermWsAfterParenClose'
+ail.c:2675: conflicting types for `AIL_getATermWsAfterParenClose'
+ail.h:324: previous declaration of `AIL_getATermWsAfterParenClose'
+ail.c: In function `AIL_getATermWsAfterParenClose':
+ail.c:2677: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:2683: parse error before `AIL_Layout'
+ail.c: In function `AIL_setATermWsAfterParenClose':
+ail.c:2684: number of arguments doesn't match prototype
+ail.h:325: prototype declaration
+ail.c:2685: `arg' undeclared (first use in this function)
+ail.c:2686: `wsAfterParenClose' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2700: parse error before `arg'
+ail.c: In function `AIL_isValidAnn':
+ail.c:2701: number of arguments doesn't match prototype
+ail.h:330: prototype declaration
+ail.c:2702: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2711: parse error before `arg'
+ail.c: In function `AIL_isAnnDefault':
+ail.c:2712: number of arguments doesn't match prototype
+ail.h:331: prototype declaration
+ail.c:2714: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2723: parse error before `arg'
+ail.c: In function `AIL_hasAnnWsAfterBraceOpen':
+ail.c:2724: number of arguments doesn't match prototype
+ail.h:332: prototype declaration
+ail.c:2725: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2734: parse error before `AIL_getAnnWsAfterBraceOpen'
+ail.c:2734: parse error before `arg'
+ail.c:2735: conflicting types for `AIL_getAnnWsAfterBraceOpen'
+ail.h:333: previous declaration of `AIL_getAnnWsAfterBraceOpen'
+ail.c: In function `AIL_getAnnWsAfterBraceOpen':
+ail.c:2737: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:2743: parse error before `AIL_setAnnWsAfterBraceOpen'
+ail.c:2743: parse error before `arg'
+ail.c:2744: conflicting types for `AIL_setAnnWsAfterBraceOpen'
+ail.h:334: previous declaration of `AIL_setAnnWsAfterBraceOpen'
+ail.c: In function `AIL_setAnnWsAfterBraceOpen':
+ail.c:2745: `arg' undeclared (first use in this function)
+ail.c:2746: parse error before `ATsetArgument'
+ail.c: At top level:
+ail.c:2756: parse error before `arg'
+ail.c: In function `AIL_hasAnnATerms':
+ail.c:2757: number of arguments doesn't match prototype
+ail.h:335: prototype declaration
+ail.c:2758: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2767: parse error before `AIL_getAnnATerms'
+ail.c:2767: parse error before `arg'
+ail.c:2768: conflicting types for `AIL_getAnnATerms'
+ail.h:336: previous declaration of `AIL_getAnnATerms'
+ail.c: In function `AIL_getAnnATerms':
+ail.c:2770: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:2776: parse error before `AIL_setAnnATerms'
+ail.c:2776: parse error before `arg'
+ail.c:2777: conflicting types for `AIL_setAnnATerms'
+ail.h:337: previous declaration of `AIL_setAnnATerms'
+ail.c: In function `AIL_setAnnATerms':
+ail.c:2778: `arg' undeclared (first use in this function)
+ail.c:2779: parse error before `ATsetArgument'
+ail.c: At top level:
+ail.c:2789: parse error before `arg'
+ail.c: In function `AIL_hasAnnWsAfterATerms':
+ail.c:2790: number of arguments doesn't match prototype
+ail.h:338: prototype declaration
+ail.c:2791: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2800: parse error before `AIL_getAnnWsAfterATerms'
+ail.c:2800: parse error before `arg'
+ail.c:2801: conflicting types for `AIL_getAnnWsAfterATerms'
+ail.h:339: previous declaration of `AIL_getAnnWsAfterATerms'
+ail.c: In function `AIL_getAnnWsAfterATerms':
+ail.c:2803: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:2809: parse error before `AIL_setAnnWsAfterATerms'
+ail.c:2809: parse error before `arg'
+ail.c:2810: conflicting types for `AIL_setAnnWsAfterATerms'
+ail.h:340: previous declaration of `AIL_setAnnWsAfterATerms'
+ail.c: In function `AIL_setAnnWsAfterATerms':
+ail.c:2811: `arg' undeclared (first use in this function)
+ail.c:2812: parse error before `ATsetArgument'
+ail.c: At top level:
+ail.c:2826: parse error before `arg'
+ail.c: In function `AIL_isValidATerms':
+ail.c:2827: number of arguments doesn't match prototype
+ail.h:345: prototype declaration
+ail.c:2828: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2837: parse error before `arg'
+ail.c: In function `AIL_isATermsDefault':
+ail.c:2838: number of arguments doesn't match prototype
+ail.h:346: prototype declaration
+ail.c:2840: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2849: parse error before `arg'
+ail.c: In function `AIL_hasATermsList':
+ail.c:2850: number of arguments doesn't match prototype
+ail.h:347: prototype declaration
+ail.c:2851: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2860: parse error before `AIL_getATermsList'
+ail.c:2860: parse error before `arg'
+ail.c:2861: conflicting types for `AIL_getATermsList'
+ail.h:348: previous declaration of `AIL_getATermsList'
+ail.c: In function `AIL_getATermsList':
+ail.c:2863: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2869: parse error before `AIL_setATermsList'
+ail.c:2869: parse error before `arg'
+ail.c:2870: conflicting types for `AIL_setATermsList'
+ail.h:349: previous declaration of `AIL_setATermsList'
+ail.c: In function `AIL_setATermsList':
+ail.c:2871: `arg' undeclared (first use in this function)
+ail.c:2872: parse error before `ATsetArgument'
+ail.c: At top level:
+ail.c:2886: parse error before `arg'
+ail.c:2887: redefinition of `AIL_isValidATermList'
+ail.c:1763: `AIL_isValidATermList' previously defined here
+ail.c: In function `AIL_isValidATermList':
+ail.c:2887: number of arguments doesn't match prototype
+ail.c:1763: prototype declaration
+ail.c:2888: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2903: parse error before `arg'
+ail.c: In function `AIL_isATermListEmpty':
+ail.c:2904: number of arguments doesn't match prototype
+ail.h:355: prototype declaration
+ail.c:2905: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2918: parse error before `arg'
+ail.c: In function `AIL_isATermListSingle':
+ail.c:2919: number of arguments doesn't match prototype
+ail.h:356: prototype declaration
+ail.c:2920: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2943: parse error before `arg'
+ail.c: In function `AIL_isATermListMany':
+ail.c:2944: number of arguments doesn't match prototype
+ail.h:357: prototype declaration
+ail.c:2945: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2968: parse error before `arg'
+ail.c: In function `AIL_hasATermListHead':
+ail.c:2969: number of arguments doesn't match prototype
+ail.h:358: prototype declaration
+ail.c:2970: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2982: parse error before `arg'
+ail.c: In function `AIL_getATermListHead':
+ail.c:2983: number of arguments doesn't match prototype
+ail.h:359: prototype declaration
+ail.c:2984: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:2994: parse error before `AIL_setATermListHead'
+ail.c:2994: parse error before `arg'
+ail.c:2995: conflicting types for `AIL_setATermListHead'
+ail.h:360: previous declaration of `AIL_setATermListHead'
+ail.c: In function `AIL_setATermListHead':
+ail.c:2996: `arg' undeclared (first use in this function)
+ail.c:2997: parse error before `ATreplace'
+ail.c:3000: parse error before `ATreplace'
+ail.c: At top level:
+ail.c:3010: parse error before `arg'
+ail.c: In function `AIL_hasATermListWsAfterFirst':
+ail.c:3011: number of arguments doesn't match prototype
+ail.h:361: prototype declaration
+ail.c:3012: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:3021: parse error before `AIL_getATermListWsAfterFirst'
+ail.c:3021: parse error before `arg'
+ail.c:3022: conflicting types for `AIL_getATermListWsAfterFirst'
+ail.h:362: previous declaration of `AIL_getATermListWsAfterFirst'
+ail.c: In function `AIL_getATermListWsAfterFirst':
+ail.c:3024: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:3030: parse error before `AIL_setATermListWsAfterFirst'
+ail.c:3030: parse error before `arg'
+ail.c:3031: conflicting types for `AIL_setATermListWsAfterFirst'
+ail.h:363: previous declaration of `AIL_setATermListWsAfterFirst'
+ail.c: In function `AIL_setATermListWsAfterFirst':
+ail.c:3032: `arg' undeclared (first use in this function)
+ail.c:3033: parse error before `ATreplace'
+ail.c: At top level:
+ail.c:3043: parse error before `arg'
+ail.c: In function `AIL_hasATermListSep':
+ail.c:3044: number of arguments doesn't match prototype
+ail.h:364: prototype declaration
+ail.c:3045: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:3054: parse error before `arg'
+ail.c: In function `AIL_getATermListSep':
+ail.c:3055: number of arguments doesn't match prototype
+ail.h:365: prototype declaration
+ail.c:3057: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:3063: parse error before `AIL_setATermListSep'
+ail.c:3063: parse error before `arg'
+ail.c:3064: conflicting types for `AIL_setATermListSep'
+ail.h:366: previous declaration of `AIL_setATermListSep'
+ail.c: In function `AIL_setATermListSep':
+ail.c:3065: `arg' undeclared (first use in this function)
+ail.c:3066: parse error before `ATreplace'
+ail.c: At top level:
+ail.c:3076: parse error before `arg'
+ail.c: In function `AIL_hasATermListWsAfterSep':
+ail.c:3077: number of arguments doesn't match prototype
+ail.h:367: prototype declaration
+ail.c:3078: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:3087: parse error before `AIL_getATermListWsAfterSep'
+ail.c:3087: parse error before `arg'
+ail.c:3088: conflicting types for `AIL_getATermListWsAfterSep'
+ail.h:368: previous declaration of `AIL_getATermListWsAfterSep'
+ail.c: In function `AIL_getATermListWsAfterSep':
+ail.c:3090: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:3096: parse error before `AIL_setATermListWsAfterSep'
+ail.c:3096: parse error before `arg'
+ail.c:3097: conflicting types for `AIL_setATermListWsAfterSep'
+ail.h:369: previous declaration of `AIL_setATermListWsAfterSep'
+ail.c: In function `AIL_setATermListWsAfterSep':
+ail.c:3098: `arg' undeclared (first use in this function)
+ail.c:3099: parse error before `ATreplace'
+ail.c: At top level:
+ail.c:3109: parse error before `arg'
+ail.c: In function `AIL_hasATermListTail':
+ail.c:3110: number of arguments doesn't match prototype
+ail.h:370: prototype declaration
+ail.c:3111: `arg' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:3120: parse error before `AIL_getATermListTail'
+ail.c:3120: parse error before `arg'
+ail.c:3121: conflicting types for `AIL_getATermListTail'
+ail.h:371: previous declaration of `AIL_getATermListTail'
+ail.c: In function `AIL_getATermListTail':
+ail.c:3123: parse error before `ATgetTail'
+ail.c: At top level:
+ail.c:3129: parse error before `AIL_setATermListTail'
+ail.c:3129: parse error before `arg'
+ail.c:3130: conflicting types for `AIL_setATermListTail'
+ail.h:372: previous declaration of `AIL_setATermListTail'
+ail.c: In function `AIL_setATermListTail':
+ail.c:3131: `arg' undeclared (first use in this function)
+ail.c:3132: parse error before `ATreplaceTail'
+ail.c: At top level:
+ail.c:3291: parse error before `AIL_getIntConWsAfterPlus'
+ail.c:3292: conflicting types for `AIL_getIntConWsAfterPlus'
+ail.h:385: previous declaration of `AIL_getIntConWsAfterPlus'
+ail.c: In function `AIL_getIntConWsAfterPlus':
+ail.c:3294: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:3300: parse error before `AIL_Layout'
+ail.c: In function `AIL_setIntConWsAfterPlus':
+ail.c:3301: number of arguments doesn't match prototype
+ail.h:386: prototype declaration
+ail.c:3302: `arg' undeclared (first use in this function)
+ail.c:3303: `wsAfterPlus' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:3324: parse error before `AIL_getIntConWsAfter'
+ail.c:3325: conflicting types for `AIL_getIntConWsAfter'
+ail.h:388: previous declaration of `AIL_getIntConWsAfter'
+ail.c: In function `AIL_getIntConWsAfter':
+ail.c:3327: parse error before `ATelementAt'
+ail.c: At top level:
+ail.c:3333: parse error before `AIL_Layout'
+ail.c: In function `AIL_setIntConWsAfter':
+ail.c:3334: number of arguments doesn't match prototype
+ail.h:389: prototype declaration
+ail.c:3335: `arg' undeclared (first use in this function)
+ail.c:3336: `wsAfter' undeclared (first use in this function)
+ail.c: At top level:
+ail.c:3350: parse error before `AIL_Layout'
+ail.c:3350: warning: parameter names (without types) in function declaration
+ail.c:3350: `AIL_visitInstructions' declared as function returning a function
+ail.c:3350: conflicting types for `AIL_visitInstructions'
+ail.h:394: previous declaration of `AIL_visitInstructions'
+ail.c:3350: parse error before `*'
+ail.c:3350: `AIL_IdList' declared as function returning a function
+ail.c:3350: `AIL_IdList' redeclared as different kind of symbol
+ail.h:29: previous declaration of `AIL_IdList'
+ail.c:3350: parse error before `*'
+ail.c:3350: warning: parameter names (without types) in function declaration
+ail.c:3350: `AIL_Layout' declared as function returning a function
+ail.c:3350: parse error before `)'
+ail.c:3358: parse error before string constant
+ail.c:3358: conflicting types for `ATabort'
+/usr/local/include/aterm1.h:109: previous declaration of `ATabort'
+ail.c:3358: warning: data definition has no type or storage class
+ail.c:3365: parse error before `arg'
+ail.c:3365: warning: parameter names (without types) in function declaration
+ail.c:3365: `AIL_visitIdList' declared as function returning a function
+ail.c:3365: parse error before `*'
+ail.c:3365: warning: parameter names (without types) in function declaration
+ail.c:3365: `AIL_Layout' declared as function returning a function
+ail.c:3365: parse error before `)'
+ail.c:3380: parse error before string constant
+ail.c:3380: warning: data definition has no type or storage class
+ail.c:3387: parse error before `arg'
+ail.c:3387: warning: parameter names (without types) in function declaration
+ail.c:3387: `AIL_visitInstruction' declared as function returning a function
+ail.c:3387: parse error before `*'
+ail.c:3387: warning: parameter names (without types) in function declaration
+ail.c:3387: `AIL_Layout' declared as function returning a function
+ail.c:3387: parse error before `*'
+ail.c:3387: warning: parameter names (without types) in function declaration
+ail.c:3387: `AIL_Arg' declared as function returning a function
+ail.c:3387: parse error before `)'
+ail.c:3399: parse error before string constant
+ail.c:3399: warning: data definition has no type or storage class
+ail.c:3406: parse error before `AIL_Label'
+ail.c:3406: warning: parameter names (without types) in function declaration
+ail.c:3406: `AIL_visitStatement' declared as function returning a function
+ail.c:3406: parse error before `*'
+ail.c:3406: warning: parameter names (without types) in function declaration
+ail.c:3406: `AIL_Layout' declared as function returning a function
+ail.c:3406: parse error before `*'
+ail.c:3406: warning: parameter names (without types) in function declaration
+ail.c:3406: `AIL_Instruction' declared as function returning a function
+ail.c:3406: parse error before `*'
+ail.c:3406: warning: parameter names (without types) in function declaration
+ail.c:3406: `AIL_Layout' declared as function returning a function
+ail.c:3406: parse error before `)'
+ail.c:3418: parse error before string constant
+ail.c:3418: warning: data definition has no type or storage class
+ail.c:3425: parse error before `arg'
+ail.c:3425: `AIL_visitArg' declared as function returning a function
+ail.c:3425: parse error before `*'
+ail.c:3425: warning: parameter names (without types) in function declaration
+ail.c:3425: `AIL_Number' declared as function returning a function
+ail.c:3425: parse error before `*'
+ail.c:3425: warning: parameter names (without types) in function declaration
+ail.c:3425: `AIL_Label' declared as function returning a function
+ail.c:3425: parse error before `)'
+ail.c:3439: parse error before string constant
+ail.c:3439: warning: data definition has no type or storage class
+ail.c:3459: parse error before `AIL_Layout'
+ail.c:3459: parse error before `)'
+ail.c:3474: parse error before string constant
+ail.c:3474: warning: data definition has no type or storage class
+ail.c:3481: parse error before `arg'
+ail.c:3481: warning: parameter names (without types) in function declaration
+ail.c:3481: `AIL_visitATermList' declared as function returning a function
+ail.c:3481: parse error before `*'
+ail.c:3481: warning: parameter names (without types) in function declaration
+ail.c:3481: `AIL_ATerms' declared as function returning a function
+ail.c:3481: parse error before `*'
+ail.c:3481: warning: parameter names (without types) in function declaration
+ail.c:3481: `AIL_Layout' declared as function returning a function
+ail.c:3481: parse error before `)'
+ail.c:3489: parse error before string constant
+ail.c:3489: warning: data definition has no type or storage class
+ail.c:3509: parse error before `AIL_visitAFun'
+ail.c:3509: parse error before `arg'
+ail.c:3509: parse error before `)'
+ail.c:3515: parse error before string constant
+ail.c:3515: warning: data definition has no type or storage class
+ail.c:3522: parse error before `AIL_Layout'
+ail.c:3522: warning: parameter names (without types) in function declaration
+ail.c:3522: `AIL_visitATerm' declared as function returning a function
+ail.c:3522: parse error before `*'
+ail.c:3522: warning: parameter names (without types) in function declaration
+ail.c:3522: `AIL_Ann' declared as function returning a function
+ail.c:3522: parse error before `*'
+ail.c:3522: warning: parameter names (without types) in function declaration
+ail.c:3522: `AIL_ATermList' declared as function returning a function
+ail.c:3522: parse error before `*'
+ail.c:3522: warning: parameter names (without types) in function declaration
+ail.c:3522: `AIL_Layout' declared as function returning a function
+ail.c:3522: parse error before `*'
+ail.c:3522: warning: parameter names (without types) in function declaration
+ail.c:3522: `AIL_AFun' declared as function returning a function
+ail.c:3522: parse error before `*'
+ail.c:3522: warning: parameter names (without types) in function declaration
+ail.c:3522: `AIL_Layout' declared as function returning a function
+ail.c:3522: parse error before `*'
+ail.c:3522: warning: parameter names (without types) in function declaration
+ail.c:3522: `AIL_Layout' declared as function returning a function
+ail.c:3522: parse error before `*'
+ail.c:3522: warning: parameter names (without types) in function declaration
+ail.c:3522: `AIL_ATerms' declared as function returning a function
+ail.c:3522: parse error before `*'
+ail.c:3522: warning: parameter names (without types) in function declaration
+ail.c:3522: `AIL_Layout' declared as function returning a function
+ail.c:3522: parse error before `*'
+ail.c:3522: warning: parameter names (without types) in function declaration
+ail.c:3522: `AIL_Layout' declared as function returning a function
+ail.c:3522: parse error before `)'
+ail.c:3572: parse error before string constant
+ail.c:3572: warning: data definition has no type or storage class
+ail.c:3579: parse error before `arg'
+ail.c:3579: warning: parameter names (without types) in function declaration
+ail.c:3579: `AIL_visitAnn' declared as function returning a function
+ail.c:3579: parse error before `*'
+ail.c:3579: warning: parameter names (without types) in function declaration
+ail.c:3579: `AIL_ATerms' declared as function returning a function
+ail.c:3579: parse error before `*'
+ail.c:3579: warning: parameter names (without types) in function declaration
+ail.c:3579: `AIL_Layout' declared as function returning a function
+ail.c:3579: parse error before `)'
+ail.c:3587: parse error before string constant
+ail.c:3587: warning: data definition has no type or storage class
+ail.c:3594: parse error before `arg'
+ail.c:3594: parse error before `)'
+ail.c:3600: parse error before string constant
+ail.c:3600: warning: data definition has no type or storage class
+ail.c:3607: parse error before `arg'
+ail.c:3607: `AIL_visitATermList' declared as function returning a function
+ail.c:3607: parse error before `*'
+ail.c:3607: warning: parameter names (without types) in function declaration
+ail.c:3607: `AIL_Layout' declared as function returning a function
+ail.c:3607: parse error before `char'
+ail.c:3624: parse error before string constant
+ail.c:3624: warning: data definition has no type or storage class
+ail.c:3631: parse error before `AIL_Layout'
+ail.c:3631: warning: parameter names (without types) in function declaration
+ail.c:3631: `AIL_visitIntCon' declared as function returning a function
+ail.c:3631: parse error before `*'
+ail.c:3631: warning: parameter names (without types) in function declaration
+ail.c:3631: `AIL_Layout' declared as function returning a function
+ail.c:3631: parse error before `)'
+ail.c:3647: parse error before string constant
+ail.c:3647: warning: data definition has no type or storage class

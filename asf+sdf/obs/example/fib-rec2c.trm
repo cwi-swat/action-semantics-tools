@@ -1,0 +1,424 @@
+AN2Data
+action (AN2Data data, AN2Data bindings)
+{
+  AN2Data result;
+  {
+    AN2Data bindingsx;
+    {
+      AN2Data datax;
+      {
+	AN2Data dataxx1, dataxx2;
+	dataxx1 = bindings;;
+	{
+	  AN2Data datax;
+	  {
+	    AN2Data dataxx1, dataxx2;
+	    dataxx1 = an2_make_token ("unf");;
+	    {
+	      AN2Data action (AN2Data data, AN2Data bindings)
+	      {
+		AN2Data result;
+		if (!ACC_try ())
+		  {
+		    if (!ACC_try ())
+		      {
+			{
+			  AN2Data datax;
+			  {
+			    AN2Data datax;
+			    {
+			      AN2Data dataxx1, dataxx2;
+			      dataxx1 = data;;
+			      dataxx2 = an2_make_int (0);
+			      datax = ACC_merge (dataxx1, dataxx2);
+			    }
+			    if (!ACC_try ())
+			      {
+				datax = ACC_check_equals (datax, bindings);
+			      }
+			    else
+			      {
+				AN2Data dataxx = ACC_catch_exception ();
+				datax = ACC_check_equals (dataxx, bindings);
+			      }
+			  }
+			  result = an2_make_int (1);
+			}
+		      }
+		    else
+		      {
+			ACC_catch_failure ();
+			{
+			  AN2Data datax;
+			  {
+			    AN2Data datax;
+			    {
+			      AN2Data dataxx1, dataxx2;
+			      dataxx1 = data;;
+			      dataxx2 = an2_make_int (1);
+			      datax = ACC_merge (dataxx1, dataxx2);
+			    }
+			    if (!ACC_try ())
+			      {
+				datax = ACC_check_equals (datax, bindings);
+			      }
+			    else
+			      {
+				AN2Data dataxx = ACC_catch_exception ();
+				datax = ACC_check_equals (dataxx, bindings);
+			      }
+			  }
+			  result = an2_make_int (1);
+			}
+		      }
+		  }
+		else
+		  {
+		    ACC_catch_failure ();
+		    {
+		      AN2Data datax;
+		      {
+			AN2Data dataxx1, dataxx2;
+			{
+			  AN2Data datax;
+			  {
+			    AN2Data datax;
+			    {
+			      AN2Data dataxx1, dataxx2;
+			      dataxx1 = data;;
+			      dataxx2 = an2_make_int (2);
+			      datax = ACC_merge (dataxx1, dataxx2);
+			    }
+			    datax = ACC_give_minus (datax, bindings);
+			  }
+			  {
+			    AN2Data dataxx;
+			    {
+			      AN2Data dataxx;
+			      {
+				AN2Data dataxxx1, dataxxx2;
+				{
+				  AN2Data dataxx;
+				  dataxx =
+				    ACC_GEN_give_the_datasort
+				    (AN2_DATA_CASTABLE_TYPE, datax, bindings);
+				  dataxxx1 =
+				    ACC_give_provide (dataxx, bindings);
+				};
+				{
+				  AN2Data dataxx;
+				  {
+				    AN2Data dataxxx1, dataxxx2;
+				    {
+				      AN2Data dataxx;
+				      dataxx = bindings;
+				      dataxxx1 =
+					ACC_give_provide (dataxx, bindings);
+				    };
+				    {
+				      AN2Data dataxx;
+				      {
+					AN2Data dataxx;
+					{
+					  AN2Data dataxxx1, dataxxx2;
+					  dataxxx1 = bindings;;
+					  dataxxx2 = an2_make_token ("unf");
+					  dataxx =
+					    ACC_merge (dataxxx1, dataxxx2);
+					}
+					dataxx =
+					  ACC_give_bound (dataxx, bindings);
+				      }
+				      dataxxx2 =
+					ACC_GEN_give_the_datasort
+					(AN2_ACTION_TYPE, dataxx, bindings);
+				    }
+				    dataxx = ACC_merge (dataxxx1, dataxxx2);
+				  }
+				  dataxxx2 =
+				    ACC_give_hence (dataxx, bindings);
+				}
+				dataxx = ACC_merge (dataxxx1, dataxxx2);
+			      }
+			      dataxx = ACC_give_then (dataxx, bindings);
+			    }
+			    dataxx1 = ACC_enact (dataxx, bindings);
+			  }
+			};
+			{
+			  AN2Data datax;
+			  {
+			    AN2Data datax;
+			    {
+			      AN2Data dataxx1, dataxx2;
+			      dataxx1 = data;;
+			      dataxx2 = an2_make_int (1);
+			      datax = ACC_merge (dataxx1, dataxx2);
+			    }
+			    datax = ACC_give_minus (datax, bindings);
+			  }
+			  {
+			    AN2Data dataxx;
+			    {
+			      AN2Data dataxx;
+			      {
+				AN2Data dataxxx1, dataxxx2;
+				{
+				  AN2Data dataxx;
+				  dataxx =
+				    ACC_GEN_give_the_datasort
+				    (AN2_DATA_CASTABLE_TYPE, datax, bindings);
+				  dataxxx1 =
+				    ACC_give_provide (dataxx, bindings);
+				};
+				{
+				  AN2Data dataxx;
+				  {
+				    AN2Data dataxxx1, dataxxx2;
+				    {
+				      AN2Data dataxx;
+				      dataxx = bindings;
+				      dataxxx1 =
+					ACC_give_provide (dataxx, bindings);
+				    };
+				    {
+				      AN2Data dataxx;
+				      {
+					AN2Data dataxx;
+					{
+					  AN2Data dataxxx1, dataxxx2;
+					  dataxxx1 = bindings;;
+					  dataxxx2 = an2_make_token ("unf");
+					  dataxx =
+					    ACC_merge (dataxxx1, dataxxx2);
+					}
+					dataxx =
+					  ACC_give_bound (dataxx, bindings);
+				      }
+				      dataxxx2 =
+					ACC_GEN_give_the_datasort
+					(AN2_ACTION_TYPE, dataxx, bindings);
+				    }
+				    dataxx = ACC_merge (dataxxx1, dataxxx2);
+				  }
+				  dataxxx2 =
+				    ACC_give_hence (dataxx, bindings);
+				}
+				dataxx = ACC_merge (dataxxx1, dataxxx2);
+			      }
+			      dataxx = ACC_give_then (dataxx, bindings);
+			    }
+			    dataxx2 = ACC_enact (dataxx, bindings);
+			  }
+			}
+			datax = ACC_merge (dataxx1, dataxx2);
+		      }
+		      result = ACC_give_plus (datax, bindings);
+		    }
+		  }
+	      }
+	      dataxx2 = ACC_make_action (action);
+	    }
+	    datax = ACC_merge (dataxx1, dataxx2);
+	  }
+	  dataxx2 = ACC_give_binding (datax, bindings);
+	}
+	datax = ACC_merge (dataxx1, dataxx2);
+      }
+      bindingsx = ACC_give_overriding (datax, bindings);
+    };
+    if (an2_has_type (bindingsx, AN2_BINDINGS_TYPE))
+      {
+	if (!ACC_try ())
+	  {
+	    if (!ACC_try ())
+	      {
+		{
+		  AN2Data datax;
+		  {
+		    AN2Data datax;
+		    {
+		      AN2Data dataxx1, dataxx2;
+		      dataxx1 = data;;
+		      dataxx2 = an2_make_int (0);
+		      datax = ACC_merge (dataxx1, dataxx2);
+		    }
+		    if (!ACC_try ())
+		      {
+			datax = ACC_check_equals (datax, bindingsx);
+		      }
+		    else
+		      {
+			AN2Data dataxx = ACC_catch_exception ();
+			datax = ACC_check_equals (dataxx, bindingsx);
+		      }
+		  }
+		  result = an2_make_int (1);
+		}
+	      }
+	    else
+	      {
+		ACC_catch_failure ();
+		{
+		  AN2Data datax;
+		  {
+		    AN2Data datax;
+		    {
+		      AN2Data dataxx1, dataxx2;
+		      dataxx1 = data;;
+		      dataxx2 = an2_make_int (1);
+		      datax = ACC_merge (dataxx1, dataxx2);
+		    }
+		    if (!ACC_try ())
+		      {
+			datax = ACC_check_equals (datax, bindingsx);
+		      }
+		    else
+		      {
+			AN2Data dataxx = ACC_catch_exception ();
+			datax = ACC_check_equals (dataxx, bindingsx);
+		      }
+		  }
+		  result = an2_make_int (1);
+		}
+	      }
+	  }
+	else
+	  {
+	    ACC_catch_failure ();
+	    {
+	      AN2Data datax;
+	      {
+		AN2Data dataxx1, dataxx2;
+		{
+		  AN2Data datax;
+		  {
+		    AN2Data datax;
+		    {
+		      AN2Data dataxx1, dataxx2;
+		      dataxx1 = data;;
+		      dataxx2 = an2_make_int (2);
+		      datax = ACC_merge (dataxx1, dataxx2);
+		    }
+		    datax = ACC_give_minus (datax, bindingsx);
+		  }
+		  {
+		    AN2Data dataxx;
+		    {
+		      AN2Data dataxx;
+		      {
+			AN2Data dataxxx1, dataxxx2;
+			{
+			  AN2Data dataxx;
+			  dataxx =
+			    ACC_GEN_give_the_datasort (AN2_DATA_CASTABLE_TYPE,
+						       datax, bindingsx);
+			  dataxxx1 = ACC_give_provide (dataxx, bindingsx);
+			};
+			{
+			  AN2Data dataxx;
+			  {
+			    AN2Data dataxxx1, dataxxx2;
+			    {
+			      AN2Data dataxx;
+			      dataxx = bindingsx;
+			      dataxxx1 = ACC_give_provide (dataxx, bindingsx);
+			    };
+			    {
+			      AN2Data dataxx;
+			      {
+				AN2Data dataxx;
+				{
+				  AN2Data dataxxx1, dataxxx2;
+				  dataxxx1 = bindingsx;;
+				  dataxxx2 = an2_make_token ("unf");
+				  dataxx = ACC_merge (dataxxx1, dataxxx2);
+				}
+				dataxx = ACC_give_bound (dataxx, bindingsx);
+			      }
+			      dataxxx2 =
+				ACC_GEN_give_the_datasort (AN2_ACTION_TYPE,
+							   dataxx, bindingsx);
+			    }
+			    dataxx = ACC_merge (dataxxx1, dataxxx2);
+			  }
+			  dataxxx2 = ACC_give_hence (dataxx, bindingsx);
+			}
+			dataxx = ACC_merge (dataxxx1, dataxxx2);
+		      }
+		      dataxx = ACC_give_then (dataxx, bindingsx);
+		    }
+		    dataxx1 = ACC_enact (dataxx, bindingsx);
+		  }
+		};
+		{
+		  AN2Data datax;
+		  {
+		    AN2Data datax;
+		    {
+		      AN2Data dataxx1, dataxx2;
+		      dataxx1 = data;;
+		      dataxx2 = an2_make_int (1);
+		      datax = ACC_merge (dataxx1, dataxx2);
+		    }
+		    datax = ACC_give_minus (datax, bindingsx);
+		  }
+		  {
+		    AN2Data dataxx;
+		    {
+		      AN2Data dataxx;
+		      {
+			AN2Data dataxxx1, dataxxx2;
+			{
+			  AN2Data dataxx;
+			  dataxx =
+			    ACC_GEN_give_the_datasort (AN2_DATA_CASTABLE_TYPE,
+						       datax, bindingsx);
+			  dataxxx1 = ACC_give_provide (dataxx, bindingsx);
+			};
+			{
+			  AN2Data dataxx;
+			  {
+			    AN2Data dataxxx1, dataxxx2;
+			    {
+			      AN2Data dataxx;
+			      dataxx = bindingsx;
+			      dataxxx1 = ACC_give_provide (dataxx, bindingsx);
+			    };
+			    {
+			      AN2Data dataxx;
+			      {
+				AN2Data dataxx;
+				{
+				  AN2Data dataxxx1, dataxxx2;
+				  dataxxx1 = bindingsx;;
+				  dataxxx2 = an2_make_token ("unf");
+				  dataxx = ACC_merge (dataxxx1, dataxxx2);
+				}
+				dataxx = ACC_give_bound (dataxx, bindingsx);
+			      }
+			      dataxxx2 =
+				ACC_GEN_give_the_datasort (AN2_ACTION_TYPE,
+							   dataxx, bindingsx);
+			    }
+			    dataxx = ACC_merge (dataxxx1, dataxxx2);
+			  }
+			  dataxxx2 = ACC_give_hence (dataxx, bindingsx);
+			}
+			dataxx = ACC_merge (dataxxx1, dataxxx2);
+		      }
+		      dataxx = ACC_give_then (dataxx, bindingsx);
+		    }
+		    dataxx2 = ACC_enact (dataxx, bindingsx);
+		  }
+		}
+		datax = ACC_merge (dataxx1, dataxx2);
+	      }
+	      result = ACC_give_plus (datax, bindingsx);
+	    }
+	  }
+      }
+    else
+      ACC_throw_exception (an2_make_empty ());
+  }
+}

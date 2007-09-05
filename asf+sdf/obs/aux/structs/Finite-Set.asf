@@ -1,0 +1,28 @@
+equations
+
+[]	{e*1 e e*2 e e*3} = {e*1 e e*2 e*3}
+
+[]	empty-set() = {}
+
+[]	{e*1} + {e*2} = {e*1 e*2}
+
+[]	element-of({e*1 e e*2}, e) = true
+
+[default]
+	element-of(s, e) = false
+
+[]	element-of({e*}, e) = false
+	===
+	add-to-set({e*}, e) = {e* e}
+
+[default]
+	add-to-set(s,e) = s
+
+[]	set(e) = {e}
+
+[]	set-union(s1,s2) = s1 + s2
+
+[]	head({e e*}) = e
+
+[]	tail({e e*}) = {e*}
+

@@ -1,0 +1,441 @@
+%
+% This file was automatically produced at Apr 15 2002, 17:47:11 by
+% c++2latex -a -h accdata.h
+%
+\documentstyle[11pt,fancyheadings]{article}
+\setlength{\textwidth}{15cm}
+\setlength{\textheight}{22.5cm}
+\setlength{\hoffset}{-2cm}
+\setlength{\voffset}{-2cm}
+\chead{\sl Produced from accdata.h at Apr 15 2002, 17:47:11}
+\cfoot{\rm\thepage}
+\addtolength{\headheight}{14pt}
+\pagestyle{fancy}
+\begin{document}
+\expandafter\ifx\csname indentation\endcsname\relax%
+\newlength{\indentation}\fi
+\setlength{\indentation}{0.5em}
+\begin{flushleft}
+\mbox{}\\
+{\tt \#ifndef} \_\_ACCDATA\_H \mbox{}\\
+{\tt \#define} \_\_ACCDATA\_H 1\mbox{}\\
+\mbox{}\\
+{\tt \#include} $<${\tt{}stdlib.h}$>$\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ General legenda:\mbox{}\\
+\hspace*{1\indentation}$\ast$ make\_$\ast$  : refers to the creation of ACData structures from a basetype\mbox{}\\
+\hspace*{1\indentation}$\ast$ give\_$\ast$  : refers to the execution of data operations.\mbox{}\\
+\hspace*{1\indentation}$\ast$ get\_$\ast$   : refers to getting a basetype from a datarecord.\mbox{}\\
+\hspace*{1\indentation}$\ast$ lowercase macros are the actual interface.\mbox{}\\
+\hspace*{1\indentation}$\ast$ NB: if there are more than one ACData arguments, they must\mbox{}\\
+\hspace*{1\indentation}$\ast$ be distinct. E.g. d $=$ GIVE\_NOT(d,d) will not work.\mbox{}\\
+\hspace*{1\indentation}$\ast$ TODO:\mbox{}\\
+\hspace*{1\indentation}$\ast$ - linked lists (queues, use ALLOC\_ARGS for this)\mbox{}\\
+\hspace*{1\indentation}$\ast$ - define storage in terms of list (to keep track of mem)\mbox{}\\
+\hspace*{1\indentation}$\ast$ - taggedbuffers (map from message-tag to queue).\mbox{}\\
+\hspace*{1\indentation}$\ast$ - adapt print\_ac\_data to this\mbox{}\\
+\hspace*{1\indentation}$\ast$ - store maps as balanced binary trees\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{} Axiom: sizeof(void$\ast$) $=$$=$ sizeof(int)! $\ast/$}\mbox{}\\
+{\bf typedef} {\bf struct} datastruct \{\mbox{}\\
+\hspace*{2\indentation}{\bf int} type;\mbox{}\\
+\hspace*{2\indentation}{\bf void} $\ast$content;\mbox{}\\
+\} $\ast$ACData;\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{} Not to be used outside... $\ast/$}\mbox{}\\
+{\bf static} ACData \_\_data\_\_;\mbox{}\\
+{\bf static} ACData $\ast$\_\_dataptr\_\_;\mbox{}\\
+\mbox{}\\
+{\bf void} print\_ac\_data(ACData d);\mbox{}\\
+\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{} Types for distinguishing data $\ast/$}\mbox{}\\
+{\tt \#define} PROVIDE\_OP             0\mbox{}\\
+{\tt \#define} INDIVISIBLY\_OP         1\mbox{}\\
+{\tt \#define} THEN\_OP                2\mbox{}\\
+{\tt \#define} AND\_THEN\_OP            3\mbox{}\\
+{\tt \#define} AND\_OP                 4\mbox{}\\
+{\tt \#define} EXCEPTIONALLY\_OP       5\mbox{}\\
+{\tt \#define} AND\_EXCEPTIONALLY\_OP   6\mbox{}\\
+{\tt \#define} OTHERWISE\_OP           7\mbox{}\\
+{\tt \#define} HENCE\_OP               8\mbox{}\\
+\mbox{}\\
+{\tt \#define} UNDEF\_TYPE            10\mbox{}\\
+{\tt \#define} INT\_TYPE              11\mbox{}\\
+{\tt \#define} BOOL\_TYPE             12\mbox{}\\
+{\tt \#define} TUPLE\_TYPE            13\mbox{}\\
+{\tt \#define} AGENT\_TYPE            14\mbox{}\\
+{\tt \#define} AVM\_ACTION\_TYPE       15\mbox{}\\
+{\tt \#define} ACC\_ACTION\_TYPE       16\mbox{}\\
+{\tt \#define} BINDINGS\_TYPE         17\mbox{}\\
+{\tt \#define} CELL\_TYPE             18\mbox{}\\
+{\tt \#define} MESSAGETAG\_TYPE       19\mbox{}\\
+{\tt \#define} TOKEN\_TYPE            20\mbox{}\\
+{\tt \#define} LIST\_TYPE             21\mbox{}\\
+{\tt \#define} TAGGEDBUFFERS\_TYPE    22\mbox{}\\
+\mbox{}\\
+\mbox{}\\
+{\tt \#define} AC\_ALLOC(n) (alloca(n))\mbox{}\\
+\mbox{}\\
+{\tt \#define} ALLOC\_ARGS(d1,d2) (\_\_dataptr\_\_=(ACData$\ast$)AC\_ALLOC(2$\ast${\bf sizeof}(ACData)),$\backslash$\\
+\hspace*{27\indentation}\_\_dataptr\_\_[0]=d1,\_\_dataptr\_\_[1]=d2,\_\_dataptr\_\_)\mbox{}\\
+\mbox{}\\
+{\tt \#define} ALLOC\_LIST(d,l) ALLOC\_ARGS(d,l)\mbox{}\\
+\mbox{}\\
+{\tt \#define} ALLOC\_TUPLE(d1,d2) (\_\_dataptr\_\_=(ACData$\ast$)AC\_ALLOC(3$\ast${\bf sizeof}(ACData)),$\backslash$\\
+\hspace*{28\indentation}\_\_dataptr\_\_[0]=({\bf void}$\ast$)2,\_\_dataptr\_\_[1]=d1,\_\_dataptr\_\_[2]=d2,\_\_dataptr\_\_)\mbox{}\\
+\mbox{}\\
+{\tt \#define} REALLOC\_TUPLE(t,n) (\_\_dataptr\_\_=(ACData$\ast$)AC\_ALLOC(n$\ast${\bf sizeof}(ACData)+(t[0]+1)$\ast${\bf sizeof}(ACData)),$\backslash$\\
+\hspace*{28\indentation}memcpy(\_\_dataptr\_\_,t,(({\bf int})t[0]+1)$\ast${\bf sizeof}(ACData)),$\backslash$\\
+\hspace*{27\indentation}\_\_dataptr\_\_[0]=({\bf void}$\ast$)((({\bf int})(\_\_dataptr\_\_[0]))+n),\_\_dataptr\_\_)\mbox{}\\
+\mbox{}\\
+{\tt \#define} CONCAT\_TUPLES(t1,t2) (\_\_dataptr\_\_=REALLOC\_TUPLE(t1, (({\bf int})(t2[0]))),$\backslash$\\
+\hspace*{29\indentation}memcpy(\_\_dataptr\_\_+({\bf int})t1[0]+1,\&(t2[1]),$\backslash$\\
+\hspace*{29\indentation}({\bf int})t2[0]$\ast${\bf sizeof}(ACData)),\_\_dataptr\_\_)\mbox{}\\
+\mbox{}\\
+{\tt \#define} ALLOC\_MAP(tk,d) (\_\_dataptr\_\_=(ACData$\ast$)AC\_ALLOC(3$\ast${\bf sizeof}(ACData)),$\backslash$\\
+\hspace*{28\indentation}\_\_dataptr\_\_[0]=({\bf void}$\ast$)1,\_\_dataptr\_\_[1]=tk,\_\_dataptr\_\_[2]=d,\_\_dataptr\_\_)\mbox{}\\
+\mbox{}\\
+\mbox{}\\
+{\tt \#define} REALLOC\_MAP(bs,n) (\_\_dataptr\_\_=(ACData$\ast$)AC\_ALLOC(2$\ast$n$\ast${\bf sizeof}(ACData)+$\backslash$\\
+\hspace*{30\indentation}(2$\ast$(({\bf int})(bs[0]))+1)$\ast${\bf sizeof}(ACData)),$\backslash$\\
+\hspace*{30\indentation}memcpy(\_\_dataptr\_\_,bs,(2$\ast$(({\bf int})(bs[0]))+1)$\ast${\bf sizeof}(ACData)),$\backslash$\\
+\hspace*{30\indentation}\_\_dataptr\_\_[0]=({\bf void}$\ast$)((({\bf int})(\_\_dataptr\_\_[0]))+n), \_\_dataptr\_\_)\mbox{}\\
+\mbox{}\\
+{\tt \#define} CONCAT\_MAPS(bs1,bs2) (REALLOC\_MAP(bs1, (({\bf int})(bs2[0]))),$\backslash$\\
+\hspace*{34\indentation}memcpy(\_\_dataptr\_\_+2$\ast$(({\bf int})(bs1[0]))+1,\&(bs2[1]),$\backslash$\\
+\hspace*{34\indentation}2$\ast$(({\bf int})(bs2[0]))$\ast${\bf sizeof}(ACData)),\_\_dataptr\_\_)\mbox{}\\
+\mbox{}\\
+{\tt \#define} GET\_TYPE(d) (d$\rightarrow$type)\mbox{}\\
+{\tt \#define} GET\_CONTENT(d) (d$\rightarrow$content)\mbox{}\\
+{\tt \#define} GET\_INT(d) (({\bf int})GET\_CONTENT(d))\mbox{}\\
+{\tt \#define} GET\_DATA(d) ((ACData)GET\_CONTENT(d))\mbox{}\\
+{\tt \#define} GET\_LABEL(d) (GET\_CONTENT(d))\mbox{}\\
+{\tt \#define} GET\_ADDRESS(d) (({\bf char}$\ast$)GET\_CONTENT(d))\mbox{}\\
+{\tt \#define} GET\_STRING(d) (({\bf char}$\ast$)GET\_CONTENT(d))\mbox{}\\
+\mbox{}\\
+{\tt \#define} GET\_ARGS(d) ((ACData$\ast$)(d$\rightarrow$content))\mbox{}\\
+{\tt \#define} GET\_ARG0(d) (GET\_ARGS(d)[0])\mbox{}\\
+{\tt \#define} GET\_ARG1(d) (GET\_ARGS(d)[1])\mbox{}\\
+\mbox{}\\
+{\tt \#define} GET\_FIRST(d) (GET\_ARG0(d))\mbox{}\\
+{\tt \#define} GET\_NEXT(d) (GET\_ARG1(d))\mbox{}\\
+\mbox{}\\
+{\tt \#define} GET\_TUPLE\_ARRAY(d) ((ACData$\ast$)(d$\rightarrow$content))\mbox{}\\
+{\tt \#define} GET\_TUPLE\_SIZE(d) ((({\bf int})(GET\_TUPLE\_ARRAY(d)[0])))\mbox{}\\
+{\tt \#define} GET\_TUPLE\_ELT(d,n) (GET\_TUPLE\_ARRAY(d)[n])\mbox{}\\
+\mbox{}\\
+{\tt \#define} GET\_MAP\_ARRAY(d) ((ACData$\ast$)(d$\rightarrow$content))\mbox{}\\
+{\tt \#define} GET\_MAP\_SIZE(d) ((({\bf int})(GET\_MAP\_ARRAY(d)[0])))\mbox{}\\
+{\tt \#define} GET\_MAP\_SRC(d,n) (GET\_MAP\_ARRAY(d)[2$\ast$n-1])\mbox{}\\
+{\tt \#define} GET\_MAP\_TRG(d,n) (GET\_MAP\_ARRAY(d)[2$\ast$n])\mbox{}\\
+{\tt \#define} GIVE\_MAP\_IMAGE(m,src) $\backslash$\\
+(\{$\backslash$\\
+\hspace*{2\indentation}{\bf int} i; ACData d = NULL;$\backslash$\\
+\hspace*{2\indentation}{\bf for} (i = 1; i $\leq$ GET\_MAP\_SIZE(m); i++) \{$\backslash$\\
+\hspace*{4\indentation}{\bf if} (GET\_MAP\_SRC(m,i) == src)$\backslash$\\
+\hspace*{7\indentation}d = GET\_MAP\_TRG(m, i)$\backslash$\\
+\hspace*{7\indentation}{\bf break};$\backslash$\\
+\hspace*{4\indentation}\}$\backslash$\\
+\hspace*{2\indentation}\}$\backslash$\\
+\hspace*{2\indentation}d;$\backslash$\\
+\})\mbox{}\\
+\mbox{}\\
+\mbox{}\\
+{\tt \#define} type\_of(d) (GET\_TYPE(d))\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: NEW\_DATA\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: void\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: allocate space for a datarecord.\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: a pointer to a clean datarecord is returned\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} NEW\_DATA() ((ACData)AC\_ALLOC({\bf sizeof}({\bf struct} datastruct)))\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: ALLOC\_DATA\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, type-constant t\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: allocate a new dataobject of type t in d\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: d pointer to a datarecord of type t.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} ALLOC\_DATA(d,t) (d=NEW\_DATA(),d$\rightarrow$type=t)\mbox{}\\
+\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: MAKE\_DATA\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, int t type-constant, expression castable to void$\ast$ e\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: allocate a datarecord, set to type t and initialize with e\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: a newly created datarecord is returned\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} MAKE\_DATA(d,t,e) (ALLOC\_DATA(d,t),d$\rightarrow$content=({\bf void}$\ast$)(e),d)\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: MAKE\_INT\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, int n\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: allocate and initialize datarecord d with n\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: d is returned.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} MAKE\_INT(d,n) MAKE\_DATA(d, INT\_TYPE, n)\mbox{}\\
+{\tt \#define} make\_int(n) MAKE\_INT(\_\_data\_\_,n)\mbox{}\\
+{\tt \#define} get\_int\_int(d) (GET\_INT(d))\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: GIVE\_op\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d1, d2 of type int\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: compute op of d1 and d2\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: a new datarecord containing d1 op d2 is returned\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} GIVE\_PLUS(d, d1,d2) MAKE\_DATA(d,INT\_TYPE,get\_int\_int(d1)+get\_int\_int(d2))\mbox{}\\
+{\tt \#define} GIVE\_MINUS(d,d1,d2) MAKE\_DATA(d,INT\_TYPE,get\_int\_int(d1)-get\_int\_int(d2))\mbox{}\\
+{\tt \#define} GIVE\_MONUS(d,d1,d2) MAKE\_DATA(d,INT\_TYPE,$\backslash$\\
+\hspace*{28\indentation}get\_int\_int(d1)$>$get\_int\_int(d2) ? $\backslash$\\
+\hspace*{28\indentation}get\_int\_int(d1)-get\_int\_int(d2) : 0)\mbox{}\\
+{\tt \#define} GIVE\_TIMES(d,d1,d2) MAKE\_DATA(d,INT\_TYPE,get\_int\_int(d1)$\ast$get\_int\_int(d2))\mbox{}\\
+{\tt \#define} give\_plus(d1,d2) GIVE\_PLUS(\_\_data\_\_,d1,d2)\mbox{}\\
+{\tt \#define} give\_minus(d1,d2) GIVE\_MINUS(\_\_data\_\_,d1,d2)\mbox{}\\
+{\tt \#define} give\_monus(d1,d2) GIVE\_MONUS(\_\_data\_\_,d1,d2)\mbox{}\\
+{\tt \#define} give\_times(d1,d2) GIVE\_TIMES(\_\_data\_\_,d1,d2)\mbox{}\\
+\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: MAKE\_BOOL\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: int b\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: convert b into a new datarecord\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: a pointer to a new booldatarecord is returned\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} MAKE\_BOOL(d,b) MAKE\_DATA(d,BOOL\_TYPE,b)\mbox{}\\
+{\tt \#define} make\_bool(b) MAKE\_BOOL(\_\_data\_\_,b)\mbox{}\\
+{\tt \#define} get\_bool\_int(d) (GET\_INT(d))\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: GIVE\_NOT\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData[BOOL\_TYPE] d\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: \mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: expression of type ACData[BOOL\_TYPE]\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} GIVE\_NOT(d,b) MAKE\_DATA(d,BOOL\_TYPE,(!get\_bool\_int(b)))\mbox{}\\
+{\tt \#define} give\_not(b) GIVE\_NOT(\_\_data\_\_,b)\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: MAKE\_CELL\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, int c\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: build a cell datarecord containing c\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: a new cell datarecord is returned.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} MAKE\_CELL(d1,c,d2) MAKE\_DATA(d,CELL\_TYPE,ALLOC\_ARGS(c,d2))\mbox{}\\
+{\tt \#define} make\_cell(c,d) MAKE\_CELL(\_\_data\_\_,c,d)\mbox{}\\
+{\tt \#define} destroy\_cell(c) (GET\_ARG1(c)=NULL)\mbox{}\\
+{\tt \#define} inspect\_cell(c) (GET\_ARG1(c))\mbox{}\\
+{\tt \#define} get\_cell\_int(c) (({\bf int})(GET\_ARG0(c)))\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: MAKE\_AGENT\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, int a\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: build an agent datarecord referring to agent a\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: a new agent datarecord is returned\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} MAKE\_AGENT(d,a) MAKE\_DATA(d,AGENT\_TYPE,a)\mbox{}\\
+{\tt \#define} make\_agent(a) MAKE\_AGENT(\_\_data\_\_,a)\mbox{}\\
+{\tt \#define} get\_agent\_int(a) (GET\_INT(a))\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: MAKE\_ACC\_ACTION\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, identifier l (label to be gone to)\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: construct an action datarecord referring to label l\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: a new action datarecord is returned\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} MAKE\_ACC\_ACTION(d,l) MAKE\_DATA(d,ACC\_ACTION\_TYPE,\&\&l)\mbox{}\\
+{\tt \#define} make\_acc\_action(l) MAKE\_ACC\_ACTION(\_\_data\_\_,l)\mbox{}\\
+{\tt \#define} get\_action\_label(a) (GET\_LABEL(a))\mbox{}\\
+\mbox{}\\
+{\tt \#define} MAKE\_AVM\_ACTION(d,a) MAKE\_DATA(d,AVM\_ACTION\_TYPE,a)\mbox{}\\
+{\tt \#define} make\_avm\_action(a) MAKE\_AVM\_ACTION(\_\_data\_\_,a)\mbox{}\\
+{\tt \#define} get\_action\_address(a) (GET\_ADDRESS(a))\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{} Testing for kinds of composite actions $\ast/$}\mbox{}\\
+{\tt \#define} is\_composite(a) ((type\_of(a)$\geq$PROVIDE\_OP)\&\&(type\_of(a)$<$UNDEF\_TYPE))\mbox{}\\
+{\tt \#define} is\_2composite(a) (is\_composite(a)\&\&(type\_of(a)$\geq$THEN\_OP))\mbox{}\\
+{\tt \#define} is\_1composite(a) (is\_composite(a)\&\&!is\_2composite(a))\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: MAKE\_1COMPOSITE\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, AFun c (combinator), ACData[$\mid$action] a\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: construct an action datarecord using unary combinator c\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: a new action datarecord is returned composed from c with a.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} MAKE\_1COMPOSITE(d,c,a) MAKE\_DATA(d,c,a)\mbox{}\\
+{\tt \#define} GET\_1COMPOSITE\_ARG(a) (GET\_DATA(d))\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: GIVE\_PROVIDE\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, d2\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: from data d2 build an action representing provide d2\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: a new action datarecord is returned.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} GIVE\_PROVIDE(d,d2) MAKE\_1COMPOSITE(d,PROVIDE\_OP,d2)\mbox{}\\
+{\tt \#define} give\_provide(d) GIVE\_PROVIDE(\_\_data\_\_,d)\mbox{}\\
+{\tt \#define} get\_provide\_arg(d) GET\_1COMPOSITE\_ARG(a)\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: GIVE\_INDIVISIBLY\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, ACData[action$\mid$composite] a\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: make action a indivisible \mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: an action datarecord is returned that will perform a indivisibly.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} GIVE\_INDIVISIBLY(d,a) MAKE\_1COMPOSITE(d,INDIVISIBLY\_OP,a)\mbox{}\\
+{\tt \#define} give\_indivisibly(a) GIVE\_INDIVISIBLY(\_\_data\_\_,a)\mbox{}\\
+{\tt \#define} get\_indivisibly\_arg(d) GET\_1COMPOSITE\_ARG(a)\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: MAKE\_2COMPOSITE\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, ACData[action$\mid$composite] l, r, AFun c (combinator)\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: build a new action using binary combinator c with l and r\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: the new composite action is returned.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} MAKE\_2COMPOSITE(d,c,l,r) MAKE\_DATA(d, c, ALLOC\_ARGS(l,r))\mbox{}\\
+{\tt \#define} GET\_2COMPOSITE\_LEFT\_ARG(a) (GET\_ARG0(a))\mbox{}\\
+{\tt \#define} GET\_2COMPOSITE\_RIGHT\_ARG(a) (GET\_ARG1(a))\mbox{}\\
+\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: GIVE\_c\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, ACData[action] l, r\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: construct action with combinator c and operands l and r\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: a new composite action is returned.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} GIVE\_THEN(d,l,r) MAKE\_2COMPOSITE(d,THEN\_OP,l,r)\mbox{}\\
+{\tt \#define} GIVE\_AND\_THEN(d,l,r) MAKE\_2COMPOSITE(d,AND\_THEN\_OP,l,r)\mbox{}\\
+{\tt \#define} GIVE\_AND(d,l,r) MAKE\_2COMPOSITE(d,AND\_OP,l,r)\mbox{}\\
+{\tt \#define} GIVE\_EXCEPTIONALLY(d,l,r) MAKE\_2COMPOSITE(d,EXCEPTIONALLY\_OP,l,r)\mbox{}\\
+{\tt \#define} GIVE\_AND\_EXCEPTIONALLY(d,l,r) MAKE\_2COMPOSITE(d,AND\_EXCEPTIONALLY\_OP,l,r)\mbox{}\\
+{\tt \#define} GIVE\_OTHERWISE(d,l,r) MAKE\_2COMPOSITE(d,OTHERWISE\_OP,l,r)\mbox{}\\
+{\tt \#define} GIVE\_HENCE(d,l,r) MAKE\_2COMPOSITE(d,HENCE\_OP,l,r)\mbox{}\\
+{\tt \#define} give\_then(l,r) GIVE\_THEN(\_\_data\_\_,l,r)\mbox{}\\
+{\tt \#define} give\_and\_then(l,r) GIVE\_AND\_THEN(\_\_data\_\_,l,r)\mbox{}\\
+{\tt \#define} give\_and(l,r) GIVE\_AND(\_\_data\_\_,l,r)\mbox{}\\
+{\tt \#define} give\_exceptionally(l,r) GIVE\_EXCEPTIONALLY(\_\_data\_\_,l,r)\mbox{}\\
+{\tt \#define} give\_and\_exceptionally(l,r) GIVE\_AND\_EXCEPTIONALLY(\_\_data\_\_,l,r)\mbox{}\\
+{\tt \#define} give\_otherwise(l,r) GIVE\_OTHERWISE(\_\_data\_\_,l,r)\mbox{}\\
+{\tt \#define} give\_hence(l,r) GIVE\_HENCE(\_\_data\_\_,l,r)\mbox{}\\
+\mbox{}\\
+{\tt \#define} get\_left\_action(a) GET\_2COMPOSITE\_LEFT\_ARG(a)\mbox{}\\
+{\tt \#define} get\_right\_action(a) GET\_2COMPOSITE\_RIGHT\_ARG(a)\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: MAKE\_MESSAGETAG\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, int m\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: construct a datarecord for messagetag m in d\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: the newly created datarecord is returned.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} MAKE\_MESSAGETAG(d,m) MAKE\_DATA(d,MESSAGETAG\_TYPE,m)\mbox{}\\
+{\tt \#define} make\_messagetag(m) MAKE\_MESSAGETAG(\_\_data\_\_,m)\mbox{}\\
+{\tt \#define} get\_messagetag\_data(m) (GET\_DATA(m))\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: MAKE\_TOKEN\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, char $\ast$s\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: construct a datarecord containing s in d\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: the created and protected datarecord is returned\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} MAKE\_TOKEN(d,s) MAKE\_DATA(d,TOKEN\_TYPE,s)\mbox{}\\
+{\tt \#define} make\_token(s) MAKE\_TOKEN(\_\_data\_\_,s)\mbox{}\\
+{\tt \#define} get\_token\_string(t) (GET\_STRING(t))\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: NEW\_TUPLE\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d1, d2\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: construct an ATermList containing refs to d1 and d2\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: an ATermList is returned containing d1 and d2 reversed.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} NEW\_TUPLE(d1,d2) (ALLOC\_TUPLE(d1,d2))\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: MAKE\_TUPLE\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, d1, d2\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: create a datarecord with an TUPLE-aterm as contents in d\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: the newly created datarecord is returned.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} MAKE\_TUPLE(d,d1,d2) MAKE\_DATA(d,TUPLE\_TYPE,NEW\_TUPLE(d1,d2))\mbox{}\\
+{\tt \#define} make\_tuple(d1,d2) MAKE\_TUPLE(\_\_data\_\_,d1,d2)\mbox{}\\
+{\tt \#define} get\_tuple\_size(d) GET\_TUPLE\_SIZE(d)\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: ADD\_TO\_TUPLE\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData[tuple] t, ACData d\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: add d to tuple t\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: t is updated, nothing is returned.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} ADD\_TO\_TUPLE(t,d) (t$\rightarrow$content=REALLOC\_TUPLE(t,1),$\backslash$\\
+\hspace*{26\indentation}get\_tuple\_array(t)[get\_tuple\_size(t)]=d)\mbox{}\\
+{\tt \#define} add\_to\_tuple(t,d) ADD\_TO\_TUPLE(t,d)\mbox{}\\
+\mbox{}\\
+{\tt \#define} MERGE\_TUPLES(d,t1,t2) MAKE\_DATA(d,TUPLE\_TYPE,CONCAT\_TUPLES($\backslash$\\
+\hspace*{30\indentation}GET\_TUPLE\_ARRAY(t1),GET\_TUPLE\_ARRAY(t2)))\mbox{}\\
+{\tt \#define} merge\_tuples(t1,t2) MERGE\_TUPLES(\_\_data\_\_,t1,t2)\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: GIVE\_TUPLE\_COMPONENT\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData[tuple] t, int n\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: get the n'th element in t counting from 1\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: the n'th element is returned.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} GIVE\_TUPLE\_COMPONENT(t,n) GET\_TUPLE\_ELT(t,n)\mbox{}\\
+{\tt \#define} give\_tuple\_component(t,n) GIVE\_TUPLE\_COMPONENT(t,n)\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: GIVE\_BINDING\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, ACData[token] tk, ACData d2\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: create a map from tk to d2 in d\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: the created and protected bindings datarecord is returned.\mbox{}\\
+\hspace*{1\indentation}$\ast$ Note: must become a balanced binary tree.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} GIVE\_BINDING(b,tk,d) (MAKE\_DATA(b,BINDINGS\_TYPE,ALLOC\_MAP(tk,d)))\mbox{}\\
+{\tt \#define} give\_binding(tk,d) GIVE\_BINDING(\_\_data\_\_,tk,d)\mbox{}\\
+{\tt \#define} get\_bindings\_array(d) GET\_MAP\_ARRAY(d)\mbox{}\\
+{\tt \#define} get\_bindings\_size(d) GET\_MAP\_SIZE(d)\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{} Counting bindings from 1. $\ast/$}\mbox{}\\
+{\tt \#define} get\_bindings\_token(d,n) GET\_MAP\_SRC(d,n)\mbox{}\\
+{\tt \#define} get\_bindings\_data(d,n) GET\_MAP\_TRG(d,n)\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: GIVE\_OVERRIDING\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, ACData[bindings] bs1, bs2\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: let bindings bs2 override bindings bs1 in d\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: the new binding-set is returned.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} GIVE\_OVERRIDING(d,bs1,bs2) MAKE\_DATA(d,BINDINGS\_TYPE,$\backslash$\\
+\hspace*{35\indentation}CONCAT\_MAPS(get\_bindings\_array(bs1),$\backslash$\\
+\hspace*{47\indentation}get\_bindings\_array(bs2)))\mbox{}\\
+{\tt \#define} give\_overriding(bs1,bs2) GIVE\_OVERRIDING(\_\_data\_\_,bs1,bs2)\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: GIVE\_DISJOINT\_UNION\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData d, ACData[bindings] bs1, bs2\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: compute the disjoint union of finitemaps bs1 and bs2 in d\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: the new binding-set is returned.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} GIVE\_DISJOINT\_UNION(d,bs1,bs2) GIVE\_OVERRIDING(d,bs2,bs1)\mbox{}\\
+{\tt \#define} give\_disjoint\_union(bs1,bs2) GIVE\_DISJOINT\_UNION(\_\_data\_\_,bs1,bs2)\mbox{}\\
+\mbox{}\\
+{$/\ast$\it{}\mbox{}\\
+\hspace*{1\indentation}$\ast$ Name: GIVE\_BOUND\mbox{}\\
+\hspace*{1\indentation}$\ast$ Pre: ACData[bindings] bs, ACData[token] tk\mbox{}\\
+\hspace*{1\indentation}$\ast$ Action: find the associated data to tk in bs\mbox{}\\
+\hspace*{1\indentation}$\ast$ Post: return the bound data if found, NULL otherwise.\mbox{}\\
+\hspace*{1\indentation}$\ast/$}\mbox{}\\
+{\tt \#define} GIVE\_BOUND(bs,tk) GIVE\_MAP\_IMAGE(bs,tk)\mbox{}\\
+{\tt \#define} give\_bound(bs,tk) GIVE\_BOUND(bs,tk)\mbox{}\\
+\mbox{}\\
+{\tt \#define} MAKE\_LIST(d,f,n) MAKE\_DATA(d,LIST\_TYPE,ALLOC\_LIST(f,n))\mbox{}\\
+{\tt \#define} make\_list(f,n) MAKE\_LIST(\_\_data\_\_,f,n)\mbox{}\\
+{\tt \#define} make\_list1(d) make\_list(d,NULL)\mbox{}\\
+\mbox{}\\
+{\tt \#define} GIVE\_PREPEND(d,list,elt) MAKE\_LIST(d,elt,list)\mbox{}\\
+{\tt \#define} give\_prepend(list,elt) GIVE\_PREPEND(\_\_data\_\_,list,elt)\mbox{}\\
+\mbox{}\\
+{\tt \#endif}\mbox{}\\
+\end{flushleft}
+\end{document}

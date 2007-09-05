@@ -1,0 +1,13 @@
+module Pico-Token-Of
+
+imports Pico-Lex
+	AN2
+
+exports
+
+context-free syntax
+	"token" "of" "[[" PICO-ID "]]" -> Token
+
+hiddens
+variables
+"char+"[0-9\']* -> CHAR+

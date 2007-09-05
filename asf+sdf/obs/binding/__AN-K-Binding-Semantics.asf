@@ -1,0 +1,32 @@
+equations
+
+[51]    i.bindings = bs 
+        ===
+        exec(give current bindings, i) = <normal bs, i>
+
+
+[52]    terminated(A1) = false,
+        exec(A1, a) = <A1', a'>
+        ===
+        exec(A1 hence A2, a) = <A1' hence A2, a'>
+
+[53]    a' = a.bindings := bs1,
+        exec(A2, a') = <A2', a''>
+        ===
+        exec(normal bs1 hence A2, a) =
+		<normal bs1 hence A2', a''>
+
+[54]    exec(normal bs1 hence t2, i) = <t2, i>
+
+[default-55]
+        exec(normal d1 hence A2, i) = <exceptional (), i>
+
+[56]    exec(exceptional d1 hence A2, i) = <exceptional d1, i>
+
+[57]    exec(failed hence A2, i) = <failed, i>
+
+
+
+
+
+

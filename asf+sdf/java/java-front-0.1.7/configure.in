@@ -1,0 +1,100 @@
+# Copyright (C) 2000-2002 Martin Bravenboer <martin@mbravenboer.org>
+# 
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+# 02111-1307, USA.
+
+AC_INIT(README)
+AM_INIT_AUTOMAKE(java-front, 0.1.7)
+
+AC_ARG_WITH(xt, 
+  [  --with-xt=DIR           Specify location of XT [PREFIX]], 
+  XT="$withval", 
+  XT="$prefix")
+AC_SUBST(XT)
+
+AC_ARG_WITH(asfix-tools, 
+  [  --with-asfix-tools=DIR  Specify location of AsFix Tools [XT]], 
+  ASFIXTOOLS="$withval", 
+  ASFIXTOOLS="$XT")
+AC_SUBST(ASFIXTOOLS)
+
+AC_ARG_WITH(sglr, 
+  [  --with-sglr=DIR         Specify location of SGLR [XT]], 
+  SGLR="$withval", 
+  SGLR="$XT")
+AC_SUBST(SGLR)
+
+AC_ARG_WITH(pgen, 
+  [  --with-pgen=DIR         Specify location of PGEN[XT]], 
+  PGEN="$withval", 
+  PGEN="$XT")
+AC_SUBST(PGEN)
+
+AC_ARG_WITH(sdf-tools, 
+  [  --with-sdf-tools=DIR    Specify location of SDF Tools [XT]], 
+  SDFTOOLS="$withval", 
+  SDFTOOLS="$XT")
+AC_SUBST(SDFTOOLS)
+
+AC_ARG_WITH(stratego, 
+  [  --with-stratego=DIR     Specify location of Stratego [XT]], 
+  STRATEGO="$withval", 
+  STRATEGO="$XT")
+AC_SUBST(STRATEGO)
+
+AC_ARG_WITH(stratego-tools, 
+  [  --with-stratego-tools=DIR
+                          Specify location of Stratego Tools [XT]], 
+  STRATEGOTOOLS="$withval", 
+  STRATEGOTOOLS="$XT")
+AC_SUBST(STRATEGOTOOLS)
+
+AC_ARG_WITH(gpp, 
+  [  --with-gpp=DIR          Specify location of GPP -- Generic Pretty-Printer [XT]], 
+  GPP="$withval", 
+  GPP="$XT")
+AC_SUBST(GPP)
+
+AC_ARG_WITH(gb, 
+  [  --with-gb=DIR           Specify location of Grammar Base [XT]], 
+  GB="$withval", 
+  GB="$XT")
+AC_SUBST(GB)
+
+AC_PROG_CC
+AC_PROG_INSTALL
+
+AC_OUTPUT( \
+	Makefile \
+  README \
+  NEWS \
+  java-front.pkg \
+	lib/Makefile \
+	lib/box/Makefile \
+	grammar/Makefile \
+	grammar/basic/Makefile \
+	grammar/generic/Makefile \
+	pretty-print/Makefile \
+	scripts/Makefile \
+	tree/Makefile \
+	tree/concrete/Makefile \
+	tree/generic/Makefile \
+	tests/Makefile \
+	tests/CompilationUnits/Makefile \
+	tests/comments/Makefile \
+	tests/generic/Makefile \
+	tests/generic/CompilationUnits/Makefile \
+)
+

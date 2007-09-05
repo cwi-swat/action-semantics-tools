@@ -1,0 +1,36 @@
+provide nothing then create 
+		then (provide <n> then give the datum_ and give the cell_ then give binding_)
+		and (provide nothing then create 
+		then (provide <i> then give the datum_ and give the cell_ then give binding_)
+		and (provide nothing then create 
+		then (provide <j> then give the datum_ and give the cell_ then give binding_)
+		and (provide nothing then create 
+		then (provide <k> then give the datum_ and give the cell_ then give binding_)
+		and provide [] then give disjoint union_) then give disjoint union_) then give disjoint union_) then give disjoint union_ hence (give current bindings then give the datum_ and provide <n> then give bound_ then give the cell_ and
+		provide 4 then update and then (give current bindings then give the datum_ and provide <i> then give bound_ then give the cell_ and
+		provide 1 then update and then (give current bindings then give the datum_ and provide <j> then give bound_ then give the cell_ and
+		provide 0 then update and then (give current bindings then give the datum_ and provide <k> then give bound_ then give the cell_ and
+		provide 0 then update and then (give current bindings and (provide unf then give the datum_ and provide give current bindings then give the datum_ and provide <n> then give bound_ then give the cell_ then inspect and (give current bindings then give the datum_ and provide <k> then give bound_ then give the cell_ then inspect) then 
+		(give #1_ then give the int_ then give the datum_ and (give #2_ then give the int_) then give _-_) then (give the int_ then give the datum_ and provide 0 then (check _>_ exceptionally fail and copy)) 
+		then provide true otherwise provide false then (select ( give the data_ then give list_ then give the datum_ and (provide true then give list_) then 
+			check _=_ exceptionally fail then (give current bindings then give the datum_ and provide <j> then give bound_ then give the cell_ and
+		(give current bindings then give the datum_ and provide <i> then give bound_ then give the cell_ then inspect and (give current bindings then give the datum_ and provide <j> then give bound_ then give the cell_ then inspect) then 
+		(give #1_ then give the int_ then give the datum_ and (give #2_ then give the int_) then give _+_)) then update and then (give current bindings then give the datum_ and provide <i> then give bound_ then give the cell_ and
+		(give current bindings then give the datum_ and provide <j> then give bound_ then give the cell_ then inspect and (give current bindings then give the datum_ and provide <i> then give bound_ then give the cell_ then inspect) then 
+		(give #1_ then give the int_ then give the datum_ and (give #2_ then give the int_) then give _-_)) then update and then (give current bindings then give the datum_ and provide <k> then give bound_ then give the cell_ and
+		(give current bindings then give the datum_ and provide <k> then give bound_ then give the cell_ then inspect and provide 1 then 
+		(give #1_ then give the int_ then give the datum_ and (give #2_ then give the int_) then give _+_)) then update))) and then (give the data_ then give provide_ then give the datum_ and (give current bindings then give provide_ then give the datum_ and (give current bindings then give the datum_ and provide unf then give bound_ then give the action_) then give _hence_) then give _then_ then enact) or
+			give the data_ then give list_ then give the datum_ and (provide false then give list_) then 
+			check _=_ exceptionally fail then provide () ) otherwise (provide () then raise)) then give binding_) then give overriding_ hence (give current bindings then give the datum_ and provide <n> then give bound_ then give the cell_ then inspect and (give current bindings then give the datum_ and provide <k> then give bound_ then give the cell_ then inspect) then 
+		(give #1_ then give the int_ then give the datum_ and (give #2_ then give the int_) then give _-_) then (give the int_ then give the datum_ and provide 0 then (check _>_ exceptionally fail and copy)) 
+		then provide true otherwise provide false then (select ( give the data_ then give list_ then give the datum_ and (provide true then give list_) then 
+			check _=_ exceptionally fail then (give current bindings then give the datum_ and provide <j> then give bound_ then give the cell_ and
+		(give current bindings then give the datum_ and provide <i> then give bound_ then give the cell_ then inspect and (give current bindings then give the datum_ and provide <j> then give bound_ then give the cell_ then inspect) then 
+		(give #1_ then give the int_ then give the datum_ and (give #2_ then give the int_) then give _+_)) then update and then (give current bindings then give the datum_ and provide <i> then give bound_ then give the cell_ and
+		(give current bindings then give the datum_ and provide <j> then give bound_ then give the cell_ then inspect and (give current bindings then give the datum_ and provide <i> then give bound_ then give the cell_ then inspect) then 
+		(give #1_ then give the int_ then give the datum_ and (give #2_ then give the int_) then give _-_)) then update and then (give current bindings then give the datum_ and provide <k> then give bound_ then give the cell_ and
+		(give current bindings then give the datum_ and provide <k> then give bound_ then give the cell_ then inspect and provide 1 then 
+		(give #1_ then give the int_ then give the datum_ and (give #2_ then give the int_) then give _+_)) then update))) and then (give the data_ then give provide_ then give the datum_ and (give current bindings then give provide_ then give the datum_ and (give current bindings then give the datum_ and provide unf then give bound_ then give the action_) then give _hence_) then give _then_ then enact) or
+			give the data_ then give list_ then give the datum_ and (provide false then give list_) then 
+			check _=_ exceptionally fail then provide () ) otherwise (provide () then raise))))))))
+

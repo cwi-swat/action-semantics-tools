@@ -1,0 +1,7 @@
+equations
+
+[th]	result the cell_ @n = @n
+
+[frst]	first-cell() = @0
+
+[nxt]	next-cell(@n) = @(n+1)

@@ -1,0 +1,20 @@
+module obs/data/booleans/__AN-K-Bool
+
+imports obs/data/booleans/Bool 
+	obs/data/__AN-K-Data-Contract
+
+exports
+
+
+lexical syntax
+  "bool"        -> SortName 
+  "not"         -> DataOpPrefix 
+
+context-free syntax
+   BoolConst -> Datum {avoid, cons("datum")}
+
+hiddens sorts
+
+        BoolConst Bool DataOpPrefix DataConst SortName
+
+

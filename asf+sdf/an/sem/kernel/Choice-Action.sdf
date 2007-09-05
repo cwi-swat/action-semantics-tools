@@ -1,0 +1,10 @@
+module an/sem/kernel/Choice-Action
+
+imports an/sem/kernel/Action
+	an/syn/kernel/Choice-Action
+
+hiddens
+variables
+	"n"[0-9\']* -> Nat
+	"i"[0-9\']* -> Arbitrary
+	"s"[0-9\']* -> IndexedState

@@ -1,0 +1,17 @@
+equations
+
+[ep]	d = (),
+        cs = empty-cells(),
+        st = empty-storage(),
+        sc = empty-schedule(),
+        ags = empty-agents(),
+        as = empty-actions()
+        ===
+        e = []  [d/data]
+                [cs/cells]
+                [st/storage]
+                [sc/schedule]
+                [ags/agents]
+                [as/actions]
+
+[pf]	perform(A, d) = e |-+ normal d then (normal no bindings hence A)

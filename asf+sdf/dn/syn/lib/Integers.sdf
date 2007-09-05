@@ -1,0 +1,19 @@
+module dn/syn/lib/Integers
+
+imports basic/Integers
+
+exports
+
+context-free syntax
+	Integer -> Datum
+	"int" -> SortName {cons("int-sortname")}
+
+	"+" -> DataOpInfix {cons("plus-infix")}
+	"-" -> DataOpInfix {cons("minus-infix")}
+	"*" -> DataOpInfix {cons("times-infix")}
+
+	">" -> DataPredInfix {cons("gt-infix")}
+	"<" -> DataPredInfix {cons("lt-infix")}
+	">=" -> DataPredInfix {cons("geq-infix")}
+	"<=" -> DataPredInfix {cons("leq-infix")}
+

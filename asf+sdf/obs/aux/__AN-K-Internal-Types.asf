@@ -1,0 +1,109 @@
+equations
+
+[dj1]	disjoint([b*1 <tk, d> b*2], [b*1' <tk, d'> b*2']) = false
+
+[dj2]	disjoint([], []) = false
+
+[default-dj3]
+	disjoint(bs1, bs2) = true
+
+[trm]   terminated(t) = true
+[default-trm]
+        terminated(A) = false
+
+[1]	get-tagged-buffers(ag, bufs1 <ag, tb*> bufs2) = tb*
+
+[default-2]
+	get-tagged-buffers(ag, bufs) = 
+
+[3]	set-tagged-buffers(ag, tb*, bufs1 <ag, tb*'> bufs2) =
+		bufs1 <ag, tb*> bufs2
+
+[default-4]	
+	set-tagged-buffers(ag, tb*, bufs) = <ag, tb*> bufs
+
+[5]	get-messages(mt, tb*1 <mt, ms> tb*2) = ms
+
+[default-6]
+	get-messages(mt, tb*) = 
+
+[7]	set-messages(mt, ms, tb*1 <mt, ms'> tb*2) = 
+		tb*1 <mt, ms> tb*2
+
+[default-8]
+	set-messages(mt, ms, tb*) = <mt, ms> tb* 
+
+
+[gnc1]	get-new-cell() = @0
+
+[gnc2]	get-new-cell(cs @n) = @n + 1
+
+
+[lp-1]	least-time() = 0
+
+[lp-2]	least-time(<n, ag>) = n
+
+[lp-3]	n > n' = true
+	===
+	least-time(<n, ag> <n', ag'> s) =
+		least-time(<n', ag'> s)
+
+[lp-4]	n > n' = false
+	===
+	least-time(<n, ag> <n', ag'> s) =
+		least-time(<n, ag> s)
+
+[hp-1]	higher-time(n, ) = n + 1
+
+[hp-2]	n > n' = true
+	===
+	higher-time(n, <n', ag> s) = 
+		higher-time(n, s)
+
+[hp-3]	n > n' = false
+	===
+	higher-time(n, <n', ag> s) = 
+		higher-time(n', s)
+
+
+[lm-1]	least-message() = 0
+
+[lm-2]	least-message(<n, m>) = n
+
+[lm-3]	n > n' = true
+	===
+	least-message(<n, m> <n', m'> ms) =
+		least-message(<n', m'> ms)
+
+[lm-4]	n > n' = false
+	===
+	least-message(<n, m> <n', m'> ms) =
+		least-message(<n, m> ms)
+
+[hm-1]	higher-message(n, ) = n + 1
+
+[hm-2]	n > n' = true
+	===
+	higher-message(n, <n', m> ms) = 
+		higher-message(n, ms)
+
+[hm-3]	n > n' = false
+	===
+	higher-message(n, <n', m> ms) = 
+		higher-message(n', ms)
+
+[na-1]	new-agent(main ags) = new-agent(ags)
+
+[na-1']	new-agent($n main ags) = new-agent($n ags)
+
+[na-2]	new-agent() = $0
+
+[na-3]	new-agent($n) = $n + 1
+
+[na-4]	n > n' = true
+	===
+	new-agent($n $n' ags) = new-agent($n ags)
+
+[na-5]	n > n' = false
+	===
+	new-agent($n $n' ags) = new-agent($n' ags)

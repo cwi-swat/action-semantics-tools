@@ -1,0 +1,21 @@
+equations
+
+
+[]	test(let var-actions in Ts) =
+let 
+	var-actions 
+in
+	test(var-actions, Ts)
+
+[]	test(var-actions, ) = 
+
+[]	A' = replace-vars(A, var-actions)
+	===
+	test(var-actions, A Ts) = 
+	A : exec+(A', new-environment()) 
+	test(var-actions, Ts)
+
+[]	replace-vars(var, var-actions1 var = A var-actions2) = A
+
+
+

@@ -1,0 +1,5 @@
+equations
+
+[res]	result the list_ l = l
+
+[res]	result list_ d = list(d)

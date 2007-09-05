@@ -1,0 +1,116 @@
+equations
+
+%% Note: maybe do something about ! instead of eval... (Finite-Map')
+
+[when1]	sc1 when terminated t else sc2 = sc1
+
+[default-when2]
+	sc1 when terminated A else sc2 = sc2
+
+[newa1]	new-agent(ags) = first-agent() when ags = empty-list()
+
+[default-newa2]	
+	new-agent(ags) = next-agent(head(ags))
+
+[]	s |= A = <t, s'>
+	===
+	s |=+ A = <t, s'>
+
+
+[]	s |= A  = <A', s'>,
+	s' |=+ A' = <t, s''>
+	===
+	s |=+ A = <t,  s''>
+
+[sos71]	s@schedule = sc,
+	min(dom(sc)) = n,
+	sc!n = main,
+	ti = nat-to-time(n),
+	s1 = s[sc - n/schedule][ti/time][main/agent],
+	s1 |- A = <A', s'>,
+	n' = max(dom(sc) + set(n)) + 1,
+	sc' = [] when terminated A' else (sc[main/n']),
+	s2 = s'[sc'/schedule],
+	s'' = (s1 / s') / s2
+	===
+	s |= A = <A', s''>
+
+[sos72]	s@schedule = sc,
+	min(dom(sc)) = n,
+	sc!n = ag, 
+	ag != main,
+	ti = nat-to-time(n),
+	s1 = s[sc - n/schedule][ti/time][ag/agent],
+	s@actions = As,
+	eval(ag, As) = A1,
+	s1 |- A1 = <A1', s'>,
+	n' = max(dom(sc) + set(n)) + 1,
+	sc' =  sc - n when terminated A1' else (sc[ag/n']),
+	As' = As[A1'/ag],
+	s2 = s'[sc'/schedule][As'/actions],
+	s'' = (s1 / s') / s2
+	===
+	s |= A = <A, s''>
+
+[sos73]	s@data = A,
+	s@agents = ags,
+	ag = new-agent(ags),
+	s@time = ti,
+	n = time-to-nat(ti),
+	s@schedule = sc,
+	n' = max(dom(sc) + set(n)) + 1,
+	s@actions = As,
+	ags' = insert(ag, ags),
+	s' = s[sc[ag/n']/schedule][ags'/agents][As[A/ag]/actions]
+	===
+	s |- activate = <normal ag, s'>
+
+[default-sos74]	
+	s |- activate = <exceptional (), s>
+
+[sos75]	s@data = ag,
+	s@schedule = sc,
+	has-value(ag, sc) = true,
+	s' = s[sc -- ag/schedule]
+	===
+	s |- deactivate = <normal (), s'>
+
+[default-sos76]
+	s |- deactivate = <exceptional (), s>
+
+[sos77]	s@agent = ag
+	===
+	s |- give current agent = <normal ag, s>
+
+[sos78]	s@data = (ag, mt, m),
+	s@time = n,
+	s@buffers = bs,
+	tbs = eval(ag, bs),
+	ms = eval(mt, tbs),
+	n' = max(dom(ms)) + 1,
+	s' = s[bs[tbs[ms[m/n']/mt]/ag]/buffers]
+	===
+	s |- send = <normal (), s'>
+
+[default-sos79]
+	s |- send = <exceptional (), s>
+
+[sos80]	s@data = mt,
+	s@time = n,
+	s@agent = ag,
+	s@buffers = bs,
+	tbs = eval(ag, bs),
+	ms = eval(mt, tbs),
+	n' = min(dom(ms)),
+	n' > n = false,
+	m = eval(n', ms),
+	s' = s[bs[tbs[(ms - n')/mt]/ag]/buffers]
+	===
+	s |- receive = <normal m, s'>
+
+[default-sos81]
+	s |- receive = <exceptional (), s>
+
+[sos82]	s@time = n
+	===
+	s |- give current time = <normal n, s>

@@ -1,0 +1,3 @@
+fa-to-decls(
+unfolding (provide () then unfold)
+,new-environment().pos:=1)

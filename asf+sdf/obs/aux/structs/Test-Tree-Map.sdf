@@ -1,0 +1,9 @@
+module obs/aux/structs/Test-Tree-Map
+
+imports obs/data/integers/Int obs/aux/structs/Tree-Map[Int Int][Tree-Map => Int-Tree]
+
+exports sorts Int Int-Tree
+
+hiddens
+variables
+"n"[0-9\']* -> Int

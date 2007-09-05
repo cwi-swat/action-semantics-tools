@@ -1,0 +1,41 @@
+module obs/datacontrol/__AN-K-Data-Control
+
+imports obs/data/__AN-K-Data
+
+exports 
+
+lexical syntax
+
+  "copy"                        -> ActionConst
+  "then"                        -> ActionInfix
+  "and" LAYOUT+ "then"          -> ActionInfix
+  "and"                         -> ActionInfix
+  "indivisibly"                 -> ActionPrefix
+  "raise"                       -> ActionConst
+  "exceptionally"               -> ActionInfix
+  "then" LAYOUT+ "exceptionally"-> ActionInfix
+  "fail"                        -> ActionConst
+  "otherwise"                   -> ActionInfix
+  "choose" LAYOUT+ "natural"    -> ActionConst
+
+   "and" LAYOUT+ "exceptionally" -> ActionInfix
+
+
+context-free syntax
+
+normal data:Data -> Terminated  {cons("normal")}
+exceptional data:Data -> Terminated {cons("exceptional")}
+failed -> Terminated {cons("failed")}
+
+  "give" op:DataOp                 -> Action {cons("give")}
+  "check" pred:DataPred              -> Action {cons("check")}
+%%  "select" "(" choices:{Action "or"}+ ")"  -> Action {cons("select")}
+%% If to be compiled:
+  "select" "(" {Action "or"}+ ")"  -> Action 
+
+hiddens sorts
+
+        ActionConst ActionInfix ActionPrefix DataTypes Action
+
+
+

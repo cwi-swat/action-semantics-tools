@@ -1,0 +1,22 @@
+give current bindings and (provide 20 then create 
+		then (provide "x" and give the cell_ then give binding_) and
+		 (provide 1 then create 
+		then (provide "y" and give the cell_ then give binding_)) then give disjoint union _) then give overriding_ hence 
+		(give current bindings and (provide ("unf", give current bindings and provide "x" then give bound_ then give the cell_ then inspect and provide 0 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then (check _>_ exceptionally fail and copy)
+	 	then provide true otherwise provide false) then (select (
+		give the data _ then give tupleToList_ and (provide true then give tupleToList_) then (check _=_ exceptionally fail and copy) then (give current bindings and provide "y" then give bound_ then give the cell_
+		and (give current bindings and provide "y" then give bound_ then give the cell_ then inspect and (give current bindings and provide "x" then give bound_ then give the cell_ then inspect) 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _*_)) then update and then (give current bindings and provide "x" then give bound_ then give the cell_
+		and (give current bindings and provide "x" then give bound_ then give the cell_ then inspect and provide 1 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _-_)) then update)) and then (give the data_ then give provide_ and (give current bindings then give provide_ and (give current bindings and provide "unf" then give bound_ then give the action[taking () giving bindings]_) then give _hence_) then give _then_ then enact) or
+		give the data _ then give tupleToList_ and (provide false then give tupleToList_) then (check _=_ exceptionally fail and copy) then provide ()) otherwise (provide () then raise))) then give binding_) then give overriding_ hence (give current bindings and provide "x" then give bound_ then give the cell_ then inspect and provide 0 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then (check _>_ exceptionally fail and copy)
+	 	then provide true otherwise provide false) then (select (
+		give the data _ then give tupleToList_ and (provide true then give tupleToList_) then (check _=_ exceptionally fail and copy) then (give current bindings and provide "y" then give bound_ then give the cell_
+		and (give current bindings and provide "y" then give bound_ then give the cell_ then inspect and (give current bindings and provide "x" then give bound_ then give the cell_ then inspect) 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _*_)) then update and then (give current bindings and provide "x" then give bound_ then give the cell_
+		and (give current bindings and provide "x" then give bound_ then give the cell_ then inspect and provide 1 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _-_)) then update)) and then (give the data_ then give provide_ and (give current bindings then give provide_ and (give current bindings and provide "unf" then give bound_ then give the action[taking () giving bindings]_) then give _hence_) then give _then_ then enact) or
+		give the data _ then give tupleToList_ and (provide false then give tupleToList_) then (check _=_ exceptionally fail and copy) then provide ()) otherwise (provide () then raise)))
+		exceptionally (give the data _ then give tupleToList_ and (provide "break" then give tupleToList_) then (check _=_ exceptionally fail and copy) then provide () otherwise raise))

@@ -1,0 +1,17 @@
+module an/sem/internal/Storage
+
+imports aux/Finite-Map[Cell Datum][Finite-Map => Storage]
+	aux/List[Cell][List => Cells]
+	basic/Integers
+
+exports
+
+context-free syntax
+	stored(Storage, Cell) -> Datum {cons("stored")}
+	empty-storage() -> Storage {cons("empty-storage")}
+	empty-cells() -> Cells {cons("empty-cells")}
+
+hiddens
+variables
+	"s"[0-9\']* -> Storage
+	"c"[0-9\']* -> Cell

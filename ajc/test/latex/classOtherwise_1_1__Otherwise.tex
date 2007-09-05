@@ -1,0 +1,49 @@
+\hypertarget{classOtherwise_1_1__Otherwise}{
+\section{Otherwise::\_\-Otherwise  Class Reference}
+\label{classOtherwise_1_1__Otherwise}\index{Otherwise::_Otherwise@{Otherwise::\_\-Otherwise}}
+}
+Inheritance diagram for Otherwise::\_\-Otherwise:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=69pt]{classOtherwise_1_1__Otherwise__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Otherwise::\_\-Otherwise:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=69pt]{classOtherwise_1_1__Otherwise__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceData}{Data} \hyperlink{classOtherwise_1_1__Otherwise_a0}{enact} (\hyperlink{interfaceData}{Data} data, \hyperlink{interfaceBindings}{Bindings} bindings) throws \hyperlink{classExceptional}{Exceptional}, \hyperlink{classFailed}{Failed}
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classOtherwise_1_1__Otherwise_a0}{
+\index{Otherwise::_Otherwise@{Otherwise::\_\-Otherwise}!enact@{enact}}
+\index{enact@{enact}!Otherwise::_Otherwise@{Otherwise::\_\-Otherwise}}
+\subsubsection[enact]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceData}{Data} Otherwise::\_\-Otherwise::enact (\hyperlink{interfaceData}{Data} {\em data}, \hyperlink{interfaceBindings}{Bindings} {\em bindings})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classOtherwise_1_1__Otherwise_a0}
+
+
+
+
+Reimplemented from \hyperlink{interfaceEnactable_a0}{Enactable}.
+
+Definition at line 162 of file Action\-Impl.java.\footnotesize\begin{verbatim}00162                                                                                    {
+00163             try {
+00164                 return enactable1.enact(data, bindings);
+00165             }
+00166             catch (Failed f) {
+00167                 return enactable2.enact(data, bindings);
+00168             }
+00169         }
+\end{verbatim}\normalsize 
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{ActionImpl_8java-source}{Action\-Impl.java}\end{CompactItemize}

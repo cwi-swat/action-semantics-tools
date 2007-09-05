@@ -1,0 +1,4 @@
+fa-to-program(
+exceptional (1,2,3)
+
+,new-environment().pos:=1)

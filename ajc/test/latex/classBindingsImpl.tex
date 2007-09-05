@@ -1,0 +1,181 @@
+\hypertarget{classBindingsImpl}{
+\section{Bindings\-Impl  Class Reference}
+\label{classBindingsImpl}\index{BindingsImpl@{Bindings\-Impl}}
+}
+Inheritance diagram for Bindings\-Impl:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{classBindingsImpl__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Bindings\-Impl:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{classBindingsImpl__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+Map \hyperlink{classBindingsImpl_a0}{map\-Value} ()
+\item 
+\hyperlink{interfaceBindings}{Bindings} \hyperlink{classBindingsImpl_a1}{binding} (\hyperlink{interfaceToken}{Token} token, \hyperlink{interfaceBindable}{Bindable} bindable)
+\item 
+\hyperlink{interfaceBindable}{Bindable} \hyperlink{classBindingsImpl_a2}{bound} (\hyperlink{interfaceToken}{Token} token) throws \hyperlink{classExceptional}{Exceptional}
+\item 
+\hyperlink{interfaceBindings}{Bindings} \hyperlink{classBindingsImpl_a3}{overriding} (\hyperlink{interfaceBindings}{Bindings} bindings)
+\item 
+\hyperlink{interfaceBindings}{Bindings} \hyperlink{classBindingsImpl_a4}{disjoint\-Union} (\hyperlink{interfaceBindings}{Bindings} bindings)
+\end{CompactItemize}
+\subsection*{Private Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{classBindingsImpl_c0}{Bindings\-Impl} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory})
+\item 
+\hyperlink{classBindingsImpl_c1}{Bindings\-Impl} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory}, Map map)
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+Map \hyperlink{classBindingsImpl_o0}{binding\-Map}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classBindingsImpl_c0}{
+\index{BindingsImpl@{Bindings\-Impl}!BindingsImpl@{BindingsImpl}}
+\index{BindingsImpl@{BindingsImpl}!BindingsImpl@{Bindings\-Impl}}
+\subsubsection[BindingsImpl]{\setlength{\rightskip}{0pt plus 5cm}Bindings\-Impl::Bindings\-Impl (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory})\hspace{0.3cm}{\tt  \mbox{[}inline, private\mbox{]}}}}
+\label{classBindingsImpl_c0}
+
+
+
+
+Definition at line 15 of file Bindings\-Impl.java.\footnotesize\begin{verbatim}00015                                       {
+00016         this(factory, new TreeMap());
+00017     }
+\end{verbatim}\normalsize 
+\hypertarget{classBindingsImpl_c1}{
+\index{BindingsImpl@{Bindings\-Impl}!BindingsImpl@{BindingsImpl}}
+\index{BindingsImpl@{BindingsImpl}!BindingsImpl@{Bindings\-Impl}}
+\subsubsection[BindingsImpl]{\setlength{\rightskip}{0pt plus 5cm}Bindings\-Impl::Bindings\-Impl (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory}, Map {\em map})\hspace{0.3cm}{\tt  \mbox{[}inline, private\mbox{]}}}}
+\label{classBindingsImpl_c1}
+
+
+
+
+Definition at line 19 of file Bindings\-Impl.java.\footnotesize\begin{verbatim}00019                                                        {
+00020         super(factory);
+00021         bindingMap = map;
+00022     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classBindingsImpl_a1}{
+\index{BindingsImpl@{Bindings\-Impl}!binding@{binding}}
+\index{binding@{binding}!BindingsImpl@{Bindings\-Impl}}
+\subsubsection[binding]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceBindings}{Bindings} Bindings\-Impl::binding (\hyperlink{interfaceToken}{Token} {\em token}, \hyperlink{interfaceBindable}{Bindable} {\em bindable})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classBindingsImpl_a1}
+
+
+
+
+Reimplemented from \hyperlink{interfaceBindings_a1}{Bindings}.
+
+Definition at line 28 of file Bindings\-Impl.java.\footnotesize\begin{verbatim}00028                                                             {
+00029         Map map = new TreeMap();
+00030         map.put(token, bindable);
+00031         return new BindingsImpl(factory, map);
+00032     }
+\end{verbatim}\normalsize 
+\hypertarget{classBindingsImpl_a2}{
+\index{BindingsImpl@{Bindings\-Impl}!bound@{bound}}
+\index{bound@{bound}!BindingsImpl@{Bindings\-Impl}}
+\subsubsection[bound]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceBindable}{Bindable} Bindings\-Impl::bound (\hyperlink{interfaceToken}{Token} {\em token})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classBindingsImpl_a2}
+
+
+
+
+Reimplemented from \hyperlink{interfaceBindings_a2}{Bindings}.
+
+Definition at line 34 of file Bindings\-Impl.java.\footnotesize\begin{verbatim}00034                                                           {
+00035         if (bindingMap.containsKey(token))
+00036             return (Bindable)bindingMap.get(token);
+00037         throw new Exceptional(factory.makeEmpty());
+00038     }
+\end{verbatim}\normalsize 
+\hypertarget{classBindingsImpl_a4}{
+\index{BindingsImpl@{Bindings\-Impl}!disjointUnion@{disjointUnion}}
+\index{disjointUnion@{disjointUnion}!BindingsImpl@{Bindings\-Impl}}
+\subsubsection[disjointUnion]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceBindings}{Bindings} Bindings\-Impl::disjoint\-Union (\hyperlink{interfaceBindings}{Bindings} {\em bindings})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classBindingsImpl_a4}
+
+
+
+
+Reimplemented from \hyperlink{interfaceBindings_a4}{Bindings}.
+
+Definition at line 47 of file Bindings\-Impl.java.\footnotesize\begin{verbatim}00047                                                      {
+00048         Map newMap = new TreeMap(bindingMap);
+00049         Set keySet = newMap.keySet();
+00050         for (Iterator i = keySet.iterator(); i.hasNext();) {
+00051             Token token = (Token)i.next();
+00052             if (bindings.mapValue().containsKey(token))
+00053                 newMap.remove(token);
+00054             else
+00055                 newMap.put(token, bindings.mapValue().get(token));
+00056         }
+00057         return new BindingsImpl(factory, newMap);
+00058     }
+\end{verbatim}\normalsize 
+\hypertarget{classBindingsImpl_a0}{
+\index{BindingsImpl@{Bindings\-Impl}!mapValue@{mapValue}}
+\index{mapValue@{mapValue}!BindingsImpl@{Bindings\-Impl}}
+\subsubsection[mapValue]{\setlength{\rightskip}{0pt plus 5cm}Map Bindings\-Impl::map\-Value ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classBindingsImpl_a0}
+
+
+
+
+Reimplemented from \hyperlink{interfaceBindings_a0}{Bindings}.
+
+Definition at line 24 of file Bindings\-Impl.java.\footnotesize\begin{verbatim}00024                           {
+00025         return bindingMap;
+00026     }
+\end{verbatim}\normalsize 
+\hypertarget{classBindingsImpl_a3}{
+\index{BindingsImpl@{Bindings\-Impl}!overriding@{overriding}}
+\index{overriding@{overriding}!BindingsImpl@{Bindings\-Impl}}
+\subsubsection[overriding]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceBindings}{Bindings} Bindings\-Impl::overriding (\hyperlink{interfaceBindings}{Bindings} {\em bindings})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classBindingsImpl_a3}
+
+
+
+
+Reimplemented from \hyperlink{interfaceBindings_a3}{Bindings}.
+
+Definition at line 41 of file Bindings\-Impl.java.\footnotesize\begin{verbatim}00041                                                   {
+00042         Map newMap = new TreeMap(bindingMap);
+00043         newMap.putAll(bindings.mapValue());
+00044         return new BindingsImpl(factory, newMap);
+00045     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classBindingsImpl_o0}{
+\index{BindingsImpl@{Bindings\-Impl}!bindingMap@{bindingMap}}
+\index{bindingMap@{bindingMap}!BindingsImpl@{Bindings\-Impl}}
+\subsubsection[bindingMap]{\setlength{\rightskip}{0pt plus 5cm}Map Bindings\-Impl::binding\-Map\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classBindingsImpl_o0}
+
+
+
+
+Definition at line 13 of file Bindings\-Impl.java.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{BindingsImpl_8java-source}{Bindings\-Impl.java}\end{CompactItemize}

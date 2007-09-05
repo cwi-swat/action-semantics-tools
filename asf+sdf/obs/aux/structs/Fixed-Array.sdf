@@ -1,0 +1,36 @@
+module obs/aux/structs/Fixed-Array[X]
+
+imports obs/data/integers/Int
+
+exports
+
+sorts Array X
+
+context-free syntax
+
+create(Int) -> Array
+create-with(Int, X) -> Array
+get-at(Int, Array) -> X
+put-at(Int, X, Array) -> Array
+get-size(Array) -> Int
+
+Array "[" Int "]" -> X
+
+
+
+hiddens
+
+context-free syntax
+"__undef__" -> X
+list-with(Int,X) -> X*
+get-at(Int, X*) -> X
+put-at(Int, X, X*) -> X*
+Int # X*  -> Array
+
+variables
+"x"[0-9\']* -> X
+"x*"[0-9\']* -> X*
+"a"[0-9\']* -> Array
+"n"[0-9\']* -> Int
+
+

@@ -1,0 +1,150 @@
+"exec+history"(Action, Environment, Action-History) -> Conf # Action-History
+
+"[" AH "]" -> Action-History
+
+get-action(Conf) -> Action
+get-env(Conf) -> Environment
+
+
+mt-perform(Action) -> Conf {prefer}
+
+"mt-exec" "(" Action "," Environment ")" -> Conf
+"mt-exec+" "(" Action "," Environment ")" -> Conf
+
+"mt-exec+history" "(" Action "," Environment "," Action-History ")" -> Conf # Action-History
+
+"mt-perform+history" "(" Action ")" -> Conf # Action-History
+
+terminated(Action) -> Bool
+
+
+aliases
+{(Action Environment) "######"}* -> AH
+
+
+[t]	terminated(t) = true
+
+[default]
+	terminated(A) = false
+
+[0]	perform(A) = exec+(A, [])
+
+[1]	a0 = [],
+	a1 = a0.agents := main,
+	a2 = a1.agent := main,
+	a3 = a2.schedule := <0, main>
+	===
+	mt-perform(A) = mt-exec+(A, a3)
+
+[1]	a0 = [],
+	a1 = a0.agents := main,
+	a2 = a1.agent := main,
+	a3 = a2.schedule := <0, main>
+	===
+	mt-perform+history(A) = mt-exec+history(A, a3, [])
+
+
+
+[4]	exec(A, e) = <t, e'>
+	===
+	exec+history(A, e, [AH]) =
+		<<t, e'>, [AH]>
+
+[default-2]	
+	exec(A, e) = <A', e'>,
+	exec+history(A', e', [AH 
+
+######  
+
+A' e']) = <<t, e''>, [AH']> 
+	===
+	exec+history(A, e, [AH]) = <<t, e''>, [AH']>
+
+
+[5]	get-action(<A, e>) = A
+
+[6]	get-env(<A, e>) = e
+
+~~ This must move to Interacting
+
+[71]	least-time(a.schedule) = n,	~~ find least time
+	a.schedule = s1 <n, main> s2,	~~ check for main in schedule
+	a1 = a.schedule := s1 s2,	~~ if so remove from schedule
+	a2 = a1.time := n,		~~ set time to time of main
+	a3 = a2.agent := main,		~~ set current agent
+	exec(A, a3) = <A', a4>,		~~ perform one step of A
+	terminated(A') = true,		~~ if A is terminated
+	a5 = a4.schedule := 		~~ clear the schedule
+	===
+	mt-exec(A, a) = <A', a5>
+
+[71']	least-time(a.schedule) = n,
+	a.schedule = s1 <n, main> s2,
+	a1 = a.schedule := s1 s2,
+	a2 = a1.time := n,
+	a3 = a2.agent := main,
+	exec(A, a3) = <A', a4>,
+	terminated(A') = false,			~~ if not terminated
+	a4.schedule = s',			~~ retrieve new schedule
+	higher-time(n, s') = n',		~~ set time to the max
+	a5 = a4.schedule := s' <n', main> 	~~ update the schedule
+	===				
+	mt-exec(A, a) = <A', a5>
+
+[default-72]	
+	least-time(a.schedule) = n,		~~ get lowest time
+	a.schedule = s1 <n, ag> s2,		~~ get corresponding agent
+	a1 = a.schedule := s1 s2,		~~ remove from schedule
+	a2 = a1.time := n,			~~ set time to time
+	a3 = a2.agent := ag,			~~ set current agent
+	a3.actions = As1 <ag, A1> As2,		~~ retrieve agent's action
+	exec(A1, a3) = <A1', a4>,		~~ perform one step of it
+	terminated(A1') = true,			~~ if terminated
+	a4.actions = As',			~~ retrieve actions
+	As' = As1' <ag, A1> As2', 		~~ find corresponding action
+	a5 = a4.actions := As1' <ag, A1'> As2'	~~ update actions in env
+	===
+	mt-exec(A, a) = <A, a5>
+
+[default-72']	
+	least-time(a.schedule) = n,		
+	a.schedule = s1 <n, ag> s2,
+	a1 = a.schedule := s1 s2,
+	a2 = a1.time := n,
+	a3 = a2.agent := ag,
+	a3.actions = As1 <ag, A1> As2,
+	exec(A1, a3) = <A1', a4>,
+	terminated(A1') = false,
+	a4.actions = As',			~~ retrieve actions
+	As' = As1' <ag, A1> As2', 		~~ find corresponding action
+	a5 = a4.actions := As1' <ag, A1'> As2',	~~ update actions in env
+	a5.schedule = s',			~~ retrieve new schedule
+	higher-time(n, s') = n',		~~ determine a higher time
+	a6 = a5.schedule := s' <n', ag>		~~ update schedule in env
+	===
+	mt-exec(A, a) = <A, a6>
+
+[1]	mt-exec(A, e) = <t, e'>
+	===
+	mt-exec+(A, e) = <t, e'>
+
+[default-2]	
+	mt-exec(A, e) = <A', e'>
+	===
+	mt-exec+(A, e) = mt-exec+(A', e') 
+
+[4]	mt-exec(A, e) = <t, e'>
+	===
+	mt-exec+history(A, e, [AH]) =
+		<<t, e'>, [AH]>
+
+[default-2]	
+	mt-exec(A, e) = <A', e'>,
+	mt-exec+history(A', e', [AH 
+
+######  
+
+A' e']) = <<t, e''>, [AH']> 
+	===
+	mt-exec+history(A, e, [AH]) = <<t, e''>, [AH']>
+

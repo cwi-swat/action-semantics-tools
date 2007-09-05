@@ -1,0 +1,1 @@
+get(put(put(new-environment(), data,3), bindings, "sdkja"), data)

@@ -1,0 +1,21 @@
+equations
+
+[sos41]	s |- failed then A2 = <failed, s>
+
+[sos42] s |- failed and then A2 = <failed, s>
+
+[sos43]	s |- normal d1 and then failed = <failed, s>
+
+[sos44]	s |- failed and A2 = <failed, s>
+
+[sos45]	s |- A1 and failed = <failed, s>
+
+[sos46]	s |- failed exceptionally A2 = <failed, s>
+
+[sos47]	s |- failed and exceptionally A2 = <failed, s>
+
+[sos48]	s |- exceptional d1 and exceptionally failed = <failed, s>
+
+[sos49]	s |- normal d1 otherwise A2 = <normal d1, s>
+
+[sos50]	s |- exceptional d1 otherwise A2 = <exceptional d1, s>

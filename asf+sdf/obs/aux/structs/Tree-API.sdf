@@ -1,0 +1,10 @@
+definition
+
+module Main
+
+exports sorts Tree
+
+context-free syntax
+
+empty -> Tree {cons("empty")}
+tree(elt:Elt, count:Int, lhs:Tree, rhs:Tree) -> Tree {cons("tree")}

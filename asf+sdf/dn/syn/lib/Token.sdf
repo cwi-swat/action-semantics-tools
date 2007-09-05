@@ -1,0 +1,13 @@
+module dn/syn/lib/Token
+
+imports basic/Strings
+
+exports
+
+sorts Token
+
+context-free syntax
+	String -> Token
+	Token -> Datum
+	"token" -> SortName
+

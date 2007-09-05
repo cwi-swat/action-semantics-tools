@@ -1,0 +1,15 @@
+module avm/AN2-to-AIL-Functions
+
+imports ail/AIL obs/AN2 obs/aux/structs/Environment
+
+exports
+
+context-free syntax
+
+ka-to-program(Action, Environment) -> Program
+fa-to-program(Action, Environment) -> Program
+ka-to-stats(Action, Environment) -> Statement*
+fa-to-stats(Action, Environment) -> Statement*
+
+
+

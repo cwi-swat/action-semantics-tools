@@ -1,0 +1,21 @@
+module obs/aux/__AN-K-Cells
+
+imports obs/data/integers/Int obs/data/__AN-K-Cell
+
+exports 
+
+sorts Cells
+
+context-free syntax
+
+empty-cells() -> Cells
+new-cell(Cells) -> Cell
+update-cells(Cells) -> Cells
+
+hiddens
+context-free syntax
+
+"#" Int -> Cells
+
+variables
+"n"[0-9\']* -> Int

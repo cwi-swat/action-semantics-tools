@@ -1,0 +1,26 @@
+module msos/Trace[State Trace]
+
+imports basic/Whitespace
+
+exports
+
+sorts State Trace 
+
+context-free syntax
+
+	Trace "$" Trace -> Trace {assoc,cons("arrow-comp")}
+	Trace "//" State -> Trace {cons("arrow-update")}
+	State "/" State -> State {left,cons("state-update")}
+	pre(Trace) -> State {cons("pre")}
+	post(Trace) -> State {cons("post")}
+	unobs(State) -> Trace {cons("unobs")}
+
+	"(" Trace ")" -> Trace {bracket,cons("trace-bracket")}
+
+hiddens
+variables
+	"t"[0-9\']* -> Trace
+	"s"[0-9\']* -> State
+
+
+

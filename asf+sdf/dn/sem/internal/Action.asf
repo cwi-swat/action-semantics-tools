@@ -1,0 +1,9 @@
+equations
+
+[th]	result the action_ A = A
+
+[ai]	result _Ai_ (A1,A2) = A1 Ai A2
+
+[ap]	result Ap_ A = Ap A
+
+[pr]	result provide_ d = provide d

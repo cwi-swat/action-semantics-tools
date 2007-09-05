@@ -1,0 +1,61 @@
+.TH "List" 3 "13 Sep 2002" "Action Java Compiler Runtime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+List \- 
+.SH SYNOPSIS
+.br
+.PP
+Inherits \fBDatum\fP.
+.PP
+Inherited by \fBListImpl\fP.
+.PP
+.SS "Public Methods"
+
+.in +1c
+.ti -1c
+.RI "\fBDataValue\fP \fBhead\fP () throws \fBExceptional\fP"
+.br
+.ti -1c
+.RI "List \fBtail\fP ()"
+.br
+.ti -1c
+.RI "List \fBinsert\fP (\fBDataValue\fP dataValue)"
+.br
+.ti -1c
+.RI "List \fBappend\fP (\fBDataValue\fP dataValue)"
+.br
+.ti -1c
+.RI "List \fBconcat\fP (List list)"
+.br
+.in -1c
+.SH "MEMBER FUNCTION DOCUMENTATION"
+.PP 
+.SS "List List::append (\fBDataValue\fP dataValue)"
+.PP
+Reimplemented in \fBListImpl\fP.
+.PP
+Referenced by ListImpl::append().
+.PP
+.SS "List List::concat (List list)"
+.PP
+Reimplemented in \fBListImpl\fP.
+.PP
+Referenced by ListImpl::concat().
+.PP
+.SS "\fBDataValue\fP List::head ()"
+.PP
+Reimplemented in \fBListImpl\fP.
+.SS "List List::insert (\fBDataValue\fP dataValue)"
+.PP
+Reimplemented in \fBListImpl\fP.
+.PP
+Referenced by DataImpl::tupleToList().
+.PP
+.SS "List List::tail ()"
+.PP
+Reimplemented in \fBListImpl\fP.
+
+.SH "AUTHOR"
+.PP 
+Generated automatically by Doxygen for Action Java Compiler Runtime from the source code.

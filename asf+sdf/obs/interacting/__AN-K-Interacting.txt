@@ -1,0 +1,33 @@
+module __AN-K-Interacting
+
+imports __AN-K-Data __AN-K-Action
+
+exports context-free syntax
+
+  "AN-K-Interacting"	-> DataTypes
+
+
+lexical syntax
+
+  "agent"		-> SortName
+  "message"		-> SortName
+  "message-tag"		-> SortName
+
+  "activate" 					-> ActionConst
+  "deactivate" 					-> ActionConst
+  "give" LAYOUT+ "current" LAYOUT+ "agent"	-> ActionConst
+  "send" 					-> ActionConst
+  "receive" 					-> ActionConst
+  "give" LAYOUT+ "current" LAYOUT+ "time"	-> ActionConst
+
+
+hiddens sorts
+
+	ActionConst SortName DataTypes
+equations
+
+[0] AN-K-Interacting = AN-K-Data {
+   "AN-K-Interacting" types
+	agent 		< datum;
+	message		< datum;
+	message-tag	< datum }

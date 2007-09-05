@@ -1,0 +1,5 @@
+equations
+
+[]	new-time() = *0
+
+[]	inc-time(*n) = *n+1

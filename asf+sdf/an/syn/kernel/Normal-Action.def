@@ -1,0 +1,187 @@
+definition
+
+module an/syn/kernel/Normal-Outcome
+
+imports an/syn/kernel/Action 
+	dn/syn/kernel/Data
+
+exports
+
+sorts Terminated
+
+context-free syntax
+
+	"normal" Data -> Terminated {cons("normal")}
+
+module dn/syn/kernel/Data
+
+imports aux/Tuple[Datum][Tuple => Data]
+
+exports
+
+sorts Data Datum
+
+context-free syntax
+	Datum -> Data
+
+module an/syn/kernel/Action
+
+imports basic/Whitespace
+
+exports
+
+sorts Action
+
+context-free syntax
+	Action ActionInfix Action -> Action {left,cons("action-infix")}
+	ActionPrefix Action -> Action {cons("action-prefix")}
+	"(" Action ")" -> Action {bracket,prefer,cons("action-bracket")}
+
+context-free priorities
+	ActionPrefix Action -> Action >
+	Action ActionInfix Action -> Action {left}
+	
+module aux/Tuple[X]
+
+imports basic/Integers
+	basic/Whitespace
+
+
+exports
+
+sorts Tuple
+
+context-free syntax
+
+	"(" {X ","}* ")" -> Tuple {cons("tuple")}
+
+	X "::" Tuple -> Tuple {cons("tuple-insert")}
+
+	Tuple "++" Tuple -> Tuple {left,cons("tuple-concat")}
+
+	Tuple "!" Integer -> X {cons("tuple-projection")}
+
+hiddens
+
+variables
+	"n"[0-9\']* -> Integer
+	"t"[0-9\']* -> Tuple
+	"x"[0-9\']* -> X
+	"x*"[0-9\']* -> {X ","}*
+	"x+"[0-9\']* -> {X ","}+
+
+
+module basic/Whitespace
+
+exports
+  lexical syntax
+    [\ \t\n]	-> LAYOUT
+  context-free restrictions
+    LAYOUT? -/- [\ \t\n]
+
+module basic/Integers
+
+imports
+  basic/Booleans
+
+exports
+  sorts NatCon Natural Integer
+  lexical syntax
+    [0-9]+ -> NatCon
+  context-free syntax
+     NatCon           		-> Natural
+     Natural "-/" Natural	-> Natural {left}
+     "(" Natural ")"       	-> Natural {bracket}
+     Natural               	-> Integer
+     "+" Natural           	-> Integer
+     "-" Natural           	-> Integer
+     Integer "+" Integer       	-> Integer {left}
+     Integer "-" Integer       	-> Integer {left}
+     Integer "*" Integer       	-> Integer {left}
+     Integer ">" Integer       	-> Boolean
+     Integer ">=" Integer      	-> Boolean
+     Integer "<" Integer       	-> Boolean
+     Integer "<=" Integer      	-> Boolean
+     "(" Integer ")"       	-> Integer {bracket}
+
+  context-free priorities
+    Integer "*" Integer -> Integer >
+    {left: Integer "+" Integer -> Integer
+           Integer "-" Integer -> Integer}
+
+hiddens
+  imports asf/syntax/Comments
+   
+  context-free syntax
+    gt "(" Natural "," Natural ")" -> Boolean
+    Natural "-//" Natural          -> Natural
+    Natural ">-" Natural           -> Natural
+
+  variables
+    "Nat" [0-9\']*      -> Natural 
+    "Nat-con" [0-9\']*  -> NatCon
+    "Int" [0-9\']*      -> Integer
+
+  variables 
+    "n" [0-9]* -> NatCon
+    "c" [0-9]* -> CHAR
+    "x" [0-9]* -> CHAR*
+    "y" [0-9]* -> CHAR+
+
+module basic/Booleans
+
+exports
+  sorts BoolCon
+  context-free syntax
+    "true"  -> BoolCon {constructor}
+    "false" -> BoolCon {constructor}
+
+  sorts Boolean
+  context-free syntax
+    BoolCon -> Boolean
+
+    Boolean "|" Boolean 	-> Boolean {left}
+    Boolean "&" Boolean 	-> Boolean {left}
+    "not" "(" Boolean ")" 	-> Boolean
+    "(" Boolean ")"       	-> Boolean {bracket}
+
+  context-free priorities
+    Boolean "&" Boolean -> Boolean >
+    Boolean "|" Boolean -> Boolean
+
+hiddens
+  imports
+    asf/syntax/Comments
+  variables
+    "Bool"[0-9]* 	-> Boolean
+    "Bool-con"[0-9]* 	-> BoolCon
+
+
+module asf/syntax/Comments
+
+imports
+  basic/Whitespace
+
+exports
+  lexical syntax
+    "%%" ~[\n]* "\n"	-> LAYOUT
+    "%" ~[\%\n]+ "%"	-> LAYOUT
+  context-free restrictions
+    LAYOUT? -/- [\%]
+
+module an/syn/kernel/Normal-Action
+
+imports an/syn/kernel/Normal-Outcome 
+
+exports
+
+sorts Action ActionInfix ActionPrefix
+
+context-free syntax
+	"provide" Data -> Action {cons("provide-data")}
+	"copy" -> Action {cons("copy")}
+	"then" -> ActionInfix {cons("then-infix")}
+	"and" "then"  -> ActionInfix {cons("and-then-infix")}
+	"and"  -> ActionInfix {cons("and-infix")}
+	"indivisibly" -> ActionPrefix {cons("indivisibly-prefix")}
+

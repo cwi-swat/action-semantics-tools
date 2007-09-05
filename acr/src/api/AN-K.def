@@ -1,0 +1,348 @@
+definition
+
+module Layout
+exports
+  lexical syntax
+    [\ \t\n] -> LAYOUT
+    "~~" ~[\n]* "\n" -> LAYOUT
+    "%%" ~[\n]* "\n" -> LAYOUT
+    "%" ~[\%\n]+ "%" -> LAYOUT
+
+  context-free restrictions
+    LAYOUT? -/- [\ \t\n\%]
+
+  context-free syntax
+    
+
+module DataTypes
+imports Layout
+
+exports
+  sorts DataSort Outcome SortName
+
+  context-free syntax
+    SortName -> DataSort {cons("sortname")}
+    sort:DataSort "*" -> DataSort {cons("star")}
+    sort:DataSort "+" -> DataSort {cons("plus")}
+    sort:DataSort "?" -> DataSort {cons("opt")}
+    "(" list:{DataSort ","}* ")" -> DataSort {cons("tuple")}
+    "(" list:{DataSort "|"}+ ")" -> DataSort {cons("alt")}
+    "action" "[" outcomes:Outcome+ "]" -> DataSort {cons("outcome")}
+    "taking" sort:DataSort -> Outcome {cons("taking")}
+    "giving" sort:DataSort -> Outcome {cons("giving")}
+    "raising" sort:DataSort -> Outcome {cons("raising")}
+    "failing" -> Outcome {cons("failing")}
+    "data" -> SortName {cons("data")}
+    "datum" -> SortName {cons("datum")}
+
+module DataContract
+imports DataTypes
+
+exports
+  sorts Data DataOpPrefix DataOpSort DataOp DataOpPred DataConst
+
+  context-free syntax
+    Datum -> Data {cons("datum")}
+    DataConst -> Data {cons("dataconst")}
+    "the" sort:DataSort -> DataOpPrefix {cons("the-sort")}
+    prefix:DataOpPrefix "_" -> DataOp {cons("prefix")}
+    "_" infix:DataOpInfix "_" -> DataOp {cons("infix")}
+    prefix:DataPredPrefix "_" -> DataPred {cons("prefix")}
+    "_" infix:DataPredInfix "_" -> DataPred {cons("infix")}
+    "true" -> DataConst {cons("true")}
+    "false" -> DataConst {cons("false")}
+
+  context-free syntax
+    "(" head:Data "," tail:{Data ","}+ ")" -> Data {cons("tuple")}
+    "(" Data ")" -> Data {bracket, prefer}
+    "(" ")" -> Data {cons("empty")}
+
+module Bindings
+imports DataContract
+
+exports
+  sorts SortName DataConst DataOpPrefix
+
+  context-free syntax
+    "bindable" -> SortName {cons("bindable")}
+    "bindings" -> SortName {cons("bindings")}
+    "no" "bindings" -> DataConst {cons("no-bindings")}
+    "binding" -> DataOpPrefix {cons("binding")}
+    "overriding" -> DataOpPrefix {cons("overriding")}
+    "disjoint" "union" -> DataOpPrefix {cons("disjoint-union")}
+    "bound" -> DataOpPrefix {cons("bound")}
+
+module Boolean
+imports Layout
+
+exports
+  sorts Bool BoolConst
+
+  context-free syntax
+    "true" -> BoolConst {cons("true")}
+    "false" -> BoolConst {cons("false")}
+    boolconst:BoolConst -> Bool {cons("boolconst")}
+    "not" not-arg:Bool -> Bool {prefer, cons("not")}
+    lhs:Bool "|" rhs:Bool -> Bool {left, cons("or")}
+    lhs:Bool "&" rhs:Bool -> Bool {left, cons("and")}
+    "(" Bool ")" -> Bool {bracket}
+
+  context-free priorities
+    Bool "&" Bool -> Bool >
+    Bool "|" Bool -> Bool
+
+module Agent
+imports DataContract
+
+exports
+  sorts Agent
+
+  context-free syntax
+    "agent" -> SortName {cons("agent")}
+    Agent -> Datum {cons("agent")}
+
+module Integer
+imports Boolean
+
+exports
+  sorts Int Numeral Nat Bool
+
+  lexical syntax
+    [0] -> Zero
+    [1-9] [0-9]* -> PosNumeral
+    Zero -> Nat-Con
+    PosNumeral -> Nat-Con
+
+  restrictions
+    PosNumeral -/- [0-9]
+
+  context-free syntax
+    Nat-Con -> Numeral {cons("nat-con")}
+    Numeral -> Nat {cons("numeral")}
+    lhs:Nat "-?" rhs:Nat -> Nat {left, cons("monus")}
+    Nat -> Int {cons("nat")}
+    "(" nat:Nat ")" -> Nat {bracket}
+    "+" nat-arg:Nat -> Int {cons("unary-plus")}
+    "-" nat-arg:Nat -> Int {cons("unary-minus")}
+    lhs:Int "+" rhs:Int -> Int {left, prefer, cons("plus")}
+    lhs:Int "-" rhs:Int -> Int {left, prefer, cons("minus")}
+    lhs:Int "*" rhs:Int -> Int {left, prefer, cons("times")}
+    lhs:Int ">" rhs:Int -> Bool {prefer, cons("gt")}
+    lhs:Int ">=" rhs:Int -> Bool {prefer, cons("ge")}
+    lhs:Int "<" rhs:Int -> Bool {prefer, cons("lt")}
+    lhs:Int "<=" rhs:Int -> Bool {prefer, cons("le")}
+    "(" Int ")" -> Int {bracket}
+
+  context-free priorities
+    Int "*" Int -> Int >
+    { Int "+" Int -> Int {left}
+      Int "-" Int -> Int {left} }
+
+module Cell
+imports Int DataContract
+
+exports
+  sorts SortName Datum
+
+  context-free syntax
+    "cell" -> SortName {cons("cell")}
+    "storable" -> SortName {cons("storable")}
+
+  context-free syntax
+    Cell -> Datum {cons("cell")}
+
+module Action
+imports DataContract
+
+exports
+  sorts Action DataOpPrefix DataOpInfix ActionPrefix ActionInfix SortName
+
+  context-free syntax
+    Terminated -> Action {cons("terminated")}
+    "(" Action ")" -> Action {bracket, prefer}
+    ActionConst -> Action {cons("const")}
+    prefix:ActionPrefix prefixarg:Action -> Action {cons("prefix")}
+    lhs:Action infix:ActionInfix rhs:Action -> Action {left, cons("infix")}
+    "provide" data:Data -> Action {cons("provide")}
+    Action -> Datum {avoid, cons("action")}
+    ActionPrefix -> DataOpPrefix {avoid, cons("action-prefix")}
+    ActionInfix -> DataOpInfix {avoid, cons("action-infix")}
+    "action" -> SortName {cons("action")}
+    "provide" -> DataOpPrefix {avoid, cons("provide")}
+
+module String
+exports
+  sorts String
+
+  lexical syntax
+    "\"" StringChar* "\"" -> String
+    ~[\\\"\n] -> StringChar
+    [\\] [\\\"] -> StringChar
+
+  context-free syntax
+    
+
+module Token
+imports String DataContract
+
+exports
+  sorts Datum SortName
+
+  context-free syntax
+    "token" -> SortName {cons("token")}
+    "string" -> SortName {cons("string")}
+
+  context-free syntax
+    String -> Token {cons("string")}
+    Token -> Datum {cons("token")}
+
+module MessageTag
+imports Token
+
+exports
+  sorts Datum SortName MessageTag
+
+  context-free syntax
+    "message" 
+-> SortName {cons("message")}
+    "message-tag" -> SortName {cons("message-tag")}
+
+  context-free syntax
+    "<" token:Token ">" -> MessageTag
+    MessageTag -> Datum {cons("message-tag")}
+
+module List
+imports DataContract
+
+exports
+  sorts Datum DataOpPrefix SortName
+
+  context-free syntax
+    "tupleToList" -> DataOpPrefix {cons("tupleToList")}
+    "list" -> SortName {cons("list")}
+
+  context-free syntax
+    List -> Datum {cons("list")}
+
+module Bool
+imports Boolean DataContract
+
+exports
+  sorts Datum SortName DataOpPrefix
+
+  context-free syntax
+    "bool" -> SortName {cons("bool")}
+    "not" -> DataOpPrefix {cons("not")}
+
+  context-free syntax
+    BoolConst -> Datum {avoid, cons("datum")}
+
+module Int
+imports Integer DataContract
+
+exports
+  sorts Datum DataPredInfix DataOpInfix SortName
+
+  context-free syntax
+    ">" -> DataPredInfix {cons("gt")}
+    "<" -> DataPredInfix {cons("lt")}
+    ">=" -> DataPredInfix {cons("ge")}
+    "<=" -> DataPredInfix {cons("le")}
+    "nat" -> SortName {cons("nat")}
+    "pos" -> SortName {cons("pos")}
+    "int" -> SortName {cons("int")}
+    "+" -> DataOpInfix {cons("plus")}
+    "-?" -> DataOpInfix {cons("monus")}
+    "*" -> DataOpInfix {cons("times")}
+    "-" -> DataOpInfix {cons("minus")}
+
+  context-free syntax
+    Int -> Datum {cons("int")}
+
+module Data
+imports Int Bool Token List Agent Cell MessageTag Action Bindings
+
+exports
+  sorts DataOpComponent DataOpPrefix DataPredInfix DataPredPrefix
+
+  context-free syntax
+    "#" nat-con:Nat-Con -> DataOpPrefix {cons("op-component")}
+
+  context-free syntax
+    "=" -> DataPredInfix {cons("equals")}
+    "def" -> DataPredPrefix {cons("def")}
+
+module DataControl
+imports Data
+
+exports
+  sorts Terminated Action ActionConst ActionInfix ActionPrefix
+
+  context-free syntax
+    "copy" -> ActionConst {cons("copy")}
+    "then" -> ActionInfix {cons("then")}
+    "and" "then" -> ActionInfix {cons("and-then")}
+    "and" -> ActionInfix {cons("and")}
+    "indivisibly" -> ActionPrefix {cons("indivisibly")}
+    "raise" -> ActionConst {cons("raise")}
+    "exceptionally" -> ActionInfix {cons("exceptionally")}
+    "fail" -> ActionConst {cons("fail")}
+    "otherwise" -> ActionInfix {cons("otherwise")}
+    "choose" "natural" -> ActionConst {cons("choose-natural")}
+    "and" "exceptionally" -> ActionInfix {cons("and-exceptionally")}
+
+  context-free syntax
+    normal data:Data -> Terminated {cons("normal")}
+    exceptional data:Data -> Terminated {cons("exceptional")}
+    failed -> Terminated {cons("failed")}
+    "give" op:DataOp -> Action {cons("give")}
+    "check" pred:DataPred -> Action {cons("check")}
+    "select" "(" choices:{Action "or"}+ ")" -> Action {cons("select")}
+
+module Binding
+imports DataControl
+
+exports
+  sorts ActionConst ActionInfix
+
+  context-free syntax
+    "give" "current" "bindings" -> ActionConst {cons("give-current-bindings")}
+    "hence" -> ActionInfix {cons("hence")}
+
+module Enacting
+imports Binding
+
+exports
+  sorts ActionConst
+
+  context-free syntax
+    "enact" -> ActionConst {cons("enact")}
+
+module Storing
+imports Enacting
+
+exports
+  sorts ActionConst
+
+  context-free syntax
+    "create" -> ActionConst {cons("create")}
+    "destroy" -> ActionConst {cons("destroy")}
+    "update" -> ActionConst {cons("update")}
+    "inspect" -> ActionConst {cons("inspect")}
+
+module Interacting
+imports Storing
+
+exports
+  sorts ActionConst
+
+  context-free syntax
+    "activate" -> ActionConst {cons("activate")}
+    "deactivate" -> ActionConst {cons("deactivate")}
+    "give" "current" "agent" -> ActionConst {cons("give-current-agent")}
+    "send" -> ActionConst {cons("send")}
+    "receive" -> ActionConst {cons("receive")}
+    "give" "current" "time" -> ActionConst {cons("give-current-time")}
+
+module Main
+imports Interacting

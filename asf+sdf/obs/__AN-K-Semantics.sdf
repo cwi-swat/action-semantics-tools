@@ -1,0 +1,14 @@
+module obs/__AN-K-Semantics
+
+imports obs/interacting/__AN-K-Interacting-Semantics
+
+exports
+
+context-free syntax
+
+perform(Action) -> Conf
+
+hiddens
+variables
+"A"[0-9\']* -> Action
+

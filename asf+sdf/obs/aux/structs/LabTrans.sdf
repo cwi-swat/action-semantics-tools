@@ -1,0 +1,14 @@
+module obs/aux/structs/LabTrans[Index Arrow Univ]
+
+exports
+
+context-free syntax
+
+get(Arrow, Index) -> Univ
+set(Arrow, Index, Univ) -> Arrow
+
+hiddens
+variables
+"a"[0-9\']* -> Arrow
+"i"[0-9\']* -> Index
+"u"[0-9\']* -> Univ

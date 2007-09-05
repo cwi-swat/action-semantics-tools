@@ -1,0 +1,18 @@
+module pico/Evaluate
+
+imports pico/Exps
+	pico/Trans
+
+exports
+
+lexical syntax
+	%% Extension to AN
+	"||" -> DataOpInfix
+
+context-free syntax
+	"truth" "of" "[[" EXP "]]" -> Action
+	"evaluate" "[[" EXP "]]" -> Action
+
+hiddens
+variables
+"char+"[0-9\']* -> CHAR+

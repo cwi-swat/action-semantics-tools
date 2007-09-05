@@ -1,0 +1,5 @@
+module an/syn/kernel/Data-Control-Action
+
+imports an/syn/kernel/Normal-Exceptional-Failed-Action
+	an/syn/kernel/Kernel-Data-Action 
+	an/syn/kernel/Choice-Action

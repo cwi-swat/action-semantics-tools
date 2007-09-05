@@ -1,0 +1,34 @@
+module ajc/AJC-Functions
+
+imports an/Full-AN2-Syntax
+	java/basic/Java
+	aux/Environment
+	lay/Function[Level To-Class-Function To-Class-Args Class-Dec]
+	lay/Function[Level To-Decls-Function To-Decls-Args Class-Decs]
+	lay/Function[Level To-Ident-Function To-Ident-Args Id]
+	lay/Function[Level To-Expr-Function To-Expr-Args Expr]
+
+
+exports
+
+sorts Level
+
+context-free syntax
+	"to-class" -> To-Class-Function
+	ClassMod "," Id "," Action "," Environment -> To-Class-Args
+
+	"to-decls" -> To-Decls-Function
+	Action "," Environment -> To-Decls-Args
+
+	"to-ident" -> To-Ident-Function
+	Action "," Environment -> To-Ident-Args
+
+	"to-expr" -> To-Expr-Function
+	Action "," Expr "," Expr "," Environment -> To-Expr-Args
+
+	"kernel" -> Level
+	"full" -> Level
+
+
+aliases
+	ClassDec* -> ClassDecs 

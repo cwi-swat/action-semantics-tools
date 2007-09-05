@@ -1,0 +1,151 @@
+.TH "PureFactory" 3 "13 Sep 2002" "Action Java Compiler Runtime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PureFactory \- 
+.SH SYNOPSIS
+.br
+.PP
+Inherits \fBDataFactory\fP.
+.PP
+.SS "Public Methods"
+
+.in +1c
+.ti -1c
+.RI "\fBPureFactory\fP ()"
+.br
+.ti -1c
+.RI "\fBInt\fP \fBmakeInt\fP (long n)"
+.br
+.ti -1c
+.RI "\fBToken\fP \fBmakeToken\fP (String s)"
+.br
+.ti -1c
+.RI "\fBBool\fP \fBmakeBool\fP (boolean b)"
+.br
+.ti -1c
+.RI "\fBMessageTag\fP \fBmakeMessageTag\fP (String s)"
+.br
+.ti -1c
+.RI "\fBList\fP \fBmakeList0\fP ()"
+.br
+.ti -1c
+.RI "\fBList\fP \fBmakeList1\fP (\fBDataValue\fP dataValue)"
+.br
+.ti -1c
+.RI "\fBBindings\fP \fBmakeNoBindings\fP ()"
+.br
+.ti -1c
+.RI "\fBBindings\fP \fBmakeBindings\fP (\fBToken\fP token, \fBBindable\fP bindable)"
+.br
+.ti -1c
+.RI "\fBAgent\fP \fBmakeAgent\fP ()"
+.br
+.ti -1c
+.RI "\fBCell\fP \fBmakeCell\fP ()"
+.br
+.ti -1c
+.RI "\fBEmpty\fP \fBmakeEmpty\fP ()"
+.br
+.ti -1c
+.RI "\fBData\fP \fBmakeTuple\fP (\fBDataValue\fP dataValue, \fBData\fP data)"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBmakeAction\fP (\fBEnactable\fP enactable)"
+.br
+.in -1c
+.SH "CONSTRUCTOR & DESTRUCTOR DOCUMENTATION"
+.PP 
+.SS "PureFactory::PureFactory ()"
+.PP
+Definition at line 9 of file PureFactory.java.
+.SH "MEMBER FUNCTION DOCUMENTATION"
+.PP 
+.SS "\fBAction\fP PureFactory::makeAction (\fBEnactable\fP enactable)"
+.PP
+Reimplemented from \fBDataFactory\fP.
+.PP
+Definition at line 56 of file PureFactory.java.
+.SS "\fBAgent\fP PureFactory::makeAgent ()"
+.PP
+Reimplemented from \fBDataFactory\fP.
+.PP
+Definition at line 42 of file PureFactory.java.
+.SS "\fBBindings\fP PureFactory::makeBindings (\fBToken\fP token, \fBBindable\fP bindable)"
+.PP
+Reimplemented from \fBDataFactory\fP.
+.PP
+Definition at line 38 of file PureFactory.java.
+.SS "\fBBool\fP PureFactory::makeBool (boolean b)"
+.PP
+Reimplemented from \fBDataFactory\fP.
+.PP
+Definition at line 20 of file PureFactory.java.
+.PP
+Referenced by BoolImpl::not().
+.PP
+.SS "\fBCell\fP PureFactory::makeCell ()"
+.PP
+Reimplemented from \fBDataFactory\fP.
+.PP
+Definition at line 45 of file PureFactory.java.
+.SS "\fBEmpty\fP PureFactory::makeEmpty ()"
+.PP
+Reimplemented from \fBDataFactory\fP.
+.PP
+Definition at line 48 of file PureFactory.java.
+.PP
+Referenced by EmptyImpl::at(), DataValueImpl::at(), BindingsImpl::bound(), ActionImpl::enact(), TextImpl::equals(), ListImpl::equals(), IntImpl::equals(), DataValueImpl::equals(), BoolImpl::equals(), ActionImpl::equals(), EmptyImpl::first(), IntImpl::greater(), IntImpl::greaterOrEq(), ListImpl::head(), IntImpl::less(), IntImpl::lessOrEq(), and DataValueImpl::rest().
+.PP
+.SS "\fBInt\fP PureFactory::makeInt (long n)"
+.PP
+Reimplemented from \fBDataFactory\fP.
+.PP
+Definition at line 14 of file PureFactory.java.
+.SS "\fBList\fP PureFactory::makeList0 ()"
+.PP
+Reimplemented from \fBDataFactory\fP.
+.PP
+Definition at line 26 of file PureFactory.java.
+.PP
+Referenced by EmptyImpl::tupleToList().
+.PP
+.SS "\fBList\fP PureFactory::makeList1 (\fBDataValue\fP dataValue)"
+.PP
+Reimplemented from \fBDataFactory\fP.
+.PP
+Definition at line 30 of file PureFactory.java.
+.PP
+Referenced by DataValueImpl::tupleToList().
+.PP
+.SS "\fBMessageTag\fP PureFactory::makeMessageTag (String s)"
+.PP
+Reimplemented from \fBDataFactory\fP.
+.PP
+Definition at line 23 of file PureFactory.java.
+.SS "\fBBindings\fP PureFactory::makeNoBindings ()"
+.PP
+Reimplemented from \fBDataFactory\fP.
+.PP
+Definition at line 34 of file PureFactory.java.
+.PP
+Referenced by ActionImpl::enact().
+.PP
+.SS "\fBToken\fP PureFactory::makeToken (String s)"
+.PP
+Reimplemented from \fBDataFactory\fP.
+.PP
+Definition at line 17 of file PureFactory.java.
+.SS "\fBData\fP PureFactory::makeTuple (\fBDataValue\fP dataValue, \fBData\fP data)"
+.PP
+Reimplemented from \fBDataFactory\fP.
+.PP
+Definition at line 52 of file PureFactory.java.
+.PP
+Referenced by DataValueImpl::concat().
+.PP
+
+
+.SH "AUTHOR"
+.PP 
+Generated automatically by Doxygen for Action Java Compiler Runtime from the source code.

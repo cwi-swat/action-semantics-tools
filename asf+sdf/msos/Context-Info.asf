@@ -1,0 +1,28 @@
+equations
+
+[comp]	t1 = s,
+	t2 = s
+	===
+	t1 $ t2 = s
+
+[div]	t = s1,
+	su = s2
+	===
+	t // su = s2
+
+[div]	su1 = s1,
+	su2 = s2
+	===
+	su1 / su2 = s1
+
+[pr]	t = s
+	===
+	pre(t) = s
+
+[pos]	t = s
+	===
+	post(t) = s
+
+[uno]	su = s
+	===
+	unobs(su) = s

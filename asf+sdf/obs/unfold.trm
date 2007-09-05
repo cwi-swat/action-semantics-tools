@@ -1,0 +1,10 @@
+
+unfolding(
+  (copy and provide 0 then check _=_ then provide 1) and exceptionally
+  (copy and provide 1 then check _=_ then provide 1) and exceptionally
+  (  
+   (copy and provide 2 then give _-_ then unfold) and 
+   (copy and provide 1 then give _-_ then unfold) then give _+_
+  )
+)
+

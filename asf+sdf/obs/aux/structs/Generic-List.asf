@@ -1,0 +1,29 @@
+equations
+
+[e]	empty-list() = []
+
+[h]	head([x x*]) = x
+
+[t]	tail([x x*]) = [x*]
+
+[a]	append([x*], x) = [x* x]
+
+[i]	insert([x*], x) = [x x*]
+
+[c]	concat([x*1], [x*2]) = [x*1 x*2]
+
+[l]	length([]) = 0
+
+[l]	length([x x*]) = 1 + length([x*])
+
+[r1]	replace-at([x x*], 0, x') = [x' x*]
+
+[r2]	n != 0
+	===
+	replace-at([x x*], n, x') = insert(replace-at([x*], n-1, x'), x)
+
+[e1]	element-at([x x*], 0) = x
+
+[e2]	n != 0
+	===
+	element-at([x x*], n) = element-at([x*], n-1)

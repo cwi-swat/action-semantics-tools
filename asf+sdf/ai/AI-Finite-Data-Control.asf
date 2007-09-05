@@ -1,0 +1,359 @@
+equations
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% PROVIDE %%%%%%%%%%%%%%%%%%%%%%%%
+
+[]	gamma(bindings), gamma(data) |- A = A'
+	===
+	b, d |- provide A = normal A'
+
+[]	gamma(bindings), gamma(data) |- A = A' {oc*}
+	===
+	b, d |- provide A = normal A'
+
+[default]	
+	b, d |- provide d' = normal d'
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% COPY %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+[]	is-flat(d) = false
+	===
+	b, d |- copy = copy {giving alpha(d)}
+
+[]	is-flat(d) = true
+	===
+	b, d |- copy = normal d
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% THEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% Concrete semantics:
+[t1]	b, d |- A1 = normal d',
+        b, d'|- A2 = A2'
+	===
+	b, d |- A1 then A2 = A2'
+
+[t2]	b, d |- A1 = A1',
+	exceptional(A1') | failed(A1') = true
+	===
+	b, d |- A1 then A2 = A1'
+
+%% Abstract semantics
+[t3]	b, d |- A1 = A1',
+	giving(alpha(A1')) = false
+	====
+	b, d |- A1 then A2 = A1'
+
+[t4]	b, d |- A1 = A1',
+	giving(alpha(A1')) = true,
+	alpha(A1')[giving] = giving t1,
+	b, gamma(t1) |- A2 = A2',
+	{oc*} = (alpha(A1') / giving) + alpha(A2')
+	====
+	b, d |- A1 then A2 = A1' then A2' {oc*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% AND %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+[]	b, d |- A1 = normal d1,
+	b, d |- A2 = normal d2
+	===
+	b, d |- A1 and A2 = normal d1++d2
+
+[]	b, d |- A1 = A1',
+	-normal(A1') = true
+	===
+	b, d |- A1 and A2 = A1'
+
+[]	b, d |- A2 = A1',
+	-normal(A2') = true
+	===
+	b, d |- A1 and A2 = A2'
+
+%% The cases where either A1 or A2 actually terminates normally
+%% but the other still is giving.
+[]	b, d |- A1 = normal d1,
+	b, d |- A2 = A2',
+	giving(alpha(A2')) = true,
+	alpha(A2')[giving] = giving t2,
+	alpha(d1) = t1,
+        {oc*} = {giving t1*t2} + (alpha(A2') / giving)
+	===
+	b, d |- A1 and A2 = A2' {oc*}
+
+[]	b, d |- A1 = A1',
+	b, d |- A2 = normal d2,
+	giving(alpha(A1')) = true,
+	alpha(A1')[giving] = giving t1,
+	alpha(d2) = t2,
+        {oc*} = {giving t1*t2} + (alpha(A1') / giving)
+	===
+	b, d |- A1 and A2 = A2' {oc*}
+
+[]	b, d |- A1 = A1',
+	b, d |- A2 = A2',
+	giving(alpha(A1')) = true,
+	giving(alpha(A2')) = true,
+	alpha(A1')[giving] = giving t1,
+	alpha(A2')[giving] = giving t2,
+	{oc*} =(alpha(A1')/giving)+(alpha(A2')/giving)
+	===
+	b, d |- A1 and A2 = A1' and A2' {oc*}
+
+[]	b, d |- A1 = A1',
+	b, d |- A2 = A2',
+	giving(alpha(A1')) & giving(alpha(A2')) = false,
+	{oc*} = alpha(A1') + alpha(A2')
+	===
+	b, d |- A1 and A2 = A1' and A2' {oc*}
+
+	
+%%%%%%%%%%%%%%%%%%%%%%%%% AND THEN %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% A1 and A2 both actually  terminate normally. 
+[]	S, B, D  |- A1 = <S1, normal D1>,
+	S1, B, D |- A2 = <S2, normal D2>
+	===
+	S, B, D |- A1 and then A2 = <S2, normal D1++D2>
+
+[]	S, B, D  |- A1 = <S1, normal D1>,
+	S1, B, D |- A2 = <S2, A2'>,
+	terminated-but-not-normally(A2') = true
+	===
+	S, B, D |- A1 and then A2 = <S2, A2'>
+
+[]	S, B, D  |- A1 = <S1, A1'>,
+	terminated-but-not-normally(A1') = true
+	===
+	S, B, D |- A1 and then A2 = <S1, A1'>
+
+%% The cases where either A1 or A2 actually terminates normally
+%% but the other still is giving.
+[]	S, B, D  |- A1 = <S1, normal D1>,
+	S1, B, D |- A2 = <S2, A2' [oc+2]>,
+	is-giving(oc+2) = true,
+	get-given(oc+2) = T2,
+	data-to-type(D1) = T1
+	===
+	S, B, D |- A1 and then A2 = <S2, A2' [giving T1 * T2]>
+
+
+[]	S, B, D  |- A1 = <S1, A1' [oc+1]>,
+	S1, B, D |- A2 = <S2, normal D2>,
+	is-giving(oc+1) = true,
+	get-given(oc+1) = T1,
+	data-to-type(D2) = T2
+	===
+	S, B, D |- A1 and then A2 = <S2, A1' [giving T1 * T2]>
+
+
+%% A1 only may terminate normally with ()
+%% and does not commit
+[]	S, B, D |- A1 = <S, A1' [giving ()]>
+	===
+	S, B, D |- A1 and then A2 = S, B, D |- A2
+
+%% A2 only may terminate normally with ()
+%% and does not commit
+[]	S, B, D |- A2 = <S, A2' [giving ()]>
+	===
+	S, B, D |- A1 and then A2 = S, B, D |- A1
+
+[]	S, B, D  |- A1 = <S1, A1' [oc+1]>,
+	S1, B, D |- A2 = <S2, A2' [oc+2]>,
+	is-giving(oc+1) = true,
+	is-giving(oc+2) = true,
+	get-given(oc+1) = T1,
+	get-given(oc+2) = T2
+	===
+	S, B, D |- A1 and then A2 = <S2, A1' and then A2' 
+			[get-escaping(oc+1) 
+			 giving T1 * T2
+			 get-escaping(oc+2)
+			 ]>
+
+%% This differs from A1 and A2, since _and then_ is biased to 
+%% its first operand.
+[]	S, B, D  |- A1 = <S1, A1' [oc+1]>,
+	is-only-escaping(oc+1) = true
+	===
+	S, B, D |- A1 and then A2 = <S1, A1' [oc+1]>
+
+[]	S, B, D  |- A1 = <S1, normal D1>,
+	S1, B, D |- A2 = <S2, A2' [oc+2]>,
+	is-only-escaping(oc+2) = true
+	===
+	S, B, D |- A1 and then A2 = <S2, A2' [oc+2]>
+
+
+[]	S, B, D  |- A1 = <S1, A1' [oc+1]>,
+	S1, B, D |- A2 = <S2, A2' [oc+2]>,
+	is-giving(oc+1) = true,
+	is-only-escaping(oc+2) = true
+	===
+	S, B, D |- A1 and then A2 = <S2, A1 and then A2' [oc+1 oc+2]>
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Raise %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+[]	pure-data(D) = false,
+	data-to-type(D) = T
+	===
+	S, B, D |- raise = <S, raise [raising T]>
+
+[]	pure-data(D) = true
+	===
+	S, B, D |- raise = <S, exceptional D>
+
+%%[]	S, B, D |- raise = <S, exceptional D>
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Exceptionally %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% A1 actually terminates normally
+[]	S, B, D |- A1 = <S1, exceptional D1>
+	===
+	S, B, D |- A1 exceptionally A2 = S1, B, D1 |- A2
+
+[default]
+	S, B, D   |- A1 = <S1, A1'>
+	===
+	S, B, D |- A1 exceptionally A2 = <S1,A1'>
+
+%% A1 may only terminate exceptionally and does not commit
+%% and A2 actually terminates; commitment is checked via S
+%% Example: copy then provide 4
+[]	S, B, D    |- A1 = <S, A1' [raising T1]>,
+	type-to-data(T1) = D1,
+	S, B, D1 |- A2 = <S2, A2'>
+	===
+	S, B, D |- A1 exceptionally A2 = <S2, A2'>
+
+
+%% A1 may terminate exceptionally
+[]	S, B, D   |- A1 = <S1, A1' [oc+1]>,
+	is-raising(oc+1) = true,
+	get-raised(oc+1) = T1,
+	type-to-data(T1) = D1,
+	S1, B, D1 |- A2 = <S2, A2' [oc+2]>
+	===
+	S, B, D |- A1 exceptionally A2 = <S2, A1' exceptionally A2' 
+			[get-giving(oc+1) oc+2 ]>
+
+%% A1 may only terminate normally
+%% Example: provide 5 exceptionally copy
+[]	S, B, D |- A1 = <S1, A1' [oc+]>,
+	is-only-giving(oc+) = true
+	===
+	S, B, D |- A1 exceptionally A2 = <S1, A1' [oc+]>
+
+%% If A1 does not commit and is only raising
+%% and A2 is not consuming...
+[]	S, B, D |- A1 = <S, A1' [raising T1]>,
+	is-consuming(A2) = false,
+	type-to-data(T1) = D1
+	===
+	S, B, D |- A1 exceptionally A2 = S, B, D1 |- A2
+
+%%%%%%%%%%%%%%%%%%%%%%%%% AND EXCEPTIONALLY %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% A1 and A2 both actually  terminate exceptionally
+[]	S, B, D  |- A1 = <S1, exceptional D1>,
+	S1, B, D |- A2 = <S2, exceptional D2>
+	===
+	S, B, D |- A1 and exceptionally A2 = <S2, exceptional D1++D2>
+
+[]	S, B, D  |- A1 = <S1, exceptional D1>,
+	S1, B, D |- A2 = <S2, normal D2>
+	===
+	S, B, D |- A1 and exceptionally A2 = <S2, normal D2>
+
+
+[]	S, B, D  |- A1 = <S1, exceptional D1>,
+	S1, B, D |- A2 = <S2, failed>
+	===
+	S, B, D |- A1 and exceptionally A2 = <S2, failed>
+
+[]	S, B, D  |- A1 = <S1, normal D1>
+	===
+	S, B, D |- A1 and exceptionally A2 = <S1, normal D1>
+
+[]	S, B, D  |- A1 = <S1, failed>
+	===
+	S, B, D |- A1 and exceptionally A2 = <S1, failed>
+
+%% The cases where either A1 or A2 actually terminates exceptionally
+%% but the other still is raising
+[]	S, B, D  |- A1 = <S1, exceptional D1>,
+	S1, B, D |- A2 = <S2, A2' [oc+2]>,
+	is-raising(oc+2) = true,
+	get-raised(oc+2) = T2,
+	data-to-type(D1) = T1
+	===
+	S, B, D |- A1 and exceptionally A2 = <S2, A2' [
+		raising T1 * T2
+		get-giving(oc+2)
+		get-failing(oc+2)]>
+
+
+[]	S, B, D  |- A1 = <S1, A1' [oc+1]>,
+	S1, B, D |- A2 = <S2, exceptional D2>,
+	is-raising(oc+1) = true,
+	get-raised(oc+1) = T1,
+	data-to-type(D2) = T2
+	===
+	S, B, D |- A1 and exceptionally A2 = <S2, A1' [
+		raising T1 * T2
+		get-giving(oc+1)
+		get-failing(oc+1)]>
+
+%% Where A1 terminates exceptionally but A2 does not raise.
+[]	S, B, D  |- A1 = <S1, exceptional D1>,
+	S1, B, D |- A2 = <S2, A2' [oc+2]>,
+	is-raising(oc+2) = false,
+	oc+ = get-giving(oc+2) get-failing(oc+2)
+	===
+	S, B, D |- A1 and exceptionally A2 = <S2, A2' [oc+]>
+
+%% A1 only may terminate exceptionally with ()
+%% and does not commit
+[]	S, B, D |- A1 = <S, A1' [raising ()]>
+	===
+	S, B, D |- A1 and exceptionally A2 = S, B, D |- A2
+
+%% A2 only may terminate exceptionally with ()
+%% and does not commit
+[]	S, B, D |- A2 = <S, A2' [raising ()]>
+	===
+	S, B, D |- A1 and exceptionally A2 = S, B, D |- A1
+
+%% Both A1 and A2 may raise something
+[]	S, B, D  |- A1 = <S1, A1' [oc+1]>,
+	S1, B, D |- A2 = <S2, A2' [oc+2]>,
+	is-raising(oc+1) = true,
+	is-raising(oc+2) = true,
+	get-raised(oc+1) = T1,
+	get-raised(oc+2) = T2
+	===
+	S, B, D |- A1 and exceptionally A2 = <S2, A1' and exceptionally A2' 
+			[get-giving(oc+1) 
+			 raising T1 * T2
+			 get-giving(oc+2)
+			 ]>
+
+[]	S, B, D  |- A1 = <S1, A1' [oc+1]>,
+	is-only-giving(oc+1) = true
+	===
+	S, B, D |- A1 and exceptionally A2 = <S1, A1' [oc+1]>
+
+
+[default]
+	S, B, D  |- A1 = <S1, A1' [oc+1]>,
+	S1, B, D  |- A2 = <S2, A2' [oc+2]>
+	===
+	S, B, D |- A1 and exceptionally A2 = <S1, 
+		A1' and exceptionally A2' [oc+1 oc+2]>
+	

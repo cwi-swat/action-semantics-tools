@@ -1,0 +1,62 @@
+.TH "Scheduling" 3 "13 Sep 2002" "Action Java Compiler Runtime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Scheduling \- 
+.SH SYNOPSIS
+.br
+.PP
+Inherited by \fBSchedule\fP.
+.PP
+.SS "Public Methods"
+
+.in +1c
+.ti -1c
+.RI "\fBEmpty\fP \fBsend\fP (\fBAgent\fP agent, \fBMessage\fP message, \fBMessageTag\fP messageTag) throws \fBExceptional\fP"
+.br
+.ti -1c
+.RI "\fBMessage\fP \fBreceive\fP (\fBMessageTag\fP messageTag) throws \fBExceptional\fP"
+.br
+.ti -1c
+.RI "\fBAgent\fP \fBactivate\fP (\fBAction\fP action)"
+.br
+.ti -1c
+.RI "\fBEmpty\fP \fBdeactivate\fP (\fBAgent\fP agent) throws \fBExceptional\fP"
+.br
+.ti -1c
+.RI "\fBAgent\fP \fBcurrentAgent\fP ()"
+.br
+.ti -1c
+.RI "\fBInt\fP \fBcurrentTime\fP ()"
+.br
+.ti -1c
+.RI "\fBInt\fP \fBchooseNatural\fP ()"
+.br
+.in -1c
+.SH "MEMBER FUNCTION DOCUMENTATION"
+.PP 
+.SS "\fBAgent\fP Scheduling::activate (\fBAction\fP action)"
+.PP
+Reimplemented in \fBSchedule\fP.
+.SS "\fBInt\fP Scheduling::chooseNatural ()"
+.PP
+Reimplemented in \fBSchedule\fP.
+.SS "\fBAgent\fP Scheduling::currentAgent ()"
+.PP
+Reimplemented in \fBSchedule\fP.
+.SS "\fBInt\fP Scheduling::currentTime ()"
+.PP
+Reimplemented in \fBSchedule\fP.
+.SS "\fBEmpty\fP Scheduling::deactivate (\fBAgent\fP agent)"
+.PP
+Reimplemented in \fBSchedule\fP.
+.SS "\fBMessage\fP Scheduling::receive (\fBMessageTag\fP messageTag)"
+.PP
+Reimplemented in \fBSchedule\fP.
+.SS "\fBEmpty\fP Scheduling::send (\fBAgent\fP agent, \fBMessage\fP message, \fBMessageTag\fP messageTag)"
+.PP
+Reimplemented in \fBSchedule\fP.
+
+.SH "AUTHOR"
+.PP 
+Generated automatically by Doxygen for Action Java Compiler Runtime from the source code.

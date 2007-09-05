@@ -1,0 +1,15 @@
+ail-to-c(
+
+tryf @l1;
+push 6{[type,int]};
+push 4{[type,int]};
+merge;
+publish;
+add;
+unpublish;
+catchf @l2;
+@l1: push []{[type,empty]};
+@l2: copy;
+return;
+
+)

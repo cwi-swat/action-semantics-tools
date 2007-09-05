@@ -1,0 +1,7 @@
+[
+("SGLR",		Path("__SGLR__")),
+("ASFIXTOOLS",		Path("__ASFIXTOOLS__")),
+("--verbose",		1),
+("sglr",		Prefix(Var("SGLR"), 		Path("/bin/sglr"))),
+("implode-asfix",	Prefix(Var("ASFIXTOOLS"), 	Path("/bin/implode-asfix")))
+]

@@ -1,0 +1,14 @@
+module dn/syn/lib/Booleans
+
+imports basic/Booleans
+
+exports
+
+context-free syntax
+	Boolean -> Datum
+	"boolean" -> SortName {cons("boolean-sortname")}
+	"not" -> DataOpPrefix {cons("not-dataop-prefix")}
+	"&" -> DataOpInfix {cons("and-dataop-infix")}
+	"|" -> DataOpInfix {cons("or-dataop-infix")}
+
+	

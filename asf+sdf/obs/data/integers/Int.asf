@@ -1,0 +1,171 @@
+equations
+
+
+   [1]    nat-con("0" char+) = nat-con(char+)
+
+~~ -- addition --
+   [2]    0 + n = n
+   [3]    n + 0 = n
+   [4]    1 + 1 = 2     [5]    1 + 2 = 3     [6]    1 + 3 = 4
+   [7]    1 + 4 = 5     [8]    1 + 5 = 6     [9]    1 + 6 = 7
+   [10]   1 + 7 = 8     [11]   1 + 8 = 9     [12]   1 + 9 = 10
+   [13]   2 + 1 = 3     [14]   2 + 2 = 4     [15]   2 + 3 = 5
+   [16]   2 + 4 = 6     [17]   2 + 5 = 7     [18]   2 + 6 = 8
+   [19]   2 + 7 = 9     [20]   2 + 8 = 10    [21]   2 + 9 = 11
+   [22]   3 + 1 = 4     [23]   3 + 2 = 5     [24]   3 + 3 = 6
+   [25]   3 + 4 = 7     [26]   3 + 5 = 8     [27]   3 + 6 = 9
+   [28]   3 + 7 = 10    [29]   3 + 8 = 11    [30]   3 + 9 = 12
+   [31]   4 + 1 = 5     [32]   4 + 2 = 6     [33]   4 + 3 = 7
+   [34]   4 + 4 = 8     [35]   4 + 5 = 9     [36]   4 + 6 = 10
+   [37]   4 + 7 = 11    [38]   4 + 8 = 12    [39]   4 + 9 = 13
+   [40]   5 + 1 = 6     [41]   5 + 2 = 7     [42]   5 + 3 = 8
+   [43]   5 + 4 = 9     [44]   5 + 5 = 10    [45]   5 + 6 = 11
+   [46]   5 + 7 = 12    [47]   5 + 8 = 13    [48]   5 + 9 = 14
+   [49]   6 + 1 = 7     [50]   6 + 2 = 8     [51]   6 + 3 = 9
+   [52]   6 + 4 = 10    [53]   6 + 5 = 11    [54]   6 + 6 = 12
+   [55]   6 + 7 = 13    [56]   6 + 8 = 14    [57]   6 + 9 = 15
+   [58]   7 + 1 = 8     [59]   7 + 2 = 9     [60]   7 + 3 = 10
+   [61]   7 + 4 = 11    [62]   7 + 5 = 12    [63]   7 + 6 = 13
+   [64]   7 + 7 = 14    [65]   7 + 8 = 15    [66]   7 + 9 = 16
+   [67]   8 + 1 = 9     [68]   8 + 2 = 10    [69]   8 + 3 = 11
+   [70]   8 + 4 = 12    [71]   8 + 5 = 13    [72]   8 + 6 = 14
+   [73]   8 + 7 = 15    [74]   8 + 8 = 16    [75]   8 + 9 = 17
+   [76]   9 + 1 = 10    [77]   9 + 2 = 11    [78]   9 + 3 = 12
+   [79]   9 + 4 = 13    [80]   9 + 5 = 14    [81]   9 + 6 = 15
+   [82]   9 + 7 = 16    [83]   9 + 8 = 17    [84]   9 + 9 = 18
+
+   [85a]  nat-con(char1) + nat-con(char2) = nat-con(char* char),
+          nat-con (char+1) + nat-con(char+2) + nat-con("0" char*) = nat-con(char+)
+          ========================================================
+          nat-con(char+1 char1) + nat-con(char+2 char2) = nat-con(char+ char)
+
+   [85b]  nat-con(char1) + nat-con(char2) = nat-con(char* char),
+          nat-con ("0" char*1) + nat-con(char+2) + nat-con("0" char*) = nat-con(char+)
+          ========================================================
+          nat-con(char*1 char1) + nat-con(char+2 char2) = nat-con(char+ char)
+
+   [85c]  nat-con(char1) + nat-con(char2) = nat-con(char* char),
+          nat-con (char+1) + nat-con("0" char*2) + nat-con("0" char*) = nat-con(char+)
+          ========================================================
+          nat-con(char+1 char1) + nat-con(char*2 char2) = nat-con(char+ char)
+
+   [86]   nat-con(char) -// nat-con(char) = 0
+   [87]   nat-con(char) -// 0 = nat-con(char)
+   [88]   2 -// 1 = 1
+   [89]   3 -// 1 = 2     [90]   3 -// 2 = 1
+   [91]   4 -// 1 = 3     [92]   4 -// 2 = 2     [93]   4 -// 3 = 1
+   [94]   5 -// 1 = 4     [95]   5 -// 2 = 3     [96]   5 -// 3 = 2
+   [97]   5 -// 4 = 1
+   [98]   6 -// 1 = 5     [99]   6 -// 2 = 4     [100]  6 -// 3 = 3
+   [101]  6 -// 4 = 2     [102]  6 -// 5 = 1
+   [103]  7 -// 1 = 6     [104]  7 -// 2 = 5     [105]  7 -// 3 = 4
+   [106]  7 -// 4 = 3     [107]  7 -// 5 = 2     [108]  7 -// 6 = 1
+   [109]  8 -// 1 = 7     [110]  8 -// 2 = 6     [111]  8 -// 3 = 5
+   [112]  8 -// 4 = 4     [113]  8 -// 5 = 3     [114]  8 -// 6 = 2
+   [115]  8 -// 7 = 1
+   [116]  9 -// 1 = 8     [117]  9 -// 2 = 7     [118]  9 -// 3 = 6
+   [119]  9 -// 4 = 5     [120]  9 -// 5 = 4     [121]  9 -// 6 = 3
+   [122]  9 -// 7 = 2     [123]  9 -// 8 = 1
+   [124]  10 -// 1 = 9    [125]  10 -// 2 = 8    [126]  10 -// 3 = 7
+   [127]  10 -// 4 = 6    [128]  10 -// 5 = 5    [129]  10 -// 6 = 4
+   [130]  10 -// 7 = 3    [131]  10 -// 8 = 2    [132]  10 -// 9 = 1
+
+~~ -- auxiliary function gt
+
+   [133]  nat-con(char1) -// nat-con(char2) = nat-con(char),
+          nat-con(char) != 0
+          =========================================================
+          gt(nat-con(char1), nat-con(char2)) = true
+
+   [134]  gt(nat-con(char+1 char1), nat-con(char2)) = true
+
+   [135]  gt(nat-con(char+ char1), nat-con(char+ char2)) = gt(nat-con(char1), nat-con(char2))
+
+   [136]  gt(nat-con(char+1), nat-con(char+2)) = true
+          =========================================
+          gt(nat-con(char+1 char1), nat-con(char+2 char2)) = true
+
+~~ -- auxiliary function >- , partial substraction
+
+   [137]  n >- 0 = n
+
+   [138]  nat-con(char1) >- nat-con(char2) = nat-con(char1) -// nat-con(char2)
+
+   [139a] nat-con(char1)  -// nat-con(char2)    = nat-con(char3),
+          nat-con (char+1) >- nat-con("0" char*2) = nat-con(char+)
+          ==================================================
+          nat-con(char+1 char1) >- nat-con(char*2 char2) = nat-con(char+ char3)
+
+   [139b] nat-con(char2)  -// nat-con(char1) = nat-con(char3),
+          10 -// nat-con(char3) = nat-con(char),
+          nat-con ("0" char*2) + 1 = n,
+          nat-con(char+1) >- n = nat-con(char+)
+          ==================================================
+          nat-con(char+1 char1) >- nat-con(char*2 char2) = nat-con(char+ char)
+
+
+~~ -- cut off subtraction -?
+   [140]  gt(n1, n2) = true
+          ===
+          n1 -? n2 = n1 >- n2
+
+   [141]  gt(n1, n2) != true
+          ===
+          n1 -? n2 = 0
+
+~~ -- subtraction of nat-conurals
+
+   [142]  gt(n1, n2) = true 
+          ===
+          n1 - n2 = n1 >- n2
+
+   [143]  gt(n1, n2) != true 
+          ===
+          n1 - n2 = -(n2 >- n1)
+
+~~ -- multiplication of nat-conurals --
+   [144] n * 0 = 0
+
+   [145] n * 1 = n
+
+   [146] gt(nat-con(char), 1) = true
+         ===============================================
+         n * nat-con(char) = n + n * (nat-con(char) - 1)
+
+   [147] nat-con(char+1) * nat-con(char+2) = nat-con(char+)
+         ========================================================
+         nat-con(char+1) * nat-con(char+2 char) =
+         nat-con(char+ "0") + nat-con(char+1) * nat-con(char)
+
+~~ -- addition,  subtraction, and multiplication of integers
+   [148]  +n = n
+
+   [149]  n1 + -n2 = n1 - n2
+   [150]  -n1 + n2 = n2 - n1
+   [151]  n1 + n2 = n  === -n1 + -n2 = -n
+
+   [152]  n1 - -n2 = n1 + n2
+   [153]  n1 + n2 = n === -n1 - n2 = -n
+   [154]  -n1 - -n2 = n2 - n1
+
+   [155]  n1 * n2 = n  === n1 * -n2 = -n
+   [156]  n1 * n2 = n === -n1 * n2 = -n
+   [157]  -n1 * -n2 = n1 * n2
+
+~~ -- relational operators
+   [158]  gt(n1, n2) = true === n1 > n2 = true
+   [159]  gt(n1, n2) != true === n1 > n2 = false
+   [160]  n1 > -n2 = true
+   [161]  -n1 > n2 = false
+   [162]  -n1 > -n2 = n2 > n1
+
+   [163]  i1 != i2 === i1 >= i2 = i1 > i2
+   [164]  i >= i = true
+
+   [165]  i1 < i2 = not i1 >= i2
+   [166]  i1 <= i2 = not i1 > i2
+
+~~ -- no minus zero
+   [167] - 0 = 0
+
+

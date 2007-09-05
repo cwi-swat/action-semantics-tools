@@ -1,0 +1,177 @@
+equations
+
+[1]	exec(provide d, i) = <normal d, i>
+
+[2]	i.data = d
+	===
+	exec(copy, i) = <normal d, i>
+
+[3]     terminated(A1) = false,
+	terminated(A2) = false,
+	exec(A1, a) = <A1', a'>
+        ===
+        exec(A1 then A2, a) = <A1' then A2, a'>
+
+[4]	terminated(A2) = false,
+	a' = a.data := d1,
+        exec(A2, a') = < A2', a''>
+        ===
+        exec(normal d1 then A2, a) = <normal d1 then A2', a''>
+
+
+[5]     exec(normal d1 then t2, i) = < t2, i >
+
+[6]     terminated(A1) = false,
+	terminated(A2) = false,
+	exec(A1, a) = <A1', a'>
+        ===
+        exec(A1 and then A2, a) = <A1' and then A2, a'> 
+
+[7]	terminated(A2) = false,
+	exec(A2, a) = <A2', a'>
+        ===
+        exec(normal d1 and then A2, a) =
+		<normal d1 and then A2', a'>
+
+[8]     exec(normal d1 and then normal d2, i) =
+                <normal d1 ++ d2, i>
+
+~~ Interleaving
+[9]     terminated(A1) = false,
+	exec(A1, a) = <A1', a'>
+	===
+	exec(A1 and A2, a) = <A1' and A2, a'>
+
+[10]	terminated(A2) = false,
+	exec(A2, a) = <A2', a'>
+	===
+	exec(A1 and A2, a) = <A1 and A2', a'>
+
+
+[11]	exec(normal d1 and normal d2, i) = <normal d1 ++ d2, i>
+
+[12]    exec+(A, a) = <t, a'>
+        ===
+        exec(indivisibly A, a) = <t, a'>
+
+~~ Exceptional flow
+
+[13]    i.data = d
+        ===
+        exec(raise, i) = <exceptional d, i>
+
+[14]    terminated(A1) = false,
+	exec(A1, a) = <A1', a'>
+        ===
+        exec(A1 exceptionally A2, a) = <A1' exceptionally A2, a'>
+
+[15]    a' = a.data := d1,
+        exec(A2, a') = <A2', a''>
+        ===
+        exec(exceptional d1 exceptionally A2, a) =
+		<exceptional d1 exceptionally A2', a''>
+
+[16]    exec(exceptional d1 exceptionally t2, i) = <t2, i>
+
+[17]    terminated(A1) = false,
+	exec(A1, a) = <A1', a'>
+        ===
+        exec(A1 and exceptionally A2, a) = <A1' and exceptionally A2, a'>
+
+[18]    exec(A2, a) = <A2', a'>
+        ===
+        exec(exceptional d1 and exceptionally A2, a) =
+		<exceptional d1 and exceptionally A2', a'>
+
+[19]    exec(exceptional d1 and exceptionally exceptional d2, i) =
+                <exceptional d1 ++ d2, i>
+
+
+[20]    exec(exceptional d1 then A2, i) = <exceptional d1, i>
+
+[21]    exec(exceptional d1 and then A2, i) = <exceptional d1, i>
+
+[22]    exec(normal d1 and then exceptional d2, i) =
+                <exceptional d2, i>
+
+[23]    exec(exceptional d1 and A2, i) = <exceptional d1, i>
+
+[24]    exec(A1 and exceptional d2, i) = <exceptional d2, i>
+
+[25]    exec(normal d1 exceptionally A2, i) = <normal d1, i>
+
+[26]    exec(normal d1 and exceptionally A2, i) = <normal d1, i>
+
+[27]    exec(exceptional d1 and exceptionally normal d2, i) =
+                <normal d2, i>
+
+[28]	i.data = d,
+	nothing = result o d
+	===
+	exec(give o, i) = <exceptional (), i>
+
+[default-28]
+	i.data = d,
+	d1 = result o d
+	===
+	exec(give o, i) = <normal d1, i>
+
+
+[30]	a.data = d,
+	holds q d = true
+	===
+	exec(check q, a) = <normal (), a>
+
+[31]	a.data = d,
+	holds q d = false
+	=== 
+	exec(check q, a) = <exceptional (), a>
+
+~~ Alternative Flow
+
+[32]    exec(fail, i) = <failed, i>
+
+[33]    terminated(A1) = false,
+	exec(A1, i) = <A1', i'>
+        ===
+        exec(A1 otherwise A2, i) = <A1' otherwise A2, i'>
+
+[34]    exec(failed otherwise A2, i) = <A2, i> ~~exec(A2, i)
+
+[default-34']
+	exec(t1 otherwise A2, i) = <t1, i>
+
+[35]    exec(select (A), i) = <A, i> ~~exec(A, i)
+
+[36]	exec(select (A1 or C2), i) = <A1 otherwise select(C2), i>
+
+[40]    exec(choose natural, i) = <normal 0, i>
+
+~~ Combined Flow
+
+[41]    exec(failed then A2, i) = <failed, i>
+
+[42]    exec(failed and then A2, i) = <failed, i>
+
+[43]    exec(normal d and then failed, i) = <failed, i>
+
+[44]    exec(failed and A2, i) = <failed, i>
+
+[45]    exec(A1 and failed, i) = <failed, i>
+
+[46]    exec(failed exceptionally A2, i) = <failed, i>
+
+[47]    exec(failed and exceptionally A2, i) = <failed, i>
+
+[48]    exec(exceptional d1 and exceptionally failed, i) = <failed, i>
+
+[49]    exec(normal d1 otherwise A2, i) = <normal d1, i>
+
+[50]    exec(exceptional d1 otherwise A2,i) = <exceptional d1, i>
+
+
+
+
+
+
+

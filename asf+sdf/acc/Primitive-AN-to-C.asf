@@ -1,0 +1,224 @@
+equations
+
+%% For all typed primitive actions...
+
+[default-p]
+	exp1' = make-typecheck(A,exp1),
+	exp2' = make-computation(A,exp1),
+	exp = make-checked-expression(exp1', exp2')
+	===
+	pa-to-expression(A,exp1,exp2,env) = (exp)
+
+
+%% NON typed primitive actions
+
+
+[]      aterm = data-to-aterm(u),
+	str = aterm-to-pattern(aterm)
+	===
+	pa-to-expression(provide u, exp1, exp2, env) = 
+		ATparse(str)
+
+[]      aterm = data-to-aterm(b),
+	str = aterm-to-pattern(aterm)
+	===
+	pa-to-expression(provide b, exp1, exp2, env) = 
+		ATparse(str)
+
+[]      aterm = data-to-aterm(()),
+	str = aterm-to-pattern(aterm)
+	===
+	pa-to-expression(provide (), exp1, exp2, env) = 
+		ATparse(str)
+
+[]      pa-to-expression(provide (d1,d2), exp1, exp2, env) =
+                pa-to-expression(provide d1 and provide d2, exp1, exp2, env)
+
+[]      pa-to-expression(provide (d1,d2,d+), exp1, exp2, env) =
+                pa-to-expression(provide d1 and provide (d2,d+),exp1,exp2,env)
+
+[]      pa-to-expression(copy, exp1, exp2, env) = exp1
+
+[]      pa-to-expression(raise, exp1, exp2, env) = ACC_throw_exception(exp1)
+
+[]      pa-to-expression(fail, exp1, exp2, env) = ACC_throw_failure()
+
+[]      pa-to-expression(give current bindings, exp1, exp2, env) = exp2
+
+
+%% Handle data operations and predicates and typed actions
+
+%% Type check expression
+[]	aterm = datasort-to-aterm(ds),
+	str = aterm-to-pattern(aterm)
+	===
+	make-typecheck(ds, exp1) = AN_match(exp1, ATparse(str))
+
+%% Conditional expression
+[]	make-conditional(exp1,exp2) =
+		(exp1 ? exp2 : ACC_raise_empty())
+
+
+[]      make-checked-expression(enact, exp1) = 
+		make-conditional(make-typecheck(action,exp1),
+				make-computation(enact,exp1))
+
+
+[]      make-checked-expression(create, exp1) =
+		make-conditional(make-typecheck(datum,exp1),
+				make-computation(create,exp1))
+
+[]      make-checked-expression(update, exp1) =
+		make-conditional(make-typecheck((cell,datum),exp1),
+				make-computation(update,exp1))
+
+[]      make-checked-expression(destroy, exp1) = 
+		make-conditional(make-typecheck(cell,exp1),
+				make-computation(destroy,exp1))
+
+[]      make-checked-expression(inspect, exp1) =
+		make-conditional(make-typecheck(cell,exp1),
+				make-computation(inspect,exp1))
+
+
+%% The actual computation
+
+[]	make-computation(give the ds_, exp1) = exp1
+
+[]      make-computation(give #nat-con(char+)_, exp1) = 
+		AN_component(exp1, integerconstant(char+))
+
+[]      make-computation(enact, exp1) = ACC_enact(exp1)
+
+
+[]      make-computation(create, exp1) = ACC_create(exp1)
+
+[]      make-computation(update, exp1) = ACC_update(exp1)
+
+[]      make-computation(destroy, exp1) = ACC_destroy(exp1)
+
+[]      make-computation(inspect, exp1) = ACC_inspect(exp1)
+
+
+[]      make-computation(give _+_, exp1) = 
+		AN_givePlus(AN_elt1(exp1),AN_elt2(exp1))
+
+[]      make-computation(give _-_, exp1) =
+		AN_giveMinus(AN_elt1(exp1),AN_elt2(exp1))
+
+[]      make-computation(give _-?_, exp1) =
+		AN_giveMonus(AN_elt1(exp1),AN_elt2(exp1))
+
+[]      make-computation(give _*_, exp1) =
+		AN_giveTimes(AN_elt1(exp1),AN_elt2(exp1))
+
+[]      make-computation(give not_, exp1) = 
+		AN_giveNot(exp1)
+
+[]      make-computation(give tupleToList_, exp1) = 
+		AN_giveTupleToList(exp1)
+
+[]      make-computation(give overriding_, exp1) =
+		AN_giveOverriding(AN_elt1(exp1),AN_elt2(exp1))
+
+[]      make-computation(give bound_, exp1) =
+		AN_giveBound(AN_elt1(exp1),AN_elt2(exp1))
+
+[]      make-computation(give binding_, exp1) =
+		AN_giveBinding(AN_elt1(exp1),AN_elt2(exp1))
+
+[]      make-computation(give disjoint union_, exp1) =
+		AN_giveDisjointUnion(AN_elt1(exp1),AN_elt2(exp1))
+
+[]      make-computation(give _then_, exp1) =
+		ACC_giveThen(AN_elt1(exp1),AN_elt2(exp1))
+
+[]      make-computation(give _and then_, exp1) =
+		ACC_giveAndThen(AN_elt1(exp1),AN_elt2(exp1))
+
+[]      make-computation(give _and_, exp1) =
+		ACC_giveAnd(AN_elt1(exp1),AN_elt2(exp1))
+
+[]      make-computation(give _exceptionally_, exp1) =
+		ACC_giveExceptionally(AN_elt1(exp1),AN_elt2(exp1))
+
+[]      make-computation(give _and exceptionally_, exp1) =
+		ACC_giveAndExceptionally(AN_elt1(exp1),AN_elt2(exp1))
+
+[]      make-computation(give _otherwise_, exp1) =
+		ACC_giveOtherwise(AN_elt1(exp1),AN_elt2(exp1))
+
+
+[]      make-computation(give _hence_, exp1) =
+		ACC_giveHence(AN_elt1(exp1),AN_elt2(exp1))
+
+[]      make-computation(give indivisibly_, exp1) =
+		ACC_giveIndivisibly(exp1)
+
+[]      make-computation(give provide_, exp1) = 
+		ACC_giveProvide(exp1)
+
+[]      make-computation(check _=_, exp1) =
+		(AN_checkEquals(AN_elt1(exp1),AN_elt2(exp1))?
+		AN_emptyData : ACC_raise(AN_emptyData))
+
+[]      make-computation(check _>_, exp1) =
+		(AN_checkGt(AN_elt1(exp1),AN_elt2(exp1))?
+		AN_emptyData : ACC_raise(AN_emptyData))
+
+[]      make-computation(check _<_, exp1) =
+		(AN_checkLt(AN_elt1(exp1),AN_elt2(exp1))?
+		AN_emptyData : ACC_raise(AN_emptyData))
+
+[]      make-computation(check _>=_, exp1) =
+		(AN_checkGeq(AN_elt1(exp1),AN_elt2(exp1))?
+		AN_emptyData : ACC_raise(AN_emptyData))
+
+[]      make-computation(check _<=_, exp1) =
+		(AN_checkLeq(AN_elt1(exp1),AN_elt2(exp1))?
+		AN_emptyData : ACC_raise(AN_emptyData))
+
+
+
+%% Change ATerm (patterns) to strings (no support for annotations yet)
+
+[]	stringliteral(char+) = aterms-to-string(aterm)
+	===
+	aterm-to-pattern(aterm) = stringliteral(""" char+ """)
+
+[]	aterms-to-string(literal("""char+""")) = 
+		stringliteral("\""""char+"\"""")
+
+[default-a]	
+	aterms-to-string(literal(char+)) = stringliteral(char+)
+
+[]	aterms-to-string(natcon(char+)) = stringliteral(char+)
+
+[]	aterms-to-string(+natcon(char+)) = stringliteral("+"char+)
+
+[]	aterms-to-string(-natcon(char+)) = stringliteral("-"char+)
+
+[]	aterms-to-string(aterm, aterms) = 
+		aterms-to-string(aterm) || stringliteral(",") ||
+		aterms-to-string(aterms)
+
+[]	aterms-to-string([aterm,aterms]) = 
+		stringliteral("[") || aterms-to-string(aterm) || 
+		stringliteral(",")
+		aterms-to-string(aterms) || 
+		stringliteral("]")
+
+[]	aterms-to-string([aterm]) = 
+		stringliteral("[") || aterms-to-string(aterm) || 
+		stringliteral("]")
+
+[]	aterms-to-string([]) = stringliteral("[""]")
+
+[]	aterms-to-string(afun(aterms)) =
+		aterms-to-string(afun) || "(" ||
+		aterms-to-string(aterms) || ")"
+
+[]	aterms-to-string() = ""
+
+[]	stringliteral(char+1) || stringliteral(char+2) =
+		stringliteral(char+1 char+2)

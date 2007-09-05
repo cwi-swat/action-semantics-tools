@@ -1,0 +1,7 @@
+equations
+
+[l]	length("") = 0
+
+[l]	length(string(""" char char* """)) =
+		1 + length(string(""" char* """))
+

@@ -1,0 +1,6 @@
+fa-to-decls(
+unfolding(
+(provide 4 then unfold) exceptionally
+(provide 5 )
+)
+, new-environment().pos:=1)

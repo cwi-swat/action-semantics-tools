@@ -1,0 +1,36 @@
+equations
+
+[]	<k, v> = find(<k, NULL>,t)
+	===
+	get(t, k) = v
+
+[]	put(t, k, v) = add(t, <k,v>)
+
+[]	has-key(t, k) = member(<k, NULL>, t)
+
+[]	empty-tree-map() = empty
+
+[]	t.k := v = put(t,k,v)
+
+[]	t.k = get(t,k)
+
+[]	elt-gt(<k1,v1>,<k2,v2>) = elt-gt(k1,k2)
+
+[]	elt-lt(<k1,v1>,<k2,v2>) = elt-lt(k1,k2)
+
+[]	t1 + t2 = union(t1,t2)
+
+[]	t1 - t2 = difference(t1,t2)
+
+[]	intersect(t1,t2) = intersection(t1,t2)
+
+[]	t1 +/ t2 = disjoint-union(t1,t2)
+
+[]	elt-list(t) = kv*
+	===
+	domain(t) = domain(kv*)
+
+[]	domain() = 
+
+[]	domain(<k,v> kv*) = k domain(kv*)
+

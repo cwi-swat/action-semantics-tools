@@ -1,0 +1,15 @@
+module obs/storing/__AN-K-Storing
+
+imports obs/enacting/__AN-K-Enacting
+
+exports 
+
+lexical  syntax
+  "create"      -> ActionConst %%{cons("create-ActionConst")}
+  "destroy"     -> ActionConst %%{cons("destroy-ActionConst")}
+  "update"      -> ActionConst %%{cons("update-ActionConst")}
+  "inspect"     -> ActionConst %%{cons("inspect-ActionConst")}
+
+hiddens sorts 
+
+        ActionConst SortName DataTypes

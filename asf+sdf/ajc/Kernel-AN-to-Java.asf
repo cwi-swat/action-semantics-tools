@@ -1,0 +1,230 @@
+equations
+
+%%%%%%%%%%%%%%%%%%%%%% Full Defaults %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+[default-f]
+	fa-to-class(mod,id,A,env) = ka-to-class(mod,id,A,env)
+
+[default-f]
+	fa-to-decls(A,env) = ka-to-decls(A,env)
+
+[default-f]
+	fa-to-identifier(A,env) = ka-to-identifier(A,env)
+
+[default-f]
+	fa-to-expression(A,exp1,exp2,env) = ka-to-expression(A,exp1,exp2,env)
+
+
+[default-f]
+	fa-to-default-expression(A,env) = ka-to-default-expression(A,env)
+
+[default-f]
+	fa-to-method(A, stat*, env) = ka-to-method(A, stat*, env)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% Kernel Defaults %%%%%%%%%%%%%%%%
+
+[default-i]
+	n = env.pos
+	===
+	ka-to-identifier(A, env) = make-id(A, n)
+
+[default-m]
+	ka-to-decls(A, env) = 
+
+
+%%%%%%%%%%%%%%%%%%%%% Parameter names %%%%%%%%%%%%%%%%%%%%%%%%
+
+[bpar]	bindings-parameter() = bindings
+
+[dpar]	data-parameter() = data
+
+[bpar]	bindings-type() = Bindings
+
+[dpar]	data-type() = Data
+
+
+%%%%%%%%%%%%%%%%%%%%%% Class construction %%%%%%%%%%%%%%%%%%%%
+
+[kc]	ka-to-class(mod,id,A, env) =
+mod class id extends AbstractEnactable {
+	public id(DataFactory factory) {
+		this.factory = factory;
+	}
+	public data-type() enact(data-type() data-parameter(), 
+				 bindings-type() bindings-parameter()) 
+				throws Exceptional, Failed {
+		return fa-to-default-expression(A, env);
+	}
+	fa-to-decls(A, env)
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%% MethodConstruction %%%%%%%%%%%%%%%%%%%%%
+
+[kade]	ka-to-default-expression(A, env) = 
+	fa-to-expression(A, data-parameter(), bindings-parameter(), env)
+
+
+[meth]	id = fa-to-identifier(A, env)
+	===
+	ka-to-method(A, stat*, env) =
+private data-type() id(data-type() data-parameter(), 
+		       bindings-type() bindings-parameter()) 
+			throws Exceptional, Failed {
+	stat*
+}
+
+%%%%%%%%%%%%%%%%%% Special cases of provide  %%%%%%%%%%%%
+
+
+[km0]	n = env.pos,
+	id = fa-to-identifier(A, env),
+	env' = env.pos := 1
+	===
+	ka-to-decls(provide A, env) = fa-to-class(private,id,A, env')
+
+[km0]	ka-to-decls(provide (d1,d2), env) =
+		fa-to-decls(provide d1 and provide d2, env)
+
+[km0]	ka-to-decls(provide (d1,d2,d+), env) =
+		fa-to-decls(provide d1 and provide (d2,d+), env)
+
+%%%%%%%%%%%%%%%%%% Combinator translation %%%%%%%%%%%%%%%%%%%
+
+%% THEN
+[km1]	env1 env2 = split-environment(env)
+	=====
+	ka-to-decls(A1 then A2, env) =
+fa-to-decls(A1, env1)
+fa-to-method(A1 then A2,
+	Data d = fa-to-default-expression(A1, env1); 
+	return fa-to-expression(A2, d, bindings-parameter(), env2);, env)
+fa-to-decls(A2, env2)
+
+%% AND THEN
+[km2]	env1 env2 = split-environment(env)
+	====
+	ka-to-decls(A1 and then A2, env) =
+fa-to-decls(A1, env1)
+fa-to-method(A1 and then A2,
+	Data d1 = fa-to-default-expression(A1, env1);
+	Data d2 = fa-to-default-expression(A2, env2);
+	return d1.concat(d2);, env)
+fa-to-decls(A2, env2)
+
+
+%% AND
+[km3]	env1 env2 = split-environment(env)
+	====
+	ka-to-decls(A1 and A2, env) =
+fa-to-decls(A1, env1)
+fa-to-method(A1 and A2,
+	Data d1 = fa-to-default-expression(A1, env1);
+	Data d2 = fa-to-default-expression(A2, env2);
+	return d1.concat(d2);, env)
+fa-to-decls(A2, env2)
+
+%% INDIVISIBLY
+
+[km4]	n = env.pos,
+	n' = n + 2,
+	env' = env.pos := n'
+	===
+	ka-to-decls(indivisibly A, env) =
+fa-to-decls(A, env')
+fa-to-method(indivisibly A,
+synchronized (Store.getStore()) {
+	return fa-to-default-expression(A, env);
+}, env)
+
+
+%% EXCEPTIONALLY
+[km5]	env1 env2 = split-environment(env)
+	===
+	ka-to-decls(A1 exceptionally A2, env) =
+fa-to-decls(A1, env1)
+fa-to-method(A1 exceptionally A2,
+try {
+        return fa-to-default-expression(A1, env1);
+}
+catch (Exception e) {
+        Data raised = catchExceptional(e);
+        return fa-to-expression(A2, raised, bindings-parameter(),env2);
+}, env)
+fa-to-decls(A2, env2)
+
+
+%% AND EXCEPTIONALLY
+[km6]	env1 env2 = split-environment(env)
+	===
+	ka-to-decls(A1 and exceptionally A2, env) =
+fa-to-decls(A1, env1)
+fa-to-method(A1 and exceptionally A2,
+try {
+        return fa-to-default-expression(A1, env1);
+}
+catch (Exceptional e1) {
+        Data d1 = catchExceptional(e1);
+        try {
+                return fa-to-default-expression(A2, env2);
+        }
+        catch (Exceptional e2) {
+                Data d2 = catchExceptional(e2);
+                throw new Exceptional(d1.concat(d2));
+        }
+}, env)
+fa-to-decls(A2, env2)
+
+
+
+%% OTHERWISE
+[km7]	env1 env2 = split-environment(env)
+	===
+	ka-to-decls(A1 otherwise A2, env) =
+fa-to-decls(A1, env1)
+fa-to-method(A1 otherwise A2,
+try {
+        return fa-to-default-expression(A1, env1);
+}
+catch (Failed f) {
+        return fa-to-default-expression(A2, env2);
+}, env)
+fa-to-decls(A2, env2)
+
+%% SELECT
+
+[km8]	ka-to-decls(select(A), env) = fa-to-decls(A, env)
+
+[km9]	ka-to-decls(select(A or C), env) =
+		fa-to-decls(A otherwise select(C), env)
+
+[km8]	ka-to-expression(select(A), exp1, exp2, env) = 
+		fa-to-expression(A, exp1, exp2, env)
+
+[km9]	ka-to-expression(select(A or C), exp1, exp2, env) =
+		fa-to-expression(A otherwise select(C), exp1, exp2, env)
+
+
+
+%% HENCE
+
+[km10]	env1 env2 = split-environment(env)
+	====
+	ka-to-decls(A1 hence A2, env) =
+fa-to-decls(A1, env1)
+fa-to-method(A1 hence A2,
+	Bindings newBindings = (Bindings)(fa-to-default-expression(A1, env1));
+	return fa-to-expression(A2, data-parameter(), newBindings, env2);, env)
+fa-to-decls(A2, env2)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Utilities %%%%%%%%%%%%%%%%%%%%%%
+
+[senv]	nat-con(char+) = env.pos,
+	n1 = nat-con(char+ "0"),
+	n2 = nat-con(char+ "1"),
+	env1 = env.pos := n1,
+	env2 = env.pos := n2
+	===	
+	split-environment(env) = env1 env2

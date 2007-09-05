@@ -1,0 +1,14 @@
+module obs/aux/structs/Monoid[Act]
+
+imports obs/aux/structs/Category[Act* Unit][Arrow => Monoid]
+
+exports
+
+sorts Act Act*
+
+hiddens
+context-free syntax
+"1" -> Unit
+variables
+"a"[0-9\']* -> Act
+"a*"[0-9\']* -> Act

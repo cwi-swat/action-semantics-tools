@@ -1,0 +1,5 @@
+equations
+
+[]	empty-buffers() = empty-map()
+
+[]	empty-taggedbuffers() = empty-map()

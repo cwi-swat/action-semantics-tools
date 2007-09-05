@@ -1,0 +1,7 @@
+equations
+
+[]	result first_ pair(d1,d2) = d1
+
+[]	result second_ pair(d1,d2) = d2
+
+[]	result the pair_ p = p

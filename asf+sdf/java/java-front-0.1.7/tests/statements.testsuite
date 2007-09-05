@@ -1,0 +1,11 @@
+TestSuite(
+  Name("Statements")
+, Sort("BlockStm")
+, ParseTable(File("../grammar/basic/Java.tbl"))
+, Tests(
+  [ Test(Descr("simple assignment")
+    , String("x = 1;"), Expr(Assign(ExprName("x"), Lit(Deci("1"))))
+    )
+  ])
+)
+

@@ -1,0 +1,46 @@
+module an/syn/abbrev/Data-Control-Action
+
+imports an/syn/abbrev/Data
+	an/syn/kernel/Kernel-Action
+
+exports
+
+sorts Yielder 
+
+context-free syntax
+	Data -> Yielder {cons("data-yielder")}
+	DataOpPrefix -> Yielder {cons("dataop-prefix-yielder")}
+	DataOpInfix -> Yielder {cons("dataop-infix-yielder")}
+
+	DataOpPrefix Yielder -> Yielder {cons("prefix-appl-yielder")}
+	Yielder DataOpInfix Yielder -> Yielder {left,cons("infix-appl-yielder")}
+	"(" Yielder "," Yielder ")" -> Yielder {cons("pair-of-yielders"),prefer}
+	"give" Yielder -> Action {cons("give-yielder-action")}
+
+	"(" Yielder ")" -> Yielder {bracket,cons("yielder-bracket")}
+
+	Action Yielder -> Action {cons("action-appl-action")}
+	"given" Yielder -> Action {cons("given-yielder-action")}
+
+	DataPredPrefix -> Enquirer {cons("datapred-prefix-enquirer")}
+	DataPredInfix -> Enquirer {cons("datapred-infix-enquirer")}
+	Yielder DataPredInfix Yielder -> Enquirer
+				{cons("infix-appl-enquirer")}
+	DataPredPrefix Yielder -> Enquirer {cons("prefix-appl-enquirer")}
+	"(" Enquirer ")" -> Enquirer {bracket,cons("enquirer-bracket")}
+
+	"when" Enquirer -> Action {cons("when-action")}
+	"skip" -> Action {cons("skip-action")}
+	"err" -> Action {cons("err-action")}
+
+	"tentatively" -> ActionPrefix {cons("tentatively-prefix")}
+	"infallibly" -> ActionPrefix {cons("infallibly-prefix")}
+
+context-free priorities
+	DataOpPrefix Yielder -> Yielder {cons("prefix-appl-yielder")} >
+	Yielder DataOpInfix Yielder -> Yielder {cons("infix-appl-yielder")} >
+	Action Yielder -> Action {cons("action-appl-action")} >
+	ActionPrefix Action -> Action >
+	Action ActionInfix Action -> Action  
+
+

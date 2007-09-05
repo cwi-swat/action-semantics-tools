@@ -1,0 +1,23 @@
+equations
+
+[]	result the tree-set_ s = s
+
+[]	result t-set_ d = new(d, empty, empty)
+
+[]	result t-union_ (s1,s2) = union(s1,s2)
+
+[]	result t-intersection_ (s1,s2) = intersection(s1,s2)
+
+[]	result t-difference_ (s1,s2) = difference(s1,s2)
+
+[]	member(d,s) = true
+	===
+	holds t-member_ (d, s) = true
+
+[]	member(d,s) = false
+	===
+	holds t-member_ (d, s) = false
+
+
+
+

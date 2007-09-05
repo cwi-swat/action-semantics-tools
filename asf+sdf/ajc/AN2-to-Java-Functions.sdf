@@ -1,0 +1,37 @@
+module ajc/AN2-to-Java-Functions
+
+imports obs/AN2 
+	%%an/Full-AN2-Syntax
+	%%dn/DN2-Syntax
+	java/basic/Java
+	obs/aux/structs/Environment
+
+exports
+
+sorts ClassBodyDec ClassBodyDdec* Id Expr
+
+context-free syntax
+
+ka-to-class(ClassMod,Id,Action,Environment) -> ClassDec
+ka-to-decls(Action,Environment) -> ClassBodyDec*
+ka-to-identifier(Action,Environment) -> Id
+ka-to-expression(Action,Expr,Expr,Environment) -> Expr
+
+fa-to-class(ClassMod,Id,Action,Environment) -> ClassDec
+fa-to-decls(Action,Environment) -> ClassBodyDec*
+fa-to-identifier(Action,Environment) -> Id
+fa-to-expression(Action,Expr,Expr,Environment) -> Expr
+
+make-id(Action, Int) -> Id
+
+hiddens
+variables
+"A"[0-9\']* -> Action
+"exp"[0-9\']* -> Expr
+"env"[0-9\']* -> Environment
+"char+"[0-9\']* -> CHAR+
+"char*"[0-9\']* -> CHAR*
+"char"[0-9\']* -> CHAR
+"Ap"[0-9\']* -> ActionPrefix
+"Ac"[0-9\']* -> ActionConst
+"Ai"[0-9\']* -> ActionInfix

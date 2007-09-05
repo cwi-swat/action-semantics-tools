@@ -1,0 +1,103 @@
+private Data and$100000(Data data, 
+		       Bindings bindings) {
+	return merge(data,
+			new Integer(int-to-integerliteral(0)));
+}
+private Data then$10000(Data data, 
+		       Bindings bindings) {
+	return exceptionally$100001(and$100000(data,bindings),bindings);
+}
+private Data exceptionally$100001(Data data, 
+		       Bindings bindings) {
+	try {
+        return checkEquals(data);
+}
+catch (Exceptional e) {
+        Data raised = e.getData();
+        return fail();
+}
+}
+private Data then$1000(Data data, 
+		       Bindings bindings) {
+	return new Integer(int-to-integerliteral(1));
+}
+private Data otherwise$100(Data data, 
+		       Bindings bindings) {
+	try {
+        return then$1000(data,bindings);
+}
+catch (Failed f) {
+        return then$1001(data,bindings);
+}
+}
+private Data and$100100(Data data, 
+		       Bindings bindings) {
+	return merge(data,
+			new Integer(int-to-integerliteral(1)));
+}
+private Data then$10010(Data data, 
+		       Bindings bindings) {
+	return exceptionally$100101(and$100100(data,bindings),bindings);
+}
+private Data exceptionally$100101(Data data, 
+		       Bindings bindings) {
+	try {
+        return checkEquals(data);
+}
+catch (Exceptional e) {
+        Data raised = e.getData();
+        return fail();
+}
+}
+private Data then$1001(Data data, 
+		       Bindings bindings) {
+	return new Integer(int-to-integerliteral(1));
+}
+private Data otherwise$10(Data data, 
+		       Bindings bindings) {
+	try {
+        return otherwise$100(data,bindings);
+}
+catch (Failed f) {
+        return then$101(data,bindings);
+}
+}
+private Data and$1010000(Data data, 
+		       Bindings bindings) {
+	return merge(data,
+			new Integer(int-to-integerliteral(2)));
+}
+private Data then$101000(Data data, 
+		       Bindings bindings) {
+	return giveMinus(and$1010000(data,bindings));
+}
+private Data then$10100(Data data, 
+		       Bindings bindings) {
+	return otherwise$10(then$101000(data,bindings),bindings);
+}
+private Data and$1010(Data data, 
+		       Bindings bindings) {
+	return merge(then$10100(data,bindings),
+			then$10101(data,bindings));
+}
+private Data and$1010100(Data data, 
+		       Bindings bindings) {
+	return merge(data,
+			new Integer(int-to-integerliteral(1)));
+}
+private Data then$101010(Data data, 
+		       Bindings bindings) {
+	return giveMinus(and$1010100(data,bindings));
+}
+private Data then$10101(Data data, 
+		       Bindings bindings) {
+	return otherwise$10(then$101010(data,bindings),bindings);
+}
+private Data then$101(Data data, 
+		       Bindings bindings) {
+	return givePlus(and$1010(data,bindings));
+}
+private Data unfolding$1(Data data, 
+		       Bindings bindings) {
+	return otherwise$10(data,bindings);
+}

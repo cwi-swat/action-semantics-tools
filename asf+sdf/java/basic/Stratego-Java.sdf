@@ -1,0 +1,88 @@
+module java/basic/Stratego-Java
+imports java/basic/Java
+imports
+  Stratego [
+    Module        => StrategoModule
+    Decl          => StrategoDecl
+    Def           => StrategoDef
+    Id            => StrategoId
+    SVar          => StrategoSVar
+    Var           => StrategoVar
+    StrChar       => StrategoStrChar
+    StrategyAngle => StrategoStrategyAngle
+    Term          => StrategoTerm
+    Strategy      => StrategoStrategy
+    Rule          => StrategoRule
+    RuleDef       => StrategoRuleDef
+    StrategyDef   => StrategoStrategyDef 
+    Overlay       => OverlayStratego
+    Type          => StrategoType
+  ]
+
+exports
+  context-free syntax
+    "[java[" JavaNonTerm "]]" -> StrategoTerm {cons("ToTerm")}
+
+    "[java:expr[" Expr "]]"   -> StrategoTerm {cons("ToTerm")}
+
+    "[java:type[" Type "]]"   -> StrategoTerm {cons("ToTerm")}
+
+    "[java:compilation-unit[" CompilationUnit "]]"  -> StrategoTerm {cons("ToTerm")}
+    "[java:type-dec[" TypeDec "]]"                  -> StrategoTerm {cons("ToTerm")}
+
+    "[java:class-body-dec["  ClassBodyDec  "]]" -> StrategoTerm {cons("ToTerm")}
+    "[java:class-body-dec*[" ClassBodyDec* "]]" -> StrategoTerm {cons("ToTerm")}
+
+    "[java:block-stm["  BlockStm  "]]" -> StrategoTerm {cons("ToTerm")}
+    "[java:block-stm*[" BlockStm* "]]" -> StrategoTerm {cons("ToTerm")}
+
+    "[java:formal-param["   FormalParam       "]]" -> StrategoTerm {cons("ToTerm")}
+    "[java:formal-param*[" {FormalParam ","}* "]]" -> StrategoTerm {cons("ToTerm")}
+
+    "[java:imember-dec["  AMethodDec  "]]" -> StrategoTerm {cons("ToTerm")}
+    "[java:imember-dec*[" AMethodDec* "]]" -> StrategoTerm {cons("ToTerm")}
+
+    CompilationUnit -> JavaNonTerm
+    PackageDec      -> JavaNonTerm
+    ImportDec       -> JavaNonTerm
+    TypeDec         -> JavaNonTerm
+    ClassBodyDec    -> JavaNonTerm
+    Stm             -> JavaNonTerm
+    Expr            -> JavaNonTerm
+
+    "~"      StrategoTerm -> Name {cons("FromTerm")}
+    "~name:" StrategoTerm -> Name {cons("FromTerm")}
+    "~*:"    StrategoTerm -> Name {cons("FromTerm")}
+
+    "~"  StrategoTerm  -> Type {cons("FromTerm")}
+
+    "~"  StrategoTerm  -> Id   {cons("FromTerm")}
+    "~id:"  StrategoTerm  -> Id   {cons("FromTerm")}
+
+    "~"  StrategoTerm  ->  FormalParam       {cons("FromTerm")}
+    "~*" StrategoTerm  -> {FormalParam ","}* {cons("FromTerm")}
+
+    "~"  StrategoTerm  -> BlockStm  {cons("FromTerm")}
+    "~*" StrategoTerm  -> BlockStm* {cons("FromTerm")}
+
+    "~"  StrategoTerm  -> Stm  {cons("FromTerm")}
+
+    "~"  StrategoTerm  ->  Expr       {cons("FromTerm")}
+    "~*" StrategoTerm  -> {Expr ","}* {cons("FromTerm")}
+
+    "~"  StrategoTerm  -> TypeDec  {cons("FromTerm")}
+    "~*" StrategoTerm  -> TypeDec* {cons("FromTerm")}
+
+    "~"  StrategoTerm  -> ClassBodyDec  {cons("FromTerm")}
+    "~*" StrategoTerm  -> ClassBodyDec* {cons("FromTerm")}
+
+    "~"  StrategoTerm  -> InterfaceMemberDec  {cons("FromTerm")}
+    "~*" StrategoTerm  -> InterfaceMemberDec* {cons("FromTerm")}
+
+    "~deci:"   StrategoTerm -> DeciLiteral   {cons("FromTerm")}
+    "~hexa:"   StrategoTerm -> HexaLiteral   {cons("FromTerm")}
+    "~octa:"   StrategoTerm -> OctaLiteral   {cons("FromTerm")}
+    "~float:"  StrategoTerm -> FloatLiteral  {cons("FromTerm")}
+    "~string:" StrategoTerm -> StringLiteral {cons("FromTerm")}
+    "~char:"   StrategoTerm -> CharLiteral   {cons("FromTerm")}
+

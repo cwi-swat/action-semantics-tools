@@ -1,0 +1,20 @@
+equations
+
+[1]	storable(n) = true
+
+[2]	bindable(n) = true
+
+[3]	d = (),
+	cs = empty-cells(),
+	st = empty-storage(),
+	sc = empty-schedule(),
+	ags = empty-agents(),
+	as = empty-actions()
+	===
+	e = []
+		[d/data]
+		[cs/cells]
+		[st/storage]
+		[sc/schedule]
+		[ags/agents]
+		[as/actions]

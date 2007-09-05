@@ -1,0 +1,12 @@
+module an/sem/kernel/Bindings-Flow
+
+imports an/sem/kernel/Action 
+	dn/sem/internal/Bindings
+	msos/Context-Info[Bindings-Index Bindings]
+
+exports
+
+context-free syntax
+	"bindings" -> Bindings-Index {cons("bindings-index")}
+
+

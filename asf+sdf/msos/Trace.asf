@@ -1,0 +1,12 @@
+equations
+
+[comp]	t1 $ (t2 $ t3) = (t1 $ t2) $ t3
+
+[pre1]	pre(t1 $ t2) = pre(t1)
+
+[pos1]	post(t1 $ t2) = post(t2)
+
+[uno1]	unobs(pre(t)) $ t = t
+
+[uno2]	t $ unobs(post(t)) = t
+

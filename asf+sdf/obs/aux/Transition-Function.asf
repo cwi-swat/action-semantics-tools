@@ -1,0 +1,16 @@
+equations
+
+
+[]	terminated(t) = true
+
+[default]
+	terminated(A) = false
+
+[1]	exec(A, e) = <t, e'>
+	===
+	exec+(A, e) = <t, e'>
+
+[default-2]	
+	exec(A, e) = <A', e'>
+	===
+	exec+(A, e) = exec+(A', e') 

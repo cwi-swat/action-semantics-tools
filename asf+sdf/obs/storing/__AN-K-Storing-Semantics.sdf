@@ -1,0 +1,42 @@
+module obs/storing/__AN-K-Storing-Semantics
+
+imports obs/storing/__AN-K-Storing 
+	obs/aux/__AN-K-Storage
+        obs/enacting/__AN-K-Enacting-Semantics 
+	obs/aux/__AN-K-Cells
+	obs/aux/structs/Info[Storage-Index Storage]
+	obs/aux/structs/Info[Cells-Index Cells]
+
+exports
+
+context-free syntax
+
+"storage" -> Storage-Index
+"cells" -> Cells-Index
+
+hiddens
+
+context-free syntax
+
+check-cells(Environment) -> Environment
+
+variables
+"d"[0-9\']* -> Data
+"u"[0-9\']* -> Datum
+"A"[0-9\']* -> Action
+"a"[0-9\']* -> Environment
+"i"[0-9\']* -> Environment
+"n"[0-9\']* -> Int
+"s"[0-9\']* -> Storage
+"c"[0-9\']* -> Cell
+"cs"[0-9\']* -> Cells
+"sv"[0-9\']* -> Data %%Storable
+"ai"[0-9\']* -> ActionInfix
+"ap"[0-9\']* -> ActionPrefix
+"ac"[0-9\']* -> ActionConst
+
+
+
+
+
+

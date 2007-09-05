@@ -1,0 +1,11 @@
+module obs/storing/_AN-Storing
+
+imports obs/__AN-K 
+
+exports context-free syntax
+        "stored" "in" Yielder   -> Yielder
+
+
+hiddens sorts
+
+        Yielder

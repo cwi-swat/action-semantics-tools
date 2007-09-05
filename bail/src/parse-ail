@@ -1,0 +1,3 @@
+#!/bin/sh
+
+sglr -p ../../../AIL/AIL.trm.tbl -i $@ -o $@.baf

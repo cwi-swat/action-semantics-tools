@@ -1,0 +1,29 @@
+module c/AbstractDeclarators
+exports
+  context-free syntax
+    "*" TypeQualifier* -> Pointer {cons("PointerOf")}
+    Pointer+ -> Pointers {cons("Pointer-p")}
+    Pointer* -> PointersOpt {cons("Pointer-s")}
+
+  context-free syntax
+    UnaryAbstractDeclarator -> AbstractDeclarator {cons("UnaryAbstractDeclarator")}
+    PostfixAbstractDeclarator -> AbstractDeclarator {cons("PostfixAbstractDeclarator")}
+    PostfixingAbstractDeclarator -> AbstractDeclarator {cons("PostfixingAbstractDeclarator")}
+
+  context-free syntax
+    Pointers ( PostfixAbstractDeclarator | PostfixingAbstractDeclarator )? -> UnaryAbstractDeclarator {cons("Pointer")}
+
+  context-free syntax
+    ArrayAbstractDeclarator -> PostfixingAbstractDeclarator {cons("ArrayAbstractDeclarator")}
+    "(" {ParameterDeclaration ","}+ "," "..." ")" -> PostfixingAbstractDeclarator {cons("ParamListVarArgs")}
+    "(" {ParameterDeclaration ","}* ")" -> PostfixingAbstractDeclarator {cons("ParamList")}
+
+  context-free syntax
+    ArrayAbstractDeclarator? "[" ConstantExpression? "]" -> ArrayAbstractDeclarator {cons("ArrayDecl")}
+
+  context-free syntax
+    "(" UnaryAbstractDeclarator ")" -> PostfixAbstractDeclarator {cons("DeclBracket")}
+    "(" PostfixAbstractDeclarator ")" -> PostfixAbstractDeclarator {cons("DeclBracket1")}
+    "(" PostfixingAbstractDeclarator ")" -> PostfixAbstractDeclarator {cons("DeclBracket2")}
+    "(" UnaryAbstractDeclarator ")" PostfixingAbstractDeclarator -> PostfixAbstractDeclarator {cons("FunType")}
+

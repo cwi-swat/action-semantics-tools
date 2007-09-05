@@ -1,0 +1,9 @@
+module dn/sem/lib/Integers
+
+imports dn/syn/lib/Integers
+	dn/sem/kernel/Interface
+
+
+hiddens
+variables
+	"n"[0-9\']* -> Integer

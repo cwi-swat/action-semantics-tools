@@ -1,0 +1,24 @@
+module test/Test
+
+imports an/AN2-Semantics
+	dn/DN2-Semantics
+
+
+exports
+
+sorts Configuration
+
+context-free syntax
+
+	"e" -> IndexedState
+
+hiddens
+variables
+	"sc"[0-9\']* -> Schedule
+	"as"[0-9\']* -> Actions
+	"ags"[0-9\']* -> Agents
+	"cs"[0-9\']* -> Cells
+	"st"[0-9\']* -> Storage
+	"d"[0-9\']* -> Data
+	"ti"[0-9\']* -> Time
+	"n"[0-9\']* -> Integer

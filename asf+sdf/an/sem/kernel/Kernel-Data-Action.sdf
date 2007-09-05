@@ -1,0 +1,14 @@
+module an/sem/kernel/Kernel-Data-Action
+
+imports an/syn/kernel/Kernel-Data-Action
+	an/sem/kernel/Data-Flow 
+	dn/sem/kernel/Kernel-Data
+
+
+hiddens
+variables
+	"o"[0-9\']* -> DataOp
+	"q"[0-9\']* -> DataPred
+	"s"[0-9\']* -> IndexedState
+	"d"[0-9\']* -> Data
+	"u"[0-9\']* -> Datum

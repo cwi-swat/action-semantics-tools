@@ -1,0 +1,189 @@
+equations
+
+
+~~ Informal explanation: if the waiting agent is main, execute
+~~ a step of the argument and return the result of this. The 
+~~ difference between the main agent and a normal agent is that
+~~ main does not have an entry in the agent-action table.
+
+[]	a1 = check-schedule(a),
+	get-waiting-agent(a1) = main,
+	a2 = a1.agent := main,		~~ set current agent
+	exec(A, a2) = <A', a3>,		~~ perform one step
+	a4 = update-time(a3),
+	a5 = update-schedule(a4, A')
+	===
+	mt-exec(A,a) = <A', a5>
+
+
+~~ If an agent is waiting that is not main, execute one step of
+~~ it and put the result in the agent-action map. Return
+~~ the unchanged argument action with the updated environment.
+
+[]	a1 = check-schedule(a),
+	ag = get-waiting-agent(a1),
+	ag != main,
+	A' = get-action-for-agent(a1, ag),	~~ get corresponding action
+	a2 = a1.agent := ag,			~~ set current agent
+	exec(A', a2) = <A'', a3>,		~~ perform one step
+	a4 = update-time(a3),
+	a5 = update-actions(a4, ag, A''),
+	a6 = update-schedule(a5, A'')
+	===
+	mt-exec(A,a) = <A, a6>
+
+
+[]	mt-exec(A, a) = <t, a'>,
+	s = a'.schedule,
+	is-empty-vector(s) = true
+	===
+	mt-exec+(A,a) = <t, a'>
+
+[]	mt-exec(A, a) = <t, a'>,
+	s = a'.schedule,
+	is-empty-vector(s) = false
+	===
+	mt-exec+(A,a) = mt-exec+(t,a')
+
+[default]	
+	mt-exec(A, a) = <A', a'>
+	===
+	mt-exec+(A,a) = mt-exec+(A',a')
+
+[73]	A = a.data,
+	ags = a.agents,
+	ag = new-agent(ags),
+	As = a.actions,
+	s = a.schedule,
+	a1 = a.schedule := prepend(s, ag),
+	a2 = a1.agents := update-agents(ags),
+	a3 = a2.actions := put(As, ag, A)
+	===
+	exec(activate, a) = <normal ag, a3>
+
+[default-74]
+	exec(activate, a) = <exceptional (), a>
+
+[75]	ag = a.data,
+	s = a.schedule,
+	has-element(s, ag) = true,
+	s' = remove(s, ag),
+	a' = a.schedule := s'
+	===
+	exec(deactivate, a) = <normal (), a'>
+
+[default-76]
+	exec(deactivate, a) = <exceptional (), a>
+
+	
+[77]	i.agent = ag
+	===
+	exec(give current agent, i) = <normal ag, i>
+
+[78]	(ag, mt, m) = a.data,
+	bs = a.buffers,
+	bs' = check-buffers(bs,ag),
+	tbs = get(bs', ag),
+	tbs' = check-taggedbuffers(tbs, mt),
+	ms = get(tbs', mt),
+	ms' = queue(ms, m),
+	tbs'' = put(tbs', mt, ms'),
+	bs'' = put(bs, ag, tbs''),
+	a' = a.buffers := bs''
+	===
+	exec(send, a) = <normal (), a'>
+
+[default-79]
+	exec(send, a) = <exceptional (), a>
+
+[78]	mt = a.data,
+	bs = a.buffers,
+	ag = a.agent,
+	tbs = get(bs, ag),
+	has-key(tbs, mt) = true,
+	ms = get(tbs, mt),
+	m = get-queued(ms),
+	ms' = dequeue(ms),
+	tbs' = put(tbs, mt, ms'),
+	bs' = put(bs, ag, tbs'),
+	a' = a.buffers := bs'
+	===
+	exec(receive, a) = <normal m, a'>
+	
+[default-79]
+	exec(receive, a) = <exceptional (), a>
+
+[80]	a.time = n
+	===
+	exec(give current time, a) = <normal n, a>
+
+
+~~ Hidden utility-functions.
+
+[]	s = a.schedule,
+	ag = get-last(s)
+	===
+	get-waiting-agent(a) = ag
+
+[]	As = a.actions,
+	A = get(As, ag)
+	===
+	get-action-for-agent(a,ag) = A
+
+[]	As = a.actions,
+	As' = put(As, ag, A),
+	a' = a.actions := As'
+	===
+	update-actions(a,ag,A) = a'
+
+[]	ti = a.time,
+	a' = a.time := inc-time(ti)
+	===
+	update-time(a) = a'
+
+[]	terminated(A) = true,
+	s = a.schedule,
+	s' = remove-last(s),
+	a' = a.schedule := s'
+	====
+	update-schedule(a,A) = a'
+
+[]	terminated(A) = false,
+	s = a.schedule,
+	s' = rotate(s),
+	a' = a.schedule := s'
+	====
+	update-schedule(a,A) = a'
+
+
+[]	has-key(bs, ag) = false
+	===
+	check-buffers(bs, ag) = put(bs, ag, empty-taggedbuffers())
+
+[]	has-key(bs, ag) = true
+	===
+	check-buffers(bs, ag) = bs
+
+[]	has-key(tbs, mt) = false
+	===
+	check-taggedbuffers(tbs, mt) = put(tbs, mt, empty-queue())
+
+[]	has-key(tbs, mt) = true
+	===
+	check-taggedbuffers(tbs, mt) = tbs
+
+[]	has-key(a, schedule) = false,
+	has-key(a, actions) = false,
+	has-key(a, buffers) = false,
+	has-key(a, agents) = false,
+	has-key(a, time) = false
+	===
+	check-schedule(a) = 
+		put(put(put(put(put(a, time, new-time()), 
+		agents, empty-agents()),
+		buffers, empty-buffers()),
+		actions, empty-actions()),
+		schedule, prepend(empty-schedule(), main))
+
+[default]
+	check-schedule(a) = a

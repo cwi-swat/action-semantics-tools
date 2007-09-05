@@ -1,0 +1,21 @@
+module obs/data/__AN-K-MessageTag
+
+imports obs/data/strings/__AN-K-Token
+
+exports
+
+lexical syntax
+
+  "message"             -> SortName 
+  "message-tag"         -> SortName 
+
+context-free syntax
+
+"<" token:Token ">" -> MessageTag 
+
+MessageTag -> Datum {cons("message-tag")}
+
+hiddens
+variables
+"d"[0-9\']* -> Data
+"tk"[0-9\']* -> Token

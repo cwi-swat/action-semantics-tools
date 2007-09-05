@@ -1,0 +1,9 @@
+module dn/sem/lib/Booleans
+
+imports dn/syn/lib/Booleans
+	dn/sem/kernel/Interface
+
+hiddens
+variables
+	"b"[0-9\']* -> Boolean
+	

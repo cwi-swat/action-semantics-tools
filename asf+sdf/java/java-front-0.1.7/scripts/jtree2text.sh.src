@@ -1,0 +1,39 @@
+#! /bin/sh
+
+PREFIX=__PREFIX__
+STRATEGO=__STRATEGO__
+ABOX2TEXT=${STRATEGO}/bin/abox2text
+ABOXFORMAT=${STRATEGO}/bin/abox-format
+JTREE2ABOX=${PREFIX}/bin/jtree2abox
+
+OUTPUT="cat"
+
+# no core files
+ulimit -c 0
+
+usage () {
+cat <<ENDCAT
+usage:
+  jtree2text [-h] [-i jtree] [-o text]
+
+where
+  -h         Displays usage information.
+  -i jtree   Specifies the jtree to transform.
+  -o text    Specifies the file name of the resulting text term.
+
+ENDCAT
+}
+
+for arg in $*
+do
+   case $1 in
+      -h ) usage; exit 0 ;;
+      -i ) INPUT="-i $2"; shift; shift ;;
+      -o ) OUTPUT="cat > $2"; shift ; shift ;;
+      -* ) usage; exit 1 ;;
+   esac
+done
+
+(
+    ${JTREE2ABOX} ${INPUT} | ${ABOXFORMAT} | ${ABOX2TEXT}
+) | eval ${OUTPUT}

@@ -1,0 +1,8 @@
+equations
+
+[sos58]	s@data = A
+	===
+	s |- enact = <normal () then (normal no bindings hence A), s>
+
+[default-sos59]	
+	s |- enact = <exceptional (), s>

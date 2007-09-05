@@ -1,0 +1,11 @@
+module pico/Declare
+
+imports pico/Decls
+	pico/Trans
+
+exports
+
+context-free syntax
+	"declare" "[[" DECLS "]]" -> Action {cons("pico-declare-section")}
+	"declare" "[[" ID-TYPES "]]" -> Action {cons("pico-declare-id-types")}
+	"default" "of" "[[" TYPE "]]" -> Datum {cons("pico-default-of")}

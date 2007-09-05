@@ -1,0 +1,153 @@
+equations
+
+%% Terminated
+
+[ks01]	ka-to-stats(normal d, env) = fa-to-stats(provide d, env)
+
+
+[ks02]	
+	ka-to-stats(exceptional d, env) =
+		eprov data-to-aterm(d);
+		throw;
+
+[ks03]	ka-to-stats(failed, env) = fa-to-stats(fail, env)
+
+%% PROVIDE
+
+[ks1]	prg = fa-to-program(A, env)
+	===
+	ka-to-stats(provide A, env) = abs prg;
+
+[default-ks1]
+	aterm = data-to-aterm(d)
+	===
+	ka-to-stats(provide d, env) = prov aterm;
+
+%% COPY
+
+[ks2]	ka-to-stats(copy, env) = copy;
+
+
+%% GIVE o
+
+[ks]	ka-to-stats(give the ds_, env) = 
+		cast datasort-to-aterm(ds);
+
+[ks]	ka-to-stats(give #nat-con(char+)_, env) =
+		cast [<term>,<list>];
+		component number(char+);
+
+
+[default-ks3]	
+	ka-to-stats(give o, env) =
+		cast datasort-to-aterm(sig(o));
+		dataop-to-stat(o)
+
+%% CHECK q
+
+[ks4]	ka-to-stats(check q, env) =
+		cast datasort-to-aterm(sig(q));
+		datapred-to-stat(q)
+
+[ks]	dataop-to-stat(not_) = not;
+
+[ks]	dataop-to-stat(_+_) = add;
+
+[ks]	dataop-to-stat(_-_) = sub;
+
+[ks]	dataop-to-stat(_-?_) = csub;
+
+[ks]	dataop-to-stat(_*_) = mul;
+
+[ks]	dataop-to-stat(binding_) = bind;
+
+[ks]	dataop-to-stat(bound_) = find;
+
+[ks]	dataop-to-stat(overriding_) = override;
+
+[ks]	dataop-to-stat(disjoint union_) = d_union;
+
+[ks]	dataop-to-stat(tupleToList_) = tupleToList;
+
+[ks]	dataop-to-stat(_then_) = then;
+
+[ks]	dataop-to-stat(_and then_) = and_then;
+
+[ks]	dataop-to-stat(_and_) = and;
+
+[ks]	dataop-to-stat(_exceptionally_) = exceptionally;
+
+[ks]	dataop-to-stat(_and exceptionally_) = and_exceptionally;
+
+[ks]	dataop-to-stat(_otherwise_) = otherwise;
+
+[ks]	dataop-to-stat(_hence_) = hence;
+
+[ks]	dataop-to-stat(provide_) = provide;
+
+[ks]	dataop-to-stat(indivisibly_) = indivisibly;
+
+[ks]	datapred-to-stat(_=_) = eq;
+
+[ks]	datapred-to-stat(_>_) = gt;
+
+[ks]	datapred-to-stat(_<_) = lt;
+
+[ks]	datapred-to-stat(_>=_) = geq;
+
+[ks]	datapred-to-stat(_<=_) = leq;
+
+
+
+
+%% IMPERATIVE ACTIONS
+
+[ks5]	ka-to-stats(create, env) = 
+		cast datasort-to-aterm(storable);
+		create;
+
+[ks5]	ka-to-stats(destroy, env) = 
+		cast datasort-to-aterm(cell);
+		destroy;
+
+[ks5]	ka-to-stats(update, env) = 
+		cast datasort-to-aterm((cell, storable));
+		update;
+
+[ks5]	ka-to-stats(inspect, env) = 
+		cast datasort-to-aterm(cell);
+		inspect;
+
+
+%% Miscellanaous
+
+%%[ks6]	ka-to-stats(enact, env) = enact;
+
+[ks7]	ka-to-stats(fail, env) = fail;
+
+[ks8]	ka-to-stats(raise, env) = raise;
+
+[ks9]	ka-to-stats(give current bindings, env) = scope;
+
+[ks10]	ka-to-stats(give current time, env) = time;
+
+[ks11]	ka-to-stats(give current agent, env) = agent;
+
+
+%% Interacting Actions
+
+
+[ks]	ka-to-stats(send, env) = 
+		cast datasort-to-aterm((agent,message,message-tag));
+		send;
+
+[ks]	ka-to-stats(receive, env) = 
+		cast datasort-to-aterm(message-tag);
+		receive;
+
+
+
+
+
+
+

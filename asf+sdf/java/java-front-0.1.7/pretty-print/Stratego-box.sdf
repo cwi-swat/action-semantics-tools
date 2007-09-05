@@ -1,0 +1,46 @@
+module Stratego-box
+imports Box-Syntax
+imports
+  Stratego [
+    Module        => StrategoModule
+    Decl          => StrategoDecl
+    Def           => StrategoDef
+    Id            => StrategoId
+    SVar          => StrategoSVar
+    Var           => StrategoVar
+    StrChar       => StrategoStrChar
+    StrategyAngle => StrategoStrategyAngle
+    Term          => StrategoTerm
+    Strategy      => StrategoStrategy
+    Rule          => StrategoRule
+    RuleDef       => StrategoRuleDef
+    StrategyDef   => StrategoStrategyDef 
+    Overlay       => OverlayStratego
+    Type          => StrategoType
+  ]
+
+exports
+
+  context-free syntax
+    "--" BOX "--" -> StrategoTerm {cons("ToTerm"), prefer}
+
+    "~" StrategoTerm          -> BOX               {cons("FromTerm"), prefer}
+    "~" StrategoTerm          -> SpecialBoxContent {cons("FromTerm"), prefer}
+    "~" StrategoTerm          -> BoxContent        {cons("FromTerm"), prefer}
+
+    "H" S-OPTIONS SpecialBoxContent -> BOX {cons("H")}
+    "V" S-OPTIONS SpecialBoxContent -> BOX {cons("V")}
+
+    "(" BoxContent ")" -> SpecialBoxContent {cons("Special")}
+
+    "[" BOX-LIST "]" -> BoxContent {cons("BoxList")}
+    BoxContent "++" BoxContent -> BoxContent {assoc, cons("Concat")}
+
+  variables
+    "'" StrategoId  -> BOX
+    "'" StrategoId  -> SpecialBoxContent
+    "'" StrategoId  -> BoxContent
+
+
+
+

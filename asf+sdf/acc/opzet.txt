@@ -1,0 +1,54 @@
+
+acc(provide d, in, out, defs) =
+out = data-to-exp(d);
+
+acc(copy, in, out, defs) =
+out = in;
+
+acc(A1 then A2, in, out, defs) =
+       acc(A1, in, out, defs)
+       acc(A2, out, out, defs)
+
+out' = new-out(out')
+===
+acc(A1 and A2, in, out, defs) =
+{
+	ACCData out';
+	acc(A1, in, out', defs)
+	acc(A2, in, out, defs)
+	out = merge(out', out);
+}
+
+acc(A1 hence A2, in, out, defs) =
+{
+	ACCData bindings;
+	acc(A1, in, out, defs);
+	if (type(out)==bindings)
+	   bindings = out;
+	else
+	   raise();
+	acc(A2, in, out, defs);
+}
+
+is-tail-recursive(A) = false,
+id = make-id(n)
+===
+acc(unfolding (A), in, out, n, defs)
+<make-function(A, n),
+acc(A, in, out, n, id, defs)>
+
+acc(unfold, in, out, id, defs) =
+out = id(in, bindings);
+
+is-tail-recursive(A) = true
+===
+acc(unfolding (A), in, out, n, defs)
+while (true) {
+      acc(A, in, out, n, continue, defs)
+}
+
+acc(unfold, in, out, id, defs) =
+out = id(in, bindings);
+
+
+

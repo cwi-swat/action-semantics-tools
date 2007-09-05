@@ -1,0 +1,26 @@
+module obs/aux/__AN-K-Agents
+
+
+imports obs/data/integers/Int obs/data/__AN-K-Agent
+	obs/aux/structs/Vector[Agent][Vector=>Schedule]
+	obs/aux/structs/Finite-Map[Agent Action][Finite-Map=>Actions]
+
+exports
+
+context-free syntax
+
+"main" -> Agent
+
+empty-actions() -> Actions
+empty-schedule() -> Schedule
+empty-agents() -> Agents
+
+new-agent(Agents) -> Agent
+update-agents(Agents) -> Agents
+
+hiddens
+context-free syntax
+"!" Int -> Agents
+
+variables
+"n"[0-9\']* -> Int

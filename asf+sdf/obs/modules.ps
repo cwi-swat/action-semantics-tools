@@ -1,0 +1,1907 @@
+%!PS-Adobe-2.0
+%%Creator: dot version gviz1.5.1 (09-29-99)
+%%For: (tvdstorm) Tijs van der Storm
+%%Title: graph0
+%%Pages: (atend)
+%%BoundingBox: 36 36 1480 1081
+%%EndComments
+%%BeginProlog
+save
+/DotDict 200 dict def
+DotDict begin
+
+%%BeginResource: procset
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+	dup 1 exch div /InvScaleFactor exch def
+	dup scale
+} bind def
+
+% styles
+/solid { } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw aligned label in bounding box aligned to current point
+% alignfactor tells what fraction to place on the left.
+% -.5 is centered.
+/alignedtext {			% text labelwidth fontsz alignfactor
+	/alignfactor exch def
+	/fontsz exch def
+	/width exch def
+	/text exch def
+	gsave
+		% even if node or edge is dashed, don't paint text with dashes
+		[] 0 setdash
+		currentpoint newpath moveto
+		text stringwidth pop
+		alignfactor mul fontsz -.3 mul rmoveto
+		text show
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+14 default-font-family set_font
+1 setmiterlimit
+% /arrowlength 10 def
+% /arrowwidth 5 def
+%%EndProlog
+%%Page: 1 1
+%%PageBoundingBox: 36 36 1480 1081
+%%PageOrientation: Portrait
+gsave
+35 35 1445 1046 boxprim clip newpath
+36 36 translate
+0 0 1 beginpage
+0 0 translate 0 rotate
+0.000 0.000 0.000 graphcolor
+14.00 /Times-Roman set_font
+
+%	__AN-K-Storage
+gsave 10 dict begin
+newpath 1213 828 moveto
+1103 828 lineto
+1103 792 lineto
+1213 792 lineto
+closepath
+stroke
+gsave 10 dict begin
+1158 811 moveto (__AN-K-Storage) 96 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Data
+gsave 10 dict begin
+newpath 693 540 moveto
+599 540 lineto
+599 504 lineto
+693 504 lineto
+closepath
+stroke
+gsave 10 dict begin
+646 523 moveto (__AN-K-Data) 79 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Storage -> __AN-K-Data
+newpath 1103 800 moveto
+1087 797 1071 794 1059 792 curveto
+928 768 783 762 676 684 curveto
+643 661 642 588 644 548 curveto
+stroke
+newpath 641 550 moveto
+645 540 lineto
+646 550 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Finite-Map
+gsave 10 dict begin
+newpath 1180 468 moveto
+1104 468 lineto
+1104 432 lineto
+1180 432 lineto
+closepath
+stroke
+gsave 10 dict begin
+1142 451 moveto (Finite-Map) 63 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Storage -> Finite-Map
+newpath 1162 792 moveto
+1173 739 1202 585 1182 504 curveto
+1180 499 1171 486 1162 474 curveto
+stroke
+newpath 1161 477 moveto
+1157 468 lineto
+1165 474 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Transition-Function
+gsave 10 dict begin
+newpath 1098 612 moveto
+972 612 lineto
+972 576 lineto
+1098 576 lineto
+closepath
+stroke
+gsave 10 dict begin
+1035 595 moveto (Transition-Function) 112 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Action
+gsave 10 dict begin
+newpath 890 468 moveto
+784 468 lineto
+784 432 lineto
+890 432 lineto
+closepath
+stroke
+gsave 10 dict begin
+837 451 moveto (__AN-K-Action) 91 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Transition-Function -> __AN-K-Action
+newpath 1010 576 moveto
+975 550 909 503 870 474 curveto
+stroke
+newpath 869 476 moveto
+862 468 lineto
+872 472 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Environment
+gsave 10 dict begin
+newpath 1170 540 moveto
+1084 540 lineto
+1084 504 lineto
+1170 504 lineto
+closepath
+stroke
+gsave 10 dict begin
+1127 523 moveto (Environment) 73 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Transition-Function -> Environment
+newpath 1058 576 moveto
+1070 567 1084 556 1096 546 curveto
+stroke
+newpath 1095 544 moveto
+1104 540 lineto
+1098 548 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Data-Control-Semantics
+gsave 10 dict begin
+newpath 1060 684 moveto
+858 684 lineto
+858 648 lineto
+1060 648 lineto
+closepath
+stroke
+gsave 10 dict begin
+959 667 moveto (__AN-K-Data-Control-Semantics) 189 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Data-Control-Semantics -> Transition-Function
+newpath 978 648 moveto
+988 639 999 628 1009 619 curveto
+stroke
+newpath 1007 617 moveto
+1016 612 lineto
+1011 621 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Data-Control
+gsave 10 dict begin
+newpath 814 612 moveto
+674 612 lineto
+674 576 lineto
+814 576 lineto
+closepath
+stroke
+gsave 10 dict begin
+744 595 moveto (__AN-K-Data-Control) 127 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Data-Control-Semantics -> __AN-K-Data-Control
+newpath 905 648 moveto
+875 638 838 626 808 615 curveto
+stroke
+newpath 807 617 moveto
+798 612 lineto
+808 612 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Info
+gsave 10 dict begin
+newpath 1170 612 moveto
+1116 612 lineto
+1116 576 lineto
+1170 576 lineto
+closepath
+stroke
+gsave 10 dict begin
+1143 595 moveto (Info) 23 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Data-Control-Semantics -> Info
+newpath 1011 648 moveto
+1042 636 1082 623 1108 613 curveto
+stroke
+newpath 1106 611 moveto
+1116 609 lineto
+1108 616 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Binding-Semantics
+gsave 10 dict begin
+newpath 1046 756 moveto
+872 756 lineto
+872 720 lineto
+1046 720 lineto
+closepath
+stroke
+gsave 10 dict begin
+959 739 moveto (__AN-K-Binding-Semantics) 160 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Binding-Semantics -> __AN-K-Data-Control-Semantics
+newpath 959 720 moveto
+959 712 959 703 959 694 curveto
+stroke
+newpath 957 694 moveto
+959 684 lineto
+962 694 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Binding
+gsave 10 dict begin
+newpath 800 684 moveto
+688 684 lineto
+688 648 lineto
+800 648 lineto
+closepath
+stroke
+gsave 10 dict begin
+744 667 moveto (__AN-K-Binding) 98 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Binding-Semantics -> __AN-K-Binding
+newpath 905 720 moveto
+875 710 838 698 808 687 curveto
+stroke
+newpath 807 689 moveto
+798 684 lineto
+808 684 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Binding-Semantics -> Info
+newpath 1004 720 moveto
+1028 710 1056 696 1072 684 curveto
+1081 677 1108 642 1126 617 curveto
+stroke
+newpath 1122 618 moveto
+1130 612 lineto
+1126 621 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Enacting-Semantics
+gsave 10 dict begin
+newpath 1047 828 moveto
+869 828 lineto
+869 792 lineto
+1047 792 lineto
+closepath
+stroke
+gsave 10 dict begin
+958 811 moveto (__AN-K-Enacting-Semantics) 165 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Enacting-Semantics -> __AN-K-Binding-Semantics
+newpath 958 792 moveto
+959 784 959 775 959 766 curveto
+stroke
+newpath 957 766 moveto
+959 756 lineto
+962 766 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Enacting
+gsave 10 dict begin
+newpath 695 756 moveto
+579 756 lineto
+579 720 lineto
+695 720 lineto
+closepath
+stroke
+gsave 10 dict begin
+637 739 moveto (__AN-K-Enacting) 103 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Enacting-Semantics -> __AN-K-Enacting
+newpath 873 792 moveto
+819 780 750 766 706 756 curveto
+706 756 705 756 705 756 curveto
+stroke
+newpath 704 758 moveto
+695 753 lineto
+705 753 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Cells
+gsave 10 dict begin
+newpath 1218 324 moveto
+1122 324 lineto
+1122 288 lineto
+1218 288 lineto
+closepath
+stroke
+gsave 10 dict begin
+1170 307 moveto (__AN-K-Cells) 82 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Cell
+gsave 10 dict begin
+newpath 1074 252 moveto
+984 252 lineto
+984 216 lineto
+1074 216 lineto
+closepath
+stroke
+gsave 10 dict begin
+1029 235 moveto (__AN-K-Cell) 76 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Cells -> __AN-K-Cell
+newpath 1134 288 moveto
+1116 278 1093 267 1073 256 curveto
+stroke
+newpath 1072 258 moveto
+1064 252 lineto
+1074 254 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Int
+gsave 10 dict begin
+newpath 1056 180 moveto
+1002 180 lineto
+1002 144 lineto
+1056 144 lineto
+closepath
+stroke
+gsave 10 dict begin
+1029 163 moveto (Int) 15 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Cells -> Int
+newpath 1171 288 moveto
+1172 266 1171 230 1157 216 curveto
+1137 196 1096 180 1066 172 curveto
+stroke
+newpath 1065 174 moveto
+1056 169 lineto
+1066 169 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Storing-Semantics
+gsave 10 dict begin
+newpath 1201 900 moveto
+1031 900 lineto
+1031 864 lineto
+1201 864 lineto
+closepath
+stroke
+gsave 10 dict begin
+1116 883 moveto (__AN-K-Storing-Semantics) 156 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Storing-Semantics -> __AN-K-Storage
+newpath 1127 864 moveto
+1132 856 1137 846 1143 836 curveto
+stroke
+newpath 1141 835 moveto
+1148 828 lineto
+1145 838 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Storing-Semantics -> __AN-K-Enacting-Semantics
+newpath 1076 864 moveto
+1055 854 1028 842 1006 832 curveto
+stroke
+newpath 1005 834 moveto
+997 828 lineto
+1007 830 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Storing-Semantics -> __AN-K-Cells
+newpath 1160 864 moveto
+1183 854 1209 840 1225 828 curveto
+1339 733 1219 424 1181 332 curveto
+stroke
+newpath 1179 334 moveto
+1178 324 lineto
+1184 332 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Storing
+gsave 10 dict begin
+newpath 792 828 moveto
+684 828 lineto
+684 792 lineto
+792 792 lineto
+closepath
+stroke
+gsave 10 dict begin
+738 811 moveto (__AN-K-Storing) 94 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Storing-Semantics -> __AN-K-Storing
+newpath 1031 866 moveto
+961 853 863 834 801 822 curveto
+stroke
+newpath 801 825 moveto
+792 820 lineto
+802 820 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Storing-Semantics -> Info
+newpath 1106 864 moveto
+1100 852 1094 838 1091 828 curveto
+1087 816 1088 803 1091 792 curveto
+1101 743 1124 663 1136 620 curveto
+stroke
+newpath 1133 621 moveto
+1138 612 lineto
+1138 622 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Data-Control -> __AN-K-Data
+newpath 719 576 moveto
+706 567 691 556 678 546 curveto
+stroke
+newpath 677 548 moveto
+670 540 lineto
+680 544 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Binding -> __AN-K-Data-Control
+newpath 744 648 moveto
+744 640 744 631 744 622 curveto
+stroke
+newpath 742 622 moveto
+744 612 lineto
+747 622 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Enacting -> __AN-K-Binding
+newpath 664 720 moveto
+678 711 695 699 709 689 curveto
+stroke
+newpath 707 687 moveto
+717 684 lineto
+710 691 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Storing -> __AN-K-Enacting
+newpath 713 792 moveto
+700 783 684 771 670 761 curveto
+stroke
+newpath 669 763 moveto
+662 756 lineto
+672 759 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Interacting
+gsave 10 dict begin
+newpath 802 900 moveto
+674 900 lineto
+674 864 lineto
+802 864 lineto
+closepath
+stroke
+gsave 10 dict begin
+738 883 moveto (__AN-K-Interacting) 113 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Interacting -> __AN-K-Storing
+newpath 738 864 moveto
+738 856 738 847 738 838 curveto
+stroke
+newpath 736 838 moveto
+738 828 lineto
+741 838 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Vector
+gsave 10 dict begin
+newpath 1414 180 moveto
+1360 180 lineto
+1360 144 lineto
+1414 144 lineto
+closepath
+stroke
+gsave 10 dict begin
+1387 163 moveto (Vector) 37 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Bool
+gsave 10 dict begin
+newpath 1056 108 moveto
+1002 108 lineto
+1002 72 lineto
+1056 72 lineto
+closepath
+stroke
+gsave 10 dict begin
+1029 91 moveto (Bool) 27 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Vector -> Bool
+newpath 1360 150 moveto
+1352 148 1345 145 1339 144 curveto
+1263 129 1129 106 1064 95 curveto
+stroke
+newpath 1066 98 moveto
+1056 94 lineto
+1066 93 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Agents
+gsave 10 dict begin
+newpath 1370 540 moveto
+1264 540 lineto
+1264 504 lineto
+1370 504 lineto
+closepath
+stroke
+gsave 10 dict begin
+1317 523 moveto (__AN-K-Agents) 93 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Agents -> Vector
+newpath 1321 504 moveto
+1332 445 1368 260 1381 189 curveto
+stroke
+newpath 1378 189 moveto
+1383 180 lineto
+1383 190 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Agent
+gsave 10 dict begin
+newpath 1010 468 moveto
+908 468 lineto
+908 432 lineto
+1010 432 lineto
+closepath
+stroke
+gsave 10 dict begin
+959 451 moveto (__AN-K-Agent) 87 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Agents -> __AN-K-Agent
+newpath 1264 511 moveto
+1198 498 1088 476 1019 462 curveto
+stroke
+newpath 1019 465 moveto
+1010 460 lineto
+1020 460 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Agents -> Int
+newpath 1303 504 moveto
+1283 474 1245 416 1246 378 curveto
+1246 378 1246 378 1246 306 curveto
+1245 268 1210 236 1180 216 curveto
+1151 197 1099 180 1063 171 curveto
+stroke
+newpath 1065 174 moveto
+1056 169 lineto
+1066 169 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Agents -> Finite-Map
+newpath 1273 504 moveto
+1247 493 1215 480 1189 469 curveto
+stroke
+newpath 1189 472 moveto
+1180 466 lineto
+1190 467 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Bool
+gsave 10 dict begin
+newpath 132 252 moveto
+38 252 lineto
+38 216 lineto
+132 216 lineto
+closepath
+stroke
+gsave 10 dict begin
+85 235 moveto (__AN-K-Bool) 80 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Data-Contract
+gsave 10 dict begin
+newpath 537 180 moveto
+391 180 lineto
+391 144 lineto
+537 144 lineto
+closepath
+stroke
+gsave 10 dict begin
+464 163 moveto (__AN-K-Data-Contract) 132 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Bool -> __AN-K-Data-Contract
+newpath 132 218 moveto
+136 217 140 216 143 216 curveto
+207 203 312 186 384 174 curveto
+stroke
+newpath 381 172 moveto
+391 173 lineto
+381 177 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Bool -> Bool
+newpath 132 216 moveto
+196 193 309 154 379 144 curveto
+556 117 884 98 993 92 curveto
+stroke
+newpath 992 90 moveto
+1002 91 lineto
+992 95 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Agent -> __AN-K-Data-Contract
+newpath 951 432 moveto
+939 405 917 354 910 324 curveto
+901 288 935 228 902 216 curveto
+902 216 671 187 545 172 curveto
+stroke
+newpath 547 175 moveto
+537 171 lineto
+547 170 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Agent -> Int
+newpath 971 432 moveto
+997 394 1057 304 1086 252 curveto
+1091 241 1092 226 1086 216 curveto
+1083 210 1068 197 1056 185 curveto
+stroke
+newpath 1056 188 moveto
+1050 180 lineto
+1059 184 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Cell -> __AN-K-Data-Contract
+newpath 984 225 moveto
+967 221 948 218 935 216 curveto
+829 202 651 182 546 171 curveto
+stroke
+newpath 547 174 moveto
+537 170 lineto
+547 169 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Cell -> Int
+newpath 1029 216 moveto
+1029 208 1029 199 1029 190 curveto
+stroke
+newpath 1027 190 moveto
+1029 180 lineto
+1032 190 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-MessageTag
+gsave 10 dict begin
+newpath 316 468 moveto
+178 468 lineto
+178 432 lineto
+316 432 lineto
+closepath
+stroke
+gsave 10 dict begin
+247 451 moveto (__AN-K-MessageTag) 124 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Token
+gsave 10 dict begin
+newpath 298 396 moveto
+196 396 lineto
+196 360 lineto
+298 360 lineto
+closepath
+stroke
+gsave 10 dict begin
+247 379 moveto (__AN-K-Token) 89 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-MessageTag -> __AN-K-Token
+newpath 247 432 moveto
+247 424 247 415 247 406 curveto
+stroke
+newpath 245 406 moveto
+247 396 lineto
+250 406 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Action -> __AN-K-Data-Contract
+newpath 836 432 moveto
+831 381 814 239 751 216 curveto
+723 205 618 187 544 175 curveto
+stroke
+newpath 547 178 moveto
+537 174 lineto
+547 173 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Tree-Map
+gsave 10 dict begin
+newpath 386 396 moveto
+316 396 lineto
+316 360 lineto
+386 360 lineto
+closepath
+stroke
+gsave 10 dict begin
+351 379 moveto (Tree-Map) 55 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Balanced-Tree
+gsave 10 dict begin
+newpath 284 252 moveto
+188 252 lineto
+188 216 lineto
+284 216 lineto
+closepath
+stroke
+gsave 10 dict begin
+236 235 moveto (Balanced-Tree) 82 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Tree-Map -> Balanced-Tree
+newpath 336 360 moveto
+315 334 278 287 255 258 curveto
+stroke
+newpath 254 261 moveto
+250 252 lineto
+258 258 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	String
+gsave 10 dict begin
+newpath 471 324 moveto
+417 324 lineto
+417 288 lineto
+471 288 lineto
+closepath
+stroke
+gsave 10 dict begin
+444 307 moveto (String) 34 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Token -> String
+newpath 296 360 moveto
+331 347 379 330 411 318 curveto
+stroke
+newpath 407 317 moveto
+417 316 lineto
+408 322 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Token -> __AN-K-Data-Contract
+newpath 262 360 moveto
+272 348 284 334 292 324 curveto
+319 288 338 246 371 216 curveto
+377 210 401 196 423 184 curveto
+stroke
+newpath 420 183 moveto
+430 180 lineto
+423 187 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	String -> Int
+newpath 453 288 moveto
+466 263 492 222 518 216 curveto
+518 216 881 178 995 166 curveto
+stroke
+newpath 992 164 moveto
+1002 165 lineto
+992 169 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	ASCII
+gsave 10 dict begin
+newpath 496 396 moveto
+442 396 lineto
+442 360 lineto
+496 360 lineto
+closepath
+stroke
+gsave 10 dict begin
+469 379 moveto (ASCII) 36 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	ASCII -> String
+newpath 463 360 moveto
+460 352 457 342 453 333 curveto
+stroke
+newpath 451 334 moveto
+450 324 lineto
+456 333 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Generic-List
+gsave 10 dict begin
+newpath 614 252 moveto
+530 252 lineto
+530 216 lineto
+614 216 lineto
+closepath
+stroke
+gsave 10 dict begin
+572 235 moveto (Generic-List) 70 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Generic-List -> Int
+newpath 614 217 moveto
+616 217 618 216 620 216 curveto
+726 199 917 175 995 166 curveto
+stroke
+newpath 992 164 moveto
+1002 165 lineto
+992 169 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-List
+gsave 10 dict begin
+newpath 616 324 moveto
+528 324 lineto
+528 288 lineto
+616 288 lineto
+closepath
+stroke
+gsave 10 dict begin
+572 307 moveto (__AN-K-List) 75 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-List -> Generic-List
+newpath 572 288 moveto
+572 280 572 271 572 262 curveto
+stroke
+newpath 570 262 moveto
+572 252 lineto
+575 262 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Int
+gsave 10 dict begin
+newpath 714 252 moveto
+632 252 lineto
+632 216 lineto
+714 216 lineto
+closepath
+stroke
+gsave 10 dict begin
+673 235 moveto (__AN-K-Int) 69 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-List -> __AN-K-Int
+newpath 597 288 moveto
+610 279 626 267 640 257 curveto
+stroke
+newpath 638 255 moveto
+648 252 lineto
+641 259 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-List -> __AN-K-Data-Contract
+newpath 552 288 moveto
+540 277 526 262 518 252 curveto
+506 236 489 209 478 188 curveto
+stroke
+newpath 476 190 moveto
+474 180 lineto
+481 188 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Set
+gsave 10 dict begin
+newpath 598 396 moveto
+514 396 lineto
+514 360 lineto
+598 360 lineto
+closepath
+stroke
+gsave 10 dict begin
+556 379 moveto (__AN-K-Set) 71 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Set -> __AN-K-List
+newpath 560 360 moveto
+562 352 564 342 566 333 curveto
+stroke
+newpath 563 333 moveto
+568 324 lineto
+568 334 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Set -> __AN-K-Data-Contract
+newpath 541 360 moveto
+532 348 521 334 516 324 curveto
+497 289 480 223 470 187 curveto
+stroke
+newpath 468 190 moveto
+468 180 lineto
+473 189 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Finite-Set
+gsave 10 dict begin
+newpath 990 324 moveto
+922 324 lineto
+922 288 lineto
+990 288 lineto
+closepath
+stroke
+gsave 10 dict begin
+956 307 moveto (Finite-Set) 55 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Set -> Finite-Set
+newpath 598 370 moveto
+676 356 839 327 915 313 curveto
+stroke
+newpath 912 311 moveto
+922 312 lineto
+912 316 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Bindings
+gsave 10 dict begin
+newpath 528 468 moveto
+410 468 lineto
+410 432 lineto
+528 432 lineto
+closepath
+stroke
+gsave 10 dict begin
+469 451 moveto (__AN-K-Bindings) 104 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Bindings -> Tree-Map
+newpath 439 432 moveto
+424 423 405 411 388 401 curveto
+stroke
+newpath 387 403 moveto
+380 396 lineto
+390 399 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Bindings -> __AN-K-Token
+newpath 413 432 moveto
+380 422 339 408 305 397 curveto
+stroke
+newpath 307 400 moveto
+298 395 lineto
+308 395 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Bindings -> ASCII
+newpath 469 432 moveto
+469 424 469 415 469 406 curveto
+stroke
+newpath 467 406 moveto
+469 396 lineto
+472 406 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Bindings -> __AN-K-Set
+newpath 491 432 moveto
+502 423 515 412 527 402 curveto
+stroke
+newpath 525 401 moveto
+534 396 lineto
+528 404 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Bindings -> __AN-K-Data-Contract
+newpath 455 432 moveto
+446 420 435 406 430 396 curveto
+418 373 410 348 405 324 curveto
+396 285 428 222 448 187 curveto
+stroke
+newpath 445 187 moveto
+452 180 lineto
+449 190 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Pair
+gsave 10 dict begin
+newpath 178 396 moveto
+88 396 lineto
+88 360 lineto
+178 360 lineto
+closepath
+stroke
+gsave 10 dict begin
+133 379 moveto (__AN-K-Pair) 76 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Bindings -> __AN-K-Pair
+newpath 410 439 moveto
+347 428 249 410 188 397 curveto
+stroke
+newpath 187 399 moveto
+178 394 lineto
+188 394 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Fixed-Array
+gsave 10 dict begin
+newpath 890 252 moveto
+808 252 lineto
+808 216 lineto
+890 216 lineto
+closepath
+stroke
+gsave 10 dict begin
+849 235 moveto (Fixed-Array) 69 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Fixed-Array -> Int
+newpath 890 217 moveto
+922 204 966 187 996 175 curveto
+stroke
+newpath 992 174 moveto
+1002 173 lineto
+993 179 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Int -> __AN-K-Data-Contract
+newpath 632 218 moveto
+630 217 628 217 626 216 curveto
+600 207 560 194 526 182 curveto
+stroke
+newpath 528 185 moveto
+519 180 lineto
+529 180 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Int -> Int
+newpath 714 226 moveto
+785 212 927 183 993 170 curveto
+stroke
+newpath 992 168 moveto
+1002 168 lineto
+993 173 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Array
+gsave 10 dict begin
+newpath 792 324 moveto
+692 324 lineto
+692 288 lineto
+792 288 lineto
+closepath
+stroke
+gsave 10 dict begin
+742 307 moveto (__AN-K-Array) 85 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Array -> Fixed-Array
+newpath 769 288 moveto
+783 279 800 267 814 257 curveto
+stroke
+newpath 812 255 moveto
+822 252 lineto
+815 259 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Array -> __AN-K-Int
+newpath 725 288 moveto
+716 279 706 268 697 259 curveto
+stroke
+newpath 695 261 moveto
+690 252 lineto
+699 257 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Array -> __AN-K-Data-Contract
+newpath 744 288 moveto
+745 265 745 226 726 216 curveto
+714 209 619 191 547 177 curveto
+stroke
+newpath 546 179 moveto
+537 175 lineto
+547 175 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Balanced-Tree -> Int
+newpath 284 229 moveto
+323 224 375 219 409 216 curveto
+578 200 887 174 993 165 curveto
+stroke
+newpath 992 163 moveto
+1002 164 lineto
+992 168 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Layout
+gsave 10 dict begin
+newpath 393 36 moveto
+339 36 lineto
+339 0 lineto
+393 0 lineto
+closepath
+stroke
+gsave 10 dict begin
+366 19 moveto (Layout) 39 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Balanced-Tree -> Layout
+newpath 247 216 moveto
+269 178 323 90 350 45 curveto
+stroke
+newpath 348 44 moveto
+355 36 lineto
+352 46 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Tree-Set
+gsave 10 dict begin
+newpath 217 324 moveto
+103 324 lineto
+103 288 lineto
+217 288 lineto
+closepath
+stroke
+gsave 10 dict begin
+160 307 moveto (__AN-K-Tree-Set) 101 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Tree-Set -> Balanced-Tree
+newpath 179 288 moveto
+189 279 200 268 210 259 curveto
+stroke
+newpath 208 257 moveto
+217 252 lineto
+212 261 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Tree-Set -> __AN-K-Data-Contract
+newpath 158 288 moveto
+156 264 157 225 176 216 curveto
+176 216 298 193 383 177 curveto
+stroke
+newpath 381 175 moveto
+391 176 lineto
+381 180 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-DataTypes
+gsave 10 dict begin
+newpath 494 108 moveto
+366 108 lineto
+366 72 lineto
+494 72 lineto
+closepath
+stroke
+gsave 10 dict begin
+430 91 moveto (__AN-K-DataTypes) 113 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-DataTypes -> Layout
+newpath 414 72 moveto
+406 63 397 53 388 43 curveto
+stroke
+newpath 387 45 moveto
+382 36 lineto
+390 42 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Data-Contract -> __AN-K-DataTypes
+newpath 455 144 moveto
+451 136 446 126 442 117 curveto
+stroke
+newpath 440 118 moveto
+438 108 lineto
+444 116 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Pair
+gsave 10 dict begin
+newpath 156 108 moveto
+102 108 lineto
+102 72 lineto
+156 72 lineto
+closepath
+stroke
+gsave 10 dict begin
+129 91 moveto (Pair) 22 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Pair -> Layout
+newpath 156 82 moveto
+199 69 285 42 333 28 curveto
+stroke
+newpath 329 27 moveto
+339 26 lineto
+330 32 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Pair -> __AN-K-Data-Contract
+newpath 169 360 moveto
+190 349 214 335 229 324 curveto
+268 292 293 244 335 216 curveto
+345 209 378 195 409 183 curveto
+stroke
+newpath 406 182 moveto
+416 180 lineto
+408 186 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Pair -> Pair
+newpath 116 360 moveto
+91 333 47 284 26 252 curveto
+1 214 64 147 102 113 curveto
+stroke
+newpath 98 113 moveto
+107 108 lineto
+102 117 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Data -> __AN-K-Bool
+newpath 599 517 moveto
+454 502 308 499 166 468 curveto
+128 459 100 425 76 396 curveto
+52 366 67 297 77 260 curveto
+stroke
+newpath 74 261 moveto
+79 252 lineto
+79 262 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Data -> __AN-K-Agent
+newpath 693 512 moveto
+749 501 843 482 900 469 curveto
+stroke
+newpath 898 467 moveto
+908 466 lineto
+900 472 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Data -> __AN-K-Cell
+newpath 669 504 moveto
+696 483 741 449 772 432 curveto
+846 390 934 375 1002 324 curveto
+1016 313 1023 284 1026 261 curveto
+stroke
+newpath 1023 262 moveto
+1027 252 lineto
+1028 262 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Data -> __AN-K-MessageTag
+newpath 599 514 moveto
+530 503 402 481 327 468 curveto
+327 468 326 468 326 468 curveto
+stroke
+newpath 325 470 moveto
+316 466 lineto
+326 466 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Data -> __AN-K-Action
+newpath 693 504 moveto
+719 494 752 482 780 471 curveto
+stroke
+newpath 779 469 moveto
+789 468 lineto
+780 474 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Data -> __AN-K-Token
+newpath 599 513 moveto
+543 503 451 485 398 468 curveto
+381 462 375 440 361 432 curveto
+351 426 320 412 293 399 curveto
+stroke
+newpath 294 402 moveto
+286 396 lineto
+296 398 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Data -> __AN-K-List
+newpath 643 504 moveto
+637 471 623 399 610 360 curveto
+608 355 599 342 591 330 curveto
+stroke
+newpath 590 333 moveto
+586 324 lineto
+594 330 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Data -> __AN-K-Bindings
+newpath 601 504 moveto
+577 494 547 482 522 472 curveto
+stroke
+newpath 521 474 moveto
+513 468 lineto
+523 470 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Data -> __AN-K-Int
+newpath 648 504 moveto
+653 454 666 317 670 259 curveto
+stroke
+newpath 667 262 moveto
+671 252 lineto
+672 262 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Data -> __AN-K-Array
+newpath 659 504 moveto
+667 492 676 478 681 468 curveto
+697 431 721 366 733 331 curveto
+stroke
+newpath 730 332 moveto
+736 324 lineto
+734 334 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Data -> __AN-K-Tree-Set
+newpath 599 519 moveto
+503 512 286 494 166 468 curveto
+128 459 100 425 76 396 curveto
+68 386 67 368 76 360 curveto
+86 349 103 337 119 327 curveto
+stroke
+newpath 115 326 moveto
+125 324 lineto
+117 331 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Data -> __AN-K-Pair
+newpath 599 513 moveto
+516 498 354 468 354 468 curveto
+339 463 341 437 328 432 curveto
+283 412 233 409 187 397 curveto
+stroke
+newpath 187 400 moveto
+178 394 lineto
+188 395 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Queue
+gsave 10 dict begin
+newpath 1211 180 moveto
+1157 180 lineto
+1157 144 lineto
+1211 144 lineto
+closepath
+stroke
+gsave 10 dict begin
+1184 163 moveto (Queue) 36 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Queue -> Bool
+newpath 1157 149 moveto
+1131 137 1093 120 1065 107 curveto
+stroke
+newpath 1064 109 moveto
+1056 103 lineto
+1066 105 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Messages
+gsave 10 dict begin
+newpath 954 612 moveto
+832 612 lineto
+832 576 lineto
+954 576 lineto
+closepath
+stroke
+gsave 10 dict begin
+893 595 moveto (__AN-K-Messages) 107 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Messages -> __AN-K-Agent
+newpath 898 576 moveto
+905 555 916 522 925 504 curveto
+927 499 935 487 943 475 curveto
+stroke
+newpath 940 475 moveto
+947 468 lineto
+944 478 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Messages -> __AN-K-MessageTag
+newpath 832 578 moveto
+828 577 826 576 826 576 curveto
+746 561 665 557 587 540 curveto
+548 531 410 494 321 470 curveto
+stroke
+newpath 322 473 moveto
+313 468 lineto
+323 468 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Messages -> __AN-K-Data
+newpath 832 576 moveto
+792 565 740 549 701 538 curveto
+stroke
+newpath 702 541 moveto
+693 536 lineto
+703 536 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Messages -> Queue
+newpath 925 576 moveto
+952 560 988 540 988 540 curveto
+1026 508 1054 465 1092 432 curveto
+1135 393 1189 366 1230 324 curveto
+1257 295 1222 226 1200 188 curveto
+stroke
+newpath 1198 190 moveto
+1196 180 lineto
+1203 188 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Messages -> Int
+newpath 915 576 moveto
+946 551 1000 503 1022 468 curveto
+1062 402 1080 325 1105 252 curveto
+1108 240 1112 225 1105 216 curveto
+1102 213 1081 199 1062 185 curveto
+stroke
+newpath 1062 188 moveto
+1055 180 lineto
+1065 184 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Messages -> Finite-Map
+newpath 945 576 moveto
+975 565 1012 551 1035 540 curveto
+1050 532 1058 515 1072 504 curveto
+1083 495 1098 483 1112 472 curveto
+stroke
+newpath 1108 471 moveto
+1118 468 lineto
+1111 476 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Int -> Bool
+newpath 1029 144 moveto
+1029 136 1029 127 1029 118 curveto
+stroke
+newpath 1027 118 moveto
+1029 108 lineto
+1032 118 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Time
+gsave 10 dict begin
+newpath 1443 756 moveto
+1347 756 lineto
+1347 720 lineto
+1443 720 lineto
+closepath
+stroke
+gsave 10 dict begin
+1395 739 moveto (__AN-K-Time) 83 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Time -> Int
+newpath 1395 720 moveto
+1396 690 1397 629 1398 594 curveto
+1398 594 1398 594 1398 378 curveto
+1397 297 1287 256 1218 216 curveto
+1180 194 1108 176 1065 169 curveto
+stroke
+newpath 1065 172 moveto
+1056 167 lineto
+1066 167 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Bool -> Layout
+newpath 1002 87 moveto
+896 75 515 34 400 22 curveto
+stroke
+newpath 403 25 moveto
+393 21 lineto
+403 20 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Finite-Set -> Bool
+newpath 958 288 moveto
+962 254 973 182 990 144 curveto
+992 139 1001 126 1010 114 curveto
+stroke
+newpath 1007 114 moveto
+1015 108 lineto
+1011 117 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Finite-Map -> Bool
+newpath 1180 442 moveto
+1218 433 1273 417 1301 396 curveto
+1325 376 1321 336 1322 306 curveto
+1322 306 1322 306 1322 234 curveto
+1321 189 1263 163 1223 144 curveto
+1201 133 1112 110 1063 99 curveto
+stroke
+newpath 1065 102 moveto
+1056 97 lineto
+1066 97 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Finite-Map -> Finite-Set
+newpath 1118 432 moveto
+1084 406 1024 359 987 330 curveto
+stroke
+newpath 986 332 moveto
+979 324 lineto
+989 328 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Environment -> Finite-Map
+newpath 1131 504 moveto
+1132 496 1134 486 1136 478 curveto
+stroke
+newpath 1134 477 moveto
+1138 468 lineto
+1138 478 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	Info -> Environment
+newpath 1139 576 moveto
+1137 568 1135 558 1133 549 curveto
+stroke
+newpath 1131 550 moveto
+1131 540 lineto
+1136 549 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Interacting-Semantics
+gsave 10 dict begin
+newpath 1292 972 moveto
+1102 972 lineto
+1102 936 lineto
+1292 936 lineto
+closepath
+stroke
+gsave 10 dict begin
+1197 955 moveto (__AN-K-Interacting-Semantics) 176 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Interacting-Semantics -> __AN-K-Storing-Semantics
+newpath 1177 936 moveto
+1167 927 1155 916 1143 906 curveto
+stroke
+newpath 1142 908 moveto
+1136 900 lineto
+1145 905 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Interacting-Semantics -> __AN-K-Interacting
+newpath 1102 941 moveto
+1015 929 890 912 813 900 curveto
+813 900 812 900 812 900 curveto
+stroke
+newpath 811 902 moveto
+802 898 lineto
+812 898 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Interacting-Semantics -> __AN-K-Agents
+newpath 1221 936 moveto
+1256 908 1316 854 1317 810 curveto
+1317 810 1317 810 1317 666 curveto
+1316 635 1317 582 1317 550 curveto
+stroke
+newpath 1315 550 moveto
+1317 540 lineto
+1320 550 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Interacting-Semantics -> __AN-K-Messages
+newpath 1121 936 moveto
+1013 909 829 856 830 810 curveto
+830 810 830 810 830 738 curveto
+829 707 833 675 846 648 curveto
+850 639 858 629 866 620 curveto
+stroke
+newpath 865 618 moveto
+873 612 lineto
+868 621 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Interacting-Semantics -> __AN-K-Time
+newpath 1267 936 moveto
+1293 927 1320 915 1334 900 curveto
+1361 869 1380 801 1389 764 curveto
+stroke
+newpath 1386 765 moveto
+1391 756 lineto
+1391 766 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Interacting-Semantics -> Info
+newpath 1204 936 moveto
+1216 902 1239 830 1225 792 curveto
+1207 743 1173 662 1155 620 curveto
+stroke
+newpath 1153 622 moveto
+1151 612 lineto
+1158 620 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+
+%	__AN-K-Semantics
+gsave 10 dict begin
+newpath 1259 1044 moveto
+1135 1044 lineto
+1135 1008 lineto
+1259 1008 lineto
+closepath
+stroke
+gsave 10 dict begin
+1197 1027 moveto (__AN-K-Semantics) 111 14.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	__AN-K-Semantics -> __AN-K-Interacting-Semantics
+newpath 1197 1008 moveto
+1197 1000 1197 991 1197 982 curveto
+stroke
+newpath 1195 982 moveto
+1197 972 lineto
+1200 982 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+endpage
+grestore
+%%PageTrailer
+%%EndPage: 1

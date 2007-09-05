@@ -1,0 +1,5 @@
+equations
+
+[]	result the message_ d = d
+
+[]	result the message-tag_ <tk> = <tk>

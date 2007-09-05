@@ -1,0 +1,17 @@
+module an/syn/kernel/Alternative-Action
+
+imports an/syn/kernel/Failed-Outcome
+
+exports
+
+sorts Action ActionInfix
+
+context-free syntax
+
+	"fail" -> Action {cons("fail")}
+	"otherwise" -> ActionInfix {cons("otherwise-infix")}
+%% asfc can't handle cons attributes with this kind of productions.
+	"select" "(" Choice ")" -> Action %% {cons("select")}
+	Action -> Choice 
+	Choice "or" Choice -> Choice {assoc,cons("or-choice")}
+	"(" Choice ")" -> Choice {bracket,cons("choice-bracket")}

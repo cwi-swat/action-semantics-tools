@@ -1,0 +1,17 @@
+module ai/AI-Finite-Data-Control
+
+imports ai/Abstract-Interpretation
+	ai/Outcome-Analysis
+	ai/Action-Analysis
+
+hiddens
+
+
+variables
+"A"[0-9\']* -> Action
+"Aa"[0-9\']* -> Annotated-Action
+"t"[0-9\']* -> DataSort
+"d"[0-9\']* -> Data
+"b"[0-9\']* -> Bindings
+"oc+"[0-9\']* -> Outcome+
+"oc*"[0-9\']* -> Outcome*

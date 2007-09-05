@@ -1,0 +1,5 @@
+equations
+
+[]	result the token_ tk = tk
+
+[]	result the string_ tk = tk

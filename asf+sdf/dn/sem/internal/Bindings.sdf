@@ -1,0 +1,11 @@
+module dn/sem/internal/Bindings
+
+imports dn/syn/internal/Bindings
+	dn/sem/kernel/Interface
+	dn/sem/lib/Token
+
+hiddens
+variables
+	"b"[0-9\']* -> Bindings
+	"u"[0-9\']* -> Datum
+	"tk"[0-9\']* -> Token

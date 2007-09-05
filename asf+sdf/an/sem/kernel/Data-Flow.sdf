@@ -1,0 +1,10 @@
+module an/sem/kernel/Data-Flow
+
+imports an/sem/kernel/Action 
+	dn/sem/kernel/Data
+	msos/Context-Info[Data-Index Data]
+
+exports
+
+context-free syntax
+	"data" -> Data-Index {cons("data-index")}

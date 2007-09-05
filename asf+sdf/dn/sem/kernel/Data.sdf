@@ -1,0 +1,9 @@
+module dn/sem/kernel/Data
+
+imports dn/syn/kernel/Data
+
+hiddens
+variables
+	"u"[0-9\']* -> Datum
+	"d"[0-9\']* -> Data
+	"u+"[0-9\']* -> {Datum ","}+

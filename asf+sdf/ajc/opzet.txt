@@ -1,0 +1,11 @@
+
+
+AJC-Functions: declares layered functions for compiler
+
+Default-DN-to-Java: data operations to expressions (only to-expr)
+
+Atomic-AN-to-Java: primitive actions to java (only to-expr)
+
+Kernel-AN-to-Java: combined actions to java
+
+Full-AN-to-Java: unfold and unfolding.

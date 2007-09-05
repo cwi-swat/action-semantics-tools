@@ -1,0 +1,11 @@
+module an/syn/abbrev/Storing-Action
+
+imports an/syn/abbrev/Data-Control-Action
+
+exports
+
+sorts Yielder
+
+context-free syntax
+	"stored" "in" Yielder  -> Yielder {cons("stored-in-yielder")}
+

@@ -1,0 +1,35 @@
+module dn/sem/kernel/Interface
+
+imports dn/sem/kernel/Data
+	dn/sem/kernel/DataSort
+	basic/Booleans
+	basic/Whitespace
+
+exports
+
+context-free syntax
+
+	"_" DataOpInfix "_" -> DataOp {cons("dataop-infix")}
+	DataOpPrefix "_" -> DataOp {cons("dataop-prefix")}
+
+	"_" DataPredInfix "_" -> DataPred {cons("datapred-infix")}
+	DataPredPrefix "_" -> DataPred {cons("datapred-prefix")}
+
+	"the" DataSort -> DataOpPrefix {cons("ascription-prefix")}
+	"result" DataOp Data -> Data {cons("result-of-dataop")}
+	"holds" DataPred Data -> Boolean {cons("holding-of-datapred")}
+	
+	"nothing" -> Data {cons("nothing-data")}
+
+	storable(Datum) -> Boolean {cons("storable")}
+	bindable(Datum) -> Boolean {cons("bindable")}
+
+
+
+hiddens
+variables
+	"o"[0-9\']* -> DataOp
+	"q"[0-9\']* -> DataPred
+	"d"[0-9\']* -> Data
+	"u"[0-9\']* -> Datum
+

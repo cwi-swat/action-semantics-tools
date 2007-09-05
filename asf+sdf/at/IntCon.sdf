@@ -1,0 +1,16 @@
+%%% $Id: IntCon.sdf,v 1.1 2002/05/16 23:27:05 jurgenv Exp $
+                                  
+module at/IntCon
+imports at/Layout
+exports
+  sorts NatCon IntCon
+  lexical syntax
+    [0-9]+ -> NatCon
+  context-free syntax
+    NatCon     -> IntCon
+    "+" NatCon -> IntCon
+    "-" NatCon -> IntCon       
+
+hiddens
+  variables
+    "c+"[0-9]*            -> CHAR+

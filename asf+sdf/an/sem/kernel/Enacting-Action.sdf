@@ -1,0 +1,11 @@
+module an/sem/kernel/Enacting-Action
+
+imports an/syn/kernel/Enacting-Action
+	an/sem/kernel/Normal-Action 
+	an/sem/kernel/Binding-Action
+	dn/sem/internal/Action
+
+hiddens
+variables
+	"A"[0-9\']* -> Action
+	"s"[0-9\']* -> IndexedState

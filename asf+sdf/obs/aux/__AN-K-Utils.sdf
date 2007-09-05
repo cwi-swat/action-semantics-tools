@@ -1,0 +1,15 @@
+module obs/aux/__AN-K-Utils
+
+imports obs/data/booleans/Bool 
+	obs/action/__AN-K-Action
+
+exports
+
+context-free syntax
+terminated(Action) -> Bool
+
+hiddens
+variables
+"A"[0-9\']* -> Action
+"t"[0-9\']* -> Terminated
+

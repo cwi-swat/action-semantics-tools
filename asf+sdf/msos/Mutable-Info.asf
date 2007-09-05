@@ -1,0 +1,38 @@
+equations
+
+
+[comp]	t1 = pair(s1,s),
+	t2 = pair(s, s2)
+	===
+	t1 $ t2 = pair(s1,s2)
+
+[div]	t = pair(s1,s2),
+	su = s
+	===
+	t // su = pair(s1,s2)
+
+[div]	su1 = s1,
+	su2 = s2
+	===
+	su1 / su2 = s2
+
+
+[pr]	t = pair(s1,s2)
+	===
+	pre(t) = s1
+
+[pos]	t = pair(s1,s2)
+	===
+	post(t) = s2
+
+[uno]	su = s
+	===
+	unobs(su) = pair(s,s)
+
+[map]	p = it@i
+	===
+	it[s/i] = it[pair(first(p),s)/i]
+
+[at]	p = it@i
+	===
+	it@i = first(p)

@@ -1,0 +1,9 @@
+equations
+
+[com]	s $ s = s
+
+[pr]	pre(s) = s
+
+[pos]	post(s) = s
+
+[uno]	unobs(s) = s

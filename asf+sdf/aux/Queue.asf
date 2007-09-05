@@ -1,0 +1,14 @@
+equations
+
+[q1]	queue(x, [x*]) = [x* x]
+
+[q2]	dequeue([x x*]) = [x*]
+
+[q3]	queued([x x*]) = x
+
+[q4]	is-empty([]) = true
+
+[q5]	is-empty(q) = false when q != []
+
+[q6]	empty-queue() = []
+

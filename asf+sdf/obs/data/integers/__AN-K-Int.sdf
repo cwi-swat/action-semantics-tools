@@ -1,0 +1,40 @@
+module obs/data/integers/__AN-K-Int
+
+imports obs/data/integers/Int 
+	obs/data/__AN-K-Data-Contract
+
+exports 
+
+lexical syntax
+
+">" -> DataPredInfix
+"<" -> DataPredInfix
+">=" -> DataPredInfix
+"<=" -> DataPredInfix
+"nat" -> SortName
+"pos" -> SortName
+"int" -> SortName
+
+"+" -> DataOpInfix
+"-?" -> DataOpInfix
+"*" -> DataOpInfix
+"-" -> DataOpInfix
+
+context-free syntax
+
+Int           -> Datum {cons("int")}
+
+hiddens sorts
+        Int DataOpInfix SortName Datum DataPredInfix
+
+
+variables
+    "n" [0-9\']* -> Nat 
+    "p" [0-9\']* -> PosNumeral
+    "i" [0-9\']* -> Int
+    "d" [0-9\']* -> Data
+    "u" [0-9\']* -> Datum
+
+
+
+

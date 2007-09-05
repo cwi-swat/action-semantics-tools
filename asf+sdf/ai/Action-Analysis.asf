@@ -1,0 +1,213 @@
+equations
+
+[]	is-committing(A1 Ai A2) = is-committing(A1) | is-committing(A2)
+
+[]	is-committing(Ap A) = is-committing(A)
+
+[]	is-committing(create) = true
+[]	is-committing(update) = true
+[]	is-committing(send) = true
+
+[default]	
+	is-committing(A) = false
+
+[]	is-consuming(provide d) = false
+
+[]	is-consuming(give current bindings) = false
+
+[]	is-consuming(give current time) = false
+
+[]	is-consuming(give current agent) = false
+
+[]	is-consuming(choose natural) = false
+
+[]	is-consuming(A1 then A2) = is-consuming(A1)
+
+[]	is-consuming(A1 exceptionally A2) = is-consuming(A1)
+
+[]	is-consuming(A1 and A2) = is-consuming(A1) | is-consuming(A2)
+
+[]	is-consuming(A1 and then A2) = is-consuming(A1) | is-consuming(A2)
+
+[]	is-consuming(A1 and exceptionally A2) = is-consuming(A1) | is-consuming(A2)
+
+[]	is-consuming(A1 hence A2) = is-consuming(A1) | is-consuming(A2)
+
+[]	is-consuming(A1 otherwise A2) = is-consuming(A1) | is-consuming(A2)
+
+[]	is-consuming(indivisibly A) = is-consuming(A)
+
+[]	is-consuming(fail) = false
+
+[default]
+	is-consuming(A) = true
+
+
+[]	normal(normal d) = true
+[]	exceptional(exceptional d) = true
+[]	failed(failed) = true
+[default]
+	t(A) = false
+
+[]	-normal(A) = failed(A) | exceptional(A)
+
+[]	-exceptional(A) = failed(A) | normal(A)
+
+[]	-failed(A) = normal(A) | exceptional(A)
+
+[]	get-terminal-data(normal d) = d
+
+[]	get-terminal-data(exceptional d) = d
+
+
+
+[]	is-unfolding(give current bindings and (provide ("unf", A)
+		then give binding_) then give overriding_ hence (A)) = true
+
+[default]
+	is-unfolding(A) = false
+
+[]	get-unfolding(give current bindings and (provide ("unf", A)
+		then give binding_) then give overriding_ hence (A)) = A
+
+%% This matches the kernel version of unfold, and is thus an dependence
+%% on Full AN2.
+
+[]	is-unfold(give the data_ then give provide_ and 
+			(give current bindings then give provide_ and 
+			(give current bindings and provide "unf" then 
+			give bound_ then 
+			give the action[taking () giving bindings]_) then 
+			give _hence_) then give _then_ then enact) = true
+
+[default]
+	is-unfold(A) = false
+
+[]	is-unfold(A) = true
+	===
+	has-unfold(A) = true
+
+[]	is-unfold(A1 Ai A2) = false
+	===
+	has-unfold(A1 Ai A2) = has-unfold(A1) | has-unfold(A2)
+
+[]	has-unfold(select(A)) = has-unfold(A)
+
+[]	has-unfold(select(A or C)) = has-unfold(A) | has-unfold(select(C))
+
+[]	has-unfold(Ap A) = has-unfold(A)
+
+[default]
+	has-unfold(A) = false
+
+
+
+[]	is-unfold(A1 then A2) = false
+	===
+	is-tail-recursive(A1 then A2) = (not (has-unfold(A1))) &
+					is-tail-recursive(A2)
+
+[]	is-tail-recursive(A1 hence A2) = (not (has-unfold(A1))) &
+					is-tail-recursive(A2)
+
+[]	Ai != then,
+	Ai != hence
+	===
+	is-tail-recursive(A1 Ai A2) = is-tail-recursive(A1) &
+					is-tail-recursive(A2)
+
+[]	is-tail-recursive(select(A)) = is-tail-recursive(A)
+
+[]	is-tail-recursive(select(A or C)) = is-tail-recursive(A) &
+					is-tail-recursive(select(C))
+
+[]	is-tail-recursive(Ap A) = is-tail-recursive(A)
+
+[default]
+	is-tail-recursive(A) = true
+
+[]	gives-void(update) = true
+
+[]	gives-void(destroy) = true
+
+[]	gives-void(send) = true
+
+[]	gives-void(deactivate) = true
+
+[]	gives-void(provide ()) = true
+
+[]	gives-void(A1 then A2) = gives-void(A2)
+
+[]	gives-void(A1 and A2) = gives-void(A1) & gives-void(A2)
+
+[]	gives-void(A1 and then A2) = gives-void(A1) & gives-void(A2)
+
+[]	gives-void(A1 exceptionally A2) = gives-void(A1) & gives-void(A2)
+
+[]	gives-void(A1 and exceptionally A2) = gives-void(A1) & gives-void(A2)
+
+[]	gives-void(A1 otherwise A2) = gives-void(A1) & gives-void(A2)
+
+[]	gives-void(A1 hence A2) = gives-void(A2)
+
+[]	gives-void(select(A)) = gives-void(A)
+
+[]	gives-void(select(A or C)) = gives-void(A otherwise select(C))
+
+[]	gives-void(Ap A) = gives-void(A)
+
+[default]
+	gives-void(A) = false
+
+[]	takes-void(A) = not(is-consuming(A))
+
+
+[]	is-distributive(A1 and A2) = 
+		(is-consuming(A1) & is-consuming(A2)) |
+		(is-distributive(A1)|is-distributive(A2))
+
+[]	is-distributive(A1 and then A2) = 
+		(is-consuming(A1) & is-consuming(A2)) |
+		(is-distributive(A1)|is-distributive(A2))
+
+[]	is-distributive(A1 and exceptionally A2) = 
+		(is-consuming(A1) & is-consuming(A2)) |
+		(is-distributive(A1)|is-distributive(A2))
+
+[]	is-distributive(A1 otherwise A2) = 
+		(is-consuming(A1) & is-consuming(A2)) |
+		(is-distributive(A1)|is-distributive(A2))
+
+[]	is-distributive(A1 hence A2) = 
+		(is-consuming(A1) & is-consuming(A2)) |
+		(is-distributive(A1)|is-distributive(A2))
+
+
+[]	is-distributive(A1 then A2) = is-distributive(A1)
+
+[]	is-distributive(A1 exceptionally A2) = is-distributive(A1)
+
+[]	is-distributive(Ap A) = is-distributive(A)
+
+[default]
+	is-distributive(A) = false
+
+
+
+
+[]	raises-void(give o) = true
+[]	raises-void(check q) = true
+[]	raises-void(update) = true
+[]	raises-void(inspect) = true
+[]	raises-void(destroy) = true
+[]	raises-void(create) = true
+[]	raises-void(send) = true
+[]	raises-void(receive) = true
+[]	raises-void(activate) = true
+[]	raises-void(deactivate) = true
+[]	raises-void(A1 Ai A2) = raises-void(A1) & raises-void(A2)
+[]	raises-void(Ap A) = raises-void(A)
+
+[default]
+	raises-void(A) = false
+

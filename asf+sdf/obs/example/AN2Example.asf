@@ -1,0 +1,148 @@
+equations
+
+[1]	evaluate [[ L ]] = give value [[ L ]]
+
+[2]	evaluate [[ UO E ]] = evaluate [[ E ]] then operate1 [[ UO ]]
+
+[3]	evaluate [[ E1 BO E2 ]] = 
+		(evaluate [[ E1 ]] and evaluate [[ E2 ]]) 
+		then operate2 [[ BO ]]
+
+[4]	evaluate [[ I ]] = inspect the cell bound to token [[ I ]]
+
+[5]	evaluate [[ I(E*) ]] =
+		(evaluate [[ E* ]] then give provide_ ) and 
+		(give the action bound to token [[I]]) then give _then_
+		then enact
+
+[5]	evaluate [[ tail(E) ]] =
+		evaluate [[E]] then give the list then give tail_
+
+[5]	evaluate [[ head(E) ]] =
+		evaluate [[E]] then give the list then give head_
+
+[5]	evaluate [[ element_at(E1, E2) ]] =
+		(evaluate [[E1]] then give the list) and
+		(evaluate [[E2]] then give the int) then give element-at_
+
+[6]	evaluate [[ insert(E1, E2) ]] =
+		(evaluate [[E1]] then give the list) and
+		(evaluate [[E2]] then give the data) then give insert_
+
+[6]	evaluate [[ append(E1, E2) ]] =
+		(evaluate [[E1]] then give the list) and
+		(evaluate [[E2]] then give the data) then give append_
+
+[7]	evaluate [[ replace_at(E1,E2,E3) ]] =
+		(evaluate [[E1]] then give the list) and
+		(evaluate [[E2]] then give the int) and
+		(evaluate [[E3]] then give the data) then give replace-at_
+
+
+~~[4']	evaluate [[ I [ E ] ]] = 
+~~		(evaluate [[ E ]] then give the int_) and
+~~		(inspect the cell bound to token [[I]] then give the array) 
+~~		then give _[]_
+
+[5]	operate1 [[ - ]] = (give 0 and give the int) then give _-_
+
+[6]	operate1 [[ ! ]] = give (not the bool)
+
+[7]	operate2 [[ + ]] = give (the int #1 + the int #2)
+
+[7]	operate2 [[ * ]] = give (the int #1 * the int #2)
+
+[8]	operate2 [[ - ]] = give (the int #1 - the int #2)
+
+[9]	operate2 [[ == ]] =
+		select (when (the int #1 = the int #2) or
+			when (the bool #1 = the bool #2))
+		then give true otherwise give false
+
+[10]	operate2 [[ < ]] =
+		when (the int #1 < the int #2)
+	 	then give true otherwise give false
+
+[10]	operate2 [[ > ]] =
+		when (the int #1 > the int #2)
+	 	then give true otherwise give false
+
+[11]	execute [[ I = E; ]] =
+		(give the cell bound to token [[ I ]]
+		and evaluate [[ E ]]) then update
+
+[12]	execute [[ if (E) S1 else S2 ]] =
+		evaluate [[ E ]] then infallibly select (
+		(given true then execute [[ S1 ]]) or
+		(given false then execute [[ S2 ]]))
+
+[13]	execute [[ while (E) S  ]] =
+		unfolding (
+		evaluate [[ E ]] then infallibly select (
+		(given true then execute [[ S ]] and then unfold) or
+		(given false then skip)))
+		exceptionally (given "break" then skip otherwise raise)
+
+[14]	execute [[ break; ]] = raise "break"
+
+~~[15]	execute [[ I(); ]] = enact the action bound to token [[ I ]]
+
+~~[15']	execute [[ I[E1] = E2; ]] =
+~~	(give  the cell bound to token [[ I ]]) then
+~~			(copy and 
+~~			(
+~~				(evaluate[[E1]] then give the int_) and
+~~				(evaluate[[E2]] then give the datum_) and 
+~~				(inspect then give the array_)
+~~				then give ->_ 
+~~			))
+~~			then update
+
+[16]	execute [[ { } ]] = skip
+
+[17]	execute [[ { S+ } ]] = 
+		execute [[ S+ ]] 
+
+[17]	execute [[ S S+ ]] = 
+		execute [[ S ]] and then execute [[ S+ ]]
+
+[18]	execute [[ { D+ S+ } ]] =
+	furthermore declare [[ D+ ]] hence 
+		execute [[ S+ ]]
+
+[18]	execute [[ return E; ]] = evaluate [[E]]
+
+[18]	execute [[ I(); ]] = enact the action bound to token[[I]]
+
+[19]	declare [[ D D+ ]] =
+		(declare [[ D ]] and
+		 declare [[ D+ ]]) then give disjoint union _
+
+[19]	declare [[ T I = E; ]] =
+		evaluate [[ E ]] then create 
+		then bind (token [[ I ]], the cell)
+
+
+[20]	declare [[ T I(I') B ]] =
+		recursively bind 
+		(token [[ I ]], the action (
+			closure (
+			furthermore bind (token[[I']], the data)
+			hence execute [[ B ]])))
+
+[21]	declare [[ void I() B ]] =
+		recursively bind 
+		(token[[I]], the action (closure ( execute[[B]] )))
+
+[21]	value [[ integer(char+) ]] = nat-con(char+)
+
+[22]	value [[ T ]] = true
+
+[23]	value [[ F ]] = false
+
+[24]	token [[ identifier(char+) ]] = string(""" char+ """) 
+
+~~[35]	value [[ [] ]] = empty-list()
+
+
+

@@ -1,0 +1,1 @@
+[ [ Tree , empty , empty ] , [ Tree , tree , tree ( < elt ( Elt ) > , < count ( Int ) > , < lhs ( Tree ) > , < rhs ( Tree ) > ) ] ]

@@ -1,0 +1,11 @@
+module Pico-Declare
+
+imports Pico-Decls
+	Pico-Trans
+
+exports
+
+context-free syntax
+	"declare" "[[" DECLS "]]" -> Action
+	"declare" "[[" ID-TYPES "]]" -> Action
+	"default" "of" "[[" TYPE "]]" -> Datum

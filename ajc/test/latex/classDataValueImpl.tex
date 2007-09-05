@@ -1,0 +1,160 @@
+\hypertarget{classDataValueImpl}{
+\section{Data\-Value\-Impl  Class Reference}
+\label{classDataValueImpl}\index{DataValueImpl@{Data\-Value\-Impl}}
+}
+Inheritance diagram for Data\-Value\-Impl:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=381pt]{classDataValueImpl__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Data\-Value\-Impl:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{classDataValueImpl__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceDataValue}{Data\-Value} \hyperlink{classDataValueImpl_a0}{first} () throws \hyperlink{classExceptional}{Exceptional}
+\item 
+\hyperlink{interfaceData}{Data} \hyperlink{classDataValueImpl_a1}{rest} ()
+\item 
+\hyperlink{interfaceList}{List} \hyperlink{classDataValueImpl_a2}{tuple\-To\-List} ()
+\item 
+\hyperlink{interfaceData}{Data} \hyperlink{classDataValueImpl_a3}{concat} (\hyperlink{interfaceData}{Data} data)
+\item 
+\hyperlink{interfaceDataValue}{Data\-Value} \hyperlink{classDataValueImpl_a4}{component} (int n) throws \hyperlink{classExceptional}{Exceptional}
+\item 
+\hyperlink{interfaceEmpty}{Empty} \hyperlink{classDataValueImpl_a5}{equals} (\hyperlink{interfaceData}{Data} data) throws \hyperlink{classExceptional}{Exceptional}
+\end{CompactItemize}
+\subsection*{Protected Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{classDataValueImpl_b0}{Data\-Value\-Impl} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory})
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDataValueImpl_b0}{
+\index{DataValueImpl@{Data\-Value\-Impl}!DataValueImpl@{DataValueImpl}}
+\index{DataValueImpl@{DataValueImpl}!DataValueImpl@{Data\-Value\-Impl}}
+\subsubsection[DataValueImpl]{\setlength{\rightskip}{0pt plus 5cm}Data\-Value\-Impl::Data\-Value\-Impl (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory})\hspace{0.3cm}{\tt  \mbox{[}inline, protected\mbox{]}}}}
+\label{classDataValueImpl_b0}
+
+
+
+
+Definition at line 9 of file Data\-Value\-Impl.java.\footnotesize\begin{verbatim}00009                                                  {
+00010         super(factory);
+00011     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDataValueImpl_a4}{
+\index{DataValueImpl@{Data\-Value\-Impl}!component@{component}}
+\index{component@{component}!DataValueImpl@{Data\-Value\-Impl}}
+\subsubsection[component]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceDataValue}{Data\-Value} Data\-Value\-Impl::component (int {\em n})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classDataValueImpl_a4}
+
+
+
+
+Reimplemented from \hyperlink{classDataImpl_a4}{Data\-Impl}.
+
+Definition at line 27 of file Data\-Value\-Impl.java.\footnotesize\begin{verbatim}00027                                                          {
+00028         if (n == 1)
+00029             return this;
+00030         throw new Exceptional(factory.makeEmpty());
+00031     }
+\end{verbatim}\normalsize 
+\hypertarget{classDataValueImpl_a3}{
+\index{DataValueImpl@{Data\-Value\-Impl}!concat@{concat}}
+\index{concat@{concat}!DataValueImpl@{Data\-Value\-Impl}}
+\subsubsection[concat]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceData}{Data} Data\-Value\-Impl::concat (\hyperlink{interfaceData}{Data} {\em data})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classDataValueImpl_a3}
+
+
+
+
+Reimplemented from \hyperlink{classDataImpl_a0}{Data\-Impl}.
+
+Definition at line 23 of file Data\-Value\-Impl.java.\footnotesize\begin{verbatim}00023                                   {
+00024         return factory.makeTuple(this, data);
+00025     }
+\end{verbatim}\normalsize 
+\hypertarget{classDataValueImpl_a5}{
+\index{DataValueImpl@{Data\-Value\-Impl}!equals@{equals}}
+\index{equals@{equals}!DataValueImpl@{Data\-Value\-Impl}}
+\subsubsection[equals]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceEmpty}{Empty} Data\-Value\-Impl::equals (\hyperlink{interfaceData}{Data} {\em data})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classDataValueImpl_a5}
+
+
+
+
+Reimplemented from \hyperlink{interfaceDataValue_a0}{Data\-Value}.
+
+Reimplemented in \hyperlink{classActionImpl_a21}{Action\-Impl}, \hyperlink{classBoolImpl_a2}{Bool\-Impl}, \hyperlink{classIntImpl_a9}{Int\-Impl}, \hyperlink{classListImpl_a5}{List\-Impl}, and \hyperlink{classTextImpl_a1}{Text\-Impl}.
+
+Definition at line 37 of file Data\-Value\-Impl.java.\footnotesize\begin{verbatim}00037                                                       {
+00038         if (this == data)
+00039             return factory.makeEmpty();
+00040         throw new Exceptional(factory.makeEmpty());
+00041     }
+\end{verbatim}\normalsize 
+\hypertarget{classDataValueImpl_a0}{
+\index{DataValueImpl@{Data\-Value\-Impl}!first@{first}}
+\index{first@{first}!DataValueImpl@{Data\-Value\-Impl}}
+\subsubsection[first]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceDataValue}{Data\-Value} Data\-Value\-Impl::first ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classDataValueImpl_a0}
+
+
+
+
+Reimplemented from \hyperlink{classDataImpl_a2}{Data\-Impl}.
+
+Reimplemented in \hyperlink{classEmptyImpl_a0}{Empty\-Impl}.
+
+Definition at line 12 of file Data\-Value\-Impl.java.\footnotesize\begin{verbatim}00012                                                 {
+00013         return this;
+00014     }
+\end{verbatim}\normalsize 
+\hypertarget{classDataValueImpl_a1}{
+\index{DataValueImpl@{Data\-Value\-Impl}!rest@{rest}}
+\index{rest@{rest}!DataValueImpl@{Data\-Value\-Impl}}
+\subsubsection[rest]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceData}{Data} Data\-Value\-Impl::rest ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classDataValueImpl_a1}
+
+
+
+
+Reimplemented from \hyperlink{classDataImpl_a3}{Data\-Impl}.
+
+Definition at line 15 of file Data\-Value\-Impl.java.\footnotesize\begin{verbatim}00015                        {
+00016         return factory.makeEmpty();
+00017     }
+\end{verbatim}\normalsize 
+\hypertarget{classDataValueImpl_a2}{
+\index{DataValueImpl@{Data\-Value\-Impl}!tupleToList@{tupleToList}}
+\index{tupleToList@{tupleToList}!DataValueImpl@{Data\-Value\-Impl}}
+\subsubsection[tupleToList]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceList}{List} Data\-Value\-Impl::tuple\-To\-List ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classDataValueImpl_a2}
+
+
+
+
+Reimplemented from \hyperlink{classDataImpl_a1}{Data\-Impl}.
+
+Reimplemented in \hyperlink{classEmptyImpl_a1}{Empty\-Impl}.
+
+Definition at line 19 of file Data\-Value\-Impl.java.\footnotesize\begin{verbatim}00019                               {
+00020         return factory.makeList1(this);
+00021     }
+\end{verbatim}\normalsize 
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{DataValueImpl_8java-source}{Data\-Value\-Impl.java}\end{CompactItemize}

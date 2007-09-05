@@ -1,0 +1,27 @@
+module aux/Vector[X]
+
+imports basic/Booleans
+
+exports
+
+context-free syntax
+
+	add(X, Vector) -> Vector
+	rotate(Vector) -> Vector
+	current(Vector) -> X
+	remove(Vector) -> Vector
+	is-empty(Vector) -> Boolean
+	empty-vector() -> Vector
+
+hiddens
+
+imports asf/syntax/Comments
+
+context-free syntax
+	"<" X* ">" -> Vector
+
+variables
+	"x"[0-9\']* -> X
+	"x*"[0-9\']* -> X*
+
+

@@ -1,0 +1,3 @@
+equations
+
+[]	token of [[pico-id(char+)]] = string("""char+""")

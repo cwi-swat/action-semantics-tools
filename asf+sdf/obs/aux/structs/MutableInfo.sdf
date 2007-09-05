@@ -1,0 +1,10 @@
+module obs/aux/structs/MutableInfo[Store]
+
+imports obs/aux/structs/Pairs[Store]
+	obs/aux/structs/Label[Pairs]
+
+exports
+
+context-free syntax
+
+

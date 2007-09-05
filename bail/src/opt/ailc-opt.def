@@ -1,0 +1,88 @@
+AutoGen Definitions options;
+
+prog-name = ailc;
+prog-title = "AIL to ABF compiler";
+long-opts;
+test_main;
+
+help-value = "h";
+more-help-value = "?";
+
+copyright = {
+	data = "2002";
+	owner = "Tijs van der Storm";
+	eaddr = 'tvdstorm@science.uva.nl';
+	type = GPL;
+};
+
+detail = <<STR_END
+Convert parsed Abstract Intermediate Language to bytecode.
+The input file must be a valid AsfixME parse-tree representing
+A program in AIL language. Output is a binary representation of
+the program to be processed by an AIL machine.
+STR_END;
+
+explain = "E.g.: ail2baf -i action.ail --output action.abf.";
+	
+/* Make this depend on configure */
+version = "0.1";
+
+flag = {
+	name		= input;
+	value		= i;
+	arg-type 	= string;
+	max 		= 1;
+	descrip		= "input parsed AIL from file";
+};
+
+flag = {
+	name		= output;
+	value		= o;
+	arg-type	= string;
+	max 		= 1;
+	descrip		= "output ABF to file";
+};
+
+
+flag = {
+	name		= verbose;
+	value		= v;
+	max		= 1;
+	descript	= "(very) verbose mode";
+};
+
+flag = {
+	name		= generate_api;
+	value		= g;
+	max		= 1;
+	descrip		= "generate AIL c-api";
+	flags-must	= name;
+};
+
+
+flag = {
+	name		= name;
+	value		= n;
+	arg-type	= string;
+	max		= 1;
+	descrip		= "stem for generated c-api";
+};
+
+flag = {
+	name		= prefix;
+	value		= p;
+	arg-type	= string;
+	arg-default	= "AIL";
+	max		= 1;
+	descrip		= "prefix string for generated c-api";
+};
+
+
+flag = {
+	name		= "ail_list";
+	value		= l;
+	arg-type	= string;
+	arg-default	= "./ail-ins.baf"; 
+	max		= 1;
+	descrip		= "override default AIL instruction list";
+};

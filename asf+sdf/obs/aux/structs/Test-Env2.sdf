@@ -1,0 +1,13 @@
+module obs/aux/structs/Test-Env2
+
+imports obs/aux/structs/Test-Env obs/data/strings/String 
+	obs/aux/structs/Info[Bindings-Key String]
+
+exports
+
+sorts Environment
+
+context-free syntax
+
+"bindings" -> Bindings-Key
+

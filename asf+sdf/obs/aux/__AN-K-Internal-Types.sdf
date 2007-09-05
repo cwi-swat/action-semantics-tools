@@ -1,0 +1,92 @@
+module obs/aux/__AN-K-Internal-Types
+
+imports obs/data/__AN-K-Data 
+	obs/action/__AN-K-Action-Semantics 
+
+exports
+
+context-free syntax
+
+terminated(Action) -> Bool
+
+%% We add some syntactical sugar to cells to disambiguate from other data.
+"@" Int  -> Cell
+get-new-cell(Cells) -> Cell
+Cell -> Datum
+
+"<" Datum ">" -> MessageTag {prefer}
+"$" Int -> Agent
+
+main -> Agent 
+Agent -> Datum
+
+%% These two are not in Mosses casl-spec.
+MessageTag -> Datum
+
+%% This cannot be an alias because it is used in an alias.
+TaggedBuffer* -> TaggedBuffers
+MessageTag # Messages -> TaggedBuffer
+
+%% Bindings has special treatment: bindings are allowed to be data.
+"[" Binding* "]"  -> Bindings
+
+disjoint(Bindings, Bindings) -> Bool
+Bindings -> Datum
+
+
+
+get-tagged-buffers(Agent, Buffers) -> TaggedBuffers
+set-tagged-buffers(Agent, TaggedBuffers, Buffers) -> Buffers
+get-messages(MessageTag, TaggedBuffers) -> Messages
+set-messages(MessageTag, Messages, TaggedBuffers) -> TaggedBuffers
+
+least-time(Schedule) -> Int
+higher-time(Int, Schedule) -> Int
+least-message(Messages) -> Int
+higher-message(Int, Messages) -> Int
+new-agent(Agents) -> Agent
+
+
+aliases
+Data -> Data-Value
+Cell* -> Cells
+(Token # Data) -> Binding
+(Cell # Data)* -> Storage
+(Int # Agent)* -> Schedule
+(Agent # Action)* -> Actions
+Agent* -> Agents
+(Agent # TaggedBuffers)* -> Buffers
+(Int # Datum)* -> Messages
+Agent -> Agent-Value
+Int -> Time
+Int -> Interleaving-Flag
+
+hiddens
+variables
+"n"[0-9\']* -> Int
+"s"[0-9\']* -> Storage
+"cs"[0-9\']* -> Cells
+"c*"[0-9\']* -> Cell*
+"c"[0-9\']* -> Cell
+"t" -> Terminated
+"A" -> Action
+"bufs"[0-9\']* -> Buffers
+"tb*"[0-9\']* -> TaggedBuffer*
+"ms"[0-9\']* -> Messages
+"mt"[0-9\']* -> MessageTag
+"buf"[0-9\']* -> Buffers
+"ag"[0-9\']* -> Agent
+"ags"[0-9\']* -> Agents
+"ti"[0-9\']* -> Time
+"m"[0-9\']* -> Datum
+"bs"[0-9\']* -> Buffers
+"tbs"[0-9\']* -> TaggedBuffer* %% !!!
+"As"[0-9\']* -> Actions
+"s"[0-9\']* -> Schedule
+"tk"[0-9\']* -> Token
+"bv"[0-9\']* -> Data %%Bindable
+"bs"[0-9\']* -> Bindings
+"d"[0-9\']* -> Data
+"u"[0-9\']* -> Datum
+"b*"[0-9\']* -> Binding*
+"b"[0-9\']* -> Binding

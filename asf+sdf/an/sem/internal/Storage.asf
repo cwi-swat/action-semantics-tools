@@ -1,0 +1,7 @@
+equations
+
+[sto]	stored(s,c) = eval(c,s)
+
+[ems]	empty-storage() = []
+
+[emc]	empty-cells() = empty-list()

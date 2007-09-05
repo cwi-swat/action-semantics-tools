@@ -1,0 +1,17 @@
+module obs/binding/__AN-K-Binding
+
+imports
+  obs/datacontrol/__AN-K-Data-Control
+
+exports 
+
+lexical syntax
+
+"give" LAYOUT+ "current" LAYOUT+  "bindings" -> ActionConst
+"hence"                       -> ActionInfix
+
+hiddens sorts
+
+        DataOpPrefix DataConst ActionInfix ActionConst SortName DataTypes
+
+

@@ -1,0 +1,17 @@
+module c/Program
+exports
+  sorts TranslationUnit
+
+  context-free syntax
+    ExternalDefinition+ -> TranslationUnit {cons("ExternalDefinition-p")}
+
+  context-free syntax
+    FunctionDefinition -> ExternalDefinition {cons("FunctionDefinition")}
+    Declaration -> ExternalDefinition {cons("Declaration1")}
+
+  context-free syntax
+    ( NoTypeSpecifier | DeclarationSpecifier | TypeSpecifier | DeclarationQualifierList | TypeQualifier+ ) ( IdentifierDeclarator | ( OldFunctionDeclarator Declaration* ) ) CompoundStatement -> FunctionDefinition {cons("FunDef")}
+
+  context-free syntax
+     -> NoTypeSpecifier {cons("NoTypeSpecifier")}
+

@@ -1,0 +1,10 @@
+module an/sem/abbrev/Interacting-Action
+
+imports an/syn/abbrev/Interacting-Action
+	an/sem/abbrev/Data-Control-Action
+	an/sem/abbrev/Binding-Action
+
+hiddens
+variables
+	"A"[0-9\']* -> Action
+	"Y"[0-9\']* -> Yielder

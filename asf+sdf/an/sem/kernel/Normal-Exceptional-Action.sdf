@@ -1,0 +1,12 @@
+module an/sem/kernel/Normal-Exceptional-Action
+
+imports an/sem/kernel/Normal-Action
+	an/sem/kernel/Exceptional-Action
+
+hiddens
+
+variables
+	"A"[0-9\']* -> Action
+	"i"[0-9\']* -> Arbitrary
+	"s"[0-9\']* -> IndexedState
+	"d"[0-9\']* -> Data

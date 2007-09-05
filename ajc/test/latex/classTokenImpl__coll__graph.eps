@@ -1,0 +1,700 @@
+%!PS-Adobe-2.0
+%%Creator: dot version gviz1.5.1 (09-29-99)
+%%For: (tvdstorm) Tijs van der Storm
+%%Title: inheritance
+%%Pages: (atend)
+%%BoundingBox: 36 36 506 373
+%%EndComments
+%%BeginProlog
+save
+/DotDict 200 dict def
+DotDict begin
+
+%%BeginResource: procset
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+	dup 1 exch div /InvScaleFactor exch def
+	dup scale
+} bind def
+
+% styles
+/solid { } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw aligned label in bounding box aligned to current point
+% alignfactor tells what fraction to place on the left.
+% -.5 is centered.
+/alignedtext {			% text labelwidth fontsz alignfactor
+	/alignfactor exch def
+	/fontsz exch def
+	/width exch def
+	/text exch def
+	gsave
+		% even if node or edge is dashed, don't paint text with dashes
+		[] 0 setdash
+		currentpoint newpath moveto
+		text stringwidth pop
+		alignfactor mul fontsz -.3 mul rmoveto
+		text show
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+14 default-font-family set_font
+1 setmiterlimit
+% /arrowlength 10 def
+% /arrowwidth 5 def
+%%EndProlog
+%%Page: 1 1
+%%PageBoundingBox: 36 36 506 373
+%%PageOrientation: Portrait
+gsave
+35 35 471 338 boxprim clip newpath
+36 36 translate
+0 0 1 beginpage
+0 0 translate 0 rotate
+0.000 0.000 0.000 graphcolor
+14.00 /Times-Roman set_font
+
+%	Node1275
+gsave 10 dict begin
+filled
+newpath 379 14 moveto
+325 14 lineto
+325 0 lineto
+379 0 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+gsave 10 dict begin
+0.000 0.000 1.000 nodecolor
+10.00 /Times-Roman set_font
+352 8 moveto (TokenImpl) 44 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1276
+gsave 10 dict begin
+newpath 344 66 moveto
+298 66 lineto
+298 52 lineto
+344 52 lineto
+closepath
+stroke
+gsave 10 dict begin
+10.00 /Times-Roman set_font
+321 60 moveto (TextImpl) 37 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1276 -> Node1275
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 330 44 moveto
+336 34 343 22 348 14 curveto
+stroke
+newpath 332 45 moveto
+325 52 lineto
+328 42 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1277
+gsave 10 dict begin
+newpath 316 118 moveto
+260 118 lineto
+260 104 lineto
+316 104 lineto
+closepath
+stroke
+gsave 10 dict begin
+10.00 /Times-Roman set_font
+288 112 moveto (DatumImpl) 46 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1277 -> Node1276
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 298 96 moveto
+304 86 312 74 317 66 curveto
+stroke
+newpath 300 97 moveto
+293 104 lineto
+296 94 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1278
+gsave 10 dict begin
+newpath 271 170 moveto
+199 170 lineto
+199 156 lineto
+271 156 lineto
+closepath
+stroke
+gsave 10 dict begin
+10.00 /Times-Roman set_font
+235 164 moveto (DataValueImpl) 61 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1278 -> Node1277
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 248 150 moveto
+259 140 273 126 281 118 curveto
+stroke
+newpath 251 151 moveto
+242 156 lineto
+247 147 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1279
+gsave 10 dict begin
+newpath 126 222 moveto
+78 222 lineto
+78 208 lineto
+126 208 lineto
+closepath
+stroke
+gsave 10 dict begin
+10.00 /Times-Roman set_font
+102 216 moveto (DataImpl) 37 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1279 -> Node1278
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 128 205 moveto
+154 194 194 179 217 170 curveto
+stroke
+newpath 130 207 moveto
+120 208 lineto
+128 202 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1280
+gsave 10 dict begin
+newpath 70 336 moveto
+42 336 lineto
+42 322 lineto
+70 322 lineto
+closepath
+stroke
+gsave 10 dict begin
+10.00 /Times-Roman set_font
+56 330 moveto (Data) 18 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1280 -> Node1279
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 46 314 moveto
+40 304 33 292 31 284 curveto
+28 269 28 249 39 240 curveto
+48 233 64 227 78 222 curveto
+stroke
+newpath 48 312 moveto
+51 322 lineto
+44 315 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1280 -> Node1279
+gsave 10 dict begin
+dashed
+0.776 0.753 0.804 edgecolor
+newpath 56 313 moveto
+57 300 58 281 62 270 curveto
+66 262 86 235 96 222 curveto
+stroke
+newpath 59 312 moveto
+56 322 lineto
+54 312 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+gsave 10 dict begin
+0.000 0.000 0.000 edgecolor
+10.00 /Times-Roman set_font
+77 278 moveto (_rest) 19 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1281
+gsave 10 dict begin
+newpath 246 284 moveto
+194 284 lineto
+194 270 lineto
+246 270 lineto
+closepath
+stroke
+gsave 10 dict begin
+10.00 /Times-Roman set_font
+220 278 moveto (DataValue) 42 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1280 -> Node1281
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 80 321 moveto
+112 311 167 294 198 284 curveto
+stroke
+newpath 80 324 moveto
+70 324 lineto
+79 319 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1281 -> Node1278
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 222 263 moveto
+225 238 231 189 234 170 curveto
+stroke
+newpath 225 260 moveto
+221 270 lineto
+220 260 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1281 -> Node1279
+gsave 10 dict begin
+dashed
+0.776 0.753 0.804 edgecolor
+newpath 201 265 moveto
+187 256 170 246 158 240 curveto
+147 234 131 227 119 222 curveto
+stroke
+newpath 201 262 moveto
+208 270 lineto
+198 266 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+gsave 10 dict begin
+0.000 0.000 0.000 edgecolor
+10.00 /Times-Roman set_font
+194 247 moveto (_first) 21 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1284
+gsave 10 dict begin
+newpath 366 170 moveto
+330 170 lineto
+330 156 lineto
+366 156 lineto
+closepath
+stroke
+gsave 10 dict begin
+10.00 /Times-Roman set_font
+348 164 moveto (Datum) 27 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1281 -> Node1284
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 250 268 moveto
+286 256 346 237 381 222 curveto
+396 215 369 184 355 170 curveto
+stroke
+newpath 253 270 moveto
+243 270 lineto
+252 265 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1282
+gsave 10 dict begin
+newpath 161 284 moveto
+103 284 lineto
+103 270 lineto
+161 270 lineto
+closepath
+stroke
+gsave 10 dict begin
+10.00 /Times-Roman set_font
+132 278 moveto (PureFactory) 48 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1282 -> Node1279
+gsave 10 dict begin
+dashed
+0.776 0.753 0.804 edgecolor
+newpath 121 264 moveto
+118 260 114 256 113 252 curveto
+109 244 105 230 104 222 curveto
+stroke
+newpath 122 261 moveto
+126 270 lineto
+118 264 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+gsave 10 dict begin
+0.000 0.000 0.000 edgecolor
+10.00 /Times-Roman set_font
+132 247 moveto (factory) 28 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1283
+gsave 10 dict begin
+newpath 161 336 moveto
+103 336 lineto
+103 322 lineto
+161 322 lineto
+closepath
+stroke
+gsave 10 dict begin
+10.00 /Times-Roman set_font
+132 330 moveto (DataFactory) 49 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1283 -> Node1282
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 132 313 moveto
+132 303 132 291 132 284 curveto
+stroke
+newpath 135 312 moveto
+132 322 lineto
+130 312 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1284 -> Node1277
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 333 150 moveto
+321 140 306 126 296 118 curveto
+stroke
+newpath 334 148 moveto
+340 156 lineto
+331 151 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1288
+gsave 10 dict begin
+newpath 362 118 moveto
+334 118 lineto
+334 104 lineto
+362 104 lineto
+closepath
+stroke
+gsave 10 dict begin
+10.00 /Times-Roman set_font
+348 112 moveto (Text) 18 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1284 -> Node1288
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 348 147 moveto
+348 137 348 125 348 118 curveto
+stroke
+newpath 351 146 moveto
+348 156 lineto
+346 146 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1285
+gsave 10 dict begin
+newpath 309 222 moveto
+263 222 lineto
+263 208 lineto
+309 208 lineto
+closepath
+stroke
+gsave 10 dict begin
+10.00 /Times-Roman set_font
+286 216 moveto (Bindable) 36 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1285 -> Node1284
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 301 202 moveto
+313 192 329 178 339 170 curveto
+stroke
+newpath 303 203 moveto
+294 208 lineto
+300 200 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1286
+gsave 10 dict begin
+newpath 369 222 moveto
+327 222 lineto
+327 208 lineto
+369 208 lineto
+closepath
+stroke
+gsave 10 dict begin
+10.00 /Times-Roman set_font
+348 216 moveto (Storable) 33 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1286 -> Node1284
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 348 199 moveto
+348 189 348 177 348 170 curveto
+stroke
+newpath 351 198 moveto
+348 208 lineto
+346 198 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1287
+gsave 10 dict begin
+newpath 469 222 moveto
+425 222 lineto
+425 208 lineto
+469 208 lineto
+closepath
+stroke
+gsave 10 dict begin
+10.00 /Times-Roman set_font
+447 216 moveto (Message) 34 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1287 -> Node1284
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 434 203 moveto
+428 197 420 191 414 188 curveto
+402 182 381 174 366 169 curveto
+stroke
+newpath 434 199 moveto
+439 208 lineto
+430 203 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1288 -> Node1276
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 341 99 moveto
+336 89 329 74 325 66 curveto
+stroke
+newpath 341 94 moveto
+344 104 lineto
+337 97 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1289
+gsave 10 dict begin
+newpath 396 66 moveto
+362 66 lineto
+362 52 lineto
+396 52 lineto
+closepath
+stroke
+gsave 10 dict begin
+10.00 /Times-Roman set_font
+379 60 moveto (Token) 25 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1288 -> Node1289
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 357 96 moveto
+363 86 370 74 375 66 curveto
+stroke
+newpath 359 97 moveto
+352 104 lineto
+355 94 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1289 -> Node1275
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 372 47 moveto
+367 37 360 22 356 14 curveto
+stroke
+newpath 372 42 moveto
+375 52 lineto
+368 45 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+
+%	Node1290
+gsave 10 dict begin
+newpath 438 118 moveto
+380 118 lineto
+380 104 lineto
+438 104 lineto
+closepath
+stroke
+gsave 10 dict begin
+10.00 /Times-Roman set_font
+409 112 moveto (Comparable) 48 10.00 -0.50 alignedtext
+end grestore
+end grestore
+
+%	Node1290 -> Node1289
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 400 96 moveto
+395 86 388 74 383 66 curveto
+stroke
+newpath 402 94 moveto
+405 104 lineto
+398 97 lineto
+closepath
+gsave 0 setgray stroke grestore fill
+end grestore
+endpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+%%Pages: 1
+end
+restore
+%%EOF

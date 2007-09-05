@@ -1,0 +1,6 @@
+equations
+
+[default]
+	f(l, x) = f(pred(l), x) when l != _|_
+
+[act]	f(x) = f(~|~, x)

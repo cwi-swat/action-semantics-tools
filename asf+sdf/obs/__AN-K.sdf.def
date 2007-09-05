@@ -1,0 +1,515 @@
+definition
+
+module Main
+
+imports
+	__AN-K
+	__AN-K-Interacting
+	__AN-K-Storing
+	__AN-K-Enacting
+	__AN-K-Binding
+	__AN-K-Data-Control
+	__AN-K-Action
+	Layout
+	__AN-K-Data
+	__AN-K-DataTypes
+	__AN-K-List
+	List
+	__AN-K-Token
+	String
+	__AN-K-Bool
+	Bool
+	__AN-K-Int
+	Int 
+
+module __AN-K
+
+imports 
+	__AN-K-Interacting
+
+exports 
+
+sorts Action
+
+
+module __AN-K-Interacting
+
+imports __AN-K-Storing
+
+exports 
+context-free syntax
+lexical syntax
+
+  "activate"                                    -> ActionConst
+  "deactivate"                                  -> ActionConst
+  "give" LAYOUT+  "current" LAYOUT+ "agent"      -> ActionConst 
+  "send"                                        -> ActionConst 
+  "receive"                                     -> ActionConst 
+  "give" LAYOUT+ "current" LAYOUT+ "time"       -> ActionConst 
+
+
+hiddens sorts
+
+        ActionConst SortName MessageTag
+
+module __AN-K-Storing
+
+imports __AN-K-Enacting
+
+exports 
+
+lexical  syntax
+  "create"      -> ActionConst %%{cons("create-ActionConst")}
+  "destroy"     -> ActionConst %%{cons("destroy-ActionConst")}
+  "update"      -> ActionConst %%{cons("update-ActionConst")}
+  "inspect"     -> ActionConst %%{cons("inspect-ActionConst")}
+
+hiddens sorts 
+
+        ActionConst SortName DataTypes
+
+module __AN-K-Enacting
+
+imports __AN-K-Binding
+
+exports 
+
+lexical syntax
+  "enact"       -> ActionConst 
+
+
+hiddens sorts
+
+        ActionConst DataOpPrefix DataOpInfix DataConst 
+        SortName Datum
+
+module __AN-K-Binding
+
+imports
+  __AN-K-Data-Control
+
+exports 
+
+lexical syntax
+
+"give" LAYOUT+ "current" LAYOUT+  "bindings" -> ActionConst
+"hence"                       -> ActionInfix
+
+hiddens sorts
+
+        DataOpPrefix DataConst ActionInfix ActionConst SortName DataTypes
+
+
+
+module __AN-K-Data-Control
+
+imports __AN-K-Data
+
+exports 
+
+lexical syntax
+
+  "copy"                        -> ActionConst
+  "then"                        -> ActionInfix
+  "and" LAYOUT+ "then"          -> ActionInfix
+  "and"                         -> ActionInfix
+  "indivisibly"                 -> ActionPrefix
+  "raise"                       -> ActionConst
+  "exceptionally"               -> ActionInfix
+  "then" LAYOUT+ "exceptionally"-> ActionInfix
+  "fail"                        -> ActionConst
+  "otherwise"                   -> ActionInfix
+  "choose" LAYOUT+ "natural"    -> ActionConst
+
+   "and" LAYOUT+ "exceptionally" -> ActionInfix
+
+
+context-free syntax
+
+normal data:Data -> Terminated  {cons("normal")}
+exceptional data:Data -> Terminated {cons("exceptional")}
+failed -> Terminated {cons("failed")}
+
+  "give" op:DataOp                 -> Action {cons("give")}
+  "check" pred:DataPred              -> Action {cons("check")}
+  "select" "(" choices:{Action "or"}+ ")"  -> Action {cons("select")}
+%% If to be compiled:
+%%  "select" "(" {Action "or"}+ ")"  -> Action 
+
+hiddens sorts
+
+        ActionConst ActionInfix ActionPrefix DataTypes Action
+
+
+
+
+module __AN-K-Action
+
+imports __AN-K-Data-Contract
+
+
+exports 
+
+context-free syntax
+
+Terminated -> Action {cons("terminated")}
+
+"(" Action ")" -> Action {bracket, prefer, cons("bracket")}
+ActionConst -> Action {cons("const")}
+prefix:ActionPrefix arg:Action -> Action {cons("prefix")}
+lhs:Action infix:ActionInfix rhs:Action -> Action {left, cons("infix")}
+"provide" data:Data -> Action {cons("provide")}
+Action -> Datum {avoid,cons("action")}
+ActionPrefix -> DataOpPrefix {avoid,cons("action-prefix")}
+ActionInfix -> DataOpInfix {avoid,cons("action-infix")}
+
+lexical syntax
+"action" -> SortName 
+"provide" -> DataOpPrefix {avoid}
+ 
+hiddens 
+
+sorts Action ActionPrefix ActionInfix ActionConst Terminated
+
+variables
+"A"[0-9\']* -> Action
+"Ai"[0-9\']* -> ActionInfix
+"Ap"[0-9\']* -> ActionPrefix
+"d"[0-9\']* -> Data
+"u"[0-9\']* -> Datum
+"oc"[0-9\']* -> Outcome+
+"t"[0-9\']* -> Terminated
+
+
+
+
+
+
+module Layout
+   exports
+      lexical syntax
+         [\ \t\n]          -> LAYOUT
+         "~~" ~[\n]* "\n" -> LAYOUT
+         "%%" ~[\n]* "\n" -> LAYOUT
+         "%" ~[\%\n]+ "%"  -> LAYOUT
+  context-free restrictions
+    LAYOUT? -/- [\ \t\n\%]
+
+
+
+module __AN-K-Data
+
+imports __AN-K-Int __AN-K-Bool __AN-K-Token __AN-K-List
+	__AN-K-Agent __AN-K-Cell __AN-K-MessageTag
+	__AN-K-Action __AN-K-Bindings
+
+exports
+
+context-free syntax
+
+	DataOpComponent -> DataOpPrefix {cons("dataopcomponent")}
+	"#" Nat-Con -> DataOpComponent 
+	"#" "-1" -> DataOpComponent
+
+lexical syntax
+
+	"="  -> DataPredInfix 
+	"def" -> DataPredPrefix 
+
+
+hiddens 
+
+context-free syntax
+
+Data "!" Int -> Datum
+
+variables
+"o"[0-9\']* -> DataOp
+"d"[0-9\']* -> Data
+"ds"[0-9\']* -> DataSort
+"d+"[0-9\']* -> {Data ","}+
+"d*"[0-9\']* -> {Data ","}*
+"n"[0-9\']* -> Int 
+"p"[0-9\']* -> Nat-Con 
+"u"[0-9\']* -> Datum
+"i"[0-9\']* -> Int
+"char+" -> CHAR+
+
+
+module __AN-K-DataTypes
+
+imports Layout
+
+exports
+
+context-free syntax
+  SortName                              -> DataSort {cons("sortname")}
+  DataSort "*"                          -> DataSort {cons("star")}
+  DataSort "+"                          -> DataSort {cons("plus")}
+  DataSort "?"                          -> DataSort {cons("opt")}
+  "(" {DataSort ","}* ")"               -> DataSort {cons("tuple")}
+  "(" {DataSort "|"}+ ")"               -> DataSort {cons("alt")}
+  "action" "[" outcome:Outcome+ "]"             -> DataSort {cons("outcome")}
+
+  "taking"  DataSort    -> Outcome {cons("taking")}
+  "giving"  DataSort    -> Outcome {cons("giving")}
+  "raising" DataSort    -> Outcome {cons("raising")}
+  "failing"             -> Outcome {cons("failing")}
+
+
+lexical syntax
+
+  "data"                        -> SortName 
+  "datum"                       -> SortName 
+
+lexical syntax
+  "\"" ~[\"\ \n\t]+ "\""        -> Module
+
+hiddens
+sorts
+
+        Module SortName
+        DataOp DataPred OutCome DataSort  
+
+
+
+module __AN-K-List
+
+imports List[Data] __AN-K-Data-Contract
+
+exports 
+
+lexical syntax
+  "tupleToList"         -> DataOpPrefix 
+  "list"                -> SortName 
+
+
+context-free syntax
+
+  List                  -> Datum {cons("list")}
+
+hiddens sorts Data
+
+variables
+"d"[0-9\']* -> Data
+
+
+module List[Elt]
+
+imports Layout
+
+exports
+
+sorts List
+
+context-free syntax
+"[" elts:Elt* "]" -> List {const("list")}
+module __AN-K-Token
+
+imports String __AN-K-Data-Contract
+
+exports 
+
+lexical syntax
+  "token"               -> SortName 
+  "string"              -> SortName 
+context-free syntax
+  String        -> Token 
+  Token         -> Datum {cons("token")}
+
+hiddens 
+
+sorts
+        DataOpPrefix Datum SortName DataTypes String Token
+
+variables
+"tk" -> Token
+
+
+module String
+
+imports Int
+
+exports
+
+sorts String
+
+lexical syntax
+   "\"" StringChar* "\"" -> String
+    ~[\\\"\n] -> StringChar
+    [\\] [\\\"] -> StringChar
+
+context-free syntax
+
+length(String) -> Int
+
+hiddens
+variables
+"char*"[0-9\']* -> CHAR*
+"char"[0-9\']* -> CHAR
+
+
+
+module __AN-K-Bool
+
+imports Bool __AN-K-Data-Contract
+
+exports
+
+
+lexical syntax
+  "bool"        -> SortName 
+  "not"         -> DataOpPrefix 
+
+context-free syntax
+   BoolConst -> Datum {avoid, cons("datum")}
+
+hiddens sorts
+
+        BoolConst Bool DataOpPrefix DataConst SortName
+
+
+
+module Bool
+
+imports Layout
+
+exports
+  sorts Bool BoolConst
+  context-free syntax
+
+  "true"        -> BoolConst {cons("true")}
+  "false"       -> BoolConst {cons("false")}
+  BoolConst     -> Bool {cons("bool")}
+
+  "not" arg:Bool    -> Bool {prefer, cons("not")}
+
+  lhs:Bool "|" rhs:Bool -> Bool {left, cons("or")}
+  lhs:Bool "&" rhs:Bool -> Bool {left, cons("and")}
+  "(" Bool ")"       -> Bool {bracket, cons("bracket-bool")}
+
+context-free priorities
+  Bool "&" Bool -> Bool >
+  Bool "|" Bool -> Bool
+
+hiddens
+  variables
+    "b"[0-9]* -> Bool
+
+
+module __AN-K-Int
+
+imports Int __AN-K-Data-Contract
+
+exports 
+
+lexical syntax
+
+">" -> DataPredInfix
+"<" -> DataPredInfix
+">=" -> DataPredInfix
+"<=" -> DataPredInfix
+"nat" -> SortName
+"pos" -> SortName
+"int" -> SortName
+
+"+" -> DataOpInfix
+"-?" -> DataOpInfix
+"*" -> DataOpInfix
+"-" -> DataOpInfix
+
+context-free syntax
+
+Int           -> Datum {cons("int")}
+
+hiddens sorts
+        Int DataOpInfix SortName Datum DataPredInfix
+
+
+variables
+    "n" [0-9\']* -> Nat 
+    "p" [0-9\']* -> PosNumeral
+    "i" [0-9\']* -> Int
+    "d" [0-9\']* -> Data
+    "u" [0-9\']* -> Datum
+
+
+
+
+
+module Int
+
+imports Bool
+   
+exports
+
+lexical syntax
+[0]           -> Zero %%{cons("Zero")}
+[1-9][0-9]*   -> PosNumeral %%{cons("PosNumeral")}
+Zero -> Nat-Con %%{cons("zero-Nat-Con")}
+PosNumeral -> Nat-Con %%{cons("posnumeral-Nat-Con")}
+
+restrictions
+	PosNumeral -/- [0-9]
+
+context-free syntax
+
+Nat-Con -> Numeral {cons("numeral")}
+
+Numeral       -> Nat {cons("nat")}
+%%PosNumeral    -> Pos {cons("posnumeral-Pos")}
+Nat           -> Int {cons("int")}
+Nat "-?" Nat  -> Nat {left, cons("monus")}
+"(" Nat ")"            -> Nat {bracket, cons("bracket-Nat")}
+"+" Nat                -> Int {cons("unary-plus")}
+"-" Nat                -> Int {cons("unary-minus")}
+
+Int "+" Int   -> Int {left, prefer, cons("plus")}
+Int "-" Int   -> Int {left, prefer, cons("minus")}
+Int "*" Int   -> Int {left, prefer, cons("times")}
+Int ">" Int       -> Bool {prefer, cons("gt")}
+Int ">=" Int      -> Bool {prefer, cons("ge")}
+Int "<" Int       -> Bool {prefer, cons("lt")}
+Int "<=" Int      -> Bool {prefer, cons("le")}
+"(" Int ")"       -> Int {bracket, cons("bracket-int")}
+
+context-free priorities
+
+Int "*" Int -> Int > 
+{ Int "+" Int -> Int {left}
+  Int "-" Int -> Int {left}
+}
+
+
+
+hiddens
+
+sorts 
+  Int Nat PosNumeral Pos Numeral Nat-Con Zero
+	
+  variables
+    "n" [0-9\']* -> Nat 
+    "p" [0-9\']* -> PosNumeral
+    "i" [0-9\']* -> Int
+
+
+hiddens
+  context-free syntax
+    gt "(" Nat "," Nat ")" -> Bool %%{cons("hidden-nat-gt")}
+    Nat "-//" Nat          -> Nat  %%{cons("hidden-nat-minus")}
+    Nat ">-" Nat           -> Nat  %%{cons("hidden-nat-arrow")}
+
+  variables 
+    "char" [0-9]* -> CHAR
+    "char*" [0-9]* -> CHAR*
+    "char+" [0-9]* -> CHAR+
+
+  context-free priorities
+    Int "*" Int -> Int >
+    {left: Int "+" Int -> Int {left} 
+           Int "-" Int -> Int {left}
+    }
+
+
+
+

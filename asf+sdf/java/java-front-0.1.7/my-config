@@ -1,0 +1,4 @@
+./configure --prefix=/home/martin/tmp/java-front \
+   --with-stratego=/opt/stratego/current \
+   --with-xt=/opt/xt/current
+

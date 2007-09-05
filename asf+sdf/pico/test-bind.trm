@@ -1,0 +1,12 @@
+[][empty-cells()/cells][empty-storage()/storage] |-+
+
+
+provide 0 then create 
+		then (provide <n> then give the datum_ and give the cell_ then give binding_)
+		and (provide 0 then create 
+		then (provide <i> then give the datum_ and give the cell_ then give binding_)
+		and (provide 0 then create 
+		then (provide <j> then give the datum_ and give the cell_ then give binding_)
+		and (provide 0 then create 
+		then (provide <k> then give the datum_ and give the cell_ then give binding_)
+		and provide [] then give disjoint union_) then give disjoint union_) then give disjoint union_) then give disjoint union_ hence (give current bindings then give the datum_ and provide <n> )

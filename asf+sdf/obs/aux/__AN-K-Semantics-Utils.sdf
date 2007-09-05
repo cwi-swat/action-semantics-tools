@@ -1,0 +1,27 @@
+module obs/aux/__AN-K-Semantics-Utils
+
+imports obs/action/__AN-K-Action-Semantics 
+	obs/data/booleans/Bool 
+	obs/aux/Transition-Function
+
+exports
+context-free syntax
+
+terminated(Action) -> Bool
+
+get-tagged-buffers(Agent, Buffers) -> TaggedBuffers
+set-tagged-buffers(Agent, TaggedBuffers, Buffers) -> Buffers
+get-messages(MessageTag, TaggedBuffers) -> Messages
+set-messages(MessageTag, Messages, TaggedBuffers) -> TaggedBuffers
+
+hiddens
+variables
+"t" -> Terminated
+"A" -> Action
+"ag" -> Agent
+"bufs"[0-9\']* -> Buffers
+"tb*"[0-9\']* -> TaggedBuffer*
+"ms"[0-9\']* -> Messages
+"mt"[0-9\']* -> MessageTag
+"buf"[0-9\']* -> Buffers
+

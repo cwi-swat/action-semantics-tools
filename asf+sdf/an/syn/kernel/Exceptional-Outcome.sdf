@@ -1,0 +1,11 @@
+module an/syn/kernel/Exceptional-Outcome
+
+imports an/syn/kernel/Action 
+	dn/syn/kernel/Data
+
+exports
+
+sorts Terminated
+
+context-free syntax
+	"exceptional" Data -> Terminated {cons("exceptional")}

@@ -1,0 +1,10 @@
+module obs/data/lists/List[Elt]
+
+imports obs/layout/Layout
+
+exports
+
+sorts List
+
+context-free syntax
+"[" elts:Elt* "]" -> List {cons("list")}

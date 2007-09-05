@@ -1,0 +1,25 @@
+module an/AN2-Semantics
+
+imports an/sem/abbrev/Full-AN
+
+exports
+
+sorts Configuration
+
+context-free syntax
+	perform(Action, Data) -> Configuration
+
+hiddens
+
+context-free syntax
+	"e" -> IndexedState
+
+variables
+	"A"[0-9\']* -> Action
+	"d"[0-9\']* -> Data
+	"sc"[0-9\']* -> Schedule
+        "as"[0-9\']* -> Actions
+        "ags"[0-9\']* -> Agents
+        "cs"[0-9\']* -> Cells
+        "st"[0-9\']* -> Storage
+        "ti"[0-9\']* -> Time

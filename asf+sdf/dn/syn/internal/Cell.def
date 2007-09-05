@@ -1,0 +1,15 @@
+definition
+
+module dn/syn/internal/Cell
+
+exports
+
+sorts Cell
+
+context-free syntax
+	Cell -> Datum
+	"cell" -> SortName {cons("cell-sortname")}
+
+
+
+	

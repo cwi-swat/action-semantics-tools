@@ -1,0 +1,66 @@
+module obs/aux/structs/Balanced-Tree[Elt]
+
+imports obs/layout/Layout obs/data/integers/Int
+
+exports 
+
+sorts Tree
+
+context-free syntax
+
+%%Int -> Elt
+
+elt-lt(Elt, Elt) -> Bool
+elt-gt(Elt, Elt) -> Bool
+
+size(Tree) -> Int
+
+empty -> Tree {cons("empty")}
+tree(elt:Elt, count:Int, lhs:Tree, rhs:Tree) -> Tree {cons("tree")}
+new(Elt, Tree, Tree) -> Tree
+member(Elt, Tree) -> Bool
+find(Elt, Tree) -> Elt
+min(Tree) -> Elt
+weight -> Int
+b-new(Elt, Tree, Tree) -> Tree
+concat3(Elt, Tree, Tree) -> Tree
+
+single-l(Elt, Tree, Tree) -> Tree
+double-l(Elt, Tree, Tree) -> Tree
+single-r(Elt, Tree, Tree) -> Tree
+double-r(Elt, Tree, Tree) -> Tree
+
+add(Tree, Elt) -> Tree
+delete(Tree, Elt) -> Tree
+del-aux(Tree, Tree) -> Tree
+del-min(Tree) -> Tree
+
+union(Tree, Tree) -> Tree
+split-lt(Tree, Elt) -> Tree
+split-gt(Tree, Elt) -> Tree
+
+difference(Tree, Tree) -> Tree
+concat(Tree, Tree) -> Tree
+intersection(Tree, Tree) -> Tree
+
+trim(Elt, Elt, Tree) -> Tree
+uni-bd(Tree, Tree, Elt, Elt) -> Tree
+trim-lo(Elt, Tree) -> Tree
+trim-hi(Elt, Tree) -> Tree
+uni-hi(Tree, Tree, Elt) -> Tree
+uni-lo(Tree, Tree, Elt) -> Tree
+hedge-union(Tree, Tree) -> Tree
+disjoint-union(Tree, Tree) -> Tree
+
+elt-list(Tree) -> Elt*
+
+hiddens
+variables
+"e*"[0-9\']* -> Elt*
+[abcvxyz][0-9\']* -> Elt
+"lo" -> Elt
+"hi" -> Elt
+[lrstu]+[0-9\']* -> Tree
+"left" -> Tree
+"right" -> Tree
+"n"[0-9\']* -> Int

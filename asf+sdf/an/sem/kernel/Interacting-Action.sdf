@@ -1,0 +1,43 @@
+module an/sem/kernel/Interacting-Action
+
+imports an/syn/kernel/Interacting-Action
+	an/sem/kernel/Interaction-Flow 
+	an/sem/kernel/Data-Flow
+
+exports
+
+context-free syntax
+
+%% Since production renamings are not yet implemented
+%% we redefine => ourselves.
+
+	IndexedState "|=" Action -> Configuration {cons("mt-non-terminal")}
+	IndexedState "|=+" Action -> Configuration {cons("mt-trans-closure")}
+
+hiddens
+
+imports basic/Comments
+
+context-free syntax
+	Schedule "when" "terminated" Action "else" Schedule -> Schedule {cons("schedule-when-terminated")}
+	new-agent(Agents) -> Agent {cons("new-agents")}
+
+variables
+	"A"[0-9\']* -> Action
+	"As"[0-9\']* -> Actions
+	"s"[0-9\']* -> IndexedState
+	"ag"[0-9\']* -> Agent
+	"ags"[0-9\']* -> Agents
+	"bs"[0-9\']* -> Buffers
+	"m"[0-9\']* -> Message
+	"ms"[0-9\']* -> Messages
+	"mt"[0-9\']* -> MessageTag
+	"n"[0-9\']* -> Natural
+	"i"[0-9\']* -> Integer
+	"sc"[0-9\']* -> Schedule
+	"tbs"[0-9\']* -> TaggedBuffers
+	"t"[0-9\']* -> Terminated
+	"ti"[0-9\']* -> Time
+
+
+

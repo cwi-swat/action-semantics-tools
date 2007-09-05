@@ -1,0 +1,37 @@
+module aux/Finite-Set[X]
+
+imports basic/Booleans
+
+exports
+
+sorts Finite-Set
+
+context-free syntax
+	set(X) -> Finite-Set {cons("x-to-set")}
+
+	Finite-Set "+" Finite-Set -> Finite-Set {assoc,cons("set-union")}
+	Finite-Set "+" X -> Finite-Set {cons("add-x-to-set")}
+	Finite-Set "-" Finite-Set -> Finite-Set {left,cons("set-difference")}
+
+	"(" Finite-Set ")" -> Finite-Set {bracket,cons("set-bracket")}
+
+	X "in" Finite-Set -> Boolean {cons("set-element-of")}
+
+	empty-set() -> Finite-Set {cons("empty-set")}
+	is-empty(Finite-Set) -> Boolean {cons("is-empty-set")}
+
+	head(Finite-Set) -> X {cons("head-of-set")}
+	tail(Finite-Set) -> Finite-Set {cons("tail-of-set")}
+
+hiddens
+
+imports basic/Comments
+
+context-free syntax
+	"{" X* "}" -> Finite-Set {cons("finite-set")}
+
+
+variables
+	"s"[0-9\']* -> Finite-Set
+	"x"[0-9\']* -> X
+	"x*"[0-9\']* -> X*

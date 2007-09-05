@@ -1,0 +1,9 @@
+module obs/__AN-K
+
+imports 
+	obs/interacting/__AN-K-Interacting
+
+exports 
+
+sorts Action
+

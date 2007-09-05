@@ -1,0 +1,22 @@
+module msos/Indexed-Trace
+
+imports msos/Trace[StateUniv TraceUniv]
+	aux/Finite-Map[IndexUniv StateUniv]
+		[Finite-Map => IndexedState Entry => IndexedStateEntry]
+	aux/Finite-Map[IndexUniv TraceUniv]
+		[Finite-Map => IndexedTrace Entry => IndexedTraceEntry]
+	msos/Trace[IndexedState IndexedTrace]
+exports
+
+sorts IndexedTrace IndexedState StateUniv TraceUniv 
+
+hiddens
+
+imports basic/Comments
+
+variables
+	"i"[0-9\']* -> IndexUniv
+	"s"[0-9\']* -> StateUniv
+	"t"[0-9\']* -> TraceUniv
+	"is"[0-9\']* -> IndexedState
+	"it"[0-9\']* -> IndexedTrace

@@ -1,0 +1,22 @@
+# Process this file with autoconf to produce a configure script.
+AC_INIT([src/ail.h])
+
+AM_INIT_AUTOMAKE(AIL,0.1)
+
+# Checks for programs.
+AC_PROG_CC
+AC_PROG_RANLIB
+
+# Checks for libraries.
+
+# Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS([string.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+
+# Checks for library functions.
+
+
+AC_OUTPUT([Makefile src/Makefile])

@@ -1,0 +1,6 @@
+[][empty-cells()/cells][empty-storage()/storage] |-+
+provide 3 and provide 2 then 
+		(give #1_ then give the int_ then give the datum_ and
+
+ (give #2_ then give the int_))
+

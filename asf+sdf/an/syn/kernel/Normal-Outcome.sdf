@@ -1,0 +1,12 @@
+module an/syn/kernel/Normal-Outcome
+
+imports an/syn/kernel/Action 
+	dn/syn/kernel/Data
+
+exports
+
+sorts Terminated
+
+context-free syntax
+
+	"normal" Data -> Terminated {cons("normal")}

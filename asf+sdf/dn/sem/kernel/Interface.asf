@@ -1,0 +1,13 @@
+equations
+
+[default-sto]
+	storable(u) = false
+
+[default-bin]
+	bindable(u) = false
+
+[default-res]
+	result o d = nothing
+
+[default-hol]
+	holds q d = false

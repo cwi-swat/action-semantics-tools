@@ -1,0 +1,7 @@
+module an/syn/kernel/Kernel-Action
+
+imports an/syn/kernel/Data-Control-Action
+	an/syn/kernel/Enacting-Action
+	an/syn/kernel/Binding-Action
+	an/syn/kernel/Storing-Action
+	an/syn/kernel/Interacting-Action

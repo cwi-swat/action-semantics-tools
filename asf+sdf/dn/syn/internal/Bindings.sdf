@@ -1,0 +1,17 @@
+module dn/syn/internal/Bindings
+
+imports aux/Finite-Map[Token Datum][Finite-Map=>Bindings Entry=>Bindings-Entry]
+	dn/syn/lib/Token
+
+exports
+
+context-free syntax
+	Bindings -> Datum
+	"bindings" -> SortName {cons("bindings-sortname")}
+
+	"no" "bindings" -> Bindings {cons("no-bindings")}
+
+	"binding" -> DataOpPrefix {cons("binding-prefix")}
+	"bound" -> DataOpPrefix {cons("bound-prefix")}
+	"disjoint" "union" -> DataOpPrefix {cons("disjoint-union-prefix")}
+	"overriding" -> DataOpPrefix {cons("overriding-prefix")}

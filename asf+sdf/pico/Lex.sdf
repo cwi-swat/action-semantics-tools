@@ -1,0 +1,17 @@
+module pico/Lex
+
+imports 
+	asf/syntax/Comments
+	
+exports
+  sorts PICO-ID PICO-STR PICO-INT
+  lexical syntax
+    [a-z] [a-z0-9]* 	-> PICO-ID
+    [0-9]+		-> PICO-INT
+    [\"]~[\"\n]*[\"] 	-> PICO-STR
+
+  variables
+    "Str"[0-9\']* -> PICO-STR
+    "Int"[0-9\']* -> PICO-INT
+    "Id" [0-9\']*   -> PICO-ID
+

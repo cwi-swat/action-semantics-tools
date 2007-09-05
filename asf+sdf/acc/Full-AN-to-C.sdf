@@ -1,0 +1,50 @@
+module acc/Full-AN-to-C
+
+imports acc/Kernel-AN-to-C
+	obs/aux/structs/Info[Unf-Index Unf-Reference]
+	obs/aux/structs/Info[Rec-Index Rec-Reference]
+	ai/Action-Analysis
+
+exports
+
+context-free syntax
+"unf" -> Unf-Index
+"rec" -> Rec-Index
+
+Action # Int # Bool -> Unf-Reference
+Action # Int -> Rec-Reference
+
+hiddens
+variables
+"env"[0-9\']* -> Environment
+"defs"[0-9\']* -> ExternalDefinitions
+"exp"[0-9\']* -> PrimaryExpression
+"stat"[0-9\']* -> Statement
+"decls"[0-9\']* -> Declarations
+"stats"[0-9\']* -> Statements
+"id"[0-9\']* -> ID
+"n"[0-9\']* -> Int
+"char+"[0-9\']* -> CHAR+
+"ao"[0-9\']* -> ActionOutcome
+"t"[0-9\']* -> Type
+"T"[0-9\']* -> Terminated
+"ds"[0-9\']* -> DataSort
+"oc"[0-9\']* -> Outcome+
+"A"[0-9\']* -> Action
+"Ap"[0-9\']* -> ActionPrefix
+"Ac"[0-9\']* -> ActionConst
+"Ai"[0-9\']* -> ActionInfix
+"C"[0-9\']* -> {Action "or"}+
+"d"[0-9]* -> Data
+"d+"[0-9]* -> {Data ","}+
+"o"[0-9\']* -> DataOp
+"oi"[0-9\']* -> DataOpInfix
+"op"[0-9\']* -> DataOpPrefix
+"q"[0-9\']* -> DataPred
+"u"[0-9\']* -> Datum
+"tk"[0-9\']* -> Token
+"nat"[0-9\']* -> Nat
+"pos"[0-9\']* -> Pos
+"nat-con"[0-9\']* -> Nat-Con
+"b"[0-9\']* -> DataConst
+"bs"[0-9\']* -> Bindings

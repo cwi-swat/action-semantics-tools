@@ -1,0 +1,151 @@
+equations
+
+[]	super-type(datum) = data
+
+[default]	
+	super-type(s) = datum
+
+%% Equality
+
+[]	s1 :=: s2 = true when s1 = s2
+
+[]	s1 :=: s2 = false when s1 != s2
+
+%% Inequality
+
+[]	s1 :<>: s2 = not (s1 :=: s2)
+
+%% Base types
+
+[]	s <: s = true
+
+[]	s1 != s2,
+	super-type(s1) = s2
+	===
+	s1 <: s2 = true
+
+[]	s1 != s2,
+	super-type(s1) = s',
+	s' != s2,
+	s' != data
+	===
+	s1 <: s2 =  s' <: s2
+
+[]	s1 != s2,
+	super-type(s1) = s',
+	s' != s2,
+	s' = data
+	===
+	s1 <: s2 = false
+
+[default]
+	s1 <: s2 = false
+
+%% Must be default, since () <: t?
+[default]
+	() <: t = false
+
+[]	t <: data = true
+
+
+%% Need not be default because t need not be a sortname
+%% And data+ is not allowed.
+[]	data <: t = false
+
+%% Products
+
+[]	(t1,t1',tl1) <: (t2,t2',tl2) = t1 <: t2 & (t1',tl1) <: (t2',tl2) 
+
+[]	(t1,t1') <: (t2,t2') = t1 <: t2 & t1' <: t2'
+
+[default]
+	(t1,tl1) <: t2 = false
+
+[default]
+	t1 <: (t2,tl2) = false
+
+%% Unions
+
+[]	t1 | t2 <: t = t1 <: t & t2 <: t
+
+[]	t <: t1 | t2 = (t <: t1) | (t <: t2)
+
+%% Actions
+
+%% We still have to specify rules for :> and :><:
+
+[]	action [giving t1] <: action [giving t2 oc*] = t1 <: t2
+
+[]	action [raising t1] <: action [raising t2 oc*] = t1 <: t2
+
+[]	action [giving t1 raising t1'] <: 
+		action [giving t2 raising t2' oc*] = t1 <: t2 & t1' <: t2'
+
+[]	action [giving t1 raising t1' failing] <:
+		action [giving t2 raising t2' failing] =
+			t1 <: t2 & t1' <: t2'
+
+[]	action [raising t1 failing] <: action [oc* raising t2 failing] =
+		t1 <: t2
+
+[]	action [failing] <: action [oc* failing] = true
+
+%% FIX THIS!!
+%%[]	action [oc+] <: action  = true
+
+
+%% 'Regular' types
+
+%% Optional
+[]	() <: t? = true
+
+[default]	
+	t1 <: t2? = t1 <: t2
+
+[default]
+	t1? <: t2 = false
+
+%% Kleene star
+[]	t1 <: t2* = (t1 <: t2?) | (t1 <: t2+)
+
+[]	t1? <: t2* = t1 <: t2
+
+[]	t1+ <: t2* = t1 <: t2
+
+[default]
+	t1* <: t2 = false
+
+[default]
+	t1 <: t2* = false
+
+%% Kleene plus
+[]	(t1,t1',tl) <: t2+ = t1 <: t2 & (t1',tl) <: t2+
+
+[]	(t1,t1') <: t2+ = t1 <: t2 & t1' <: t2
+
+[default]
+	t1 <: t2+ = t1 <: t2
+
+[default]
+	t1+ <: t2 = false
+
+%% Abbreviations
+
+[]	t1 :> t2 = t2 <: t1
+
+%% Strictness
+[]	t1 <<: t2 = t1 <: t2 & not t2 <: t1
+
+[]	t1 :>> t2 = t2 <<: t2
+
+%% Disjunct
+[]	t1 :><: t2 = (not t1 <: t2) & (not t2 <: t1)
+
+%% Additional normalization
+
+[]	t1 | t2 = t1 when t1 :> t2 = true
+
+[]	t1 | t2 = t2 when t1 <: t2 = true
+
+
+

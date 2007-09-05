@@ -1,0 +1,31 @@
+equations
+
+[sos13]	s@data = d
+	===
+	s |- raise = <exceptional d, s>
+
+[sos14]	s |- A1 = <A1', s'>
+	===
+	s |- A1 exceptionally A2 = <A1' exceptionally A2, s'>
+
+[sos15]	s' = s[d1/data],
+	s' |- A2 = <A2', s''>
+	===
+	s |- exceptional d1 exceptionally A2 = 
+		<exceptional d1 exceptionally A2', s / s''>
+
+[sos16]	s |- exceptional d1 exceptionally t2 = <t2, s>
+
+[sos17]	s |- A1 = <A1', s'>
+	===
+	s |- A1 and exceptionally A2 = <A1' exceptionally A2, s'>
+
+[sos18]	s |- A2 = <A2', s'>
+	===
+	s |- exceptional d1 and exceptionally A2 = 
+		<exceptional d1 and exceptionally A2', s'>
+
+[sos19]	s |- exceptional d1 and exceptionally exceptional d2 =
+		<exceptional d1++d2, s>
+
+

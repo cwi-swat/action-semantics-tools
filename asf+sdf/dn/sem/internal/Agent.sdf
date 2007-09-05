@@ -1,0 +1,24 @@
+module dn/sem/internal/Agent
+
+imports dn/syn/internal/Agent
+	dn/sem/kernel/Interface
+
+exports
+
+sorts Agent
+
+context-free syntax
+	first-agent() -> Agent {cons("first-agent")}
+	next-agent(Agent) -> Agent {cons("next-agent")}
+	"main" -> Agent {cons("agent-main")}
+	
+hiddens
+
+imports basic/Integers
+
+context-free syntax
+	"$" Integer -> Agent {cons("agent")}
+
+variables
+	"n"[0-9\']* -> Integer
+	"ag"[0-9\']* -> Agent

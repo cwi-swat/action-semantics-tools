@@ -1,0 +1,11 @@
+equations
+
+[]	empty-actions() = empty-map()
+
+[]	empty-schedule() = empty-vector()
+
+[]	empty-agents() = !0
+
+[]	update-agents(!n) = !n+1
+
+[]	new-agent(!n) = new-agent(n)

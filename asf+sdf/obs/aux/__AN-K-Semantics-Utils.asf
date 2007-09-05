@@ -1,0 +1,30 @@
+equations
+
+[trm]   terminated(t) = true
+[default-trm]
+        terminated(A) = false
+
+[1]	get-tagged-buffers(ag, bufs1 <ag, tb*> bufs2) = tb*
+
+[default-2]
+	get-tagged-buffers(ag, bufs) = 
+
+[3]	set-tagged-buffers(ag, tb*, bufs1 <ag, tb*'> bufs2) =
+		bufs1 <ag, tb*> bufs2
+
+[default-4]	
+	set-tagged-buffers(ag, tb*, bufs) = <ag, tb*> bufs
+
+[5]	get-messages(mt, tb*1 <mt, ms> tb*2) = ms
+
+[default-6]
+	get-messages(mt, tb*) = 
+
+[7]	set-messages(mt, ms, tb*1 <mt, ms'> tb*2) = 
+		tb*1 <mt, ms> tb*2
+
+[default-8]
+	set-messages(mt, ms, tb*) = <mt, ms> tb* 
+
+
+

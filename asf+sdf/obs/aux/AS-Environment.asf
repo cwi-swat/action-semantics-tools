@@ -1,0 +1,120 @@
+equations
+
+[dget]	[ae*1 <data, dv> ae*2].data = dv
+
+[bget]	[ae*1 <bindings, bv> ae*2].bindings = bv
+
+[default-bget]
+	AE.bindings = []
+
+[cget]	[ae*1 <cells, cv> ae*2].cells = cv
+
+[default-cget]
+	AE.cells = 
+
+[sget]	[ae*1 <storage, sv> ae*2].storage = sv
+
+[default-sget]
+	AE.storage = 
+
+[scget]	[ae*1 <schedule, scv> ae*2].schedule = scv
+
+[default-scget]
+	AE.schedule = 
+
+[acget]	[ae*1 <actions, acv> ae*2].actions = acv
+
+[default-get]
+	AE.actions = 
+
+[buget]	[ae*1 <buffers, buv> ae*2].buffers = buv
+
+[default-buget]
+	AE.buffers = 
+
+[asget]	[ae*1 <agents, asv> ae*2].agents = asv
+
+[default-get]
+	AE.agents = 
+
+[agget]	[ae*1 <agent, agv> ae*2].agent = agv
+
+
+[tiget]	[ae*1 <time, tiv> ae*2].time = tiv
+
+[default-tiget]
+	AE.time = 0
+
+[inget]	[ae*1 <intflag, inf> ae*2].intflag = inf
+
+[default-inget]
+	AE.intflag = 0
+
+~~ Putting values
+[dput]	[ae*1 <data, dv> ae*2].data := dv' =
+		[ae*1 <data, dv'> ae*2]
+
+[default-dput]
+	[ae*].data := dv = [ae* <data, dv>]
+
+[bput]	[ae*1 <bindings, bv> ae*2].bindings := bv' =
+		[ae*1 <bindings, bv'> ae*2]
+
+[default-bput]
+	[ae*].bindings := bv = [ae* <bindings, bv>]
+
+[cput]	[ae*1 <cells, cv> ae*2].cells := cv' =
+		[ae*1 <cells, cv'> ae*2]
+
+[default-cput]
+	[ae*].cells := cv = [ae* <cells, cv>]
+
+[sput]	[ae*1 <storage, sv> ae*2].storage := sv' =
+		[ae*1 <storage, sv'> ae*2]
+
+[default-sput]
+	[ae*].storage := sv = [ae* <storage, sv>]
+
+[scput]	[ae*1 <schedule, scv> ae*2].schedule := scv' =
+		[ae*1 <schedule, scv'> ae*2]
+
+[default-scput]
+	[ae*].schedule := scv = [ae* <schedule, scv>]
+
+[acput]	[ae*1 <actions, acv> ae*2].actions := acv' =
+		[ae*1 <actions, acv'> ae*2]
+
+[default-acput]
+	[ae*].actions := acv = [ae* <actions, acv>]
+
+[buput]	[ae*1 <buffers, buv> ae*2].buffers := buv' =
+		[ae*1 <buffers, buv'> ae*2]
+
+[default-buput]
+	[ae*].buffers := buv = [ae* <buffers, buv>]
+
+[asput]	[ae*1 <agents, asv> ae*2].agents := asv' =
+		[ae*1 <agents, asv'> ae*2]
+
+[default-asput]
+	[ae*].agents := asv = [ae* <agents, asv>]
+
+[agput]	[ae*1 <agent, agv> ae*2].agent := agv' =
+		[ae*1 <agent, agv'> ae*2]
+
+[default-agput]
+	[ae*].agent := agv = [ae* <agent, agv>]
+
+[tiput]	[ae*1 <time, tiv> ae*2].time := tiv' =
+		[ae*1 <time, tiv'> ae*2]
+
+[default-tiput]
+	[ae*].time := tiv = [ae* <time, tiv>]
+
+[input]	[ae*1 <intflag, inf> ae*2].intflag := inf' =
+		[ae*1 <intflag, inf'> ae*2]
+
+[default-input]
+	[ae*].intflag := inf = [ae* <intflag, inf>]
+
+

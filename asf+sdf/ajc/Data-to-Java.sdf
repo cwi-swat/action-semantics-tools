@@ -1,0 +1,49 @@
+module ajc/Data-to-Java
+
+imports ajc/AN2-to-Java-Functions
+
+exports
+
+sorts Expr
+
+context-free syntax
+
+%% Use global module for data-to-aterm
+%% and define here, aterm-to-expression(ATerm)->Expression.
+
+data-to-expression(Data,Environment) -> Expr {prefer}
+datasort-to-pattern(DataSort) -> StringLiteral {prefer}
+datasort-to-identifier(DataSort) -> Id {prefer}
+int-to-integerliteral(Int) -> IntLiteral
+
+hiddens
+variables
+"id"[0-9\']* -> Id
+"str"[0-9\']* -> StringLiteral
+"exp"[0-9\']* -> Expr
+"bs"[0-9\']* -> Bindings
+"t"[0-9\']* -> Terminated
+"ds"[0-9\']* -> DataSort
+"oc"[0-9\']* -> Outcome+
+"A"[0-9\']* -> Action
+"Ap"[0-9\']* -> ActionPrefix
+"Ac"[0-9\']* -> ActionConst
+"Ai"[0-9\']* -> ActionInfix
+"C"[0-9\']* -> {Action "or"}+
+"d"[0-9\']* -> Data
+"dc"[0-9\']* -> DataConst
+"d+"[0-9\']* -> {Data ","}+
+"o"[0-9\']* -> DataOp
+"op"[0-9\']* -> DataOpPrefix
+"oi"[0-9\']* -> DataOpInfix
+"q"[0-9\']* -> DataPred
+"u"[0-9\']* -> Datum
+"n"[0-9\']* -> Int
+"tk"[0-9\']* -> Token
+"nat"[0-9\']* -> Natural
+"nat-con"[0-9\']* -> Nat-Con
+"b"[0-9\']* -> DataConst
+"char+"[0-9\']* -> CHAR+
+"char*"[0-9\']* -> CHAR*
+"b"[0-9\']* -> Boolean
+"env"[0-9\']* -> Environment

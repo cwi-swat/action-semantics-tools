@@ -1,0 +1,16 @@
+~~perform(
+
+execute[[
+{
+	int x = 0;
+	void inc() {
+		x = x + 1;
+	}
+	inc();
+}
+]]
+
+
+~~)
+
+

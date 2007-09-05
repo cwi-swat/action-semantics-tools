@@ -1,0 +1,19 @@
+equations
+
+[ad]	add(x, <x*>) = <x* x>
+
+[rot1]	rotate(<>) = <>
+
+[rot2]	rotate(<x x*>) = <x* x>
+
+[cur]	current(<x x*>) = x
+
+[rem1]	remove(<x x*>) = <x*>
+
+[rem2]	remove(<>) = <>
+
+[ise1]	is-empty(<>) = true
+
+[ise2]	is-empty(<x x*>) = false
+
+[emp]	empty-vector() = <>

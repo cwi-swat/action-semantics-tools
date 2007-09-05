@@ -1,0 +1,24 @@
+module obs/data/__AN-K-Agent
+
+imports obs/data/integers/Int 
+	obs/data/__AN-K-Data-Contract
+
+exports
+
+lexical syntax
+  "agent"               -> SortName
+
+context-free syntax
+
+new-agent(Int) -> Agent
+agent-to-int(Agent) -> Int
+Agent -> Datum {cons("agent")}
+
+hiddens
+
+context-free syntax
+"$" Int -> Agent
+
+
+variables
+"n"[0-9\']* -> Int

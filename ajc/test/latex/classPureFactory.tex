@@ -1,0 +1,274 @@
+\hypertarget{classPureFactory}{
+\section{Pure\-Factory  Class Reference}
+\label{classPureFactory}\index{PureFactory@{Pure\-Factory}}
+}
+Inheritance diagram for Pure\-Factory:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=47pt]{classPureFactory__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Pure\-Factory:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=47pt]{classPureFactory__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{classPureFactory_a0}{Pure\-Factory} ()
+\item 
+\hyperlink{interfaceInt}{Int} \hyperlink{classPureFactory_a1}{make\-Int} (long n)
+\item 
+\hyperlink{interfaceToken}{Token} \hyperlink{classPureFactory_a2}{make\-Token} (String s)
+\item 
+\hyperlink{interfaceBool}{Bool} \hyperlink{classPureFactory_a3}{make\-Bool} (boolean b)
+\item 
+\hyperlink{interfaceMessageTag}{Message\-Tag} \hyperlink{classPureFactory_a4}{make\-Message\-Tag} (String s)
+\item 
+\hyperlink{interfaceList}{List} \hyperlink{classPureFactory_a5}{make\-List0} ()
+\item 
+\hyperlink{interfaceList}{List} \hyperlink{classPureFactory_a6}{make\-List1} (\hyperlink{interfaceDataValue}{Data\-Value} data\-Value)
+\item 
+\hyperlink{interfaceBindings}{Bindings} \hyperlink{classPureFactory_a7}{make\-No\-Bindings} ()
+\item 
+\hyperlink{interfaceAgent}{Agent} \hyperlink{classPureFactory_a8}{make\-Agent} ()
+\item 
+\hyperlink{interfaceCell}{Cell} \hyperlink{classPureFactory_a9}{make\-Cell} ()
+\item 
+\hyperlink{interfaceEmpty}{Empty} \hyperlink{classPureFactory_a10}{make\-Empty} ()
+\item 
+\hyperlink{interfaceData}{Data} \hyperlink{classPureFactory_a11}{make\-Tuple} (\hyperlink{interfaceDataValue}{Data\-Value} data\-Value, \hyperlink{interfaceData}{Data} data)
+\item 
+\hyperlink{interfaceAction}{Action} \hyperlink{classPureFactory_a12}{make\-Action} (\hyperlink{interfaceEnactable}{Enactable} enactable)
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classPureFactory_a0}{
+\index{PureFactory@{Pure\-Factory}!PureFactory@{PureFactory}}
+\index{PureFactory@{PureFactory}!PureFactory@{Pure\-Factory}}
+\subsubsection[PureFactory]{\setlength{\rightskip}{0pt plus 5cm}Pure\-Factory::Pure\-Factory ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classPureFactory_a0}
+
+
+
+
+Definition at line 9 of file Pure\-Factory.java.\footnotesize\begin{verbatim}00009                          {
+00010         EmptyImpl.init(this);
+00011         ListImpl.init(this);
+00012     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classPureFactory_a12}{
+\index{PureFactory@{Pure\-Factory}!makeAction@{makeAction}}
+\index{makeAction@{makeAction}!PureFactory@{Pure\-Factory}}
+\subsubsection[makeAction]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAction}{Action} Pure\-Factory::make\-Action (\hyperlink{interfaceEnactable}{Enactable} {\em enactable})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classPureFactory_a12}
+
+
+
+
+Reimplemented from \hyperlink{interfaceDataFactory_a8}{Data\-Factory}.
+
+Definition at line 51 of file Pure\-Factory.java.\footnotesize\begin{verbatim}00051                                                   {
+00052         return new ActionImpl(this, enactable);
+00053     }
+\end{verbatim}\normalsize 
+\hypertarget{classPureFactory_a8}{
+\index{PureFactory@{Pure\-Factory}!makeAgent@{makeAgent}}
+\index{makeAgent@{makeAgent}!PureFactory@{Pure\-Factory}}
+\subsubsection[makeAgent]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAgent}{Agent} Pure\-Factory::make\-Agent ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classPureFactory_a8}
+
+
+
+
+Reimplemented from \hyperlink{interfaceDataFactory_a10}{Data\-Factory}.
+
+Definition at line 37 of file Pure\-Factory.java.\footnotesize\begin{verbatim}00037                              {
+00038         return new AgentImpl(this);
+00039     }
+\end{verbatim}\normalsize 
+\hypertarget{classPureFactory_a3}{
+\index{PureFactory@{Pure\-Factory}!makeBool@{makeBool}}
+\index{makeBool@{makeBool}!PureFactory@{Pure\-Factory}}
+\subsubsection[makeBool]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceBool}{Bool} Pure\-Factory::make\-Bool (boolean {\em b})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classPureFactory_a3}
+
+
+
+
+Reimplemented from \hyperlink{interfaceDataFactory_a4}{Data\-Factory}.
+
+Definition at line 20 of file Pure\-Factory.java.
+
+Referenced by Bool\-Impl::not().
+
+\footnotesize\begin{verbatim}00020                                     {
+00021         return new BoolImpl(this, b);
+00022     }
+\end{verbatim}\normalsize 
+\hypertarget{classPureFactory_a9}{
+\index{PureFactory@{Pure\-Factory}!makeCell@{makeCell}}
+\index{makeCell@{makeCell}!PureFactory@{Pure\-Factory}}
+\subsubsection[makeCell]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceCell}{Cell} Pure\-Factory::make\-Cell ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classPureFactory_a9}
+
+
+
+
+Reimplemented from \hyperlink{interfaceDataFactory_a11}{Data\-Factory}.
+
+Definition at line 40 of file Pure\-Factory.java.\footnotesize\begin{verbatim}00040                            {
+00041         return new CellImpl(this);
+00042     }
+\end{verbatim}\normalsize 
+\hypertarget{classPureFactory_a10}{
+\index{PureFactory@{Pure\-Factory}!makeEmpty@{makeEmpty}}
+\index{makeEmpty@{makeEmpty}!PureFactory@{Pure\-Factory}}
+\subsubsection[makeEmpty]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceEmpty}{Empty} Pure\-Factory::make\-Empty ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classPureFactory_a10}
+
+
+
+
+Reimplemented from \hyperlink{interfaceDataFactory_a0}{Data\-Factory}.
+
+Definition at line 43 of file Pure\-Factory.java.
+
+Referenced by Bindings\-Impl::bound(), Data\-Value\-Impl::component(), Action\-Impl::enact(), Text\-Impl::equals(), List\-Impl::equals(), Int\-Impl::equals(), Data\-Value\-Impl::equals(), Bool\-Impl::equals(), Action\-Impl::equals(), Empty\-Impl::first(), Int\-Impl::greater(), Int\-Impl::greater\-Or\-Eq(), List\-Impl::head(), Int\-Impl::less(), Int\-Impl::less\-Or\-Eq(), and Data\-Value\-Impl::rest().
+
+\footnotesize\begin{verbatim}00043                              {
+00044         return EmptyImpl.empty();
+00045     }
+\end{verbatim}\normalsize 
+\hypertarget{classPureFactory_a1}{
+\index{PureFactory@{Pure\-Factory}!makeInt@{makeInt}}
+\index{makeInt@{makeInt}!PureFactory@{Pure\-Factory}}
+\subsubsection[makeInt]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceInt}{Int} Pure\-Factory::make\-Int (long {\em n})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classPureFactory_a1}
+
+
+
+
+Reimplemented from \hyperlink{interfaceDataFactory_a2}{Data\-Factory}.
+
+Definition at line 14 of file Pure\-Factory.java.\footnotesize\begin{verbatim}00014                                {
+00015         return new IntImpl(this, n);
+00016     }
+\end{verbatim}\normalsize 
+\hypertarget{classPureFactory_a5}{
+\index{PureFactory@{Pure\-Factory}!makeList0@{makeList0}}
+\index{makeList0@{makeList0}!PureFactory@{Pure\-Factory}}
+\subsubsection[makeList0]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceList}{List} Pure\-Factory::make\-List0 ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classPureFactory_a5}
+
+
+
+
+Reimplemented from \hyperlink{interfaceDataFactory_a7}{Data\-Factory}.
+
+Definition at line 26 of file Pure\-Factory.java.
+
+Referenced by Empty\-Impl::tuple\-To\-List().
+
+\footnotesize\begin{verbatim}00026                             {
+00027         return ListImpl.empty();
+00028     }
+\end{verbatim}\normalsize 
+\hypertarget{classPureFactory_a6}{
+\index{PureFactory@{Pure\-Factory}!makeList1@{makeList1}}
+\index{makeList1@{makeList1}!PureFactory@{Pure\-Factory}}
+\subsubsection[makeList1]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceList}{List} Pure\-Factory::make\-List1 (\hyperlink{interfaceDataValue}{Data\-Value} {\em data\-Value})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classPureFactory_a6}
+
+
+
+
+Reimplemented from \hyperlink{interfaceDataFactory_a6}{Data\-Factory}.
+
+Definition at line 30 of file Pure\-Factory.java.
+
+Referenced by Data\-Value\-Impl::tuple\-To\-List().
+
+\footnotesize\begin{verbatim}00030                                                {
+00031         return new ListImpl(this,dataValue);
+00032     }
+\end{verbatim}\normalsize 
+\hypertarget{classPureFactory_a4}{
+\index{PureFactory@{Pure\-Factory}!makeMessageTag@{makeMessageTag}}
+\index{makeMessageTag@{makeMessageTag}!PureFactory@{Pure\-Factory}}
+\subsubsection[makeMessageTag]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceMessageTag}{Message\-Tag} Pure\-Factory::make\-Message\-Tag (String {\em s})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classPureFactory_a4}
+
+
+
+
+Reimplemented from \hyperlink{interfaceDataFactory_a5}{Data\-Factory}.
+
+Definition at line 23 of file Pure\-Factory.java.\footnotesize\begin{verbatim}00023                                                {
+00024         return new MessageTagImpl(this,s);
+00025     }
+\end{verbatim}\normalsize 
+\hypertarget{classPureFactory_a7}{
+\index{PureFactory@{Pure\-Factory}!makeNoBindings@{makeNoBindings}}
+\index{makeNoBindings@{makeNoBindings}!PureFactory@{Pure\-Factory}}
+\subsubsection[makeNoBindings]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceBindings}{Bindings} Pure\-Factory::make\-No\-Bindings ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classPureFactory_a7}
+
+
+
+
+Reimplemented from \hyperlink{interfaceDataFactory_a9}{Data\-Factory}.
+
+Definition at line 34 of file Pure\-Factory.java.
+
+Referenced by Action\-Impl::enact().
+
+\footnotesize\begin{verbatim}00034                                      {
+00035         return new BindingsImpl(this);
+00036     }
+\end{verbatim}\normalsize 
+\hypertarget{classPureFactory_a2}{
+\index{PureFactory@{Pure\-Factory}!makeToken@{makeToken}}
+\index{makeToken@{makeToken}!PureFactory@{Pure\-Factory}}
+\subsubsection[makeToken]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceToken}{Token} Pure\-Factory::make\-Token (String {\em s})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classPureFactory_a2}
+
+
+
+
+Reimplemented from \hyperlink{interfaceDataFactory_a3}{Data\-Factory}.
+
+Definition at line 17 of file Pure\-Factory.java.\footnotesize\begin{verbatim}00017                                      {
+00018         return new TokenImpl(this, s);
+00019     }
+\end{verbatim}\normalsize 
+\hypertarget{classPureFactory_a11}{
+\index{PureFactory@{Pure\-Factory}!makeTuple@{makeTuple}}
+\index{makeTuple@{makeTuple}!PureFactory@{Pure\-Factory}}
+\subsubsection[makeTuple]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceData}{Data} Pure\-Factory::make\-Tuple (\hyperlink{interfaceDataValue}{Data\-Value} {\em data\-Value}, \hyperlink{interfaceData}{Data} {\em data})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classPureFactory_a11}
+
+
+
+
+Reimplemented from \hyperlink{interfaceDataFactory_a1}{Data\-Factory}.
+
+Definition at line 47 of file Pure\-Factory.java.
+
+Referenced by Data\-Value\-Impl::concat().
+
+\footnotesize\begin{verbatim}00047                                                           {
+00048         return new DataImpl(this, dataValue, data);
+00049     }
+\end{verbatim}\normalsize 
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{PureFactory_8java-source}{Pure\-Factory.java}\end{CompactItemize}

@@ -1,0 +1,1006 @@
+
+  Electric Fence 2.2.0 Copyright (C) 1987-1999 Bruce Perens <bruce@perens.com>
+
+
+Trying.
+
+############ current action = action1
+10: A1 then returned: 5{[type,int]}
+############ current action = action11
+############ current action = action110
+############ current action = action1100
+############ current action = action11001
+############ current action = action110010
+1100100: A1 and returned: "unf"{[type,token]}
+1100101: and A2 returned: 134533896{[type,action]}
+merged data = ["unf"{[type,token]},134533896{[type,action]}]{[type,tuple]}
+110010: A1 then returned: ["unf"{[type,token]},134533896{[type,action]}]{[type,tuple]}
+DEBUG: ************************** binding ************************* 
+	data = ["unf"{[type,token]},134533896{[type,action]}]{[type,tuple]}
+	bindings = empty{[type,bindings]}
+110011: then A2 returned: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+11000: A1 and returned: empty{[type,bindings]}
+11001: and A2 returned: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+merged data = [empty{[type,bindings]},tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}]{[type,tuple]}
+1100: A1 then returned: [empty{[type,bindings]},tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}]{[type,tuple]}
+DEBUG: ************************** overriding ************************* 
+	data = [empty{[type,bindings]},tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}]{[type,tuple]}
+	bindings = empty{[type,bindings]}
+1101: then A2 returned: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+110: A1 hence returned: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+############ current action = action111
+
+
+Trying.
+
+############ current action = action1110
+
+
+Trying.
+
+############ current action = action11100
+############ current action = action111000
+############ current action = action1110000
+11100000: A1 and returned: 5{[type,int]}
+11100001: and A2 returned: 0{[type,int]}
+merged data = [5{[type,int]},0{[type,int]}]{[type,tuple]}
+1110000: A1 then returned: [5{[type,int]},0{[type,int]}]{[type,tuple]}
+############ current action = action1110001
+
+
+Trying.
+
+DEBUG: ************************** equals ************************* 
+	data = [5{[type,int]},0{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+bool = 0
+DEBUG: ************************** after equals (d1 != d2) ************************* 
+	data = [5{[type,int]},0{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Throwing exception
+Catching exception
+DEBUG: ************************** fail ************************* 
+	data = []{[type,empty]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Throwing failure
+Catching failure
+############ current action = action11101
+############ current action = action111010
+############ current action = action1110100
+11101000: A1 and returned: 5{[type,int]}
+11101001: and A2 returned: 1{[type,int]}
+merged data = [5{[type,int]},1{[type,int]}]{[type,tuple]}
+1110100: A1 then returned: [5{[type,int]},1{[type,int]}]{[type,tuple]}
+############ current action = action1110101
+
+
+Trying.
+
+DEBUG: ************************** equals ************************* 
+	data = [5{[type,int]},1{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+bool = 0
+DEBUG: ************************** after equals (d1 != d2) ************************* 
+	data = [5{[type,int]},1{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Throwing exception
+Catching exception
+DEBUG: ************************** fail ************************* 
+	data = []{[type,empty]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Throwing failure
+Catching failure
+############ current action = action1111
+############ current action = action11110
+############ current action = action111100
+############ current action = action1111000
+############ current action = action11110000
+111100000: A1 and returned: 5{[type,int]}
+111100001: and A2 returned: 2{[type,int]}
+merged data = [5{[type,int]},2{[type,int]}]{[type,tuple]}
+11110000: A1 then returned: [5{[type,int]},2{[type,int]}]{[type,tuple]}
+DEBUG: ************************** minus ************************* 
+	data = [5{[type,int]},2{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+11110001: then A2 returned: 3{[type,int]}
+1111000: A1 then returned: 3{[type,int]}
+############ current action = action1111001
+############ current action = action11110010
+############ current action = action111100100
+############ current action = action1111001000
+DEBUG: ************************** the datasort ************************* 
+	data = 3{[type,int]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+11110010000: A1 then returned: 3{[type,int]}
+DEBUG: ************************** provide ************************* 
+	data = 3{[type,int]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Returning NULL
+08088ee0	pushl  %ebp
+08088ee1	movl   %esp,%ebp
+08088ee3	pushl  %ebx
+08088ee4	pushl  %esi
+08088ee5	pushl  %edi
+08088ee6	movl   $0x40288230,%eax
+08088eeb	popl   %edi
+08088eec	popl   %esi
+08088eed	popl   %ebx
+08088eee	popl   %ebp
+08088eef	ret    
+cur_ip = 8088ef0
+action = 134778592{[type,action]}
+testing jitted provide.
+provided data: 3{[type,int]}
+result = 3{[type,int]}
+11110010001: then A2 returned: 134778592{[type,action]}
+############ current action = action1111001001
+############ current action = action11110010010
+############ current action = action111100100100
+1111001001000: A1 then returned: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+DEBUG: ************************** provide ************************* 
+	data = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Returning NULL
+08088ef0	pushl  %ebp
+08088ef1	movl   %esp,%ebp
+08088ef3	pushl  %ebx
+08088ef4	pushl  %esi
+08088ef5	pushl  %edi
+08088ef6	movl   $0x405ae000,%eax
+08088efb	popl   %edi
+08088efc	popl   %esi
+08088efd	popl   %ebx
+08088efe	popl   %ebp
+08088eff	ret    
+cur_ip = 8088f00
+action = 134778608{[type,action]}
+testing jitted provide.
+provided data: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+result = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+1111001001001: then A2 returned: 134778608{[type,action]}
+############ current action = action111100100101
+############ current action = action1111001001010
+############ current action = action11110010010100
+111100100101000: A1 and returned: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+111100100101001: and A2 returned: "unf"{[type,token]}
+merged data = [tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]},"unf"{[type,token]}]{[type,tuple]}
+11110010010100: A1 then returned: [tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]},"unf"{[type,token]}]{[type,tuple]}
+DEBUG: ************************** bound ************************* 
+	data = [tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]},"unf"{[type,token]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+11110010010101: then A2 returned: 134533896{[type,action]}
+1111001001010: A1 then returned: 134533896{[type,action]}
+DEBUG: ************************** the datasort ************************* 
+	data = 134533896{[type,action]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+1111001001011: then A2 returned: 134533896{[type,action]}
+111100100100: A1 and returned: 134778608{[type,action]}
+111100100101: and A2 returned: 134533896{[type,action]}
+merged data = [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+11110010010: A1 then returned: [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+DEBUG: ************************** hence ************************* 
+	data = [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+DEBUG: ************************** testing jitted hence. ************************* 
+	data = [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+f1 = 8088ef0, f2 = 804d308
+Returning NULL
+08088f00	pushl  %ebp
+08088f01	movl   %esp,%ebp
+08088f03	pushl  %ebx
+08088f04	pushl  %esi
+08088f05	pushl  %edi
+08088f06	movl   0x8(%ebp),%ebx
+08088f09	movl   0xc(%ebp),%esi
+08088f0c	pushl  %esi
+08088f0d	pushl  %ebx
+08088f0e	call   0x8088ef0
+08088f13	addl   $0x8,%esp
+08088f16	movl   %eax,%edi
+08088f18	movl   $0x404ae000,%esi
+08088f1d	pushl  %esi
+08088f1e	pushl  %edi
+08088f1f	call   0x80622e4
+08088f24	addl   $0x8,%esp
+08088f27	movl   %eax,%esi
+08088f29	cmpl   $0x404ae020,%esi
+08088f2f	jne    0x8088f44
+08088f35	pushl  %edi
+08088f36	pushl  %ebx
+08088f37	call   0x804d308
+08088f3c	addl   $0x8,%esp
+08088f3f	popl   %edi
+08088f40	popl   %esi
+08088f41	popl   %ebx
+08088f42	popl   %ebp
+08088f43	ret    
+08088f44	movl   $0x40532000,%ebx
+08088f49	pushl  %ebx
+08088f4a	call   0x804f0b4
+cur_ip = 8088f4f
+11110010011: then A2 returned: 134778624{[type,action]}
+1111001000: A1 and returned: 134778592{[type,action]}
+1111001001: and A2 returned: 134778624{[type,action]}
+merged data = [134778592{[type,action]},134778624{[type,action]}]{[type,tuple]}
+111100100: A1 then returned: [134778592{[type,action]},134778624{[type,action]}]{[type,tuple]}
+DEBUG: ************************** then ************************* 
+	data = [134778592{[type,action]},134778624{[type,action]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+f1 = 8088ee0, f2 = 8088f00
+Returning NULL
+08088f4f	pushl  %ebp
+08088f50	movl   %esp,%ebp
+08088f52	pushl  %ebx
+08088f53	pushl  %esi
+08088f54	pushl  %edi
+08088f55	movl   0x8(%ebp),%ebx
+08088f58	movl   0xc(%ebp),%esi
+08088f5b	pushl  %esi
+08088f5c	pushl  %ebx
+08088f5d	call   0x8088ee0
+08088f62	addl   $0xc,%esp
+08088f65	movl   %eax,%edi
+08088f67	pushl  %esi
+08088f68	pushl  %edi
+08088f69	call   0x8088f00
+08088f6e	addl   $0x8,%esp
+08088f71	popl   %edi
+08088f72	popl   %esi
+08088f73	popl   %ebx
+08088f74	popl   %ebp
+08088f75	ret    
+cur_ip = 8088f76
+111100101: then A2 returned: 134778703{[type,action]}
+11110010: A1 then returned: 134778703{[type,action]}
+DEBUG: ************************** enact ************************* 
+	data = 134778703{[type,action]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Yes we have an action datatype.
+Before calling f
+############ current action = action1100101
+
+
+Trying.
+
+############ current action = action11001010
+
+
+Trying.
+
+############ current action = action110010100
+############ current action = action1100101000
+############ current action = action11001010000
+110010100000: A1 and returned: 3{[type,int]}
+110010100001: and A2 returned: 0{[type,int]}
+merged data = [3{[type,int]},0{[type,int]}]{[type,tuple]}
+11001010000: A1 then returned: [3{[type,int]},0{[type,int]}]{[type,tuple]}
+############ current action = action11001010001
+
+
+Trying.
+
+DEBUG: ************************** equals ************************* 
+	data = [3{[type,int]},0{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+bool = 0
+DEBUG: ************************** after equals (d1 != d2) ************************* 
+	data = [3{[type,int]},0{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Throwing exception
+Catching exception
+DEBUG: ************************** fail ************************* 
+	data = []{[type,empty]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Throwing failure
+Catching failure
+############ current action = action110010101
+############ current action = action1100101010
+############ current action = action11001010100
+110010101000: A1 and returned: 3{[type,int]}
+110010101001: and A2 returned: 1{[type,int]}
+merged data = [3{[type,int]},1{[type,int]}]{[type,tuple]}
+11001010100: A1 then returned: [3{[type,int]},1{[type,int]}]{[type,tuple]}
+############ current action = action11001010101
+
+
+Trying.
+
+DEBUG: ************************** equals ************************* 
+	data = [3{[type,int]},1{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+bool = 0
+DEBUG: ************************** after equals (d1 != d2) ************************* 
+	data = [3{[type,int]},1{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Throwing exception
+Catching exception
+DEBUG: ************************** fail ************************* 
+	data = []{[type,empty]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Throwing failure
+Catching failure
+############ current action = action11001011
+############ current action = action110010110
+############ current action = action1100101100
+############ current action = action11001011000
+############ current action = action110010110000
+1100101100000: A1 and returned: 3{[type,int]}
+1100101100001: and A2 returned: 2{[type,int]}
+merged data = [3{[type,int]},2{[type,int]}]{[type,tuple]}
+110010110000: A1 then returned: [3{[type,int]},2{[type,int]}]{[type,tuple]}
+DEBUG: ************************** minus ************************* 
+	data = [3{[type,int]},2{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+110010110001: then A2 returned: 1{[type,int]}
+11001011000: A1 then returned: 1{[type,int]}
+############ current action = action11001011001
+############ current action = action110010110010
+############ current action = action1100101100100
+############ current action = action11001011001000
+DEBUG: ************************** the datasort ************************* 
+	data = 1{[type,int]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+110010110010000: A1 then returned: 1{[type,int]}
+DEBUG: ************************** provide ************************* 
+	data = 1{[type,int]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Returning NULL
+08088f76	pushl  %ebp
+08088f77	movl   %esp,%ebp
+08088f79	pushl  %ebx
+08088f7a	pushl  %esi
+08088f7b	pushl  %edi
+08088f7c	movl   $0x402881d0,%eax
+08088f81	popl   %edi
+08088f82	popl   %esi
+08088f83	popl   %ebx
+08088f84	popl   %ebp
+08088f85	ret    
+cur_ip = 8088f86
+action = 134778742{[type,action]}
+testing jitted provide.
+provided data: 1{[type,int]}
+result = 1{[type,int]}
+110010110010001: then A2 returned: 134778742{[type,action]}
+############ current action = action11001011001001
+############ current action = action110010110010010
+############ current action = action1100101100100100
+11001011001001000: A1 then returned: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+DEBUG: ************************** provide ************************* 
+	data = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+action = 134778608{[type,action]}
+testing jitted provide.
+provided data: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+result = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+11001011001001001: then A2 returned: 134778608{[type,action]}
+############ current action = action1100101100100101
+############ current action = action11001011001001010
+############ current action = action110010110010010100
+1100101100100101000: A1 and returned: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+1100101100100101001: and A2 returned: "unf"{[type,token]}
+merged data = [tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]},"unf"{[type,token]}]{[type,tuple]}
+110010110010010100: A1 then returned: [tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]},"unf"{[type,token]}]{[type,tuple]}
+DEBUG: ************************** bound ************************* 
+	data = [tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]},"unf"{[type,token]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+110010110010010101: then A2 returned: 134533896{[type,action]}
+11001011001001010: A1 then returned: 134533896{[type,action]}
+DEBUG: ************************** the datasort ************************* 
+	data = 134533896{[type,action]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+11001011001001011: then A2 returned: 134533896{[type,action]}
+1100101100100100: A1 and returned: 134778608{[type,action]}
+1100101100100101: and A2 returned: 134533896{[type,action]}
+merged data = [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+110010110010010: A1 then returned: [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+DEBUG: ************************** hence ************************* 
+	data = [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+DEBUG: ************************** testing jitted hence. ************************* 
+	data = [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+f1 = 8088ef0, f2 = 804d308
+110010110010011: then A2 returned: 134778624{[type,action]}
+11001011001000: A1 and returned: 134778742{[type,action]}
+11001011001001: and A2 returned: 134778624{[type,action]}
+merged data = [134778742{[type,action]},134778624{[type,action]}]{[type,tuple]}
+1100101100100: A1 then returned: [134778742{[type,action]},134778624{[type,action]}]{[type,tuple]}
+DEBUG: ************************** then ************************* 
+	data = [134778742{[type,action]},134778624{[type,action]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+f1 = 8088f76, f2 = 8088f00
+Returning NULL
+08088f86	pushl  %ebp
+08088f87	movl   %esp,%ebp
+08088f89	pushl  %ebx
+08088f8a	pushl  %esi
+08088f8b	pushl  %edi
+08088f8c	movl   0x8(%ebp),%ebx
+08088f8f	movl   0xc(%ebp),%esi
+08088f92	pushl  %esi
+08088f93	pushl  %ebx
+08088f94	call   0x8088f76
+08088f99	addl   $0x8,%esp
+08088f9c	movl   %eax,%edi
+08088f9e	pushl  %esi
+08088f9f	pushl  %edi
+08088fa0	call   0x8088f00
+08088fa5	addl   $0x8,%esp
+08088fa8	popl   %edi
+08088fa9	popl   %esi
+08088faa	popl   %ebx
+08088fab	popl   %ebp
+08088fac	ret    
+cur_ip = 8088fad
+1100101100101: then A2 returned: 134778758{[type,action]}
+110010110010: A1 then returned: 134778758{[type,action]}
+DEBUG: ************************** enact ************************* 
+	data = 134778758{[type,action]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Yes we have an action datatype.
+Before calling f
+############ current action = action1100101
+
+
+Trying.
+
+############ current action = action11001010
+
+
+Trying.
+
+############ current action = action110010100
+############ current action = action1100101000
+############ current action = action11001010000
+110010100000: A1 and returned: 1{[type,int]}
+110010100001: and A2 returned: 0{[type,int]}
+merged data = [1{[type,int]},0{[type,int]}]{[type,tuple]}
+11001010000: A1 then returned: [1{[type,int]},0{[type,int]}]{[type,tuple]}
+############ current action = action11001010001
+
+
+Trying.
+
+DEBUG: ************************** equals ************************* 
+	data = [1{[type,int]},0{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+bool = 0
+DEBUG: ************************** after equals (d1 != d2) ************************* 
+	data = [1{[type,int]},0{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Throwing exception
+Catching exception
+DEBUG: ************************** fail ************************* 
+	data = []{[type,empty]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Throwing failure
+Catching failure
+############ current action = action110010101
+############ current action = action1100101010
+############ current action = action11001010100
+110010101000: A1 and returned: 1{[type,int]}
+110010101001: and A2 returned: 1{[type,int]}
+merged data = [1{[type,int]},1{[type,int]}]{[type,tuple]}
+11001010100: A1 then returned: [1{[type,int]},1{[type,int]}]{[type,tuple]}
+############ current action = action11001010101
+
+
+Trying.
+
+DEBUG: ************************** equals ************************* 
+	data = [1{[type,int]},1{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+bool = 1
+110010101010: A1 exceptionally returned: []{[type,empty]}
+11001010101: then A2 returned: []{[type,empty]}
+1100101010: A1 then returned: []{[type,empty]}
+1100101011: then A2 returned: 1{[type,int]}
+110010101: otherwise A2 returned: 1{[type,int]}
+11001010: A1 otherwise returned: 1{[type,int]}
+in enact, f returned: 1{[type,int]}
+110010110011: then A2 returned: 1{[type,int]}
+11001011001: then A2 returned: 1{[type,int]}
+############ current action = action1100101101
+############ current action = action11001011010
+############ current action = action110010110100
+1100101101000: A1 and returned: 3{[type,int]}
+1100101101001: and A2 returned: 1{[type,int]}
+merged data = [3{[type,int]},1{[type,int]}]{[type,tuple]}
+110010110100: A1 then returned: [3{[type,int]},1{[type,int]}]{[type,tuple]}
+DEBUG: ************************** minus ************************* 
+	data = [3{[type,int]},1{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+110010110101: then A2 returned: 2{[type,int]}
+11001011010: A1 then returned: 2{[type,int]}
+############ current action = action11001011011
+############ current action = action110010110110
+############ current action = action1100101101100
+############ current action = action11001011011000
+DEBUG: ************************** the datasort ************************* 
+	data = 2{[type,int]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+110010110110000: A1 then returned: 2{[type,int]}
+DEBUG: ************************** provide ************************* 
+	data = 2{[type,int]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Returning NULL
+08088fad	pushl  %ebp
+08088fae	movl   %esp,%ebp
+08088fb0	pushl  %ebx
+08088fb1	pushl  %esi
+08088fb2	pushl  %edi
+08088fb3	movl   $0x40288200,%eax
+08088fb8	popl   %edi
+08088fb9	popl   %esi
+08088fba	popl   %ebx
+08088fbb	popl   %ebp
+08088fbc	ret    
+cur_ip = 8088fbd
+action = 134778797{[type,action]}
+testing jitted provide.
+provided data: 2{[type,int]}
+result = 2{[type,int]}
+110010110110001: then A2 returned: 134778797{[type,action]}
+############ current action = action11001011011001
+############ current action = action110010110110010
+############ current action = action1100101101100100
+11001011011001000: A1 then returned: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+DEBUG: ************************** provide ************************* 
+	data = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+action = 134778608{[type,action]}
+testing jitted provide.
+provided data: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+result = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+11001011011001001: then A2 returned: 134778608{[type,action]}
+############ current action = action1100101101100101
+############ current action = action11001011011001010
+############ current action = action110010110110010100
+1100101101100101000: A1 and returned: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+1100101101100101001: and A2 returned: "unf"{[type,token]}
+merged data = [tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]},"unf"{[type,token]}]{[type,tuple]}
+110010110110010100: A1 then returned: [tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]},"unf"{[type,token]}]{[type,tuple]}
+DEBUG: ************************** bound ************************* 
+	data = [tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]},"unf"{[type,token]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+110010110110010101: then A2 returned: 134533896{[type,action]}
+11001011011001010: A1 then returned: 134533896{[type,action]}
+DEBUG: ************************** the datasort ************************* 
+	data = 134533896{[type,action]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+11001011011001011: then A2 returned: 134533896{[type,action]}
+1100101101100100: A1 and returned: 134778608{[type,action]}
+1100101101100101: and A2 returned: 134533896{[type,action]}
+merged data = [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+110010110110010: A1 then returned: [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+DEBUG: ************************** hence ************************* 
+	data = [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+DEBUG: ************************** testing jitted hence. ************************* 
+	data = [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+f1 = 8088ef0, f2 = 804d308
+110010110110011: then A2 returned: 134778624{[type,action]}
+11001011011000: A1 and returned: 134778797{[type,action]}
+11001011011001: and A2 returned: 134778624{[type,action]}
+merged data = [134778797{[type,action]},134778624{[type,action]}]{[type,tuple]}
+1100101101100: A1 then returned: [134778797{[type,action]},134778624{[type,action]}]{[type,tuple]}
+DEBUG: ************************** then ************************* 
+	data = [134778797{[type,action]},134778624{[type,action]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+f1 = 8088fad, f2 = 8088f00
+Returning NULL
+08088fbd	pushl  %ebp
+08088fbe	movl   %esp,%ebp
+08088fc0	pushl  %ebx
+08088fc1	pushl  %esi
+08088fc2	pushl  %edi
+08088fc3	movl   0x8(%ebp),%ebx
+08088fc6	movl   0xc(%ebp),%esi
+08088fc9	pushl  %esi
+08088fca	pushl  %ebx
+08088fcb	call   0x8088fad
+08088fd0	addl   $0x8,%esp
+08088fd3	movl   %eax,%edi
+08088fd5	pushl  %esi
+08088fd6	pushl  %edi
+08088fd7	call   0x8088f00
+08088fdc	addl   $0x8,%esp
+08088fdf	popl   %edi
+08088fe0	popl   %esi
+08088fe1	popl   %ebx
+08088fe2	popl   %ebp
+08088fe3	ret    
+cur_ip = 8088fe4
+1100101101101: then A2 returned: 134778813{[type,action]}
+110010110110: A1 then returned: 134778813{[type,action]}
+DEBUG: ************************** enact ************************* 
+	data = 134778813{[type,action]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Yes we have an action datatype.
+Before calling f
+############ current action = action1100101
+
+
+Trying.
+
+############ current action = action11001010
+
+
+Trying.
+
+############ current action = action110010100
+############ current action = action1100101000
+############ current action = action11001010000
+110010100000: A1 and returned: 2{[type,int]}
+110010100001: and A2 returned: 0{[type,int]}
+merged data = [2{[type,int]},0{[type,int]}]{[type,tuple]}
+11001010000: A1 then returned: [2{[type,int]},0{[type,int]}]{[type,tuple]}
+############ current action = action11001010001
+
+
+Trying.
+
+DEBUG: ************************** equals ************************* 
+	data = [2{[type,int]},0{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+bool = 0
+DEBUG: ************************** after equals (d1 != d2) ************************* 
+	data = [2{[type,int]},0{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Throwing exception
+Catching exception
+DEBUG: ************************** fail ************************* 
+	data = []{[type,empty]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Throwing failure
+Catching failure
+############ current action = action110010101
+############ current action = action1100101010
+############ current action = action11001010100
+110010101000: A1 and returned: 2{[type,int]}
+110010101001: and A2 returned: 1{[type,int]}
+merged data = [2{[type,int]},1{[type,int]}]{[type,tuple]}
+11001010100: A1 then returned: [2{[type,int]},1{[type,int]}]{[type,tuple]}
+############ current action = action11001010101
+
+
+Trying.
+
+DEBUG: ************************** equals ************************* 
+	data = [2{[type,int]},1{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+bool = 0
+DEBUG: ************************** after equals (d1 != d2) ************************* 
+	data = [2{[type,int]},1{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Throwing exception
+Catching exception
+DEBUG: ************************** fail ************************* 
+	data = []{[type,empty]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Throwing failure
+Catching failure
+############ current action = action11001011
+############ current action = action110010110
+############ current action = action1100101100
+############ current action = action11001011000
+############ current action = action110010110000
+1100101100000: A1 and returned: 2{[type,int]}
+1100101100001: and A2 returned: 2{[type,int]}
+merged data = [2{[type,int]},2{[type,int]}]{[type,tuple]}
+110010110000: A1 then returned: [2{[type,int]},2{[type,int]}]{[type,tuple]}
+DEBUG: ************************** minus ************************* 
+	data = [2{[type,int]},2{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+110010110001: then A2 returned: 0{[type,int]}
+11001011000: A1 then returned: 0{[type,int]}
+############ current action = action11001011001
+############ current action = action110010110010
+############ current action = action1100101100100
+############ current action = action11001011001000
+DEBUG: ************************** the datasort ************************* 
+	data = 0{[type,int]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+110010110010000: A1 then returned: 0{[type,int]}
+DEBUG: ************************** provide ************************* 
+	data = 0{[type,int]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Returning NULL
+08088fe4	pushl  %ebp
+08088fe5	movl   %esp,%ebp
+08088fe7	pushl  %ebx
+08088fe8	pushl  %esi
+08088fe9	pushl  %edi
+08088fea	movl   $0x40288190,%eax
+08088fef	popl   %edi
+08088ff0	popl   %esi
+08088ff1	popl   %ebx
+08088ff2	popl   %ebp
+08088ff3	ret    
+cur_ip = 8088ff4
+action = 134778852{[type,action]}
+testing jitted provide.
+provided data: 0{[type,int]}
+result = 0{[type,int]}
+110010110010001: then A2 returned: 134778852{[type,action]}
+############ current action = action11001011001001
+############ current action = action110010110010010
+############ current action = action1100101100100100
+11001011001001000: A1 then returned: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+DEBUG: ************************** provide ************************* 
+	data = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+action = 134778608{[type,action]}
+testing jitted provide.
+provided data: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+result = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+11001011001001001: then A2 returned: 134778608{[type,action]}
+############ current action = action1100101100100101
+############ current action = action11001011001001010
+############ current action = action110010110010010100
+1100101100100101000: A1 and returned: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+1100101100100101001: and A2 returned: "unf"{[type,token]}
+merged data = [tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]},"unf"{[type,token]}]{[type,tuple]}
+110010110010010100: A1 then returned: [tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]},"unf"{[type,token]}]{[type,tuple]}
+DEBUG: ************************** bound ************************* 
+	data = [tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]},"unf"{[type,token]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+110010110010010101: then A2 returned: 134533896{[type,action]}
+11001011001001010: A1 then returned: 134533896{[type,action]}
+DEBUG: ************************** the datasort ************************* 
+	data = 134533896{[type,action]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+11001011001001011: then A2 returned: 134533896{[type,action]}
+1100101100100100: A1 and returned: 134778608{[type,action]}
+1100101100100101: and A2 returned: 134533896{[type,action]}
+merged data = [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+110010110010010: A1 then returned: [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+DEBUG: ************************** hence ************************* 
+	data = [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+DEBUG: ************************** testing jitted hence. ************************* 
+	data = [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+f1 = 8088ef0, f2 = 804d308
+110010110010011: then A2 returned: 134778624{[type,action]}
+11001011001000: A1 and returned: 134778852{[type,action]}
+11001011001001: and A2 returned: 134778624{[type,action]}
+merged data = [134778852{[type,action]},134778624{[type,action]}]{[type,tuple]}
+1100101100100: A1 then returned: [134778852{[type,action]},134778624{[type,action]}]{[type,tuple]}
+DEBUG: ************************** then ************************* 
+	data = [134778852{[type,action]},134778624{[type,action]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+f1 = 8088fe4, f2 = 8088f00
+Returning NULL
+08088ff4	pushl  %ebp
+08088ff5	movl   %esp,%ebp
+08088ff7	pushl  %ebx
+08088ff8	pushl  %esi
+08088ff9	pushl  %edi
+08088ffa	movl   0x8(%ebp),%ebx
+08088ffd	movl   0xc(%ebp),%esi
+08089000	pushl  %esi
+08089001	pushl  %ebx
+08089002	call   0x8088fe4
+08089007	addl   $0x8,%esp
+0808900a	movl   %eax,%edi
+0808900c	pushl  %esi
+0808900d	pushl  %edi
+0808900e	call   0x8088f00
+08089013	addl   $0x8,%esp
+08089016	popl   %edi
+08089017	popl   %esi
+08089018	popl   %ebx
+08089019	popl   %ebp
+0808901a	ret    
+cur_ip = 808901b
+1100101100101: then A2 returned: 134778868{[type,action]}
+110010110010: A1 then returned: 134778868{[type,action]}
+DEBUG: ************************** enact ************************* 
+	data = 134778868{[type,action]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Yes we have an action datatype.
+Before calling f
+############ current action = action1100101
+
+
+Trying.
+
+############ current action = action11001010
+
+
+Trying.
+
+############ current action = action110010100
+############ current action = action1100101000
+############ current action = action11001010000
+110010100000: A1 and returned: 0{[type,int]}
+110010100001: and A2 returned: 0{[type,int]}
+merged data = [0{[type,int]},0{[type,int]}]{[type,tuple]}
+11001010000: A1 then returned: [0{[type,int]},0{[type,int]}]{[type,tuple]}
+############ current action = action11001010001
+
+
+Trying.
+
+DEBUG: ************************** equals ************************* 
+	data = [0{[type,int]},0{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+bool = 1
+110010100010: A1 exceptionally returned: []{[type,empty]}
+11001010001: then A2 returned: []{[type,empty]}
+1100101000: A1 then returned: []{[type,empty]}
+1100101001: then A2 returned: 1{[type,int]}
+110010100: A1 otherwise returned: 1{[type,int]}
+11001010: A1 otherwise returned: 1{[type,int]}
+in enact, f returned: 1{[type,int]}
+110010110011: then A2 returned: 1{[type,int]}
+11001011001: then A2 returned: 1{[type,int]}
+############ current action = action1100101101
+############ current action = action11001011010
+############ current action = action110010110100
+1100101101000: A1 and returned: 2{[type,int]}
+1100101101001: and A2 returned: 1{[type,int]}
+merged data = [2{[type,int]},1{[type,int]}]{[type,tuple]}
+110010110100: A1 then returned: [2{[type,int]},1{[type,int]}]{[type,tuple]}
+DEBUG: ************************** minus ************************* 
+	data = [2{[type,int]},1{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+110010110101: then A2 returned: 1{[type,int]}
+11001011010: A1 then returned: 1{[type,int]}
+############ current action = action11001011011
+############ current action = action110010110110
+############ current action = action1100101101100
+############ current action = action11001011011000
+DEBUG: ************************** the datasort ************************* 
+	data = 1{[type,int]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+110010110110000: A1 then returned: 1{[type,int]}
+DEBUG: ************************** provide ************************* 
+	data = 1{[type,int]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+action = 134778742{[type,action]}
+testing jitted provide.
+provided data: 1{[type,int]}
+result = 1{[type,int]}
+110010110110001: then A2 returned: 134778742{[type,action]}
+############ current action = action11001011011001
+############ current action = action110010110110010
+############ current action = action1100101101100100
+11001011011001000: A1 then returned: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+DEBUG: ************************** provide ************************* 
+	data = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+action = 134778608{[type,action]}
+testing jitted provide.
+provided data: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+result = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+11001011011001001: then A2 returned: 134778608{[type,action]}
+############ current action = action1100101101100101
+############ current action = action11001011011001010
+############ current action = action110010110110010100
+1100101101100101000: A1 and returned: tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+1100101101100101001: and A2 returned: "unf"{[type,token]}
+merged data = [tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]},"unf"{[type,token]}]{[type,tuple]}
+110010110110010100: A1 then returned: [tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]},"unf"{[type,token]}]{[type,tuple]}
+DEBUG: ************************** bound ************************* 
+	data = [tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]},"unf"{[type,token]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+110010110110010101: then A2 returned: 134533896{[type,action]}
+11001011011001010: A1 then returned: 134533896{[type,action]}
+DEBUG: ************************** the datasort ************************* 
+	data = 134533896{[type,action]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+11001011011001011: then A2 returned: 134533896{[type,action]}
+1100101101100100: A1 and returned: 134778608{[type,action]}
+1100101101100101: and A2 returned: 134533896{[type,action]}
+merged data = [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+110010110110010: A1 then returned: [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+DEBUG: ************************** hence ************************* 
+	data = [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+DEBUG: ************************** testing jitted hence. ************************* 
+	data = [134778608{[type,action]},134533896{[type,action]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+f1 = 8088ef0, f2 = 804d308
+110010110110011: then A2 returned: 134778624{[type,action]}
+11001011011000: A1 and returned: 134778742{[type,action]}
+11001011011001: and A2 returned: 134778624{[type,action]}
+merged data = [134778742{[type,action]},134778624{[type,action]}]{[type,tuple]}
+1100101101100: A1 then returned: [134778742{[type,action]},134778624{[type,action]}]{[type,tuple]}
+DEBUG: ************************** then ************************* 
+	data = [134778742{[type,action]},134778624{[type,action]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+f1 = 8088f76, f2 = 8088f00
+1100101101101: then A2 returned: 134778758{[type,action]}
+110010110110: A1 then returned: 134778758{[type,action]}
+DEBUG: ************************** enact ************************* 
+	data = 134778758{[type,action]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Yes we have an action datatype.
+Before calling f
+############ current action = action1100101
+
+
+Trying.
+
+############ current action = action11001010
+
+
+Trying.
+
+############ current action = action110010100
+############ current action = action1100101000
+############ current action = action11001010000
+110010100000: A1 and returned: 1{[type,int]}
+110010100001: and A2 returned: 0{[type,int]}
+merged data = [1{[type,int]},0{[type,int]}]{[type,tuple]}
+11001010000: A1 then returned: [1{[type,int]},0{[type,int]}]{[type,tuple]}
+############ current action = action11001010001
+
+
+Trying.
+
+DEBUG: ************************** equals ************************* 
+	data = [1{[type,int]},0{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+bool = 0
+DEBUG: ************************** after equals (d1 != d2) ************************* 
+	data = [1{[type,int]},0{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Throwing exception
+Catching exception
+DEBUG: ************************** fail ************************* 
+	data = []{[type,empty]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+Throwing failure
+Catching failure
+############ current action = action110010101
+############ current action = action1100101010
+############ current action = action11001010100
+110010101000: A1 and returned: 1{[type,int]}
+110010101001: and A2 returned: 1{[type,int]}
+merged data = [1{[type,int]},1{[type,int]}]{[type,tuple]}
+11001010100: A1 then returned: [1{[type,int]},1{[type,int]}]{[type,tuple]}
+############ current action = action11001010101
+
+
+Trying.
+
+DEBUG: ************************** equals ************************* 
+	data = [1{[type,int]},1{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+bool = 1
+110010101010: A1 exceptionally returned: []{[type,empty]}
+11001010101: then A2 returned: []{[type,empty]}
+1100101010: A1 then returned: []{[type,empty]}
+1100101011: then A2 returned: 1{[type,int]}
+110010101: otherwise A2 returned: 1{[type,int]}
+11001010: A1 otherwise returned: 1{[type,int]}
+in enact, f returned: 1{[type,int]}
+110010110111: then A2 returned: 1{[type,int]}
+11001011011: then A2 returned: 1{[type,int]}
+1100101100: A1 and returned: 1{[type,int]}
+1100101101: and A2 returned: 1{[type,int]}
+merged data = [1{[type,int]},1{[type,int]}]{[type,tuple]}
+110010110: A1 then returned: [1{[type,int]},1{[type,int]}]{[type,tuple]}
+DEBUG: ************************** plus ************************* 
+	data = [1{[type,int]},1{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+110010111: then A2 returned: 2{[type,int]}
+11001011: otherwise A2 returned: 2{[type,int]}
+in enact, f returned: 2{[type,int]}
+110010110111: then A2 returned: 2{[type,int]}
+11001011011: then A2 returned: 2{[type,int]}
+1100101100: A1 and returned: 1{[type,int]}
+1100101101: and A2 returned: 2{[type,int]}
+merged data = [1{[type,int]},2{[type,int]}]{[type,tuple]}
+110010110: A1 then returned: [1{[type,int]},2{[type,int]}]{[type,tuple]}
+DEBUG: ************************** plus ************************* 
+	data = [1{[type,int]},2{[type,int]}]{[type,tuple]}
+	bindings = tree(["unf"{[type,token]},134533896{[type,action]}],1,empty,empty){[type,bindings]}
+110010111: then A2 returned: 3{[type,int]}
+11001011: otherwise A2 returned: 3{[type,int]}

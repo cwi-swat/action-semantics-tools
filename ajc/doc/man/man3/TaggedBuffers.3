@@ -1,0 +1,47 @@
+.TH "TaggedBuffers" 3 "13 Sep 2002" "Action Java Compiler Runtime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TaggedBuffers \- 
+.SH SYNOPSIS
+.br
+.PP
+Inherits \fBHashtable\fP.
+.PP
+.SS "Public Methods"
+
+.in +1c
+.ti -1c
+.RI "\fBTaggedBuffers\fP (\fBDataFactory\fP factory)"
+.br
+.ti -1c
+.RI "void \fBqueue\fP (\fBMessageTag\fP messageTag, \fBMessage\fP message)"
+.br
+.ti -1c
+.RI "\fBMessage\fP \fBdequeue\fP (\fBMessageTag\fP messageTag) throws \fBExceptional\fP"
+.br
+.in -1c
+.SH "CONSTRUCTOR & DESTRUCTOR DOCUMENTATION"
+.PP 
+.SS "TaggedBuffers::TaggedBuffers (\fBDataFactory\fP factory)"
+.PP
+Definition at line 11 of file TaggedBuffers.java.
+.SH "MEMBER FUNCTION DOCUMENTATION"
+.PP 
+.SS "\fBMessage\fP TaggedBuffers::dequeue (\fBMessageTag\fP messageTag)"
+.PP
+Definition at line 26 of file TaggedBuffers.java.
+.PP
+Referenced by Schedule::receive().
+.PP
+.SS "void TaggedBuffers::queue (\fBMessageTag\fP messageTag, \fBMessage\fP message)"
+.PP
+Definition at line 16 of file TaggedBuffers.java.
+.PP
+Referenced by Schedule::send().
+.PP
+
+
+.SH "AUTHOR"
+.PP 
+Generated automatically by Doxygen for Action Java Compiler Runtime from the source code.

@@ -1,0 +1,5 @@
+equations
+
+[frst]	first(pair(x,y)) = x
+
+[secn]	second(pair(x,y)) = y

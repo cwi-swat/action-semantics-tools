@@ -1,0 +1,15 @@
+[][empty-cells()/cells][empty-storage()/storage] |-+
+
+
+run[[
+
+begin
+  declare 
+    n: natural;
+    n := 3;
+    while n do
+      n := n - 1
+    od
+end
+
+]]

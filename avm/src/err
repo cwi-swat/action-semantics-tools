@@ -1,0 +1,111 @@
+program loaded
+@80b1220: frame @80b1498
+@80b1225: tryf @80b1370
+@80b122a: tryf @80b12cf
+@80b122f: copy 
+@80b1230: push 
+@80b1231: copy 
+@80b1232: prov int(0)
+@80b1255: merge 
+@80b1256: publish 
+@80b1257: trye @80b12a1
+@80b125c: cast [<appl(<term>)>,<appl(<term>)>]
+@80b129b: eq 
+@80b129c: catch @80b12a4
+@80b12a1: epublish 
+@80b12a2: fail 
+@80b12a3: unpublish 
+@80b12a4: unpublish 
+@80b12a5: publish 
+@80b12a6: prov int(1)
+@80b12c9: unpublish 
+@80b12ca: catch @80b136b
+@80b12cf: copy 
+@80b12d0: copy 
+@80b12d1: push 
+@80b12d2: copy 
+@80b12d3: prov int(1)
+@80b12f6: merge 
+@80b12f7: publish 
+@80b12f8: trye @80b1342
+@80b12fd: cast [<appl(<term>)>,<appl(<term>)>]
+@80b133c: eq 
+@80b133d: catch @80b1345
+@80b1342: epublish 
+@80b1343: fail 
+@80b1344: unpublish 
+@80b1345: unpublish 
+@80b1346: publish 
+@80b1347: prov int(1)
+@80b136a: unpublish 
+@80b136b: catch @80b1497
+@80b1370: copy 
+@80b1371: copy 
+@80b1372: push 
+@80b1373: copy 
+@80b1374: prov int(2)
+@80b1397: merge 
+@80b1398: publish 
+@80b1399: cast [int(<term>),int(<term>)]
+@80b13d5: sub 
+@80b13d6: unpublish 
+@80b13d7: publish 
+@80b13d8: frame @80b13e2
+@80b13dd: goto @80b1225
+@80b13e2: unpublish 
+@80b13e3: push 
+@80b13e4: copy 
+@80b13e5: copy 
+@80b13e6: push 
+@80b13e7: copy 
+@80b13e8: prov int(1)
+@80b140b: merge 
+@80b140c: publish 
+@80b140d: cast [int(<term>),int(<term>)]
+@80b1449: sub 
+@80b144a: unpublish 
+@80b144b: publish 
+@80b144c: frame @80b1456
+@80b1451: goto @80b1225
+@80b1456: unpublish 
+@80b1457: merge 
+@80b1458: publish 
+@80b1459: cast [int(<term>),int(<term>)]
+@80b1495: add 
+@80b1496: unpublish 
+@80b1497: return 
+@80b1498: return 
+MACHINE INFO (cur addresss = 80b129c)
+Action Control Block 134964384:
+	nreg = [int(1),int(0)]
+	ereg = []
+	nresult = []
+	eresult = []
+	args = [[int(1),int(0)],int(1),[]]
+	scope = [bindings(empty)]
+frames:
+frame 1: return = 80b1498
+frame 0: return = 804c534
+saved:
+kind: exception, handler: 80b12a1
+kind: failure, handler: 80b12cf
+kind: failure, handler: 80b1370
+locked: false
+
+MACHINE INFO (cur addresss = 80b129c)
+Action Control Block 134964384:
+	nreg = [int(1),int(0)]
+	ereg = []
+	nresult = []
+	eresult = []
+	args = [[int(1),int(0)],int(1),[]]
+	scope = [bindings(empty)]
+frames:
+frame 1: return = 80b1498
+frame 0: return = 804c534
+saved:
+kind: exception, handler: 80b12a1
+kind: failure, handler: 80b12cf
+kind: failure, handler: 80b1370
+locked: false
+

@@ -1,0 +1,45 @@
+equations
+
+[g]	get({ tup*1 <k,v> tup*2}, k) = v
+
+[p]	put({tup*1 <k,v> tup*2}, k, v') =
+		{tup*1 <k,v'> tup*2}
+
+[default-p]	
+	put({tup*}, k, v) = {tup* <k,v>}
+
+[r]	remove({tup*1 <k,v> tup*2}, k) = {tup*1 tup*2}
+
+[default]
+	remove(m, k) = m
+
+[em]	empty-map() = {}
+
+[hk]	has-key({tup*1 <k,v> tup*2}, k) = true
+
+[default-hk]
+	has-key({tup*}, k) = false
+
+[]	m.k := v = put(m, k, v)
+
+[]	m.k = get(m,k)
+
+[]	{tup*1} + {tup*2} = {tup*1 tup*2}
+
+[]	domain({}) = empty-set()
+
+[]	domain({<k,v> tup*}) = add-to-set(domain({tup*}), k)
+
+[]	disjoint-union({tup*0 <k,v> tup*1}, {tup*2 <k,v'> tup*3}) =
+		disjoint-union({tup*0 tup*1}, {tup*2 tup*3})
+
+[default]
+	disjoint-union({tup*1},{tup*2}) = {tup*1 tup*2}
+
+[]	overriding({tup*0 <k,v> tup*1}, {tup*2 <k,v'> tup*3}) =
+		overriding({tup*0 tup*1}, {tup*2 <k,v'> tup*3})
+
+[default]
+	overriding({tup*1},{tup*2}) = {tup*1 tup*2}
+
+

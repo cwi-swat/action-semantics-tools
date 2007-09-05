@@ -1,0 +1,10 @@
+module an/sem/kernel/Alternative-Action
+
+imports an/sem/kernel/Action
+	an/syn/kernel/Alternative-Action
+
+hiddens
+variables
+	"A"[0-9\']* -> Action
+	"s"[0-9\']* -> IndexedState
+	"C"[0-9\']* -> Choice

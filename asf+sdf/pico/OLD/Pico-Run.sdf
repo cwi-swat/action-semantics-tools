@@ -1,0 +1,11 @@
+module Pico-Run
+
+imports Pico-Execute
+	Pico-Declare
+	Pico-Program
+
+exports
+
+context-free syntax
+
+"run" "[[" PROGRAM "]]" -> Action

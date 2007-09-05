@@ -1,0 +1,124 @@
+.TH "DataImpl" 3 "13 Sep 2002" "Action Java Compiler Runtime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DataImpl \- 
+.SH SYNOPSIS
+.br
+.PP
+Inherits \fBData\fP.
+.PP
+Inherited by \fBDataValueImpl\fP.
+.PP
+.SS "Public Methods"
+
+.in +1c
+.ti -1c
+.RI "\fBData\fP \fBconcat\fP (\fBData\fP data)"
+.br
+.ti -1c
+.RI "\fBList\fP \fBtupleToList\fP ()"
+.br
+.ti -1c
+.RI "\fBDataValue\fP \fBfirst\fP () throws \fBExceptional\fP"
+.br
+.ti -1c
+.RI "\fBData\fP \fBrest\fP ()"
+.br
+.ti -1c
+.RI "\fBDataValue\fP \fBat\fP (int n) throws \fBExceptional\fP"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBprovide\fP ()"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Protected Methods"
+
+.in +1c
+.ti -1c
+.RI "\fBDataImpl\fP (\fBPureFactory\fP factory, \fBDataValue\fP first, \fBData\fP rest)"
+.br
+.ti -1c
+.RI "\fBDataImpl\fP (\fBPureFactory\fP factory)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBDataValue\fP \fB_first\fP"
+.br
+.ti -1c
+.RI "\fBData\fP \fB_rest\fP"
+.br
+.in -1c
+.SH "CONSTRUCTOR & DESTRUCTOR DOCUMENTATION"
+.PP 
+.SS "DataImpl::DataImpl (\fBPureFactory\fP factory, \fBDataValue\fP first, \fBData\fP rest)\fC [protected]\fP"
+.PP
+Definition at line 12 of file DataImpl.java.
+.SS "DataImpl::DataImpl (\fBPureFactory\fP factory)\fC [protected]\fP"
+.PP
+Definition at line 18 of file DataImpl.java.
+.SH "MEMBER FUNCTION DOCUMENTATION"
+.PP 
+.SS "\fBDataValue\fP DataImpl::at (int n)"
+.PP
+Reimplemented from \fBData\fP.
+.PP
+Reimplemented in \fBDataValueImpl\fP, and \fBEmptyImpl\fP.
+.PP
+Definition at line 40 of file DataImpl.java.
+.SS "\fBData\fP DataImpl::concat (\fBData\fP data)"
+.PP
+Reimplemented from \fBData\fP.
+.PP
+Reimplemented in \fBDataValueImpl\fP, and \fBEmptyImpl\fP.
+.PP
+Definition at line 24 of file DataImpl.java.
+.SS "\fBDataValue\fP DataImpl::first ()"
+.PP
+Reimplemented from \fBData\fP.
+.PP
+Reimplemented in \fBDataValueImpl\fP, and \fBEmptyImpl\fP.
+.PP
+Definition at line 32 of file DataImpl.java.
+.SS "\fBAction\fP DataImpl::provide ()"
+.PP
+Reimplemented from \fBData\fP.
+.PP
+Definition at line 46 of file DataImpl.java.
+.SS "\fBData\fP DataImpl::rest ()"
+.PP
+Reimplemented from \fBData\fP.
+.PP
+Reimplemented in \fBDataValueImpl\fP.
+.PP
+Definition at line 36 of file DataImpl.java.
+.SS "String DataImpl::toString ()"
+.PP
+Reimplemented in \fBBindingsImpl\fP, \fBCellImpl\fP, \fBEmptyImpl\fP, \fBIntImpl\fP, \fBListImpl\fP, and \fBTokenImpl\fP.
+.PP
+Definition at line 50 of file DataImpl.java.
+.SS "\fBList\fP DataImpl::tupleToList ()"
+.PP
+Reimplemented from \fBData\fP.
+.PP
+Reimplemented in \fBDataValueImpl\fP, and \fBEmptyImpl\fP.
+.PP
+Definition at line 28 of file DataImpl.java.
+.SH "MEMBER DATA DOCUMENTATION"
+.PP 
+.SS "\fBDataValue\fP DataImpl::_first\fC [protected]\fP"
+.PP
+Definition at line 9 of file DataImpl.java.
+.SS "\fBData\fP DataImpl::_rest\fC [protected]\fP"
+.PP
+Definition at line 10 of file DataImpl.java.
+
+.SH "AUTHOR"
+.PP 
+Generated automatically by Doxygen for Action Java Compiler Runtime from the source code.

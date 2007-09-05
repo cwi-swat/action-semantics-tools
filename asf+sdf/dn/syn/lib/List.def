@@ -1,0 +1,49 @@
+definition
+
+module aux/List[X]
+
+imports basic/Whitespace
+
+exports
+
+sorts List
+
+context-free syntax
+	list(X) -> List {cons("x-to-list")}
+	empty-list() -> List {cons("empty-list")}
+	head(List) -> X {cons("list-head")}
+	tail(List) -> List {cons("list-tail")}
+	insert(X, List) -> List {cons("list-insert")}
+	append(X, List) -> List {cons("list-append")}
+	
+
+
+hiddens
+context-free syntax
+
+	"[" X* "]" -> List {cons("list")}
+
+variables
+	"x"[0-9\']* -> X
+	"x*"[0-9\']* -> X*
+	"l"[0-9\']* -> List
+module basic/Whitespace
+
+exports
+  lexical syntax
+    [\ \t\n]	-> LAYOUT
+  context-free restrictions
+    LAYOUT? -/- [\ \t\n]
+
+module dn/syn/lib/List
+
+imports aux/List[Data]
+
+exports
+
+context-free syntax
+	List -> Datum
+	"list" -> SortName {cons("list-sortname")}
+	"list" -> DataOpPrefix {cons("list-dataopprefix")}
+
+

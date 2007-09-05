@@ -1,0 +1,48 @@
+module d2a/Data-to-ATerm
+
+imports obs/data/__AN-K-Data 
+	at/ATerms 
+
+exports
+
+sorts ATerm
+
+context-free syntax
+
+data-to-aterm(Data) -> ATerm 
+datasort-to-aterm(DataSort) -> ATerm
+
+hiddens
+
+context-free syntax
+
+to-aterms({Data ","}+) -> ATerms 
+to-aterm(Data) -> ATerm
+make-aterm-data(ATerm, ATerm) -> ATerm {prefer}
+make-aterm-ann(ATerm) -> Ann {prefer}
+
+ATerm "++" ATerm -> ATerm
+
+Int -> IntCon
+Token -> AFun
+
+variables
+"n"[0-9\']* -> Int
+"c"[0-9\']* -> Cell
+"A" -> Action
+"C+" -> {Action "or"}+
+"oc"[0-9\']* -> Outcome+
+"mt"[0-9\']* -> MessageTag
+"ag"[0-9\']* -> Agent
+"tk"[0-9\']* -> Token
+"bs"[0-9\']* -> Bindings
+"ds"[0-9\']* -> DataSort
+"ds+"[0-9\']* -> {DataSort ","}+
+"d"[0-9\']* -> Data
+"d+"[0-9\']* -> {Data ","}+
+"u"[0-9\']* -> Datum
+"char+"[0-9\']* -> CHAR+
+"aterm"[0-9\']* -> ATerm
+"aterms"[0-9\']* -> {ATerm ","}*
+"acon"[0-9\']* -> ACon
+"afun"[0-9\']* -> AFun

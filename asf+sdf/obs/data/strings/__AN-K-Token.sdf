@@ -1,0 +1,21 @@
+module obs/data/strings/__AN-K-Token
+
+imports obs/data/strings/String obs/data/__AN-K-Data-Contract
+
+exports 
+
+lexical syntax
+  "token"               -> SortName 
+  "string"              -> SortName 
+context-free syntax
+  String        -> Token 
+  Token         -> Datum {cons("token")}
+
+hiddens 
+
+sorts
+        DataOpPrefix Datum SortName DataTypes String Token
+
+variables
+"tk" -> Token
+

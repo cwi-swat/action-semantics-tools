@@ -1,0 +1,14 @@
+module an/syn/abbrev/Interacting-Action
+
+imports an/syn/abbrev/Data-Control-Action
+	an/syn/abbrev/Binding-Action
+
+exports
+
+sorts Yielder ActionPrefix
+
+context-free syntax
+	"current" "agent" -> Yielder {avoid,cons("current-agent-yielder")}
+	"current" "time" -> Yielder {avoid,cons("current-time-yielder")}
+	"patiently" -> ActionPrefix {cons("patiently-prefix")}
+

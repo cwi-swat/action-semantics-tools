@@ -1,0 +1,7 @@
+equations
+
+[]	new-agent(n) = $n
+
+[]	agent-to-int($n) = n
+
+[]	result the agent_ $n = $n

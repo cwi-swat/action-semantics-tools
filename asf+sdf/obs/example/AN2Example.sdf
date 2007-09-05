@@ -1,0 +1,111 @@
+module obs/example/AN2Example
+
+imports obs/AN2 obs/__AN-K-Semantics
+
+exports
+
+sorts Statement Conf
+
+lexical syntax
+        [a-zA-Z]+ -> Identifier
+        [0-9]+ -> Integer
+
+context-free syntax
+
+"T" -> Boolean
+"F" -> Boolean
+
+Boolean -> Literal
+Integer -> Literal
+
+"[" "]" -> Literal
+
+Literal -> Expression
+UnaryOperator Expression -> Expression
+Expression BinaryOperator Expression -> Expression
+"(" Expression ")" -> Expression {bracket}
+Identifier -> Expression
+Identifier "[" Expression "]" -> Expression
+
+head(Expression) -> Expression
+tail(Expression) -> Expression
+append(Expression, Expression) -> Expression
+insert(Expression, Expression) -> Expression
+"replace_at""("Expression","Expression","Expression")" -> Expression
+"element_at""("Expression","Expression")" -> Expression
+
+"-" | "!" -> UnaryOperator
+
+"+" | "-" | "*" | "==" | "<" | ">" -> BinaryOperator
+
+
+
+Block -> Statement
+Identifier "=" Expression ";" -> Statement
+if "(" Expression ")" Statement else Statement -> Statement
+while "(" Expression ")" Statement -> Statement
+break ";" -> Statement
+Statement or Statement -> Statement
+return Expression ";" -> Statement
+Identifier "(" ")" ";" -> Statement
+
+
+%%Identifier "(" ExpressionList ")" ";" -> Statement
+Identifier "(" ExpressionList ")"  -> Expression
+
+
+
+"(" Statement ")" -> Statement {bracket}
+
+"{" Declaration* Statement+ "}" -> Block
+"{" "}" -> Block
+
+Type Identifier "=" Expression ";" -> Declaration
+Type Identifier "(" FormalList ")" Block -> Declaration
+void Identifier "(" ")" Block -> Declaration
+
+int | boolean | list -> Type
+
+break -> Datum
+
+evaluate "[[" ExpressionList "]]" -> Action
+operate1 "[[" UnaryOperator "]]" -> Action
+operate2 "[[" BinaryOperator "]]" -> Action
+execute "[[" Statement+ "]]" -> Action
+declare "[[" Declaration+ "]]" -> Action
+
+value "[[" Literal "]]" -> Data
+token "[[" Identifier "]]" -> Token
+
+
+aliases
+{Expression ","}* -> ExpressionList
+{Identifier ","}* -> FormalList
+
+
+variables
+"E"[0-9\']* -> Expression
+"E*"[0-9\']* -> ExpressionList
+"F*"[0-9\']* -> FormalList
+"L"[0-9\']* -> Literal
+"UO"[0-9\']* -> UnaryOperator
+"BO"[0-9\']* -> BinaryOperator
+"B"[0-9\']* -> Block
+"n"[0-9\']* -> Integer
+"N"[0-9\']* -> Integer
+"int"[0-9\']* -> Int
+"b"[0-9\']* -> Boolean
+"I"[0-9\']* -> Identifier
+"S"[0-9\']* -> Statement
+"S*"[0-9\']* -> Statement*
+"S+"[0-9\']* -> Statement+
+"D"[0-9\']* -> Declaration
+"D+"[0-9\']* -> Declaration+
+"T"[0-9\']* -> Type
+
+
+hiddens
+variables
+"char+"[0-9\']* -> CHAR+
+
+

@@ -1,0 +1,46 @@
+\hypertarget{classAnd_1_1__And}{
+\section{And::\_\-And  Class Reference}
+\label{classAnd_1_1__And}\index{And::_And@{And::\_\-And}}
+}
+Inheritance diagram for And::\_\-And:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=45pt]{classAnd_1_1__And__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for And::\_\-And:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=45pt]{classAnd_1_1__And__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceData}{Data} \hyperlink{classAnd_1_1__And_a0}{enact} (\hyperlink{interfaceData}{Data} data, \hyperlink{interfaceBindings}{Bindings} bindings) throws \hyperlink{classExceptional}{Exceptional}, \hyperlink{classFailed}{Failed}
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classAnd_1_1__And_a0}{
+\index{And::_And@{And::\_\-And}!enact@{enact}}
+\index{enact@{enact}!And::_And@{And::\_\-And}}
+\subsubsection[enact]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceData}{Data} And::\_\-And::enact (\hyperlink{interfaceData}{Data} {\em data}, \hyperlink{interfaceBindings}{Bindings} {\em bindings})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classAnd_1_1__And_a0}
+
+
+
+
+Reimplemented from \hyperlink{interfaceEnactable_a0}{Enactable}.
+
+Definition at line 106 of file Action\-Impl.java.\footnotesize\begin{verbatim}00106                                                                                    {
+00107             Data d1 = enactable1.enact(data, bindings);
+00108             Data d2 = enactable2.enact(data, bindings);
+00109             return d1.concat(d2);
+00110         }
+\end{verbatim}\normalsize 
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{ActionImpl_8java-source}{Action\-Impl.java}\end{CompactItemize}

@@ -1,0 +1,21 @@
+module java/basic/Java
+imports java/basic/Java-Lexical
+        java/basic/Java-Names
+        java/basic/Java-TypeDecs
+exports
+  sorts CompilationUnit
+
+  context-free syntax
+
+    PackageDec? ImportDec* TypeDec+ -> CompilationUnit   {cons("CompilationUnit")}
+
+    "package" PackageName ";" -> PackageDec {cons("PackageDec")}
+
+    TypeImportDec             -> ImportDec {cons("ImportDec")} 
+    PackageImportDec          -> ImportDec {cons("ImportDec")}
+
+    ";" -> TypeDec {cons("Semicolon")}
+
+    "import" TypeName ";"     -> TypeImportDec  {cons("TypeRef")}
+    "import" PackageName "." "*" ";"  -> PackageImportDec {cons("PackageRef")}
+

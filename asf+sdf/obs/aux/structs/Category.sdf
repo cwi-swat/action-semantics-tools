@@ -1,0 +1,24 @@
+module obs/aux/structs/Category[Arrow Object]
+
+imports obs/layout/Layout
+
+exports
+
+sorts Arrow Object
+
+context-free syntax
+
+id(Object) -> Arrow
+pre(Arrow) -> Object
+post(Arrow) -> Object
+
+compose(Arrow,Arrow) -> Arrow
+
+Arrow ";" Arrow -> Arrow {assoc}
+"(" Arrow ")" -> Arrow {bracket}
+
+hiddens
+
+variables
+"a"[0-9\']* -> Arrow
+"o"[0-9\']* -> Object

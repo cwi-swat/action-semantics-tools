@@ -1,0 +1,56 @@
+\hypertarget{classAndExceptionally_1_1__AndExceptionally}{
+\section{And\-Exceptionally::\_\-And\-Exceptionally  Class Reference}
+\label{classAndExceptionally_1_1__AndExceptionally}\index{AndExceptionally::_AndExceptionally@{And\-Exceptionally::\_\-And\-Exceptionally}}
+}
+Inheritance diagram for And\-Exceptionally::\_\-And\-Exceptionally:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=101pt]{classAndExceptionally_1_1__AndExceptionally__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for And\-Exceptionally::\_\-And\-Exceptionally:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=101pt]{classAndExceptionally_1_1__AndExceptionally__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceData}{Data} \hyperlink{classAndExceptionally_1_1__AndExceptionally_a0}{enact} (\hyperlink{interfaceData}{Data} data, \hyperlink{interfaceBindings}{Bindings} bindings) throws \hyperlink{classExceptional}{Exceptional}, \hyperlink{classFailed}{Failed}
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classAndExceptionally_1_1__AndExceptionally_a0}{
+\index{AndExceptionally::_AndExceptionally@{And\-Exceptionally::\_\-And\-Exceptionally}!enact@{enact}}
+\index{enact@{enact}!AndExceptionally::_AndExceptionally@{And\-Exceptionally::\_\-And\-Exceptionally}}
+\subsubsection[enact]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceData}{Data} And\-Exceptionally::\_\-And\-Exceptionally::enact (\hyperlink{interfaceData}{Data} {\em data}, \hyperlink{interfaceBindings}{Bindings} {\em bindings})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classAndExceptionally_1_1__AndExceptionally_a0}
+
+
+
+
+Reimplemented from \hyperlink{interfaceEnactable_a0}{Enactable}.
+
+Definition at line 138 of file Action\-Impl.java.\footnotesize\begin{verbatim}00138                                                                                    {
+00139             try {
+00140                 return enactable1.enact(data,bindings);
+00141             }
+00142             catch (Exceptional e1) {
+00143                 Data d1 = e1.getData();
+00144                 try {
+00145                     return enactable2.enact(data, bindings);
+00146                 }
+00147                 catch (Exceptional e2) {
+00148                     Data d2 = e2.getData();
+00149                     throw new Exceptional(d1.concat(d2));
+00150                 }
+00151             }
+00152         }
+\end{verbatim}\normalsize 
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{ActionImpl_8java-source}{Action\-Impl.java}\end{CompactItemize}

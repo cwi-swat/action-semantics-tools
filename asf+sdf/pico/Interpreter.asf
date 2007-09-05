@@ -1,0 +1,9 @@
+equations
+
+[]	storable(n) = true
+
+[]	bindable(c) = true
+
+[pi]	pico-interpreter(Program) = 
+		[][empty-cells()/cells][empty-storage()/storage] |-+
+			run[[Program]]

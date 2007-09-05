@@ -1,0 +1,12 @@
+equations
+
+[58]	i.data = A
+	===
+	exec(enact, i) = <normal () then (normal no bindings hence A),i>
+
+[default-59]
+	i.data = d
+	===
+	exec(enact, i) = <exceptional (), i>
+
+

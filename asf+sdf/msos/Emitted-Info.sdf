@@ -1,0 +1,14 @@
+module msos/Emitted-Info[Index S]
+
+imports msos/Monoid-Unit[S]
+	msos/Single
+	msos/Trace[Single S]
+	msos/Trace-Index[Index Single S]
+
+
+hiddens
+
+variables
+	"s"[0-9\']* -> S
+	"su"[0-9\']* -> StateUniv
+	"t"[0-9\']* -> TraceUniv

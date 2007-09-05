@@ -1,0 +1,5 @@
+equations
+
+[un1]	1 * s = s
+
+[un2]	s * 1 = s

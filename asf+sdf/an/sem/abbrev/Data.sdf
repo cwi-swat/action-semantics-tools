@@ -1,0 +1,10 @@
+module an/sem/abbrev/Data
+
+imports an/syn/abbrev/Data
+	dn/sem/kernel/Kernel-Data
+
+hiddens
+variables
+	"s"[0-9\']* -> DataSort
+	"d"[0-9\']* -> Data
+	"u"[0-9\']* -> Datum

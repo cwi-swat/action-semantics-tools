@@ -1,0 +1,33 @@
+equations
+
+[default-e]
+	ka-to-expression(A, exp1, exp2, env) =
+		fa-to-identifier(A,env)(exp1,exp2)
+
+[]	make-id(A1 then A2, nat-con(char+2)) =
+		id("t""h""e""n" "$" char+2)
+
+[]	make-id(A1 and then A2, nat-con(char+2)) =
+		id("a""n""d""T""h""e""n" "$" char+2)
+
+[]	make-id(A1 and A2, nat-con(char+2)) =
+		id("a""n""d" "$" char+2)
+
+[]	make-id(A1 exceptionally A2, nat-con(char+2)) =
+		id("e""x""c""e""p""t""i""o""n""a""l""l""y" "$" char+2)
+
+[]	make-id(A1 and exceptionally A2, nat-con(char+2)) =
+		id("a""n""d""E""x""c""e""p""t""i""o""n""a""l""l""y" "$" char+2)
+
+[]	make-id(A1 otherwise A2, nat-con(char+2)) =
+		id("o""t""h""e""r""w""i""s""e" "$" char+2)
+
+[]	make-id(A1 hence A2, nat-con(char+2)) =
+		id("h""e""n""c""e" "$" char+2)
+
+[]	make-id(indivisibly A, nat-con(char+2)) =
+		id("i""n""d""i""v""i""s""i""b""l""y" "$" char+2)
+
+[default-m]
+	make-id(A, nat-con(char+)) = id("a""c""t""i""o""n""$"char+)
+

@@ -1,0 +1,34 @@
+equations
+
+[r6]	give d = provide d
+
+[r7]	give op = give op_
+
+[r7']	give oi = give _oi_
+
+[r8]	give op Y = give Y then give op_
+
+[r8']	give Y1 oi Y2 = give (Y1,Y2) then give _oi_
+
+[r9]	give (Y1, Y2) = (give Y1 then give the datum) and give Y2
+
+[r10]	A Y = give Y then A
+
+[r11]	given Y =  give (list the data, list Y) then 
+			check _=_ exceptionally fail
+
+[r12]	when pp = check pp_ exceptionally fail and copy
+
+[r12']	when pi = check _pi_ exceptionally fail and copy
+
+[r13]	when pp Y = give Y then when pp
+
+[r13']	when Y1 pi Y2 = give (Y1,Y2) then when pi
+
+[r14]	skip = provide ()
+
+[r15]	err = provide () then raise
+
+[r16]	tentatively A = A exceptionally fail
+
+[r17]	infallibly A = A otherwise err

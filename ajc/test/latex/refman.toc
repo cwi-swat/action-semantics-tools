@@ -1,0 +1,489 @@
+\contentsline {chapter}{\numberline {1}Package List}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Package List}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Hierarchical Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Class Hierarchy}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}Compound Index}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Compound List}{7}{section.3.1}
+\contentsline {chapter}{\numberline {4}File Index}{9}{chapter.4}
+\contentsline {section}{\numberline {4.1}File List}{9}{section.4.1}
+\contentsline {chapter}{\numberline {5}Package Documentation}{11}{chapter.5}
+\contentsline {section}{\numberline {5.1}Package ajc}{11}{section.5.1}
+\contentsline {section}{\numberline {5.2}Package ajc.data}{12}{section.5.2}
+\contentsline {section}{\numberline {5.3}Package ajc.data.pure}{13}{section.5.3}
+\contentsline {chapter}{\numberline {6}Class Documentation}{15}{chapter.6}
+\contentsline {section}{\numberline {6.1}And::\_\discretionary {-}{}{}And Class Reference}{15}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Member Function Documentation}{15}{subsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.1.1}enact}{15}{subsubsection.6.1.1.1}
+\contentsline {section}{\numberline {6.2}And\discretionary {-}{}{}Exceptionally::\_\discretionary {-}{}{}And\discretionary {-}{}{}Exceptionally Class Reference}{17}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Member Function Documentation}{17}{subsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.1.1}enact}{17}{subsubsection.6.2.1.1}
+\contentsline {section}{\numberline {6.3}And\discretionary {-}{}{}Then::\_\discretionary {-}{}{}And\discretionary {-}{}{}Then Class Reference}{18}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Member Function Documentation}{18}{subsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.1.1}enact}{18}{subsubsection.6.3.1.1}
+\contentsline {section}{\numberline {6.4}Exceptionally::\_\discretionary {-}{}{}Exceptionally Class Reference}{19}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Member Function Documentation}{19}{subsection.6.4.1}
+\contentsline {subsubsection}{\numberline {6.4.1.1}enact}{19}{subsubsection.6.4.1.1}
+\contentsline {section}{\numberline {6.5}Hence::\_\discretionary {-}{}{}Hence Class Reference}{20}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Member Function Documentation}{20}{subsection.6.5.1}
+\contentsline {subsubsection}{\numberline {6.5.1.1}enact}{20}{subsubsection.6.5.1.1}
+\contentsline {section}{\numberline {6.6}Indivisibly::\_\discretionary {-}{}{}Indivisibly Class Reference}{21}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Member Function Documentation}{21}{subsection.6.6.1}
+\contentsline {subsubsection}{\numberline {6.6.1.1}enact}{21}{subsubsection.6.6.1.1}
+\contentsline {section}{\numberline {6.7}Otherwise::\_\discretionary {-}{}{}Otherwise Class Reference}{22}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}Member Function Documentation}{22}{subsection.6.7.1}
+\contentsline {subsubsection}{\numberline {6.7.1.1}enact}{22}{subsubsection.6.7.1.1}
+\contentsline {section}{\numberline {6.8}Provide::\_\discretionary {-}{}{}Provide Class Reference}{23}{section.6.8}
+\contentsline {subsection}{\numberline {6.8.1}Member Function Documentation}{23}{subsection.6.8.1}
+\contentsline {subsubsection}{\numberline {6.8.1.1}enact}{23}{subsubsection.6.8.1.1}
+\contentsline {section}{\numberline {6.9}Then::\_\discretionary {-}{}{}Then Class Reference}{24}{section.6.9}
+\contentsline {subsection}{\numberline {6.9.1}Member Function Documentation}{24}{subsection.6.9.1}
+\contentsline {subsubsection}{\numberline {6.9.1.1}enact}{24}{subsubsection.6.9.1.1}
+\contentsline {section}{\numberline {6.10}Abstract\discretionary {-}{}{}Enactable Class Reference}{25}{section.6.10}
+\contentsline {subsection}{\numberline {6.10.1}Member Function Documentation}{25}{subsection.6.10.1}
+\contentsline {subsubsection}{\numberline {6.10.1.1}catchExceptional}{25}{subsubsection.6.10.1.1}
+\contentsline {subsubsection}{\numberline {6.10.1.2}catchFailed}{25}{subsubsection.6.10.1.2}
+\contentsline {subsubsection}{\numberline {6.10.1.3}fail}{26}{subsubsection.6.10.1.3}
+\contentsline {subsubsection}{\numberline {6.10.1.4}raise}{26}{subsubsection.6.10.1.4}
+\contentsline {subsection}{\numberline {6.10.2}Member Data Documentation}{26}{subsection.6.10.2}
+\contentsline {subsubsection}{\numberline {6.10.2.1}factory}{26}{subsubsection.6.10.2.1}
+\contentsline {section}{\numberline {6.11}Abstract\discretionary {-}{}{}Infix\discretionary {-}{}{}Combinator Class Reference}{27}{section.6.11}
+\contentsline {subsection}{\numberline {6.11.1}Constructor \& Destructor Documentation}{28}{subsection.6.11.1}
+\contentsline {subsubsection}{\numberline {6.11.1.1}AbstractInfixCombinator}{28}{subsubsection.6.11.1.1}
+\contentsline {subsection}{\numberline {6.11.2}Member Data Documentation}{28}{subsection.6.11.2}
+\contentsline {subsubsection}{\numberline {6.11.2.1}enactable1}{28}{subsubsection.6.11.2.1}
+\contentsline {subsubsection}{\numberline {6.11.2.2}enactable2}{28}{subsubsection.6.11.2.2}
+\contentsline {section}{\numberline {6.12}Abstract\discretionary {-}{}{}Prefix\discretionary {-}{}{}Combinator Class Reference}{29}{section.6.12}
+\contentsline {subsection}{\numberline {6.12.1}Constructor \& Destructor Documentation}{30}{subsection.6.12.1}
+\contentsline {subsubsection}{\numberline {6.12.1.1}AbstractPrefixCombinator}{30}{subsubsection.6.12.1.1}
+\contentsline {subsection}{\numberline {6.12.2}Member Data Documentation}{30}{subsection.6.12.2}
+\contentsline {subsubsection}{\numberline {6.12.2.1}enactable1}{30}{subsubsection.6.12.2.1}
+\contentsline {section}{\numberline {6.13}Action Interface Reference}{31}{section.6.13}
+\contentsline {subsection}{\numberline {6.13.1}Member Function Documentation}{31}{subsection.6.13.1}
+\contentsline {subsubsection}{\numberline {6.13.1.1}and}{31}{subsubsection.6.13.1.1}
+\contentsline {subsubsection}{\numberline {6.13.1.2}andExceptionally}{32}{subsubsection.6.13.1.2}
+\contentsline {subsubsection}{\numberline {6.13.1.3}andThen}{32}{subsubsection.6.13.1.3}
+\contentsline {subsubsection}{\numberline {6.13.1.4}enact}{32}{subsubsection.6.13.1.4}
+\contentsline {subsubsection}{\numberline {6.13.1.5}enactableValue}{32}{subsubsection.6.13.1.5}
+\contentsline {subsubsection}{\numberline {6.13.1.6}exceptionally}{32}{subsubsection.6.13.1.6}
+\contentsline {subsubsection}{\numberline {6.13.1.7}hence}{32}{subsubsection.6.13.1.7}
+\contentsline {subsubsection}{\numberline {6.13.1.8}indivisibly}{32}{subsubsection.6.13.1.8}
+\contentsline {subsubsection}{\numberline {6.13.1.9}otherwise}{32}{subsubsection.6.13.1.9}
+\contentsline {subsubsection}{\numberline {6.13.1.10}then}{32}{subsubsection.6.13.1.10}
+\contentsline {section}{\numberline {6.14}Action\discretionary {-}{}{}Impl Class Reference}{33}{section.6.14}
+\contentsline {subsection}{\numberline {6.14.1}Constructor \& Destructor Documentation}{34}{subsection.6.14.1}
+\contentsline {subsubsection}{\numberline {6.14.1.1}ActionImpl}{34}{subsubsection.6.14.1.1}
+\contentsline {subsubsection}{\numberline {6.14.1.2}ActionImpl}{34}{subsubsection.6.14.1.2}
+\contentsline {subsubsection}{\numberline {6.14.1.3}ActionImpl}{34}{subsubsection.6.14.1.3}
+\contentsline {subsubsection}{\numberline {6.14.1.4}ActionImpl}{35}{subsubsection.6.14.1.4}
+\contentsline {subsection}{\numberline {6.14.2}Member Function Documentation}{35}{subsection.6.14.2}
+\contentsline {subsubsection}{\numberline {6.14.2.1}and}{35}{subsubsection.6.14.2.1}
+\contentsline {subsubsection}{\numberline {6.14.2.2}andExceptionally}{35}{subsubsection.6.14.2.2}
+\contentsline {subsubsection}{\numberline {6.14.2.3}andThen}{35}{subsubsection.6.14.2.3}
+\contentsline {subsubsection}{\numberline {6.14.2.4}enact}{35}{subsubsection.6.14.2.4}
+\contentsline {subsubsection}{\numberline {6.14.2.5}enact}{36}{subsubsection.6.14.2.5}
+\contentsline {subsubsection}{\numberline {6.14.2.6}enactableValue}{36}{subsubsection.6.14.2.6}
+\contentsline {subsubsection}{\numberline {6.14.2.7}equals}{36}{subsubsection.6.14.2.7}
+\contentsline {subsubsection}{\numberline {6.14.2.8}exceptionally}{36}{subsubsection.6.14.2.8}
+\contentsline {subsubsection}{\numberline {6.14.2.9}getEnactable}{36}{subsubsection.6.14.2.9}
+\contentsline {subsubsection}{\numberline {6.14.2.10}giveAnd}{37}{subsubsection.6.14.2.10}
+\contentsline {subsubsection}{\numberline {6.14.2.11}giveAndExceptionally}{37}{subsubsection.6.14.2.11}
+\contentsline {subsubsection}{\numberline {6.14.2.12}giveAndThen}{37}{subsubsection.6.14.2.12}
+\contentsline {subsubsection}{\numberline {6.14.2.13}giveExceptionally}{37}{subsubsection.6.14.2.13}
+\contentsline {subsubsection}{\numberline {6.14.2.14}giveHence}{37}{subsubsection.6.14.2.14}
+\contentsline {subsubsection}{\numberline {6.14.2.15}giveIndivisibly}{37}{subsubsection.6.14.2.15}
+\contentsline {subsubsection}{\numberline {6.14.2.16}giveOtherwise}{38}{subsubsection.6.14.2.16}
+\contentsline {subsubsection}{\numberline {6.14.2.17}giveThen}{38}{subsubsection.6.14.2.17}
+\contentsline {subsubsection}{\numberline {6.14.2.18}hence}{38}{subsubsection.6.14.2.18}
+\contentsline {subsubsection}{\numberline {6.14.2.19}indivisibly}{38}{subsubsection.6.14.2.19}
+\contentsline {subsubsection}{\numberline {6.14.2.20}otherwise}{38}{subsubsection.6.14.2.20}
+\contentsline {subsubsection}{\numberline {6.14.2.21}run}{38}{subsubsection.6.14.2.21}
+\contentsline {subsubsection}{\numberline {6.14.2.22}then}{39}{subsubsection.6.14.2.22}
+\contentsline {subsection}{\numberline {6.14.3}Member Data Documentation}{39}{subsection.6.14.3}
+\contentsline {subsubsection}{\numberline {6.14.3.1}enactable}{39}{subsubsection.6.14.3.1}
+\contentsline {subsubsection}{\numberline {6.14.3.2}result}{39}{subsubsection.6.14.3.2}
+\contentsline {section}{\numberline {6.15}Agent Interface Reference}{40}{section.6.15}
+\contentsline {section}{\numberline {6.16}Agent\discretionary {-}{}{}Impl Class Reference}{41}{section.6.16}
+\contentsline {subsection}{\numberline {6.16.1}Constructor \& Destructor Documentation}{41}{subsection.6.16.1}
+\contentsline {subsubsection}{\numberline {6.16.1.1}AgentImpl}{41}{subsubsection.6.16.1.1}
+\contentsline {subsection}{\numberline {6.16.2}Member Data Documentation}{42}{subsection.6.16.2}
+\contentsline {subsubsection}{\numberline {6.16.2.1}agents}{42}{subsubsection.6.16.2.1}
+\contentsline {subsubsection}{\numberline {6.16.2.2}id}{42}{subsubsection.6.16.2.2}
+\contentsline {section}{\numberline {6.17}And Class Reference}{43}{section.6.17}
+\contentsline {subsection}{\numberline {6.17.1}Constructor \& Destructor Documentation}{44}{subsection.6.17.1}
+\contentsline {subsubsection}{\numberline {6.17.1.1}And}{44}{subsubsection.6.17.1.1}
+\contentsline {subsubsection}{\numberline {6.17.1.2}And}{44}{subsubsection.6.17.1.2}
+\contentsline {subsection}{\numberline {6.17.2}Member Function Documentation}{44}{subsection.6.17.2}
+\contentsline {subsubsection}{\numberline {6.17.2.1}enact}{44}{subsubsection.6.17.2.1}
+\contentsline {section}{\numberline {6.18}And\discretionary {-}{}{}Exceptionally Class Reference}{45}{section.6.18}
+\contentsline {subsection}{\numberline {6.18.1}Constructor \& Destructor Documentation}{46}{subsection.6.18.1}
+\contentsline {subsubsection}{\numberline {6.18.1.1}AndExceptionally}{46}{subsubsection.6.18.1.1}
+\contentsline {subsubsection}{\numberline {6.18.1.2}AndExceptionally}{46}{subsubsection.6.18.1.2}
+\contentsline {subsection}{\numberline {6.18.2}Member Function Documentation}{46}{subsection.6.18.2}
+\contentsline {subsubsection}{\numberline {6.18.2.1}enact}{46}{subsubsection.6.18.2.1}
+\contentsline {section}{\numberline {6.19}And\discretionary {-}{}{}Then Class Reference}{47}{section.6.19}
+\contentsline {subsection}{\numberline {6.19.1}Constructor \& Destructor Documentation}{48}{subsection.6.19.1}
+\contentsline {subsubsection}{\numberline {6.19.1.1}AndThen}{48}{subsubsection.6.19.1.1}
+\contentsline {subsubsection}{\numberline {6.19.1.2}AndThen}{48}{subsubsection.6.19.1.2}
+\contentsline {subsection}{\numberline {6.19.2}Member Function Documentation}{48}{subsection.6.19.2}
+\contentsline {subsubsection}{\numberline {6.19.2.1}enact}{48}{subsubsection.6.19.2.1}
+\contentsline {section}{\numberline {6.20}Bindable Interface Reference}{49}{section.6.20}
+\contentsline {section}{\numberline {6.21}Bindings Interface Reference}{50}{section.6.21}
+\contentsline {subsection}{\numberline {6.21.1}Member Function Documentation}{50}{subsection.6.21.1}
+\contentsline {subsubsection}{\numberline {6.21.1.1}binding}{50}{subsubsection.6.21.1.1}
+\contentsline {subsubsection}{\numberline {6.21.1.2}bound}{50}{subsubsection.6.21.1.2}
+\contentsline {subsubsection}{\numberline {6.21.1.3}disjointUnion}{50}{subsubsection.6.21.1.3}
+\contentsline {subsubsection}{\numberline {6.21.1.4}mapValue}{51}{subsubsection.6.21.1.4}
+\contentsline {subsubsection}{\numberline {6.21.1.5}overriding}{51}{subsubsection.6.21.1.5}
+\contentsline {section}{\numberline {6.22}Bindings\discretionary {-}{}{}Impl Class Reference}{52}{section.6.22}
+\contentsline {subsection}{\numberline {6.22.1}Constructor \& Destructor Documentation}{53}{subsection.6.22.1}
+\contentsline {subsubsection}{\numberline {6.22.1.1}BindingsImpl}{53}{subsubsection.6.22.1.1}
+\contentsline {subsubsection}{\numberline {6.22.1.2}BindingsImpl}{53}{subsubsection.6.22.1.2}
+\contentsline {subsection}{\numberline {6.22.2}Member Function Documentation}{53}{subsection.6.22.2}
+\contentsline {subsubsection}{\numberline {6.22.2.1}binding}{53}{subsubsection.6.22.2.1}
+\contentsline {subsubsection}{\numberline {6.22.2.2}bound}{53}{subsubsection.6.22.2.2}
+\contentsline {subsubsection}{\numberline {6.22.2.3}disjointUnion}{53}{subsubsection.6.22.2.3}
+\contentsline {subsubsection}{\numberline {6.22.2.4}mapValue}{54}{subsubsection.6.22.2.4}
+\contentsline {subsubsection}{\numberline {6.22.2.5}overriding}{54}{subsubsection.6.22.2.5}
+\contentsline {subsection}{\numberline {6.22.3}Member Data Documentation}{54}{subsection.6.22.3}
+\contentsline {subsubsection}{\numberline {6.22.3.1}bindingMap}{54}{subsubsection.6.22.3.1}
+\contentsline {section}{\numberline {6.23}Bool Interface Reference}{55}{section.6.23}
+\contentsline {subsection}{\numberline {6.23.1}Member Function Documentation}{55}{subsection.6.23.1}
+\contentsline {subsubsection}{\numberline {6.23.1.1}booleanValue}{55}{subsubsection.6.23.1.1}
+\contentsline {subsubsection}{\numberline {6.23.1.2}not}{55}{subsubsection.6.23.1.2}
+\contentsline {section}{\numberline {6.24}Bool\discretionary {-}{}{}Impl Class Reference}{56}{section.6.24}
+\contentsline {subsection}{\numberline {6.24.1}Constructor \& Destructor Documentation}{57}{subsection.6.24.1}
+\contentsline {subsubsection}{\numberline {6.24.1.1}BoolImpl}{57}{subsubsection.6.24.1.1}
+\contentsline {subsection}{\numberline {6.24.2}Member Function Documentation}{57}{subsection.6.24.2}
+\contentsline {subsubsection}{\numberline {6.24.2.1}booleanValue}{57}{subsubsection.6.24.2.1}
+\contentsline {subsubsection}{\numberline {6.24.2.2}equals}{57}{subsubsection.6.24.2.2}
+\contentsline {subsubsection}{\numberline {6.24.2.3}not}{57}{subsubsection.6.24.2.3}
+\contentsline {subsection}{\numberline {6.24.3}Member Data Documentation}{57}{subsection.6.24.3}
+\contentsline {subsubsection}{\numberline {6.24.3.1}value}{57}{subsubsection.6.24.3.1}
+\contentsline {section}{\numberline {6.25}Cell Interface Reference}{58}{section.6.25}
+\contentsline {section}{\numberline {6.26}Cell\discretionary {-}{}{}Impl Class Reference}{59}{section.6.26}
+\contentsline {subsection}{\numberline {6.26.1}Constructor \& Destructor Documentation}{59}{subsection.6.26.1}
+\contentsline {subsubsection}{\numberline {6.26.1.1}CellImpl}{59}{subsubsection.6.26.1.1}
+\contentsline {subsection}{\numberline {6.26.2}Member Data Documentation}{60}{subsection.6.26.2}
+\contentsline {subsubsection}{\numberline {6.26.2.1}cells}{60}{subsubsection.6.26.2.1}
+\contentsline {subsubsection}{\numberline {6.26.2.2}id}{60}{subsubsection.6.26.2.2}
+\contentsline {section}{\numberline {6.27}Comparable Class Reference}{61}{section.6.27}
+\contentsline {section}{\numberline {6.28}Data Interface Reference}{62}{section.6.28}
+\contentsline {subsection}{\numberline {6.28.1}Member Function Documentation}{62}{subsection.6.28.1}
+\contentsline {subsubsection}{\numberline {6.28.1.1}component}{62}{subsubsection.6.28.1.1}
+\contentsline {subsubsection}{\numberline {6.28.1.2}concat}{62}{subsubsection.6.28.1.2}
+\contentsline {subsubsection}{\numberline {6.28.1.3}first}{62}{subsubsection.6.28.1.3}
+\contentsline {subsubsection}{\numberline {6.28.1.4}provide}{62}{subsubsection.6.28.1.4}
+\contentsline {subsubsection}{\numberline {6.28.1.5}rest}{63}{subsubsection.6.28.1.5}
+\contentsline {subsubsection}{\numberline {6.28.1.6}tupleToList}{63}{subsubsection.6.28.1.6}
+\contentsline {section}{\numberline {6.29}Data\discretionary {-}{}{}Const Interface Reference}{64}{section.6.29}
+\contentsline {section}{\numberline {6.30}Data\discretionary {-}{}{}Const\discretionary {-}{}{}Impl Class Reference}{65}{section.6.30}
+\contentsline {subsection}{\numberline {6.30.1}Constructor \& Destructor Documentation}{65}{subsection.6.30.1}
+\contentsline {subsubsection}{\numberline {6.30.1.1}DataConstImpl}{65}{subsubsection.6.30.1.1}
+\contentsline {section}{\numberline {6.31}Data\discretionary {-}{}{}Factory Interface Reference}{66}{section.6.31}
+\contentsline {subsection}{\numberline {6.31.1}Member Function Documentation}{66}{subsection.6.31.1}
+\contentsline {subsubsection}{\numberline {6.31.1.1}makeAction}{66}{subsubsection.6.31.1.1}
+\contentsline {subsubsection}{\numberline {6.31.1.2}makeAgent}{66}{subsubsection.6.31.1.2}
+\contentsline {subsubsection}{\numberline {6.31.1.3}makeBool}{66}{subsubsection.6.31.1.3}
+\contentsline {subsubsection}{\numberline {6.31.1.4}makeCell}{66}{subsubsection.6.31.1.4}
+\contentsline {subsubsection}{\numberline {6.31.1.5}makeEmpty}{67}{subsubsection.6.31.1.5}
+\contentsline {subsubsection}{\numberline {6.31.1.6}makeInt}{67}{subsubsection.6.31.1.6}
+\contentsline {subsubsection}{\numberline {6.31.1.7}makeList0}{67}{subsubsection.6.31.1.7}
+\contentsline {subsubsection}{\numberline {6.31.1.8}makeList1}{67}{subsubsection.6.31.1.8}
+\contentsline {subsubsection}{\numberline {6.31.1.9}makeMessageTag}{67}{subsubsection.6.31.1.9}
+\contentsline {subsubsection}{\numberline {6.31.1.10}makeNoBindings}{67}{subsubsection.6.31.1.10}
+\contentsline {subsubsection}{\numberline {6.31.1.11}makeToken}{67}{subsubsection.6.31.1.11}
+\contentsline {subsubsection}{\numberline {6.31.1.12}makeTuple}{67}{subsubsection.6.31.1.12}
+\contentsline {section}{\numberline {6.32}Data\discretionary {-}{}{}Impl Class Reference}{68}{section.6.32}
+\contentsline {subsection}{\numberline {6.32.1}Constructor \& Destructor Documentation}{69}{subsection.6.32.1}
+\contentsline {subsubsection}{\numberline {6.32.1.1}DataImpl}{69}{subsubsection.6.32.1.1}
+\contentsline {subsubsection}{\numberline {6.32.1.2}DataImpl}{69}{subsubsection.6.32.1.2}
+\contentsline {subsection}{\numberline {6.32.2}Member Function Documentation}{69}{subsection.6.32.2}
+\contentsline {subsubsection}{\numberline {6.32.2.1}component}{69}{subsubsection.6.32.2.1}
+\contentsline {subsubsection}{\numberline {6.32.2.2}concat}{69}{subsubsection.6.32.2.2}
+\contentsline {subsubsection}{\numberline {6.32.2.3}first}{69}{subsubsection.6.32.2.3}
+\contentsline {subsubsection}{\numberline {6.32.2.4}provide}{70}{subsubsection.6.32.2.4}
+\contentsline {subsubsection}{\numberline {6.32.2.5}rest}{70}{subsubsection.6.32.2.5}
+\contentsline {subsubsection}{\numberline {6.32.2.6}tupleToList}{70}{subsubsection.6.32.2.6}
+\contentsline {subsection}{\numberline {6.32.3}Member Data Documentation}{70}{subsection.6.32.3}
+\contentsline {subsubsection}{\numberline {6.32.3.1}\_\discretionary {-}{}{}first}{70}{subsubsection.6.32.3.1}
+\contentsline {subsubsection}{\numberline {6.32.3.2}\_\discretionary {-}{}{}rest}{70}{subsubsection.6.32.3.2}
+\contentsline {subsubsection}{\numberline {6.32.3.3}factory}{70}{subsubsection.6.32.3.3}
+\contentsline {section}{\numberline {6.33}Data\discretionary {-}{}{}Value Interface Reference}{72}{section.6.33}
+\contentsline {subsection}{\numberline {6.33.1}Member Function Documentation}{72}{subsection.6.33.1}
+\contentsline {subsubsection}{\numberline {6.33.1.1}equals}{72}{subsubsection.6.33.1.1}
+\contentsline {section}{\numberline {6.34}Data\discretionary {-}{}{}Value\discretionary {-}{}{}Impl Class Reference}{73}{section.6.34}
+\contentsline {subsection}{\numberline {6.34.1}Constructor \& Destructor Documentation}{73}{subsection.6.34.1}
+\contentsline {subsubsection}{\numberline {6.34.1.1}DataValueImpl}{73}{subsubsection.6.34.1.1}
+\contentsline {subsection}{\numberline {6.34.2}Member Function Documentation}{74}{subsection.6.34.2}
+\contentsline {subsubsection}{\numberline {6.34.2.1}component}{74}{subsubsection.6.34.2.1}
+\contentsline {subsubsection}{\numberline {6.34.2.2}concat}{74}{subsubsection.6.34.2.2}
+\contentsline {subsubsection}{\numberline {6.34.2.3}equals}{74}{subsubsection.6.34.2.3}
+\contentsline {subsubsection}{\numberline {6.34.2.4}first}{74}{subsubsection.6.34.2.4}
+\contentsline {subsubsection}{\numberline {6.34.2.5}rest}{74}{subsubsection.6.34.2.5}
+\contentsline {subsubsection}{\numberline {6.34.2.6}tupleToList}{75}{subsubsection.6.34.2.6}
+\contentsline {section}{\numberline {6.35}Datum Interface Reference}{76}{section.6.35}
+\contentsline {section}{\numberline {6.36}Datum\discretionary {-}{}{}Impl Class Reference}{77}{section.6.36}
+\contentsline {subsection}{\numberline {6.36.1}Constructor \& Destructor Documentation}{77}{subsection.6.36.1}
+\contentsline {subsubsection}{\numberline {6.36.1.1}DatumImpl}{77}{subsubsection.6.36.1.1}
+\contentsline {section}{\numberline {6.37}Empty Interface Reference}{78}{section.6.37}
+\contentsline {section}{\numberline {6.38}Empty\discretionary {-}{}{}Impl Class Reference}{79}{section.6.38}
+\contentsline {subsection}{\numberline {6.38.1}Constructor \& Destructor Documentation}{80}{subsection.6.38.1}
+\contentsline {subsubsection}{\numberline {6.38.1.1}EmptyImpl}{80}{subsubsection.6.38.1.1}
+\contentsline {subsection}{\numberline {6.38.2}Member Function Documentation}{80}{subsection.6.38.2}
+\contentsline {subsubsection}{\numberline {6.38.2.1}empty}{80}{subsubsection.6.38.2.1}
+\contentsline {subsubsection}{\numberline {6.38.2.2}first}{80}{subsubsection.6.38.2.2}
+\contentsline {subsubsection}{\numberline {6.38.2.3}init}{80}{subsubsection.6.38.2.3}
+\contentsline {subsubsection}{\numberline {6.38.2.4}tupleToList}{80}{subsubsection.6.38.2.4}
+\contentsline {subsection}{\numberline {6.38.3}Member Data Documentation}{81}{subsection.6.38.3}
+\contentsline {subsubsection}{\numberline {6.38.3.1}\_\discretionary {-}{}{}empty}{81}{subsubsection.6.38.3.1}
+\contentsline {section}{\numberline {6.39}Enactable Interface Reference}{82}{section.6.39}
+\contentsline {subsection}{\numberline {6.39.1}Member Function Documentation}{82}{subsection.6.39.1}
+\contentsline {subsubsection}{\numberline {6.39.1.1}enact}{82}{subsubsection.6.39.1.1}
+\contentsline {section}{\numberline {6.40}Exception Class Reference}{83}{section.6.40}
+\contentsline {section}{\numberline {6.41}Exceptional Class Reference}{84}{section.6.41}
+\contentsline {subsection}{\numberline {6.41.1}Constructor \& Destructor Documentation}{84}{subsection.6.41.1}
+\contentsline {subsubsection}{\numberline {6.41.1.1}Exceptional}{84}{subsubsection.6.41.1.1}
+\contentsline {subsubsection}{\numberline {6.41.1.2}Exceptional}{84}{subsubsection.6.41.1.2}
+\contentsline {subsection}{\numberline {6.41.2}Member Function Documentation}{85}{subsection.6.41.2}
+\contentsline {subsubsection}{\numberline {6.41.2.1}getData}{85}{subsubsection.6.41.2.1}
+\contentsline {subsection}{\numberline {6.41.3}Member Data Documentation}{85}{subsection.6.41.3}
+\contentsline {subsubsection}{\numberline {6.41.3.1}data}{85}{subsubsection.6.41.3.1}
+\contentsline {section}{\numberline {6.42}Exceptionally Class Reference}{86}{section.6.42}
+\contentsline {subsection}{\numberline {6.42.1}Constructor \& Destructor Documentation}{87}{subsection.6.42.1}
+\contentsline {subsubsection}{\numberline {6.42.1.1}Exceptionally}{87}{subsubsection.6.42.1.1}
+\contentsline {subsubsection}{\numberline {6.42.1.2}Exceptionally}{87}{subsubsection.6.42.1.2}
+\contentsline {subsection}{\numberline {6.42.2}Member Function Documentation}{87}{subsection.6.42.2}
+\contentsline {subsubsection}{\numberline {6.42.2.1}enact}{87}{subsubsection.6.42.2.1}
+\contentsline {section}{\numberline {6.43}Failed Class Reference}{88}{section.6.43}
+\contentsline {subsection}{\numberline {6.43.1}Constructor \& Destructor Documentation}{88}{subsection.6.43.1}
+\contentsline {subsubsection}{\numberline {6.43.1.1}Failed}{88}{subsubsection.6.43.1.1}
+\contentsline {section}{\numberline {6.44}Hashtable Class Reference}{89}{section.6.44}
+\contentsline {section}{\numberline {6.45}Hence Class Reference}{90}{section.6.45}
+\contentsline {subsection}{\numberline {6.45.1}Constructor \& Destructor Documentation}{91}{subsection.6.45.1}
+\contentsline {subsubsection}{\numberline {6.45.1.1}Hence}{91}{subsubsection.6.45.1.1}
+\contentsline {subsubsection}{\numberline {6.45.1.2}Hence}{91}{subsubsection.6.45.1.2}
+\contentsline {subsection}{\numberline {6.45.2}Member Function Documentation}{91}{subsection.6.45.2}
+\contentsline {subsubsection}{\numberline {6.45.2.1}enact}{91}{subsubsection.6.45.2.1}
+\contentsline {section}{\numberline {6.46}Indivisibly Class Reference}{92}{section.6.46}
+\contentsline {subsection}{\numberline {6.46.1}Constructor \& Destructor Documentation}{93}{subsection.6.46.1}
+\contentsline {subsubsection}{\numberline {6.46.1.1}Indivisibly}{93}{subsubsection.6.46.1.1}
+\contentsline {subsubsection}{\numberline {6.46.1.2}Indivisibly}{93}{subsubsection.6.46.1.2}
+\contentsline {subsection}{\numberline {6.46.2}Member Function Documentation}{93}{subsection.6.46.2}
+\contentsline {subsubsection}{\numberline {6.46.2.1}enact}{93}{subsubsection.6.46.2.1}
+\contentsline {section}{\numberline {6.47}Int Interface Reference}{94}{section.6.47}
+\contentsline {subsection}{\numberline {6.47.1}Member Function Documentation}{94}{subsection.6.47.1}
+\contentsline {subsubsection}{\numberline {6.47.1.1}greater}{94}{subsubsection.6.47.1.1}
+\contentsline {subsubsection}{\numberline {6.47.1.2}greaterOrEq}{94}{subsubsection.6.47.1.2}
+\contentsline {subsubsection}{\numberline {6.47.1.3}intValue}{95}{subsubsection.6.47.1.3}
+\contentsline {subsubsection}{\numberline {6.47.1.4}less}{95}{subsubsection.6.47.1.4}
+\contentsline {subsubsection}{\numberline {6.47.1.5}lessOrEq}{95}{subsubsection.6.47.1.5}
+\contentsline {subsubsection}{\numberline {6.47.1.6}minus}{95}{subsubsection.6.47.1.6}
+\contentsline {subsubsection}{\numberline {6.47.1.7}monus}{95}{subsubsection.6.47.1.7}
+\contentsline {subsubsection}{\numberline {6.47.1.8}plus}{95}{subsubsection.6.47.1.8}
+\contentsline {subsubsection}{\numberline {6.47.1.9}times}{95}{subsubsection.6.47.1.9}
+\contentsline {section}{\numberline {6.48}Int\discretionary {-}{}{}Impl Class Reference}{96}{section.6.48}
+\contentsline {subsection}{\numberline {6.48.1}Constructor \& Destructor Documentation}{97}{subsection.6.48.1}
+\contentsline {subsubsection}{\numberline {6.48.1.1}IntImpl}{97}{subsubsection.6.48.1.1}
+\contentsline {subsection}{\numberline {6.48.2}Member Function Documentation}{97}{subsection.6.48.2}
+\contentsline {subsubsection}{\numberline {6.48.2.1}equals}{97}{subsubsection.6.48.2.1}
+\contentsline {subsubsection}{\numberline {6.48.2.2}greater}{97}{subsubsection.6.48.2.2}
+\contentsline {subsubsection}{\numberline {6.48.2.3}greaterOrEq}{97}{subsubsection.6.48.2.3}
+\contentsline {subsubsection}{\numberline {6.48.2.4}intValue}{98}{subsubsection.6.48.2.4}
+\contentsline {subsubsection}{\numberline {6.48.2.5}less}{98}{subsubsection.6.48.2.5}
+\contentsline {subsubsection}{\numberline {6.48.2.6}lessOrEq}{98}{subsubsection.6.48.2.6}
+\contentsline {subsubsection}{\numberline {6.48.2.7}minus}{98}{subsubsection.6.48.2.7}
+\contentsline {subsubsection}{\numberline {6.48.2.8}monus}{98}{subsubsection.6.48.2.8}
+\contentsline {subsubsection}{\numberline {6.48.2.9}plus}{99}{subsubsection.6.48.2.9}
+\contentsline {subsubsection}{\numberline {6.48.2.10}times}{99}{subsubsection.6.48.2.10}
+\contentsline {subsection}{\numberline {6.48.3}Member Data Documentation}{99}{subsection.6.48.3}
+\contentsline {subsubsection}{\numberline {6.48.3.1}value}{99}{subsubsection.6.48.3.1}
+\contentsline {section}{\numberline {6.49}List Interface Reference}{100}{section.6.49}
+\contentsline {subsection}{\numberline {6.49.1}Member Function Documentation}{100}{subsection.6.49.1}
+\contentsline {subsubsection}{\numberline {6.49.1.1}append}{100}{subsubsection.6.49.1.1}
+\contentsline {subsubsection}{\numberline {6.49.1.2}concat}{100}{subsubsection.6.49.1.2}
+\contentsline {subsubsection}{\numberline {6.49.1.3}head}{101}{subsubsection.6.49.1.3}
+\contentsline {subsubsection}{\numberline {6.49.1.4}insert}{101}{subsubsection.6.49.1.4}
+\contentsline {subsubsection}{\numberline {6.49.1.5}tail}{101}{subsubsection.6.49.1.5}
+\contentsline {section}{\numberline {6.50}List\discretionary {-}{}{}Impl Class Reference}{102}{section.6.50}
+\contentsline {subsection}{\numberline {6.50.1}Constructor \& Destructor Documentation}{103}{subsection.6.50.1}
+\contentsline {subsubsection}{\numberline {6.50.1.1}ListImpl}{103}{subsubsection.6.50.1.1}
+\contentsline {subsubsection}{\numberline {6.50.1.2}ListImpl}{103}{subsubsection.6.50.1.2}
+\contentsline {subsubsection}{\numberline {6.50.1.3}ListImpl}{103}{subsubsection.6.50.1.3}
+\contentsline {subsection}{\numberline {6.50.2}Member Function Documentation}{103}{subsection.6.50.2}
+\contentsline {subsubsection}{\numberline {6.50.2.1}append}{103}{subsubsection.6.50.2.1}
+\contentsline {subsubsection}{\numberline {6.50.2.2}concat}{104}{subsubsection.6.50.2.2}
+\contentsline {subsubsection}{\numberline {6.50.2.3}empty}{104}{subsubsection.6.50.2.3}
+\contentsline {subsubsection}{\numberline {6.50.2.4}equals}{104}{subsubsection.6.50.2.4}
+\contentsline {subsubsection}{\numberline {6.50.2.5}head}{104}{subsubsection.6.50.2.5}
+\contentsline {subsubsection}{\numberline {6.50.2.6}init}{105}{subsubsection.6.50.2.6}
+\contentsline {subsubsection}{\numberline {6.50.2.7}insert}{105}{subsubsection.6.50.2.7}
+\contentsline {subsubsection}{\numberline {6.50.2.8}tail}{105}{subsubsection.6.50.2.8}
+\contentsline {subsection}{\numberline {6.50.3}Member Data Documentation}{105}{subsection.6.50.3}
+\contentsline {subsubsection}{\numberline {6.50.3.1}\_\discretionary {-}{}{}empty}{105}{subsubsection.6.50.3.1}
+\contentsline {subsubsection}{\numberline {6.50.3.2}\_\discretionary {-}{}{}head}{105}{subsubsection.6.50.3.2}
+\contentsline {subsubsection}{\numberline {6.50.3.3}\_\discretionary {-}{}{}tail}{105}{subsubsection.6.50.3.3}
+\contentsline {section}{\numberline {6.51}Message Interface Reference}{106}{section.6.51}
+\contentsline {section}{\numberline {6.52}Message\discretionary {-}{}{}Tag Interface Reference}{107}{section.6.52}
+\contentsline {section}{\numberline {6.53}Message\discretionary {-}{}{}Tag\discretionary {-}{}{}Impl Class Reference}{108}{section.6.53}
+\contentsline {subsection}{\numberline {6.53.1}Constructor \& Destructor Documentation}{108}{subsection.6.53.1}
+\contentsline {subsubsection}{\numberline {6.53.1.1}MessageTagImpl}{108}{subsubsection.6.53.1.1}
+\contentsline {section}{\numberline {6.54}Otherwise Class Reference}{110}{section.6.54}
+\contentsline {subsection}{\numberline {6.54.1}Constructor \& Destructor Documentation}{111}{subsection.6.54.1}
+\contentsline {subsubsection}{\numberline {6.54.1.1}Otherwise}{111}{subsubsection.6.54.1.1}
+\contentsline {subsubsection}{\numberline {6.54.1.2}Otherwise}{111}{subsubsection.6.54.1.2}
+\contentsline {subsection}{\numberline {6.54.2}Member Function Documentation}{111}{subsection.6.54.2}
+\contentsline {subsubsection}{\numberline {6.54.2.1}enact}{111}{subsubsection.6.54.2.1}
+\contentsline {section}{\numberline {6.55}Provide Class Reference}{112}{section.6.55}
+\contentsline {subsection}{\numberline {6.55.1}Constructor \& Destructor Documentation}{112}{subsection.6.55.1}
+\contentsline {subsubsection}{\numberline {6.55.1.1}Provide}{112}{subsubsection.6.55.1.1}
+\contentsline {subsection}{\numberline {6.55.2}Member Data Documentation}{113}{subsection.6.55.2}
+\contentsline {subsubsection}{\numberline {6.55.2.1}provided}{113}{subsubsection.6.55.2.1}
+\contentsline {section}{\numberline {6.56}Pure\discretionary {-}{}{}Factory Class Reference}{114}{section.6.56}
+\contentsline {subsection}{\numberline {6.56.1}Constructor \& Destructor Documentation}{114}{subsection.6.56.1}
+\contentsline {subsubsection}{\numberline {6.56.1.1}PureFactory}{114}{subsubsection.6.56.1.1}
+\contentsline {subsection}{\numberline {6.56.2}Member Function Documentation}{114}{subsection.6.56.2}
+\contentsline {subsubsection}{\numberline {6.56.2.1}makeAction}{114}{subsubsection.6.56.2.1}
+\contentsline {subsubsection}{\numberline {6.56.2.2}makeAgent}{115}{subsubsection.6.56.2.2}
+\contentsline {subsubsection}{\numberline {6.56.2.3}makeBool}{115}{subsubsection.6.56.2.3}
+\contentsline {subsubsection}{\numberline {6.56.2.4}makeCell}{115}{subsubsection.6.56.2.4}
+\contentsline {subsubsection}{\numberline {6.56.2.5}makeEmpty}{115}{subsubsection.6.56.2.5}
+\contentsline {subsubsection}{\numberline {6.56.2.6}makeInt}{116}{subsubsection.6.56.2.6}
+\contentsline {subsubsection}{\numberline {6.56.2.7}makeList0}{116}{subsubsection.6.56.2.7}
+\contentsline {subsubsection}{\numberline {6.56.2.8}makeList1}{116}{subsubsection.6.56.2.8}
+\contentsline {subsubsection}{\numberline {6.56.2.9}makeMessageTag}{116}{subsubsection.6.56.2.9}
+\contentsline {subsubsection}{\numberline {6.56.2.10}makeNoBindings}{116}{subsubsection.6.56.2.10}
+\contentsline {subsubsection}{\numberline {6.56.2.11}makeToken}{117}{subsubsection.6.56.2.11}
+\contentsline {subsubsection}{\numberline {6.56.2.12}makeTuple}{117}{subsubsection.6.56.2.12}
+\contentsline {section}{\numberline {6.57}Runnable Class Reference}{118}{section.6.57}
+\contentsline {section}{\numberline {6.58}Schedule Class Reference}{119}{section.6.58}
+\contentsline {subsection}{\numberline {6.58.1}Constructor \& Destructor Documentation}{120}{subsection.6.58.1}
+\contentsline {subsubsection}{\numberline {6.58.1.1}Schedule}{120}{subsubsection.6.58.1.1}
+\contentsline {subsection}{\numberline {6.58.2}Member Function Documentation}{120}{subsection.6.58.2}
+\contentsline {subsubsection}{\numberline {6.58.2.1}activate}{120}{subsubsection.6.58.2.1}
+\contentsline {subsubsection}{\numberline {6.58.2.2}chooseNatural}{120}{subsubsection.6.58.2.2}
+\contentsline {subsubsection}{\numberline {6.58.2.3}deactivate}{120}{subsubsection.6.58.2.3}
+\contentsline {subsubsection}{\numberline {6.58.2.4}getSchedule}{121}{subsubsection.6.58.2.4}
+\contentsline {subsubsection}{\numberline {6.58.2.5}giveCurrentAgent}{121}{subsubsection.6.58.2.5}
+\contentsline {subsubsection}{\numberline {6.58.2.6}giveCurrentTime}{121}{subsubsection.6.58.2.6}
+\contentsline {subsubsection}{\numberline {6.58.2.7}initSchedule}{121}{subsubsection.6.58.2.7}
+\contentsline {subsubsection}{\numberline {6.58.2.8}receive}{121}{subsubsection.6.58.2.8}
+\contentsline {subsubsection}{\numberline {6.58.2.9}send}{122}{subsubsection.6.58.2.9}
+\contentsline {subsection}{\numberline {6.58.3}Member Data Documentation}{122}{subsection.6.58.3}
+\contentsline {subsubsection}{\numberline {6.58.3.1}agents}{122}{subsubsection.6.58.3.1}
+\contentsline {subsubsection}{\numberline {6.58.3.2}buffers}{122}{subsubsection.6.58.3.2}
+\contentsline {subsubsection}{\numberline {6.58.3.3}factory}{122}{subsubsection.6.58.3.3}
+\contentsline {subsubsection}{\numberline {6.58.3.4}theSchedule}{122}{subsubsection.6.58.3.4}
+\contentsline {subsubsection}{\numberline {6.58.3.5}threads}{122}{subsubsection.6.58.3.5}
+\contentsline {section}{\numberline {6.59}Scheduling Interface Reference}{123}{section.6.59}
+\contentsline {subsection}{\numberline {6.59.1}Member Function Documentation}{123}{subsection.6.59.1}
+\contentsline {subsubsection}{\numberline {6.59.1.1}activate}{123}{subsubsection.6.59.1.1}
+\contentsline {subsubsection}{\numberline {6.59.1.2}chooseNatural}{123}{subsubsection.6.59.1.2}
+\contentsline {subsubsection}{\numberline {6.59.1.3}deactivate}{123}{subsubsection.6.59.1.3}
+\contentsline {subsubsection}{\numberline {6.59.1.4}giveCurrentAgent}{123}{subsubsection.6.59.1.4}
+\contentsline {subsubsection}{\numberline {6.59.1.5}giveCurrentTime}{123}{subsubsection.6.59.1.5}
+\contentsline {subsubsection}{\numberline {6.59.1.6}receive}{123}{subsubsection.6.59.1.6}
+\contentsline {subsubsection}{\numberline {6.59.1.7}send}{124}{subsubsection.6.59.1.7}
+\contentsline {section}{\numberline {6.60}Storable Interface Reference}{125}{section.6.60}
+\contentsline {section}{\numberline {6.61}Store Class Reference}{126}{section.6.61}
+\contentsline {subsection}{\numberline {6.61.1}Constructor \& Destructor Documentation}{127}{subsection.6.61.1}
+\contentsline {subsubsection}{\numberline {6.61.1.1}Store}{127}{subsubsection.6.61.1.1}
+\contentsline {subsection}{\numberline {6.61.2}Member Function Documentation}{127}{subsection.6.61.2}
+\contentsline {subsubsection}{\numberline {6.61.2.1}create}{127}{subsubsection.6.61.2.1}
+\contentsline {subsubsection}{\numberline {6.61.2.2}destroy}{127}{subsubsection.6.61.2.2}
+\contentsline {subsubsection}{\numberline {6.61.2.3}getStore}{127}{subsubsection.6.61.2.3}
+\contentsline {subsubsection}{\numberline {6.61.2.4}initStore}{127}{subsubsection.6.61.2.4}
+\contentsline {subsubsection}{\numberline {6.61.2.5}initStore}{128}{subsubsection.6.61.2.5}
+\contentsline {subsubsection}{\numberline {6.61.2.6}initStore}{128}{subsubsection.6.61.2.6}
+\contentsline {subsubsection}{\numberline {6.61.2.7}inspect}{128}{subsubsection.6.61.2.7}
+\contentsline {subsubsection}{\numberline {6.61.2.8}toString}{128}{subsubsection.6.61.2.8}
+\contentsline {subsubsection}{\numberline {6.61.2.9}update}{128}{subsubsection.6.61.2.9}
+\contentsline {subsection}{\numberline {6.61.3}Member Data Documentation}{128}{subsection.6.61.3}
+\contentsline {subsubsection}{\numberline {6.61.3.1}factory}{128}{subsubsection.6.61.3.1}
+\contentsline {subsubsection}{\numberline {6.61.3.2}table}{129}{subsubsection.6.61.3.2}
+\contentsline {subsubsection}{\numberline {6.61.3.3}theStore}{129}{subsubsection.6.61.3.3}
+\contentsline {section}{\numberline {6.62}Storing Interface Reference}{130}{section.6.62}
+\contentsline {subsection}{\numberline {6.62.1}Member Function Documentation}{130}{subsection.6.62.1}
+\contentsline {subsubsection}{\numberline {6.62.1.1}create}{130}{subsubsection.6.62.1.1}
+\contentsline {subsubsection}{\numberline {6.62.1.2}destroy}{130}{subsubsection.6.62.1.2}
+\contentsline {subsubsection}{\numberline {6.62.1.3}inspect}{130}{subsubsection.6.62.1.3}
+\contentsline {subsubsection}{\numberline {6.62.1.4}update}{130}{subsubsection.6.62.1.4}
+\contentsline {section}{\numberline {6.63}Tagged\discretionary {-}{}{}Buffers Class Reference}{131}{section.6.63}
+\contentsline {subsection}{\numberline {6.63.1}Constructor \& Destructor Documentation}{131}{subsection.6.63.1}
+\contentsline {subsubsection}{\numberline {6.63.1.1}TaggedBuffers}{131}{subsubsection.6.63.1.1}
+\contentsline {subsection}{\numberline {6.63.2}Member Function Documentation}{131}{subsection.6.63.2}
+\contentsline {subsubsection}{\numberline {6.63.2.1}dequeue}{131}{subsubsection.6.63.2.1}
+\contentsline {subsubsection}{\numberline {6.63.2.2}queue}{132}{subsubsection.6.63.2.2}
+\contentsline {subsection}{\numberline {6.63.3}Member Data Documentation}{132}{subsection.6.63.3}
+\contentsline {subsubsection}{\numberline {6.63.3.1}factory}{132}{subsubsection.6.63.3.1}
+\contentsline {section}{\numberline {6.64}Text Interface Reference}{133}{section.6.64}
+\contentsline {subsection}{\numberline {6.64.1}Member Function Documentation}{133}{subsection.6.64.1}
+\contentsline {subsubsection}{\numberline {6.64.1.1}stringValue}{133}{subsubsection.6.64.1.1}
+\contentsline {section}{\numberline {6.65}Text\discretionary {-}{}{}Impl Class Reference}{134}{section.6.65}
+\contentsline {subsection}{\numberline {6.65.1}Constructor \& Destructor Documentation}{135}{subsection.6.65.1}
+\contentsline {subsubsection}{\numberline {6.65.1.1}TextImpl}{135}{subsubsection.6.65.1.1}
+\contentsline {subsection}{\numberline {6.65.2}Member Function Documentation}{135}{subsection.6.65.2}
+\contentsline {subsubsection}{\numberline {6.65.2.1}equals}{135}{subsubsection.6.65.2.1}
+\contentsline {subsubsection}{\numberline {6.65.2.2}stringValue}{135}{subsubsection.6.65.2.2}
+\contentsline {subsection}{\numberline {6.65.3}Member Data Documentation}{135}{subsection.6.65.3}
+\contentsline {subsubsection}{\numberline {6.65.3.1}string}{135}{subsubsection.6.65.3.1}
+\contentsline {section}{\numberline {6.66}Then Class Reference}{136}{section.6.66}
+\contentsline {subsection}{\numberline {6.66.1}Constructor \& Destructor Documentation}{137}{subsection.6.66.1}
+\contentsline {subsubsection}{\numberline {6.66.1.1}Then}{137}{subsubsection.6.66.1.1}
+\contentsline {subsubsection}{\numberline {6.66.1.2}Then}{137}{subsubsection.6.66.1.2}
+\contentsline {subsection}{\numberline {6.66.2}Member Function Documentation}{137}{subsection.6.66.2}
+\contentsline {subsubsection}{\numberline {6.66.2.1}enact}{137}{subsubsection.6.66.2.1}
+\contentsline {section}{\numberline {6.67}Token Interface Reference}{138}{section.6.67}
+\contentsline {section}{\numberline {6.68}Token\discretionary {-}{}{}Impl Class Reference}{139}{section.6.68}
+\contentsline {subsection}{\numberline {6.68.1}Constructor \& Destructor Documentation}{139}{subsection.6.68.1}
+\contentsline {subsubsection}{\numberline {6.68.1.1}TokenImpl}{139}{subsubsection.6.68.1.1}
+\contentsline {subsection}{\numberline {6.68.2}Member Function Documentation}{140}{subsection.6.68.2}
+\contentsline {subsubsection}{\numberline {6.68.2.1}compareTo}{140}{subsubsection.6.68.2.1}
+\contentsline {chapter}{\numberline {7}File Documentation}{141}{chapter.7}
+\contentsline {section}{\numberline {7.1}Abstract\discretionary {-}{}{}Action.java File Reference}{141}{section.7.1}
+\contentsline {section}{\numberline {7.2}Abstract\discretionary {-}{}{}Enactable.java File Reference}{142}{section.7.2}
+\contentsline {section}{\numberline {7.3}Abstract\discretionary {-}{}{}Infix\discretionary {-}{}{}Combinator.java File Reference}{143}{section.7.3}
+\contentsline {section}{\numberline {7.4}Abstract\discretionary {-}{}{}Prefix\discretionary {-}{}{}Combinator.java File Reference}{144}{section.7.4}
+\contentsline {section}{\numberline {7.5}Action.java File Reference}{145}{section.7.5}
+\contentsline {section}{\numberline {7.6}Action\discretionary {-}{}{}Impl.java File Reference}{146}{section.7.6}
+\contentsline {section}{\numberline {7.7}Agent.java File Reference}{147}{section.7.7}
+\contentsline {section}{\numberline {7.8}Agent\discretionary {-}{}{}Impl.java File Reference}{148}{section.7.8}
+\contentsline {section}{\numberline {7.9}Bindable.java File Reference}{149}{section.7.9}
+\contentsline {section}{\numberline {7.10}Bindings.java File Reference}{150}{section.7.10}
+\contentsline {section}{\numberline {7.11}Bindings\discretionary {-}{}{}Impl.java File Reference}{151}{section.7.11}
+\contentsline {section}{\numberline {7.12}Bool.java File Reference}{152}{section.7.12}
+\contentsline {section}{\numberline {7.13}Bool\discretionary {-}{}{}Impl.java File Reference}{153}{section.7.13}
+\contentsline {section}{\numberline {7.14}Cell.java File Reference}{154}{section.7.14}
+\contentsline {section}{\numberline {7.15}Cell\discretionary {-}{}{}Impl.java File Reference}{155}{section.7.15}
+\contentsline {section}{\numberline {7.16}Data.java File Reference}{156}{section.7.16}
+\contentsline {section}{\numberline {7.17}Data\discretionary {-}{}{}Const.java File Reference}{157}{section.7.17}
+\contentsline {section}{\numberline {7.18}Data\discretionary {-}{}{}Const\discretionary {-}{}{}Impl.java File Reference}{158}{section.7.18}
+\contentsline {section}{\numberline {7.19}Data\discretionary {-}{}{}Factory.java File Reference}{159}{section.7.19}
+\contentsline {section}{\numberline {7.20}Data\discretionary {-}{}{}Impl.java File Reference}{160}{section.7.20}
+\contentsline {section}{\numberline {7.21}Data\discretionary {-}{}{}Value.java File Reference}{161}{section.7.21}
+\contentsline {section}{\numberline {7.22}Data\discretionary {-}{}{}Value\discretionary {-}{}{}Impl.java File Reference}{162}{section.7.22}
+\contentsline {section}{\numberline {7.23}Datum.java File Reference}{163}{section.7.23}
+\contentsline {section}{\numberline {7.24}Datum\discretionary {-}{}{}Impl.java File Reference}{164}{section.7.24}
+\contentsline {section}{\numberline {7.25}Empty.java File Reference}{165}{section.7.25}
+\contentsline {section}{\numberline {7.26}Empty\discretionary {-}{}{}Impl.java File Reference}{166}{section.7.26}
+\contentsline {section}{\numberline {7.27}Enactable.java File Reference}{167}{section.7.27}
+\contentsline {section}{\numberline {7.28}Exceptional.java File Reference}{168}{section.7.28}
+\contentsline {section}{\numberline {7.29}Failed.java File Reference}{169}{section.7.29}
+\contentsline {section}{\numberline {7.30}Int.java File Reference}{170}{section.7.30}
+\contentsline {section}{\numberline {7.31}Int\discretionary {-}{}{}Impl.java File Reference}{171}{section.7.31}
+\contentsline {section}{\numberline {7.32}List.java File Reference}{172}{section.7.32}
+\contentsline {section}{\numberline {7.33}List\discretionary {-}{}{}Impl.java File Reference}{173}{section.7.33}
+\contentsline {section}{\numberline {7.34}Message.java File Reference}{174}{section.7.34}
+\contentsline {section}{\numberline {7.35}Message\discretionary {-}{}{}Tag.java File Reference}{175}{section.7.35}
+\contentsline {section}{\numberline {7.36}Message\discretionary {-}{}{}Tag\discretionary {-}{}{}Impl.java File Reference}{176}{section.7.36}
+\contentsline {section}{\numberline {7.37}Pure\discretionary {-}{}{}Factory.java File Reference}{177}{section.7.37}
+\contentsline {section}{\numberline {7.38}Schedule.java File Reference}{178}{section.7.38}
+\contentsline {section}{\numberline {7.39}Scheduling.java File Reference}{179}{section.7.39}
+\contentsline {section}{\numberline {7.40}Storable.java File Reference}{180}{section.7.40}
+\contentsline {section}{\numberline {7.41}Store.java File Reference}{181}{section.7.41}
+\contentsline {section}{\numberline {7.42}Storing.java File Reference}{182}{section.7.42}
+\contentsline {section}{\numberline {7.43}Tagged\discretionary {-}{}{}Buffers.java File Reference}{183}{section.7.43}
+\contentsline {section}{\numberline {7.44}Text.java File Reference}{184}{section.7.44}
+\contentsline {section}{\numberline {7.45}Text\discretionary {-}{}{}Impl.java File Reference}{185}{section.7.45}
+\contentsline {section}{\numberline {7.46}Token.java File Reference}{186}{section.7.46}
+\contentsline {section}{\numberline {7.47}Token\discretionary {-}{}{}Impl.java File Reference}{187}{section.7.47}
+\contentsline {section}{\numberline {7.48}Tuple.java File Reference}{188}{section.7.48}

@@ -1,0 +1,22 @@
+module pico/Exps
+
+imports pico/Lex
+
+exports
+sorts EXP
+
+
+context-free syntax
+    PICO-ID                                                       -> EXP {cons("pico-id")}
+    PICO-INT                                                      -> EXP {cons("pico-int")}
+    EXP "+" EXP                                                   -> EXP {left,cons("pico-plus")} 
+    EXP "-" EXP                                                   -> EXP {left,cons("pico-minus")}
+    "(" EXP ")"                                                   -> EXP {bracket,cons("pico-exp-bracket")}
+
+  context-free priorities
+    EXP "||" EXP -> EXP >
+    EXP "-" EXP -> EXP >
+    EXP "+" EXP -> EXP
+  variables
+    "Exp" [0-9\']*          -> EXP
+

@@ -1,0 +1,19 @@
+module pico/Stats
+
+imports pico/Exps
+
+exports
+
+sorts STATEMENT
+
+context-free syntax
+    PICO-ID ":=" EXP                                              -> STATEMENT
+    "if" EXP "then" SERIES "else" SERIES "fi" -> STATEMENT
+    "while" EXP "do" SERIES "od"                        -> STATEMENT
+aliases
+	{STATEMENT ";"}* -> SERIES
+  variables
+    "Series" [0-9\']*       -> SERIES
+    "Stat" [0-9\']*         -> STATEMENT
+    "Stat*"[0-9\']*       -> {STATEMENT ";"}*
+    "Stat+"[0-9\']*       -> {STATEMENT ";"}+

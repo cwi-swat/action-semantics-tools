@@ -1,0 +1,22 @@
+module obs/data/__AN-K-Pair
+
+imports obs/data/__AN-K-Data-Contract 
+	obs/aux/structs/Pair[Data Data]
+
+exports
+
+sorts Data
+
+context-free syntax
+
+Pair -> Datum
+
+lexical syntax
+"first" -> DataOpPrefix
+"second" -> DataOpPrefix
+"pair" -> SortName
+
+hiddens
+variables
+"p"[0-9\']* -> Pair
+"d"[0-9\']* -> Data

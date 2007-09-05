@@ -1,0 +1,79 @@
+javac:
+total 4
+drwxrwxr-x    3 tvdstorm tvdstorm     4096 Sep 13 18:20 ajc
+
+javac/ajc:
+total 44
+-rw-rw-r--    1 tvdstorm tvdstorm     1083 Sep 13 18:20 AbstractEnactable.class
+drwxrwxr-x    3 tvdstorm tvdstorm     4096 Sep 13 18:20 data
+-rw-rw-r--    1 tvdstorm tvdstorm      278 Sep 13 18:20 Enactable.class
+-rw-rw-r--    1 tvdstorm tvdstorm      782 Sep 13 18:20 Exceptional.class
+-rw-rw-r--    1 tvdstorm tvdstorm      243 Sep 13 18:20 Failed.class
+-rw-rw-r--    1 tvdstorm tvdstorm     2759 Sep 13 18:20 Schedule.class
+-rw-rw-r--    1 tvdstorm tvdstorm      571 Sep 13 18:20 Scheduling.class
+-rw-rw-r--    1 tvdstorm tvdstorm     2136 Sep 13 18:20 Store.class
+-rw-rw-r--    1 tvdstorm tvdstorm      427 Sep 13 18:20 Storing.class
+-rw-rw-r--    1 tvdstorm tvdstorm     1042 Sep 13 18:20 TaggedBuffers.class
+-rw-rw-r--    1 tvdstorm tvdstorm      467 Sep 13 18:20 Unfold.class
+
+javac/ajc/data:
+total 80
+-rw-rw-r--    1 tvdstorm tvdstorm      553 Sep 13 18:20 Action.class
+-rw-rw-r--    1 tvdstorm tvdstorm      140 Sep 13 18:20 Agent.class
+-rw-rw-r--    1 tvdstorm tvdstorm      124 Sep 13 18:20 Bindable.class
+-rw-rw-r--    1 tvdstorm tvdstorm      380 Sep 13 18:20 Bindings.class
+-rw-rw-r--    1 tvdstorm tvdstorm      208 Sep 13 18:20 Bool.class
+-rw-rw-r--    1 tvdstorm tvdstorm      138 Sep 13 18:20 Cell.class
+-rw-rw-r--    1 tvdstorm tvdstorm      426 Sep 13 18:20 Data.class
+-rw-rw-r--    1 tvdstorm tvdstorm      152 Sep 13 18:20 DataConst.class
+-rw-rw-r--    1 tvdstorm tvdstorm      828 Sep 13 18:20 DataFactory.class
+-rw-rw-r--    1 tvdstorm tvdstorm      251 Sep 13 18:20 DataValue.class
+-rw-rw-r--    1 tvdstorm tvdstorm      218 Sep 13 18:20 Datum.class
+-rw-rw-r--    1 tvdstorm tvdstorm      144 Sep 13 18:20 Empty.class
+-rw-rw-r--    1 tvdstorm tvdstorm      447 Sep 13 18:20 Int.class
+-rw-rw-r--    1 tvdstorm tvdstorm      390 Sep 13 18:20 List.class
+-rw-rw-r--    1 tvdstorm tvdstorm      122 Sep 13 18:20 Message.class
+-rw-rw-r--    1 tvdstorm tvdstorm      149 Sep 13 18:20 MessageTag.class
+drwxrwxr-x    2 tvdstorm tvdstorm     4096 Sep 13 18:20 pure
+-rw-rw-r--    1 tvdstorm tvdstorm      124 Sep 13 18:20 Storable.class
+-rw-rw-r--    1 tvdstorm tvdstorm      190 Sep 13 18:20 Text.class
+-rw-rw-r--    1 tvdstorm tvdstorm      167 Sep 13 18:20 Token.class
+
+javac/ajc/data/pure:
+total 144
+-rw-rw-r--    1 tvdstorm tvdstorm      435 Sep 13 18:20 AbstractInfixCombinator.class
+-rw-rw-r--    1 tvdstorm tvdstorm      382 Sep 13 18:20 AbstractPrefixCombinator.class
+-rw-rw-r--    1 tvdstorm tvdstorm     2417 Sep 13 18:20 ActionImpl.class
+-rw-rw-r--    1 tvdstorm tvdstorm      402 Sep 13 18:20 AgentImpl.class
+-rw-rw-r--    1 tvdstorm tvdstorm      819 Sep 13 18:20 And$_And.class
+-rw-rw-r--    1 tvdstorm tvdstorm      533 Sep 13 18:20 And.class
+-rw-rw-r--    1 tvdstorm tvdstorm     1031 Sep 13 18:20 AndExceptionally$_AndExceptionally.class
+-rw-rw-r--    1 tvdstorm tvdstorm      600 Sep 13 18:20 AndExceptionally.class
+-rw-rw-r--    1 tvdstorm tvdstorm      843 Sep 13 18:20 AndThen$_AndThen.class
+-rw-rw-r--    1 tvdstorm tvdstorm      540 Sep 13 18:20 AndThen.class
+-rw-rw-r--    1 tvdstorm tvdstorm     2234 Sep 13 18:20 BindingsImpl.class
+-rw-rw-r--    1 tvdstorm tvdstorm      899 Sep 13 18:20 BoolImpl.class
+-rw-rw-r--    1 tvdstorm tvdstorm      690 Sep 13 18:20 CellImpl.class
+-rw-rw-r--    1 tvdstorm tvdstorm      283 Sep 13 18:20 DataConstImpl.class
+-rw-rw-r--    1 tvdstorm tvdstorm     1624 Sep 13 18:20 DataImpl.class
+-rw-rw-r--    1 tvdstorm tvdstorm     1173 Sep 13 18:20 DataValueImpl.class
+-rw-rw-r--    1 tvdstorm tvdstorm      271 Sep 13 18:20 DatumImpl.class
+-rw-rw-r--    1 tvdstorm tvdstorm     1173 Sep 13 18:20 EmptyImpl.class
+-rw-rw-r--    1 tvdstorm tvdstorm      582 Sep 13 18:20 Exceptionally.class
+-rw-rw-r--    1 tvdstorm tvdstorm      860 Sep 13 18:20 Exceptionally$_Exceptionally.class
+-rw-rw-r--    1 tvdstorm tvdstorm      543 Sep 13 18:20 Hence.class
+-rw-rw-r--    1 tvdstorm tvdstorm      764 Sep 13 18:20 Hence$_Hence.class
+-rw-rw-r--    1 tvdstorm tvdstorm      523 Sep 13 18:20 Indivisibly.class
+-rw-rw-r--    1 tvdstorm tvdstorm      831 Sep 13 18:20 Indivisibly$_Indivisibly.class
+-rw-rw-r--    1 tvdstorm tvdstorm     1709 Sep 13 18:20 IntImpl.class
+-rw-rw-r--    1 tvdstorm tvdstorm     2247 Sep 13 18:20 ListImpl.class
+-rw-rw-r--    1 tvdstorm tvdstorm      300 Sep 13 18:20 MessageTagImpl.class
+-rw-rw-r--    1 tvdstorm tvdstorm      564 Sep 13 18:20 Otherwise.class
+-rw-rw-r--    1 tvdstorm tvdstorm      785 Sep 13 18:20 Otherwise$_Otherwise.class
+-rw-rw-r--    1 tvdstorm tvdstorm      663 Sep 13 18:20 Provide.class
+-rw-rw-r--    1 tvdstorm tvdstorm      657 Sep 13 18:20 Provide$_Provide.class
+-rw-rw-r--    1 tvdstorm tvdstorm     2312 Sep 13 18:20 PureFactory.class
+-rw-rw-r--    1 tvdstorm tvdstorm      901 Sep 13 18:20 TextImpl.class
+-rw-rw-r--    1 tvdstorm tvdstorm      505 Sep 13 18:20 Then.class
+-rw-rw-r--    1 tvdstorm tvdstorm      732 Sep 13 18:20 Then$_Then.class
+-rw-rw-r--    1 tvdstorm tvdstorm      557 Sep 13 18:20 TokenImpl.class

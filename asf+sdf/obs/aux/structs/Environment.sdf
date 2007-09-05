@@ -1,0 +1,12 @@
+module obs/aux/structs/Environment
+
+imports obs/aux/structs/Finite-Map[Environment-Key Environment-Value]
+		  [Finite-Map => Environment]
+
+exports
+
+sorts Environment
+
+context-free syntax
+
+new-environment() -> Environment

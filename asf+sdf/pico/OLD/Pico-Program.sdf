@@ -1,0 +1,15 @@
+module Pico-Program
+
+imports Pico-Decls Pico-Stats 
+
+exports
+
+sorts PROGRAM
+
+context-free syntax
+    "begin" DECLS SERIES "end"                          -> PROGRAM
+  variables
+    "Program" [0-9\']*      -> PROGRAM
+
+
+

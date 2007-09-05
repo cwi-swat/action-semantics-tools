@@ -1,0 +1,22 @@
+module an/sem/kernel/Interaction-Flow
+
+imports an/sem/kernel/Action 
+	an/sem/internal/Agents 
+	an/sem/internal/Messages 
+	dn/sem/internal/Time
+	msos/Mutable-Info[Schedule-Index Schedule]
+	msos/Mutable-Info[Actions-Index Actions]
+	msos/Mutable-Info[Buffers-Index Buffers]
+	msos/Mutable-Info[Agents-Index Agents]
+	msos/Context-Info[Agent-Index Agent]
+	msos/Context-Info[Time-Index Time]
+
+exports
+
+context-free syntax
+	"schedule" -> Schedule-Index {cons("schedule-index")}
+	"actions" -> Actions-Index {cons("actions-index")}
+	"buffers" -> Buffers-Index {cons("buffers-index")}
+	"agents" -> Agents-Index {cons("agents-index")}
+	"agent" -> Agent-Index {cons("agemt-index")}
+	"time" -> Time-Index {cons("time-index")}

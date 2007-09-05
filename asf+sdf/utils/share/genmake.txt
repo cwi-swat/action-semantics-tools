@@ -1,0 +1,89 @@
+
+
+Problems:
+- implodePT must be standardized
+- sdf.cons.pp does not take renamings and parameterization properly
+  this is perhaps a problem with sdf2.1 (should be sdf2.4).
+- concatasf dumps core
+- A(r,c,l) etc. do not work properly (?)
+- large latex files: is this only a consequence of problems
+  with IndexedTrace.asf etc.? Concatenation of ps files is
+  not satisfactory.
+- lex-con-<name> attributes are not satisfactory.
+- we want separate pp tables for terms over a language (not eqs).
+- ASF.pp.working is used (this is without tables)
+  nesting depth for indexed trace, context-info, mutableinfo asf
+  leads to a capacity problem in TeX (why???)
+- addeqssyntax.new add syntax that is too allowing
+  a = b c = d, d = f ===== f(a) = c is allowed. That is
+  commas have become optional
+
+Cleaning up:
+- use autoconf to get prefixes right.
+- make a proper script of genmake.py (usage etc.)
+- contact cwi about imploders and sdf.cons.pp
+- in the meantime, restructure genmake.py
+- use more variables and possibly "include" primitive
+- separate default.abbrevs into the original default abbrevs 
+  and asf.abbrevs
+- include sdf-extra.pp in sdf.cons.pp to SDF.pp
+- bundle this with ASF.pp in the package
+- as well as SDF.abbrevs ASF.abbrevs
+- standardize use of tools (mix xt and meta as little as possible.
+- standarize upon extensions and generations of pdf/ps
+- ensure that pdf/dvi are produced in the right directory
+- use a tool other than sdf-imports to speed up generation
+- document the various pipelines!!!
+- make the web target work: how to use tohtml-sdf
+- Currently sdf-imports only has path . at its disposal,
+  it should search for asf-library and meta.conf paths. But
+  all pp files, cons attributes, def, and abbrevs should be available
+  in those trees. But asf-library is likely not to be writeable...
+  Best practice now: cp the entire tree to .
+
+Desired dist:
+- gen-meta-make (gen-meta-make.py)
+- concat-abbrevs (concat-abbrevs.c)
+- ASF.pp ASF.abbrevs SDF.pp SDF.abbrevs
+- addconseqssyntax (remake of addeqssyntax)
+
+Current configuration:
+- Implode Implode.trm.tbl implode-rest.sh:
+  Use to implode the bits that implodePT and implode-asfix
+  can't handle. Should be made useless.
+- genmake.py M, produces a for module M
+- sdf-extra.pp: pp rules for non sdf.cons.pp features
+- compose-abbrevs[.c] composes abbreviation files for abox2latex.
+- addeqssyntax.new: adds eqs syntax with cons attributes
+
+
+Legenda of generated files by Makefile
+- M.def: packed sdf for M
+- M.trm.tbl: parsetable to parse terms over M (i.e. without var syntax)
+- M.asf.tbl: parsetable to parse M.asf
+- M.asf.pp.tbl: parsetable to parse M.asf and have cons attributes for equation syntax
+- M.sdf.baf: parsed M.sdf
+- M.asf.baf: parsed M.asf
+- M.pp: prettyprint table for M
+- M.pp.latex.sh: script to pretty print terms of M (including equations).
+- M.sdf.abbrevs: abbreviations for prettyprinting M.sdf
+- M.asf.abbrevs: abbreviations for prettyprinting M.asf (includes abbrevs of imported modules)
+- M.sdf.latex: prettyprinted version of M.sdf in LaTeX to be included in document
+- M.sdf.text: prettyprinted version of M.sdf in text
+- M.sdf.html: prettyprinted version of M.sdf in html
+- M.asf.latex: prettyprinted version of M.asf in LaTeX to be included in document
+- M.asf.text: prettyprinted version of M.asf in text
+- M.sdf.html: prettyprinted version of M.asf in html
+- M.def.latex: prettyprinted version of M.sdf and all imported modules in LaTeX to be included in document
+- M.def.text: prettyprinted version of M.sdf and all imported modules in text
+- M.def.html: prettyprinted version of M.sdf and all imported modules in html
+- M.mod.latex: prettyprinted version of M.sdf and M.asf (if available) in latex
+- M.ref.latex: prettyprinted version of Sdf and Asf of all imported modules by M
+- M.eqs: equations for M and all modules that are imported
+- M.sh: script to evaluate (reduce) terms over M
+- M.exe: compiled equations of M
+- M.*.tex: latex document containing M.*.latex
+- M.*.pdf: pdf document based on M.*.tex
+- M.*.dvi: dvi document based on M.*.tex
+- M.*.ps: postscript document based on M.*.tex
+

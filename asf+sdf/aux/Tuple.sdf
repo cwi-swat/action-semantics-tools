@@ -1,0 +1,29 @@
+module aux/Tuple[X]
+
+imports basic/Integers
+	basic/Whitespace
+
+
+exports
+
+sorts Tuple
+
+context-free syntax
+
+	"(" {X ","}* ")" -> Tuple {cons("tuple")}
+
+	X "::" Tuple -> Tuple {cons("tuple-insert")}
+
+	Tuple "++" Tuple -> Tuple {left,cons("tuple-concat")}
+
+	Tuple "!" Integer -> X {cons("tuple-projection")}
+
+hiddens
+
+variables
+	"n"[0-9\']* -> Integer
+	"t"[0-9\']* -> Tuple
+	"x"[0-9\']* -> X
+	"x*"[0-9\']* -> {X ","}*
+	"x+"[0-9\']* -> {X ","}+
+

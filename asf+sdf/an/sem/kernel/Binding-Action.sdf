@@ -1,0 +1,12 @@
+module an/sem/kernel/Binding-Action
+
+imports an/syn/kernel/Binding-Action
+	an/sem/kernel/Bindings-Flow 
+
+hiddens
+variables
+	"A"[0-9\']* -> Action
+	"s"[0-9\']* -> IndexedState
+	"b"[0-9\']* -> Bindings
+	"d"[0-9\']* -> Data
+	"t"[0-9\']* -> Terminated

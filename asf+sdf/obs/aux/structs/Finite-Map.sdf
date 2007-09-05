@@ -1,0 +1,50 @@
+module obs/aux/structs/Finite-Map[Key Value]
+
+imports obs/data/booleans/Bool 
+	obs/aux/structs/Finite-Set[Key]
+
+exports
+
+sorts Finite-Map Value
+
+context-free syntax
+
+Finite-Map "." Key ":=" Value -> Finite-Map
+Finite-Map "." Key -> Value
+
+"(" Finite-Map ")" -> Finite-Map {bracket}
+
+Finite-Map "+" Finite-Map -> Finite-Map {assoc}
+
+get(Finite-Map, Key) -> Value
+put(Finite-Map, Key, Value) -> Finite-Map
+remove(Finite-Map, Key) -> Finite-Map
+
+has-key(Finite-Map, Key) -> Bool
+
+domain(Finite-Map) -> Finite-Set
+
+empty-map() -> Finite-Map
+
+disjoint-union(Finite-Map, Finite-Map) -> Finite-Map
+overriding(Finite-Map, Finite-Map) -> Finite-Map
+
+
+%%aliases
+Key # Value -> Tuple
+
+context-free syntax
+
+"{" Tuple* "}" -> Finite-Map
+
+
+hiddens
+
+variables
+"k"[0-9\']* -> Key
+"v"[0-9\']* -> Value
+"m"[0-9\']* -> Finite-Map
+"tup"[0-9\']* -> Tuple
+"tup*"[0-9\']* -> Tuple*
+
+

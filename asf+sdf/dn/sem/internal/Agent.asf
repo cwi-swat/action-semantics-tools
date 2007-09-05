@@ -1,0 +1,9 @@
+equations
+
+[th]	result the agent_ ag = ag
+
+[top]	main = $0
+
+[frst]	first-agent() = $1
+
+[next]	next-agent($n) = $n+1

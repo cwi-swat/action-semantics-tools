@@ -1,0 +1,7 @@
+equations
+
+[]	pre(<s1,s2>) = s1
+
+[]	post(<s1,s2>) = s2
+
+[]	<s1,s>;<s,s2> = <s1,s2>

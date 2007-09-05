@@ -1,0 +1,248 @@
+\hypertarget{classStore}{
+\section{Store  Class Reference}
+\label{classStore}\index{Store@{Store}}
+}
+Inheritance diagram for Store:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=37pt]{classStore__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Store:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=114pt]{classStore__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+synchronized \hyperlink{interfaceCell}{Cell} \hyperlink{classStore_a0}{create} (\hyperlink{interfaceStorable}{Storable} o)
+\item 
+synchronized \hyperlink{interfaceEmpty}{Empty} \hyperlink{classStore_a1}{destroy} (\hyperlink{interfaceCell}{Cell} cell) throws \hyperlink{classExceptional}{Exceptional}
+\item 
+synchronized \hyperlink{interfaceEmpty}{Empty} \hyperlink{classStore_a2}{update} (\hyperlink{interfaceCell}{Cell} cell, \hyperlink{interfaceStorable}{Storable} o) throws \hyperlink{classExceptional}{Exceptional}
+\item 
+synchronized \hyperlink{interfaceStorable}{Storable} \hyperlink{classStore_a3}{inspect} (\hyperlink{interfaceCell}{Cell} cell) throws \hyperlink{classExceptional}{Exceptional}
+\item 
+String \hyperlink{classStore_a4}{to\-String} ()
+\end{CompactItemize}
+\subsection*{Static Public Methods}
+\begin{CompactItemize}
+\item 
+void \hyperlink{classStore_d0}{init\-Store} (\hyperlink{interfaceDataFactory}{Data\-Factory} \hyperlink{classStore_o0}{factory})
+\item 
+void \hyperlink{classStore_d1}{init\-Store} (\hyperlink{interfaceDataFactory}{Data\-Factory} \hyperlink{classStore_o0}{factory}, int cap)
+\item 
+void \hyperlink{classStore_d2}{init\-Store} (\hyperlink{interfaceDataFactory}{Data\-Factory} \hyperlink{classStore_o0}{factory}, int cap, int loadf)
+\item 
+Store \hyperlink{classStore_d3}{get\-Store} ()
+\end{CompactItemize}
+\subsection*{Private Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{classStore_c0}{Store} (\hyperlink{interfaceDataFactory}{Data\-Factory} \hyperlink{classStore_o0}{factory}, int cap, int loadf)
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceDataFactory}{Data\-Factory} \hyperlink{classStore_o0}{factory}
+\item 
+\hyperlink{classHashtable}{Hashtable} \hyperlink{classStore_o1}{table}
+\end{CompactItemize}
+\subsection*{Static Private Attributes}
+\begin{CompactItemize}
+\item 
+Store \hyperlink{classStore_r0}{the\-Store} = null
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classStore_c0}{
+\index{Store@{Store}!Store@{Store}}
+\index{Store@{Store}!Store@{Store}}
+\subsubsection[Store]{\setlength{\rightskip}{0pt plus 5cm}Store::Store (\hyperlink{interfaceDataFactory}{Data\-Factory} {\em factory}, int {\em cap}, int {\em loadf})\hspace{0.3cm}{\tt  \mbox{[}inline, private\mbox{]}}}}
+\label{classStore_c0}
+
+
+
+
+Definition at line 13 of file Store.java.\footnotesize\begin{verbatim}00013                                                            {
+00014         this.factory = factory;
+00015         table = new Hashtable(cap, loadf);
+00016     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classStore_a0}{
+\index{Store@{Store}!create@{create}}
+\index{create@{create}!Store@{Store}}
+\subsubsection[create]{\setlength{\rightskip}{0pt plus 5cm}synchronized \hyperlink{interfaceCell}{Cell} Store::create (\hyperlink{interfaceStorable}{Storable} {\em o})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classStore_a0}
+
+
+
+
+Reimplemented from \hyperlink{interfaceStoring_a0}{Storing}.
+
+Definition at line 37 of file Store.java.\footnotesize\begin{verbatim}00037                                                 {
+00038         Cell cell = factory.makeCell();
+00039         table.put(cell, o);
+00040         return cell;    
+00041     }
+\end{verbatim}\normalsize 
+\hypertarget{classStore_a1}{
+\index{Store@{Store}!destroy@{destroy}}
+\index{destroy@{destroy}!Store@{Store}}
+\subsubsection[destroy]{\setlength{\rightskip}{0pt plus 5cm}synchronized \hyperlink{interfaceEmpty}{Empty} Store::destroy (\hyperlink{interfaceCell}{Cell} {\em cell})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classStore_a1}
+
+
+
+
+Reimplemented from \hyperlink{interfaceStoring_a1}{Storing}.
+
+Definition at line 43 of file Store.java.\footnotesize\begin{verbatim}00043                                                                     {
+00044         if (table.remove(cell) == null)
+00045             throw new Exceptional("destroy: cell non-existent", factory.makeEmpty());
+00046         return factory.makeEmpty();
+00047     }
+\end{verbatim}\normalsize 
+\hypertarget{classStore_d3}{
+\index{Store@{Store}!getStore@{getStore}}
+\index{getStore@{getStore}!Store@{Store}}
+\subsubsection[getStore]{\setlength{\rightskip}{0pt plus 5cm}Store Store::get\-Store ()\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classStore_d3}
+
+
+
+
+Definition at line 30 of file Store.java.\footnotesize\begin{verbatim}00030                                    {
+00031         if (theStore == null)
+00032             throw new RuntimeException("Initialize store first!");
+00033         return theStore;
+00034     }
+\end{verbatim}\normalsize 
+\hypertarget{classStore_d2}{
+\index{Store@{Store}!initStore@{initStore}}
+\index{initStore@{initStore}!Store@{Store}}
+\subsubsection[initStore]{\setlength{\rightskip}{0pt plus 5cm}void Store::init\-Store (\hyperlink{interfaceDataFactory}{Data\-Factory} {\em factory}, int {\em cap}, int {\em loadf})\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classStore_d2}
+
+
+
+
+Definition at line 26 of file Store.java.\footnotesize\begin{verbatim}00026                                                                           {
+00027         theStore = new Store(factory, cap, loadf);
+00028     }
+\end{verbatim}\normalsize 
+\hypertarget{classStore_d1}{
+\index{Store@{Store}!initStore@{initStore}}
+\index{initStore@{initStore}!Store@{Store}}
+\subsubsection[initStore]{\setlength{\rightskip}{0pt plus 5cm}void Store::init\-Store (\hyperlink{interfaceDataFactory}{Data\-Factory} {\em factory}, int {\em cap})\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classStore_d1}
+
+
+
+
+Definition at line 22 of file Store.java.\footnotesize\begin{verbatim}00022                                                                {
+00023         initStore(factory, cap, 75);
+00024     }
+\end{verbatim}\normalsize 
+\hypertarget{classStore_d0}{
+\index{Store@{Store}!initStore@{initStore}}
+\index{initStore@{initStore}!Store@{Store}}
+\subsubsection[initStore]{\setlength{\rightskip}{0pt plus 5cm}void Store::init\-Store (\hyperlink{interfaceDataFactory}{Data\-Factory} {\em factory})\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classStore_d0}
+
+
+
+
+Definition at line 18 of file Store.java.\footnotesize\begin{verbatim}00018                                                       {
+00019         initStore(factory, 1024);
+00020     }
+\end{verbatim}\normalsize 
+\hypertarget{classStore_a3}{
+\index{Store@{Store}!inspect@{inspect}}
+\index{inspect@{inspect}!Store@{Store}}
+\subsubsection[inspect]{\setlength{\rightskip}{0pt plus 5cm}synchronized \hyperlink{interfaceStorable}{Storable} Store::inspect (\hyperlink{interfaceCell}{Cell} {\em cell})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classStore_a3}
+
+
+
+
+Reimplemented from \hyperlink{interfaceStoring_a3}{Storing}.
+
+Definition at line 56 of file Store.java.\footnotesize\begin{verbatim}00056                                                                        {
+00057         if (!table.containsKey(cell)) 
+00058             throw new Exceptional("inpect: cell non-existent", factory.makeEmpty());
+00059         return (Storable)(table.get(cell));
+00060     }
+\end{verbatim}\normalsize 
+\hypertarget{classStore_a4}{
+\index{Store@{Store}!toString@{toString}}
+\index{toString@{toString}!Store@{Store}}
+\subsubsection[toString]{\setlength{\rightskip}{0pt plus 5cm}String Store::to\-String ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classStore_a4}
+
+
+
+
+Definition at line 62 of file Store.java.\footnotesize\begin{verbatim}00062                              {
+00063         return table.toString();
+00064     }
+\end{verbatim}\normalsize 
+\hypertarget{classStore_a2}{
+\index{Store@{Store}!update@{update}}
+\index{update@{update}!Store@{Store}}
+\subsubsection[update]{\setlength{\rightskip}{0pt plus 5cm}synchronized \hyperlink{interfaceEmpty}{Empty} Store::update (\hyperlink{interfaceCell}{Cell} {\em cell}, \hyperlink{interfaceStorable}{Storable} {\em o})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classStore_a2}
+
+
+
+
+Reimplemented from \hyperlink{interfaceStoring_a2}{Storing}.
+
+Definition at line 49 of file Store.java.\footnotesize\begin{verbatim}00049                                                                                {
+00050         if (!table.containsKey(cell)) 
+00051             throw new Exceptional("update: cell non-existent", factory.makeEmpty());
+00052         table.put(cell, o);
+00053         return factory.makeEmpty();
+00054     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classStore_o0}{
+\index{Store@{Store}!factory@{factory}}
+\index{factory@{factory}!Store@{Store}}
+\subsubsection[factory]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceDataFactory}{Data\-Factory} Store::factory\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classStore_o0}
+
+
+
+
+Definition at line 10 of file Store.java.\hypertarget{classStore_o1}{
+\index{Store@{Store}!table@{table}}
+\index{table@{table}!Store@{Store}}
+\subsubsection[table]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{classHashtable}{Hashtable} Store::table\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classStore_o1}
+
+
+
+
+Definition at line 11 of file Store.java.\hypertarget{classStore_r0}{
+\index{Store@{Store}!theStore@{theStore}}
+\index{theStore@{theStore}!Store@{Store}}
+\subsubsection[theStore]{\setlength{\rightskip}{0pt plus 5cm}Store Store::the\-Store = null\hspace{0.3cm}{\tt  \mbox{[}static, private\mbox{]}}}}
+\label{classStore_r0}
+
+
+
+
+Definition at line 8 of file Store.java.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{Store_8java-source}{Store.java}\end{CompactItemize}

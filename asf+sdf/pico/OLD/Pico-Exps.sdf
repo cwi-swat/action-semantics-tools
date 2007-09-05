@@ -1,0 +1,24 @@
+module pico/Exps
+
+imports pioc/Lex
+
+exports
+sorts EXP
+
+
+context-free syntax
+    PICO-ID                                                       -> EXP
+    PICO-INT                                                      -> EXP
+    PICO-STR                                                      -> EXP
+    EXP "+" EXP                                                   -> EXP {left}
+    EXP "-" EXP                                                   -> EXP {left}
+    EXP "||" EXP                                                  -> EXP {left}
+    "(" EXP ")"                                                   -> EXP {bracket}
+
+  context-free priorities
+    EXP "||" EXP -> EXP >
+    EXP "-" EXP -> EXP >
+    EXP "+" EXP -> EXP
+  variables
+    "Exp" [0-9\']*          -> EXP
+

@@ -1,0 +1,15 @@
+module dn/syn/kernel/DataSort
+
+imports aux/Tuple[SortName][Tuple => DataSort]
+
+exports
+
+sorts DataSort
+
+context-free syntax
+	SortName "+" -> DataSort {cons("sortname-plus")}
+	SortName "*" -> DataSort {cons("sortname-star")}
+	SortName "?" -> DataSort {cons("sortname-opt")}
+	SortName -> DataSort 
+
+%% Add outcomes later.

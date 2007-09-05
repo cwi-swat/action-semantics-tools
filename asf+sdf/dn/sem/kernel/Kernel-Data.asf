@@ -1,0 +1,6 @@
+equations
+
+[res]	result #n_ d = d!n
+
+[hol]	holds _=_ (u,u) = true
+

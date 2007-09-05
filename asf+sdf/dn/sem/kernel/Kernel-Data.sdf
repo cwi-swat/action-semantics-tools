@@ -1,0 +1,16 @@
+module dn/sem/kernel/Kernel-Data
+
+imports dn/syn/kernel/Kernel-Data
+	dn/sem/kernel/Interface
+
+hiddens
+
+imports basic/Whitespace
+
+variables
+	"u+"[0-9\']* -> {Datum ","}+
+	"u"[0-9\']* -> Datum
+	"d"[0-9\']* -> Data
+	"n"[0-9\']* -> NatCon
+
+

@@ -1,0 +1,143 @@
+\hypertarget{classSchedule}{
+\section{Schedule  Class Reference}
+\label{classSchedule}\index{Schedule@{Schedule}}
+}
+Inheritance diagram for Schedule:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=45pt]{classSchedule__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Schedule:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=123pt]{classSchedule__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+synchronized \hyperlink{interfaceEmpty}{Empty} \hyperlink{classSchedule_a0}{send} (\hyperlink{interfaceAgent}{Agent} agent, \hyperlink{interfaceMessage}{Message} message, \hyperlink{interfaceMessageTag}{Message\-Tag} message\-Tag) throws \hyperlink{classExceptional}{Exceptional}
+\item 
+synchronized \hyperlink{interfaceMessage}{Message} \hyperlink{classSchedule_a1}{receive} (\hyperlink{interfaceMessageTag}{Message\-Tag} message\-Tag) throws \hyperlink{classExceptional}{Exceptional}
+\item 
+synchronized \hyperlink{interfaceAgent}{Agent} \hyperlink{classSchedule_a2}{activate} (\hyperlink{interfaceAction}{Action} action)
+\item 
+synchronized \hyperlink{interfaceEmpty}{Empty} \hyperlink{classSchedule_a3}{deactivate} (\hyperlink{interfaceAgent}{Agent} agent) throws \hyperlink{classExceptional}{Exceptional}
+\item 
+synchronized \hyperlink{interfaceAgent}{Agent} \hyperlink{classSchedule_a4}{current\-Agent} ()
+\item 
+\hyperlink{interfaceInt}{Int} \hyperlink{classSchedule_a5}{current\-Time} ()
+\item 
+\hyperlink{interfaceInt}{Int} \hyperlink{classSchedule_a6}{choose\-Natural} ()
+\end{CompactItemize}
+\subsection*{Static Public Methods}
+\begin{CompactItemize}
+\item 
+void \hyperlink{classSchedule_d0}{init\-Schedule} (\hyperlink{interfaceDataFactory}{Data\-Factory} factory)
+\item 
+Schedule \hyperlink{classSchedule_d1}{get\-Schedule} ()
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classSchedule_a2}{
+\index{Schedule@{Schedule}!activate@{activate}}
+\index{activate@{activate}!Schedule@{Schedule}}
+\subsubsection[activate]{\setlength{\rightskip}{0pt plus 5cm}synchronized \hyperlink{interfaceAgent}{Agent} Schedule::activate (\hyperlink{interfaceAction}{Action} {\em action})}}
+\label{classSchedule_a2}
+
+
+
+
+Reimplemented from \hyperlink{interfaceScheduling_a2}{Scheduling}.
+
+Definition at line 60 of file Schedule.java.\hypertarget{classSchedule_a6}{
+\index{Schedule@{Schedule}!chooseNatural@{chooseNatural}}
+\index{chooseNatural@{chooseNatural}!Schedule@{Schedule}}
+\subsubsection[chooseNatural]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceInt}{Int} Schedule::choose\-Natural ()}}
+\label{classSchedule_a6}
+
+
+
+
+Reimplemented from \hyperlink{interfaceScheduling_a6}{Scheduling}.
+
+Definition at line 90 of file Schedule.java.\hypertarget{classSchedule_a4}{
+\index{Schedule@{Schedule}!currentAgent@{currentAgent}}
+\index{currentAgent@{currentAgent}!Schedule@{Schedule}}
+\subsubsection[currentAgent]{\setlength{\rightskip}{0pt plus 5cm}synchronized \hyperlink{interfaceAgent}{Agent} Schedule::current\-Agent ()}}
+\label{classSchedule_a4}
+
+
+
+
+Reimplemented from \hyperlink{interfaceScheduling_a4}{Scheduling}.
+
+Definition at line 81 of file Schedule.java.\hypertarget{classSchedule_a5}{
+\index{Schedule@{Schedule}!currentTime@{currentTime}}
+\index{currentTime@{currentTime}!Schedule@{Schedule}}
+\subsubsection[currentTime]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceInt}{Int} Schedule::current\-Time ()}}
+\label{classSchedule_a5}
+
+
+
+
+Reimplemented from \hyperlink{interfaceScheduling_a5}{Scheduling}.
+
+Definition at line 85 of file Schedule.java.\hypertarget{classSchedule_a3}{
+\index{Schedule@{Schedule}!deactivate@{deactivate}}
+\index{deactivate@{deactivate}!Schedule@{Schedule}}
+\subsubsection[deactivate]{\setlength{\rightskip}{0pt plus 5cm}synchronized \hyperlink{interfaceEmpty}{Empty} Schedule::deactivate (\hyperlink{interfaceAgent}{Agent} {\em agent})}}
+\label{classSchedule_a3}
+
+
+
+
+Reimplemented from \hyperlink{interfaceScheduling_a3}{Scheduling}.
+
+Definition at line 70 of file Schedule.java.\hypertarget{classSchedule_d1}{
+\index{Schedule@{Schedule}!getSchedule@{getSchedule}}
+\index{getSchedule@{getSchedule}!Schedule@{Schedule}}
+\subsubsection[getSchedule]{\setlength{\rightskip}{0pt plus 5cm}Schedule Schedule::get\-Schedule ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classSchedule_d1}
+
+
+
+
+Definition at line 32 of file Schedule.java.\hypertarget{classSchedule_d0}{
+\index{Schedule@{Schedule}!initSchedule@{initSchedule}}
+\index{initSchedule@{initSchedule}!Schedule@{Schedule}}
+\subsubsection[initSchedule]{\setlength{\rightskip}{0pt plus 5cm}void Schedule::init\-Schedule (\hyperlink{interfaceDataFactory}{Data\-Factory} {\em factory})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classSchedule_d0}
+
+
+
+
+Definition at line 28 of file Schedule.java.\hypertarget{classSchedule_a1}{
+\index{Schedule@{Schedule}!receive@{receive}}
+\index{receive@{receive}!Schedule@{Schedule}}
+\subsubsection[receive]{\setlength{\rightskip}{0pt plus 5cm}synchronized \hyperlink{interfaceMessage}{Message} Schedule::receive (\hyperlink{interfaceMessageTag}{Message\-Tag} {\em message\-Tag})}}
+\label{classSchedule_a1}
+
+
+
+
+Reimplemented from \hyperlink{interfaceScheduling_a1}{Scheduling}.
+
+Definition at line 48 of file Schedule.java.\hypertarget{classSchedule_a0}{
+\index{Schedule@{Schedule}!send@{send}}
+\index{send@{send}!Schedule@{Schedule}}
+\subsubsection[send]{\setlength{\rightskip}{0pt plus 5cm}synchronized \hyperlink{interfaceEmpty}{Empty} Schedule::send (\hyperlink{interfaceAgent}{Agent} {\em agent}, \hyperlink{interfaceMessage}{Message} {\em message}, \hyperlink{interfaceMessageTag}{Message\-Tag} {\em message\-Tag})}}
+\label{classSchedule_a0}
+
+
+
+
+Reimplemented from \hyperlink{interfaceScheduling_a0}{Scheduling}.
+
+Definition at line 40 of file Schedule.java.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{Schedule_8java-source}{Schedule.java}\end{CompactItemize}

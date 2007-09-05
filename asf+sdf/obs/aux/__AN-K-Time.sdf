@@ -1,0 +1,21 @@
+module obs/aux/__AN-K-Time
+
+imports obs/data/integers/Int
+
+exports
+
+sorts Time
+
+context-free syntax
+
+new-time() -> Time
+inc-time(Time) -> Time
+
+hiddens
+
+context-free syntax
+
+"*" Int -> Time
+
+variables
+"n"[0-9\']* -> Int

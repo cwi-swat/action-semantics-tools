@@ -1,0 +1,6 @@
+equations
+
+[]	token of[[ Id ]] = <Id>
+
+[]	integer of[[ pico-int(char+) ]] = natcon(char+)
+

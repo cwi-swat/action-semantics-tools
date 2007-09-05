@@ -1,0 +1,15 @@
+module an/syn/kernel/Storing-Action
+
+imports an/syn/kernel/Normal-Outcome 
+	an/syn/kernel/Exceptional-Outcome
+
+exports
+
+sorts Action
+
+context-free syntax
+
+	"create" -> Action {cons("create")}
+	"destroy" -> Action {cons("destroy")}
+	"update" -> Action {cons("update")}
+	"inspect" -> Action {cons("inspect")}

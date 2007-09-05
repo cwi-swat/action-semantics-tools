@@ -1,0 +1,132 @@
+equations
+
+[0]  give (current bindings) = give current bindings
+
+[0]  Y1 = DO
+     ===
+     give Y1 = give DO
+
+[0]  give D1  = provide D1
+
+[1]  give DOP  = give DOP_
+
+[1]  give DOP Y1  = give Y1 then give DOP_
+
+[1]  give (Y1 DOI Y2)  = (give Y1 and give Y2) then give _DOI_
+
+[2]  give (Y1, Y2, Y+)  = give Y1 and give (Y2, Y+)
+
+[2]  give (Y1, Y2)	= give Y1 and give Y2
+
+[3]  A1 Y1  = give Y1 then A1
+
+[4]  given Y1 = when (tupleToList (the data _) = tupleToList (Y1))
+
+~~This might be wrong: on p. 8 of the proposal, Mosses says
+~~(check p exceptionally fail) and copy
+~~[5]  when P = ( check P otherwise fail ) and copy
+[5]  when P = ( check P exceptionally fail ) and copy
+
+[6]  when PP Y1 = give Y1 then when PP_
+
+[6]  when Y1 PI Y2  = (give Y1 and give Y2) then when _PI_ 
+
+[00] a DS = the DS
+
+[00] an DS = the DS
+
+[7]  skip  = provide ()
+
+[8]  err  = provide () then raise
+
+[9]  tentatively A1  = A1 exceptionally fail
+
+[10]  infallibly A1  = A1 otherwise err
+
+[11]  bound to Y1  = bound (current bindings, Y1)
+
+[12]  closure Y1  = 
+provide current bindings hence 
+furthermore the action[taking () giving bindings] bound to "rec" hence 
+Y1
+
+[13]  bind  = give binding_
+
+[14]  find  = give bound_
+
+[15]  furthermore A1  = 
+(give current bindings and A1) then give overriding_
+
+[15] give furthermore _ = 
+((((provide give current bindings) and give the action_) 
+  then give _and_) and provide give overriding_) then give _then_
+
+[16]  A1 before A2  = 
+(give current bindings and A1) then 
+(give the bindings #2_ and (give overriding_ hence A2)) then 
+give overriding_
+
+
+
+[16] A1 moreover A2 = 
+(A1 and A2) then give overriding_
+
+[17]  recursively A1  = 
+(furthermore bind ("rec", A1)) hence A1
+
+[18]  unfolding A1  = 
+furthermore bind("unf", A1) hence A1
+
+[19]  unfold  =
+enact(provide the data_ then 
+      (provide current bindings hence 
+       the action[taking () giving bindings] bound to "unf"))	
+
+
+[20]  give stored in Y1  = give Y1 then inspect
+
+[21]  patiently A1 =  unfolding ( A1 otherwise unfold ) 
+
+[22] give skip = provide () then give provide_
+
+[23] give err = give skip and give raise then give _then_
+
+[24] give tentatively_ = 
+give the action_ and give fail then give _exceptionally_ 
+
+[25] give infallibly_ = 
+give the action_ and give err then give _otherwise_
+
+
+[28] give furthermore_ = 
+((provide give current bindings) and give the action_ then give _and_ )
+and (provide give overriding_)
+then give _then_
+
+[29] give _moreover_ = 
+give _and_ and (give give overriding_ )
+then give _then_
+
+[30] give _before_ = 
+(((give give current bindings) and give the action#1_ then give _and_)
+  and
+  ((give give the bindings#2_) and
+	((give give overriding_) and give the action#2_
+	then give _hence_)
+  then give _and_) 
+ then give _then_) and
+(give give overriding_) then give _then_
+
+[31] give recursively_ = 
+((((provide "rec" then give provide_) and 
+   (give the action_ then give provide_) then give _and_)
+  and give bind then give _then_) then give furthermore_) 
+ and give the action_ 
+then give _hence_
+
+[32] give unfolding_ = 
+((((provide "unf" then give provide_) and 
+   (give the action_ then give provide_) then give _and_)
+  and (give bind) then give _then_) then give furthermore_) 
+ and give the action_ 
+then give _hence_

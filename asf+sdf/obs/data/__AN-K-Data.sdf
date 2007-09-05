@@ -1,0 +1,52 @@
+module obs/data/__AN-K-Data
+
+imports obs/data/integers/__AN-K-Int 
+	obs/data/booleans/__AN-K-Bool 
+	obs/data/strings/__AN-K-Token 
+	obs/data/lists/__AN-K-List
+	obs/data/__AN-K-Agent 
+	obs/data/__AN-K-Cell 
+	obs/data/__AN-K-MessageTag
+	obs/action/__AN-K-Action 
+	obs/data/__AN-K-Bindings 
+	obs/data/__AN-K-Array
+	obs/data/__AN-K-Tree-Set 
+	obs/data/__AN-K-Pair
+
+exports
+
+context-free syntax
+
+	DataOpComponent -> DataOpPrefix {cons("dataopcomponent")}
+	"#" Nat-Con -> DataOpComponent 
+	"#" "-1" -> DataOpComponent
+
+lexical syntax
+
+	"="  -> DataPredInfix 
+	"def" -> DataPredPrefix 
+	"rest" -> DataOpPrefix
+
+hiddens 
+
+context-free syntax
+
+Data "!" Int -> Data
+is-tuple(Data) -> Bool
+
+variables
+"o"[0-9\']* -> DataOp
+"d"[0-9\']* -> Data
+"ds"[0-9\']* -> DataSort
+"ds,*"[0-9\']* -> {DataSort ","}*
+"ds,+"[0-9\']* -> {DataSort ","}+
+"ds|*"[0-9\']* -> {DataSort "|"}*
+"ds|+"[0-9\']* -> {DataSort "|"}+
+"d+"[0-9\']* -> {Data ","}+
+"d*"[0-9\']* -> {Data ","}*
+"n"[0-9\']* -> Int 
+"p"[0-9\']* -> Nat-Con 
+"u"[0-9\']* -> Datum
+"i"[0-9\']* -> Int
+"char+" -> CHAR+
+

@@ -1,0 +1,22 @@
+module obs/aux/structs/GenericLabTrans[Index Arrow Univ]
+
+imports obs/layout/Layout
+
+exports
+
+context-free syntax
+
+Index -> Label-Index
+Univ -> Label-Univ
+Arrow -> Indexed-Arrow
+
+get-indexed(Label,Label-Index) -> Label-Univ
+
+set-indexed(Label,Label-Index,Label-Univ) -> Label
+
+hiddens
+
+context-free syntax
+
+
+(Label-Index ":" Indexed-Arrow)*  -> Label

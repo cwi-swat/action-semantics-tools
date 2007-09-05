@@ -1,0 +1,18 @@
+equations
+
+[ev-i]	evaluate[[ Id ]] = inspect the cell (bound to token of[[Id]])
+
+[ev-n]	evaluate[[ Int ]] = provide integer of[[ Int ]]
+
+[ev-p]	evaluate[[ Exp1 + Exp2 ]] = 
+		evaluate[[ Exp1 ]] and evaluate[[ Exp2 ]] then 
+		give (the int #1 + the int #2)
+
+[ev-m]	evaluate[[ Exp1 - Exp2 ]] = 
+		evaluate[[ Exp1 ]] and evaluate[[ Exp2 ]] then 
+		give (the int #1 - the int #2)
+
+[tr-o]	truth of [[ Exp ]] = 
+		evaluate[[ Exp ]] then when (the int > 0) 
+		then give true otherwise give false
+					

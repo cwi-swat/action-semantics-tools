@@ -1,0 +1,44 @@
+module obs/aux/Transition-Function
+
+imports obs/aux/structs/Environment 
+	obs/action/__AN-K-Action
+
+exports
+
+sorts Conf
+
+context-free syntax
+
+Action # Environment -> Conf
+
+terminated(Action) -> Bool
+
+exec(Action, Environment) -> Conf 
+"exec+" "(" Action "," Environment ")" -> Conf
+
+
+hiddens
+
+variables
+"d"[0-9\']* -> Data
+"u"[0-9\']* -> Datum
+"A"[0-9\']* -> Action
+"a"[0-9\']* -> Environment %%IndexedTrace
+"i"[0-9\']* -> Environment %%IndexedTrace
+"t" -> Terminated
+"e"[0-9\']* -> Environment
+"AH"[0-9\']* -> AH
+"n"[0-9\']* -> Int
+"s"[0-9\']* -> Schedule
+"bs"[0-9\']* -> Buffers
+"tbs"[0-9\']* -> TaggedBuffer* %% !!!
+"As"[0-9\']* -> Actions
+"ag"[0-9\']* -> Agent
+"ags"[0-9\']* -> Agents
+"ti"[0-9\']* -> Time
+"m"[0-9\']* -> Datum
+"ms"[0-9\']* -> Messages
+"mt"[0-9\']* -> MessageTag
+
+
+

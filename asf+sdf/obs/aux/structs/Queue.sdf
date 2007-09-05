@@ -1,0 +1,27 @@
+module obs/aux/structs/Queue[Elt]
+
+imports obs/data/booleans/Bool
+
+exports
+
+sorts Queue
+
+context-free syntax
+
+queue(Queue, Elt) -> Queue
+get-queued(Queue) -> Elt
+dequeue(Queue) -> Queue
+
+is-empty(Queue) -> Bool
+
+empty-queue() -> Queue
+
+hiddens
+
+context-free syntax
+
+"[" Elt* "]" -> Queue
+
+variables
+"e"[0-9\']* -> Elt
+"e*"[0-9\']* -> Elt*

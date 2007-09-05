@@ -1,0 +1,14 @@
+perform(
+
+provide 1 then
+
+
+unfolding(
+  (copy and provide 2 then (check _<_ exceptionally fail) then provide 1)
+  otherwise
+  (copy and (copy and provide 1 then give _-_ then unfold) then give _*_)
+)
+
+
+
+)

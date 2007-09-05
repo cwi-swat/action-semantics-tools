@@ -1,0 +1,153 @@
+equations
+
+[default]
+	fa-to-program(A, env) = ka-to-program(A, env)
+
+[default]
+	fa-to-stats(A, env) = ka-to-stats(A, env)
+
+
+[kp]	ka-to-program(A, env) = 
+	{
+		fa-to-stats(A, env)
+		return;
+	}
+
+
+%% Special cases of PROVIDE
+
+[ks0]	ka-to-stats(provide (d1,d2,d+), env) =
+		fa-to-stats(provide d1 and provide (d2,d+), env)
+
+[ks0']	ka-to-stats(provide (d1,d2), env) =
+		fa-to-stats(provide d1 and provide d2, env)
+
+%% Special instruction enact
+
+[ks02]	env.pos = n,
+	lab = make-label(n)
+	===
+	ka-to-stats(enact, env) =
+		cast datasort-to-aterm(action);
+		frame lab;
+		enact;
+	lab:
+
+%% THEN
+
+[ks1]	env1 env2 = split-environment(env)
+	===
+	ka-to-stats(A1 then A2, env) =
+		fa-to-stats(A1, env1)
+		publish;
+		fa-to-stats(A2, env2)
+		unpublish;
+
+
+%% AND THEN
+[ks2]	env1 env2 = split-environment(env)
+	===
+	ka-to-stats(A1 and then A2, env) =
+		fa-to-stats(A1, env1)
+		push;
+		copy;
+		fa-to-stats(A2, env2)
+		merge;
+
+
+%% AND 
+[ks3]	env1 env2 = split-environment(env)
+	===
+	ka-to-stats(A1 and A2, env) =
+		fa-to-stats(A1, env1)
+		push;
+		copy;
+		fa-to-stats(A2, env2)
+		merge;
+
+%% EXCEPTIONALLY
+[ks4]	env1 env2 = split-environment(env),
+	env.pos = n,
+	lab1 = make-label(n+1),
+	lab2 = make-label(n+2)
+	===
+	ka-to-stats(A1 exceptionally A2, env) =
+		trye lab1;
+			fa-to-stats(A1, env1)
+		catch lab2;
+	lab1:		epublish;
+			fa-to-stats(A2, env2)
+			unpublish;
+	lab2:
+
+%% AND EXCEPTIONALLY
+[ks5]	env1 env2 = split-environment(env),
+	env.pos = n,
+	lab1 = make-label(n+1),
+	lab2 = make-label(n+2),
+	lab3 = make-label(n+3),
+	lab4 = make-label(n+4)
+	===
+	ka-to-stats(A1 and exceptionally A2, env) =
+		trye lab1;
+			fa-to-stats(A1, env1)
+		catch lab2;
+	lab1:		epush;
+			copy;
+			trye lab3;
+				fa-to-stats(A2, env2)
+			catch lab4;
+	lab3:			emerge;
+				throw;
+	lab4:	edrop;
+	lab2:
+		
+%% OTHERWISE
+[ks6]	env1 env2 = split-environment(env),
+	env.pos = n,
+	lab1 = make-label(n+1),
+	lab2 = make-label(n+2)
+	===
+	ka-to-stats(A1 otherwise A2, env) =
+		tryf lab1;
+			fa-to-stats(A1, env1)
+		catch lab2;
+	lab1:		copy;
+			fa-to-stats(A2, env2)
+	lab2:
+
+%% SELECT
+[ks7]	ka-to-stats(select(A), env) = fa-to-stats(A, env)
+
+[ks7']	ka-to-stats(select(A or C), env) = 
+		fa-to-stats(A otherwise select(C), env)
+
+
+%% INDIVISIBLY
+[ks8]	ka-to-stats(indivisibly A, env) =
+		lock;
+		fa-to-stats(A, env)
+		unlock;
+
+%% HENCE
+[ks9]	env1 env2 = split-environment(env)
+	===
+	ka-to-stats(A1 hence A2, env) =
+		fa-to-stats(A1, env1)
+		cast datasort-to-aterm(bindings);
+		enter;
+		fa-to-stats(A2, env2)
+		leave;
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Utilities %%%%%%%%%%%%%%%%%%%%%%
+
+[senv]  nat-con(char+) = env.pos,
+        n1 = nat-con(char+ "0"),
+        n2 = nat-con(char+ "1"),
+        env1 = env.pos := n1,
+        env2 = env.pos := n2
+        ===
+        split-environment(env) = env1 env2
+
+[ml]    make-label(nat-con(char+)) = label("@" "l" char+)

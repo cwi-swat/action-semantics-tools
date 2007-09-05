@@ -1,0 +1,120 @@
+\hypertarget{classBoolImpl}{
+\section{Bool\-Impl  Class Reference}
+\label{classBoolImpl}\index{BoolImpl@{Bool\-Impl}}
+}
+Inheritance diagram for Bool\-Impl:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{classBoolImpl__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Bool\-Impl:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{classBoolImpl__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+boolean \hyperlink{classBoolImpl_a0}{boolean\-Value} ()
+\item 
+\hyperlink{interfaceBool}{Bool} \hyperlink{classBoolImpl_a1}{not} ()
+\item 
+\hyperlink{interfaceEmpty}{Empty} \hyperlink{classBoolImpl_a2}{equals} (\hyperlink{interfaceData}{Data} data) throws \hyperlink{classExceptional}{Exceptional}
+\end{CompactItemize}
+\subsection*{Private Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{classBoolImpl_c0}{Bool\-Impl} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory}, boolean \hyperlink{classBoolImpl_o0}{value})
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+boolean \hyperlink{classBoolImpl_o0}{value}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classBoolImpl_c0}{
+\index{BoolImpl@{Bool\-Impl}!BoolImpl@{BoolImpl}}
+\index{BoolImpl@{BoolImpl}!BoolImpl@{Bool\-Impl}}
+\subsubsection[BoolImpl]{\setlength{\rightskip}{0pt plus 5cm}Bool\-Impl::Bool\-Impl (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory}, boolean {\em value})\hspace{0.3cm}{\tt  \mbox{[}inline, private\mbox{]}}}}
+\label{classBoolImpl_c0}
+
+
+
+
+Definition at line 12 of file Bool\-Impl.java.\footnotesize\begin{verbatim}00012                                                  {
+00013         super(factory);
+00014         this.value = value;
+00015     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classBoolImpl_a0}{
+\index{BoolImpl@{Bool\-Impl}!booleanValue@{booleanValue}}
+\index{booleanValue@{booleanValue}!BoolImpl@{Bool\-Impl}}
+\subsubsection[booleanValue]{\setlength{\rightskip}{0pt plus 5cm}boolean Bool\-Impl::boolean\-Value ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classBoolImpl_a0}
+
+
+
+
+Reimplemented from \hyperlink{interfaceBool_a0}{Bool}.
+
+Definition at line 17 of file Bool\-Impl.java.\footnotesize\begin{verbatim}00017                                   {
+00018         return value;
+00019     }
+\end{verbatim}\normalsize 
+\hypertarget{classBoolImpl_a2}{
+\index{BoolImpl@{Bool\-Impl}!equals@{equals}}
+\index{equals@{equals}!BoolImpl@{Bool\-Impl}}
+\subsubsection[equals]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceEmpty}{Empty} Bool\-Impl::equals (\hyperlink{interfaceData}{Data} {\em data})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classBoolImpl_a2}
+
+
+
+
+Reimplemented from \hyperlink{classDataValueImpl_a5}{Data\-Value\-Impl}.
+
+Definition at line 25 of file Bool\-Impl.java.\footnotesize\begin{verbatim}00025                                                       {
+00026         if (data instanceof Bool)
+00027             if (value == ((Bool)data).booleanValue())
+00028                 return factory.makeEmpty();
+00029         throw new Exceptional(factory.makeEmpty());
+00030     }
+\end{verbatim}\normalsize 
+\hypertarget{classBoolImpl_a1}{
+\index{BoolImpl@{Bool\-Impl}!not@{not}}
+\index{not@{not}!BoolImpl@{Bool\-Impl}}
+\subsubsection[not]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceBool}{Bool} Bool\-Impl::not ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classBoolImpl_a1}
+
+
+
+
+Reimplemented from \hyperlink{interfaceBool_a1}{Bool}.
+
+Definition at line 21 of file Bool\-Impl.java.\footnotesize\begin{verbatim}00021                       {
+00022         return factory.makeBool(!value);
+00023     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classBoolImpl_o0}{
+\index{BoolImpl@{Bool\-Impl}!value@{value}}
+\index{value@{value}!BoolImpl@{Bool\-Impl}}
+\subsubsection[value]{\setlength{\rightskip}{0pt plus 5cm}boolean Bool\-Impl::value\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classBoolImpl_o0}
+
+
+
+
+Definition at line 10 of file Bool\-Impl.java.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{BoolImpl_8java-source}{Bool\-Impl.java}\end{CompactItemize}

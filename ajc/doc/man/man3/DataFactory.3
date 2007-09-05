@@ -1,0 +1,110 @@
+.TH "DataFactory" 3 "13 Sep 2002" "Action Java Compiler Runtime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DataFactory \- 
+.SH SYNOPSIS
+.br
+.PP
+Inherited by \fBPureFactory\fP.
+.PP
+.SS "Public Methods"
+
+.in +1c
+.ti -1c
+.RI "\fBEmpty\fP \fBmakeEmpty\fP ()"
+.br
+.ti -1c
+.RI "\fBData\fP \fBmakeTuple\fP (\fBDataValue\fP dataValue, \fBData\fP data)"
+.br
+.ti -1c
+.RI "\fBInt\fP \fBmakeInt\fP (long n)"
+.br
+.ti -1c
+.RI "\fBToken\fP \fBmakeToken\fP (String s)"
+.br
+.ti -1c
+.RI "\fBBool\fP \fBmakeBool\fP (boolean b)"
+.br
+.ti -1c
+.RI "\fBMessageTag\fP \fBmakeMessageTag\fP (String s)"
+.br
+.ti -1c
+.RI "\fBList\fP \fBmakeList1\fP (\fBDataValue\fP dataValue)"
+.br
+.ti -1c
+.RI "\fBList\fP \fBmakeList0\fP ()"
+.br
+.ti -1c
+.RI "\fBAction\fP \fBmakeAction\fP (\fBEnactable\fP enactable)"
+.br
+.ti -1c
+.RI "\fBBindings\fP \fBmakeNoBindings\fP ()"
+.br
+.ti -1c
+.RI "\fBBindings\fP \fBmakeBindings\fP (\fBToken\fP token, \fBBindable\fP bindable)"
+.br
+.ti -1c
+.RI "\fBAgent\fP \fBmakeAgent\fP ()"
+.br
+.ti -1c
+.RI "\fBCell\fP \fBmakeCell\fP ()"
+.br
+.in -1c
+.SH "MEMBER FUNCTION DOCUMENTATION"
+.PP 
+.SS "\fBAction\fP DataFactory::makeAction (\fBEnactable\fP enactable)"
+.PP
+Reimplemented in \fBPureFactory\fP.
+.SS "\fBAgent\fP DataFactory::makeAgent ()"
+.PP
+Reimplemented in \fBPureFactory\fP.
+.PP
+Referenced by Schedule::activate().
+.PP
+.SS "\fBBindings\fP DataFactory::makeBindings (\fBToken\fP token, \fBBindable\fP bindable)"
+.PP
+Reimplemented in \fBPureFactory\fP.
+.SS "\fBBool\fP DataFactory::makeBool (boolean b)"
+.PP
+Reimplemented in \fBPureFactory\fP.
+.SS "\fBCell\fP DataFactory::makeCell ()"
+.PP
+Reimplemented in \fBPureFactory\fP.
+.PP
+Referenced by Store::create().
+.PP
+.SS "\fBEmpty\fP DataFactory::makeEmpty ()"
+.PP
+Reimplemented in \fBPureFactory\fP.
+.PP
+Referenced by Schedule::deactivate(), TaggedBuffers::dequeue(), Store::destroy(), Store::inspect(), Schedule::receive(), Schedule::send(), and Store::update().
+.PP
+.SS "\fBInt\fP DataFactory::makeInt (long n)"
+.PP
+Reimplemented in \fBPureFactory\fP.
+.PP
+Referenced by Schedule::chooseNatural(), and Schedule::currentTime().
+.PP
+.SS "\fBList\fP DataFactory::makeList0 ()"
+.PP
+Reimplemented in \fBPureFactory\fP.
+.SS "\fBList\fP DataFactory::makeList1 (\fBDataValue\fP dataValue)"
+.PP
+Reimplemented in \fBPureFactory\fP.
+.SS "\fBMessageTag\fP DataFactory::makeMessageTag (String s)"
+.PP
+Reimplemented in \fBPureFactory\fP.
+.SS "\fBBindings\fP DataFactory::makeNoBindings ()"
+.PP
+Reimplemented in \fBPureFactory\fP.
+.SS "\fBToken\fP DataFactory::makeToken (String s)"
+.PP
+Reimplemented in \fBPureFactory\fP.
+.SS "\fBData\fP DataFactory::makeTuple (\fBDataValue\fP dataValue, \fBData\fP data)"
+.PP
+Reimplemented in \fBPureFactory\fP.
+
+.SH "AUTHOR"
+.PP 
+Generated automatically by Doxygen for Action Java Compiler Runtime from the source code.

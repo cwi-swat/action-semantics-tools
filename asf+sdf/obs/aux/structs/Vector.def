@@ -1,0 +1,81 @@
+definition
+
+module obs/data/booleans/Bool
+
+imports obs/layout/Layout
+
+exports
+  sorts Bool BoolConst
+  context-free syntax
+
+  "true"        -> BoolConst {cons("true")}
+  "false"       -> BoolConst {cons("false")}
+  BoolConst     -> Bool {cons("bool")}
+
+  "not" arg:Bool    -> Bool {prefer, cons("not")}
+
+  lhs:Bool "|" rhs:Bool -> Bool {left, cons("or")}
+  lhs:Bool "&" rhs:Bool -> Bool {left, cons("and")}
+  "(" Bool ")"       -> Bool {bracket, cons("bracket-bool")}
+
+context-free priorities
+  Bool "&" Bool -> Bool >
+  Bool "|" Bool -> Bool
+
+hiddens
+  variables
+    "b"[0-9]* -> Bool
+
+
+module obs/layout/Layout
+
+exports lexical syntax
+  %% added by TVDS
+  "~~" ~[\n]* [\n] -> LAYOUT
+  "%%" ~[\n]* [\n] -> LAYOUT
+
+  [\ \t\n]      -> LAYOUT
+
+context-free restrictions
+
+  LAYOUT? -/- [\ \t\n]
+
+
+
+
+
+module obs/aux/structs/Vector[Elt]
+
+imports obs/data/booleans/Bool
+
+exports
+
+sorts Vector
+
+context-free syntax
+
+prepend(Vector, Elt) -> Vector
+append(Vector, Elt) -> Vector
+
+get-first(Vector) -> Elt
+get-last(Vector) -> Elt
+remove-last(Vector) -> Vector
+remove(Vector, Elt) -> Vector
+rotate(Vector) -> Vector
+
+has-element(Vector, Elt) -> Bool
+
+is-empty-vector(Vector) -> Bool
+
+empty-vector() -> Vector
+
+hiddens
+
+context-free syntax
+
+"[" Elt* "]" -> Vector
+
+variables
+"e"[0-9\']* -> Elt
+"e*"[0-9\']* -> Elt*
+

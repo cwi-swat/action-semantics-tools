@@ -1,0 +1,12 @@
+perform(
+
+run [[
+
+begin
+declare i : string;
+i := "Hello " || "World!"
+end
+
+]]
+
+)

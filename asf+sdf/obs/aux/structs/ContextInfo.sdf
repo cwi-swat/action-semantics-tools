@@ -1,0 +1,4 @@
+module obs/aux/structs/ContextInfo[Env]
+
+imports obs/aux/structs/Discrete[Env]
+	obs/aux/structs/Label[Discrete]

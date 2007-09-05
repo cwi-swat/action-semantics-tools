@@ -1,0 +1,13 @@
+module msos/Changeable-State[S]
+
+imports aux/Pair[S S]
+	msos/Trace[S Pair]
+
+exports
+
+sorts S Pair
+
+
+hiddens
+variables
+	"s"[0-9\']* -> S

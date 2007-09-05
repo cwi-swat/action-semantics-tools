@@ -1,0 +1,50 @@
+definition
+
+module Main
+
+imports
+	AIL2 
+
+module AIL2
+
+imports ATerms 
+
+exports
+
+sorts 
+	Program Instruction Statement Label Instructions
+	Arg Number
+
+lexical syntax
+	[\@][a-zA-Z][a-zA-Z0-9]* -> Label
+	[a-zA-Z][a-zA-Z0-9\_]* -> Id
+	[1-9][0-9]* -> Number
+
+lexical restrictions
+	Label -/- [a-zA-Z0-9]
+	Id -/- [a-zA-Z\_0-9]
+	Number -/- [0-9]
+
+
+context-free syntax
+
+	"[" Id* "]" -> Instructions
+
+	id:Id -> Instruction {cons("noarg-ins")}
+	id:Id argument:Arg -> Instruction {cons("arg-ins")}
+
+	label:Label ":" -> Statement {cons("label-stat")}
+	ins:Instruction ";" -> Statement {cons("ins-stat")}
+
+	code:Program  -> Arg {cons("code")}
+	term:ATerm -> Arg {cons("aterm")}
+	number:Number -> Arg {cons("number")}
+	label:Label -> Arg {cons("label")}
+
+	"{" Statement* "}" ann:Ann  -> Program 
+
+
+hiddens
+
+variables
+	"char+" -> CHAR+

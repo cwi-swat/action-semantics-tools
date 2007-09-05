@@ -1,0 +1,86 @@
+.TH "Store" 3 "13 Sep 2002" "Action Java Compiler Runtime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Store \- 
+.SH SYNOPSIS
+.br
+.PP
+Inherits \fBStoring\fP.
+.PP
+.SS "Public Methods"
+
+.in +1c
+.ti -1c
+.RI "synchronized \fBCell\fP \fBcreate\fP (\fBStorable\fP o)"
+.br
+.ti -1c
+.RI "synchronized \fBEmpty\fP \fBdestroy\fP (\fBCell\fP cell) throws \fBExceptional\fP"
+.br
+.ti -1c
+.RI "synchronized \fBEmpty\fP \fBupdate\fP (\fBCell\fP cell, \fBStorable\fP o) throws \fBExceptional\fP"
+.br
+.ti -1c
+.RI "synchronized \fBStorable\fP \fBinspect\fP (\fBCell\fP cell) throws \fBExceptional\fP"
+.br
+.ti -1c
+.RI "String \fBtoString\fP ()"
+.br
+.in -1c
+.SS "Static Public Methods"
+
+.in +1c
+.ti -1c
+.RI "void \fBinitStore\fP (\fBDataFactory\fP factory)"
+.br
+.ti -1c
+.RI "void \fBinitStore\fP (\fBDataFactory\fP factory, int cap)"
+.br
+.ti -1c
+.RI "void \fBinitStore\fP (\fBDataFactory\fP factory, int cap, int loadf)"
+.br
+.ti -1c
+.RI "Store \fBgetStore\fP ()"
+.br
+.in -1c
+.SH "MEMBER FUNCTION DOCUMENTATION"
+.PP 
+.SS "synchronized \fBCell\fP Store::create (\fBStorable\fP o)"
+.PP
+Reimplemented from \fBStoring\fP.
+.PP
+Definition at line 37 of file Store.java.
+.SS "synchronized \fBEmpty\fP Store::destroy (\fBCell\fP cell)"
+.PP
+Reimplemented from \fBStoring\fP.
+.PP
+Definition at line 43 of file Store.java.
+.SS "Store Store::getStore ()\fC [static]\fP"
+.PP
+Definition at line 30 of file Store.java.
+.SS "void Store::initStore (\fBDataFactory\fP factory, int cap, int loadf)\fC [static]\fP"
+.PP
+Definition at line 26 of file Store.java.
+.SS "void Store::initStore (\fBDataFactory\fP factory, int cap)\fC [static]\fP"
+.PP
+Definition at line 22 of file Store.java.
+.SS "void Store::initStore (\fBDataFactory\fP factory)\fC [static]\fP"
+.PP
+Definition at line 18 of file Store.java.
+.SS "synchronized \fBStorable\fP Store::inspect (\fBCell\fP cell)"
+.PP
+Reimplemented from \fBStoring\fP.
+.PP
+Definition at line 56 of file Store.java.
+.SS "String Store::toString ()"
+.PP
+Definition at line 62 of file Store.java.
+.SS "synchronized \fBEmpty\fP Store::update (\fBCell\fP cell, \fBStorable\fP o)"
+.PP
+Reimplemented from \fBStoring\fP.
+.PP
+Definition at line 49 of file Store.java.
+
+.SH "AUTHOR"
+.PP 
+Generated automatically by Doxygen for Action Java Compiler Runtime from the source code.

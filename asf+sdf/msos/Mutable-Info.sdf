@@ -1,0 +1,31 @@
+module msos/Mutable-Info[Index S]
+
+imports aux/Pair[S S]
+	msos/Trace[S Pair]
+	msos/Trace-Index[Index S Pair]
+
+exports 
+
+sorts S Pair Arbitrary 
+
+context-free syntax
+	%% Overloading
+	Arbitrary "[" S "/" Index "]" -> Arbitrary {cons("mutable-arrow-update")}
+	Arbitrary "@" Index -> S {cons("mutable-arrow-projection")}
+
+hiddens
+
+imports basic/Comments
+
+variables
+	"t"[0-9\']* -> TraceUniv
+	"p"[0-9\']* -> Pair
+	"s"[0-9\']* -> S
+	"su"[0-9\']* -> StateUniv
+	"it"[0-9\']* -> Arbitrary
+	"i"[0-9\']* -> Index
+
+
+
+
+

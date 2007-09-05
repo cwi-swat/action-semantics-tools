@@ -1,0 +1,15 @@
+module obs/aux/__AN-K-Storage
+
+imports obs/data/__AN-K-Data
+	obs/aux/structs/Finite-Map[Cell Data][Finite-Map=>Storage]
+
+exports
+
+sorts Storage
+
+context-free syntax
+empty-storage() -> Storage
+
+
+
+

@@ -1,0 +1,62 @@
+#ifndef __RPN__H
+#define __RPN__H 1
+
+#include <aterm2.h>
+#include <ail.h>
+#include "rpn-impl.h"
+
+#define RPN_push_opcode 0
+#define RPN_add_opcode 1
+#define RPN_sub_opcode 2
+#define RPN_mul_opcode 3
+#define RPN_div_opcode 4
+
+#define RPN_num_of_instructions 5
+#define RPN_lowest_opcode 0
+#define RPN_highest_opcode 4
+
+#define RPN_DECLARE_RPN_OPCODE_TABLE() \
+static void *RPN_opcode_labels[] = {\
+	[RPN_push_opcode] &&do_push,\
+	[RPN_add_opcode] &&do_add,\
+	[RPN_sub_opcode] &&do_sub,\
+	[RPN_mul_opcode] &&do_mul,\
+	[RPN_div_opcode] &&do_div\
+}
+
+#define RPN_goto_op(op) goto *(RPN_opcode_labels[(op)])
+
+#define RPN_interpreter(x,abf) {\
+  RPN_start: RPN_goto_op(*abf);\
+  do_push:\
+    abf_skip_byte(abf);\
+    {\
+      ATerm d = abf_get_aterm(abf);\
+      abf_skip_aterm(abf);\
+      RPN_perform_push(x, d);\
+    }\
+    RPN_goto_op(*abf);\
+  do_add:\
+    abf_skip_byte(abf);\
+    RPN_perform_add(x);\
+    RPN_goto_op(*abf);\
+  do_sub:\
+    abf_skip_byte(abf);\
+    RPN_perform_sub(x);\
+    RPN_goto_op(*abf);\
+  do_mul:\
+    abf_skip_byte(abf);\
+    RPN_perform_mul(x);\
+    RPN_goto_op(*abf);\
+  do_div:\
+    abf_skip_byte(abf);\
+    RPN_perform_div(x);\
+    RPN_goto_op(*abf);\
+  RPN_end: ;\
+}
+
+char *RPN_getStringForOpcode(int op);
+void RPN_disassemble(FILE *f, AIL_ByteCode bc);
+void RPN_compile(FILE *f, AIL_ByteCode bc);
+
+#endif /* __RPN__H */

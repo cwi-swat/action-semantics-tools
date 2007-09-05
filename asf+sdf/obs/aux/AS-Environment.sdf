@@ -1,0 +1,140 @@
+module obs/aux/AS-Environment
+
+imports obs/aux/__AN-K-Internal-Types
+
+exports
+
+sorts AS-Env
+
+context-free syntax
+
+"[" AS-Entry* "]" -> AS-Env
+
+Data-Key # Data-Value -> Data-Entry
+
+Bindings-Key # Bindings -> Bindings-Entry
+
+Cells-Key # Cells -> Cells-Entry
+Storage-Key # Storage -> Storage-Entry
+
+Schedule-Key # Schedule -> Schedule-Entry
+Actions-Key # Actions -> Actions-Entry
+Buffers-Key # Buffers -> Buffers-Entry
+Agents-Key # Agents -> Agents-Entry
+Agent-Key # Agent-Value -> Agent-Entry
+Time-Key # Time -> Time-Entry
+
+Interleaving-Key # Interleaving-Flag -> Interleaving-Entry
+
+Data-Entry -> AS-Entry
+Bindings-Entry -> AS-Entry
+
+Cells-Entry -> AS-Entry
+Storage-Entry -> AS-Entry
+
+Schedule-Entry -> AS-Entry
+Actions-Entry -> AS-Entry
+Buffers-Entry -> AS-Entry
+Agents-Entry -> AS-Entry
+Agent-Entry -> AS-Entry
+Time-Entry -> AS-Entry
+Interleaving-Entry -> AS-Entry
+
+data -> Data-Key
+bindings -> Bindings-Key
+cells -> Cells-Key
+storage -> Storage-Key
+schedule -> Schedule-Key
+actions -> Actions-Key
+buffers -> Buffers-Key
+agents -> Agents-Key
+agent -> Agent-Key
+time -> Time-Key
+intflag -> Interleaving-Key
+
+AS-Env "." Data-Key -> Data-Value
+
+AS-Env "." Bindings-Key -> Bindings
+
+AS-Env "." Cells-Key -> Cells
+AS-Env "." Storage-Key -> Storage
+
+AS-Env "." Schedule-Key -> Schedule
+AS-Env "." Actions-Key -> Actions
+AS-Env "." Buffers-Key -> Buffers
+AS-Env "." Agents-Key -> Agents
+AS-Env "." Agent-Key -> Agent-Value
+AS-Env "." Time-Key -> Time
+AS-Env "." Interleaving-Key -> Interleaving-Flag
+
+AS-Env "." Data-Key ":=" Data-Value -> AS-Env
+
+AS-Env "." Bindings-Key ":=" Bindings -> AS-Env
+
+AS-Env "." Cells-Key ":=" Cells -> AS-Env
+AS-Env "." Storage-Key ":=" Storage -> AS-Env
+
+AS-Env "." Schedule-Key ":=" Schedule -> AS-Env
+AS-Env "." Actions-Key ":="Actions -> AS-Env
+AS-Env "." Buffers-Key ":=" Buffers -> AS-Env
+AS-Env "." Agents-Key ":=" Agents -> AS-Env
+AS-Env "." Agent-Key ":=" Agent-Value -> AS-Env
+AS-Env "." Time-Key ":=" Time -> AS-Env
+
+AS-Env "." Interleaving-Key ":=" Interleaving-Flag -> AS-Env
+
+
+
+%% This cannot be an alias because it is used in an alias.
+%%TaggedBuffer* -> TaggedBuffers
+%%MessageTag # Messages -> TaggedBuffer
+
+%% Bindings has special treatment: bindings are allowed to be data.
+%%"[" Binding* "]"  -> Bindings
+
+
+%%aliases
+%%Data -> Data-Value
+%%Cell* -> Cells
+%%(Token # Data) -> Binding
+%%(Cell # Data)* -> Storage
+%%(Int # Agent)* -> Schedule
+%%(Agent # Action)* -> Actions
+%%Agent* -> Agents
+%%(Agent # TaggedBuffers)* -> Buffers
+%%(Int # Datum)* -> Messages
+%%Agent -> Agent-Value
+%%Int -> Time
+%%Int -> Interleaving-Flag
+hiddens
+
+
+variables
+"dv"[0-9\']* -> Data-Value
+"dk"[0-9\']* -> Data-Key
+"bv"[0-9\']* -> Bindings
+"bk"[0-9\']* -> Bindings-Key
+"cv"[0-9\']* -> Cells
+"ck"[0-9\']* -> Cells-Key
+"sv"[0-9\']* -> Storage
+"sk"[0-9\']* -> Storage-Key
+
+"scv"[0-9\']* -> Schedule
+"sck"[0-9\']* -> Schedule-Key
+"acv"[0-9\']* -> Actions
+"ack"[0-9\']* -> Actions-Key
+"buv"[0-9\']* -> Buffers
+"buk"[0-9\']* -> Buffers-Key
+"asv"[0-9\']* -> Agents
+"ask"[0-9\']* -> Agents-Key
+"agv"[0-9\']* -> Agent-Value
+"agk"[0-9\']* -> Agent-Key
+"tiv"[0-9\']* -> Time
+"tik"[0-9\']* -> Time-Key
+"ink"[0-9\']* -> Interleaving-Key
+"inf"[0-9\']* -> Interleaving-Flag
+
+"ae*"[0-9\']* -> AS-Entry*
+"AE"[0-9\']* -> AS-Env
+
+

@@ -1,0 +1,43 @@
+#! /bin/sh
+
+PREFIX=__PREFIX__
+SGLR=__SGLR__
+ASFIXTOOLS=__ASFIXTOOLS__
+LANGUAGE="Java"
+
+OUTPUT="cat"
+
+# no core files
+ulimit -c 0
+
+usage () {
+cat <<ENDCAT
+usage:
+  parse-java [-h] [-gj] [-i java] [-o jtree]
+
+where
+  -h       Displays usage information.
+  -gj      Switch to turn on Generic Java.
+  -i java  Specifies the java source file.
+  -o jtree Specifies the file name of the resulting jtree.
+
+ENDCAT
+}
+
+for arg in $*
+do
+   case $1 in
+      -h  ) usage; exit 0 ;;
+      -i  ) INPUT="-i $2"; shift; shift ;;
+      -o  ) OUTPUT="cat > $2"; shift ; shift ;;
+      -gj ) LANGUAGE="Generic-Java"; shift ;;
+      -*  ) usage; exit 1 ;;
+   esac
+done
+
+SGLRARGS="-2tA -p ${PREFIX}/share/java-front/${LANGUAGE}.tbl -s CompilationUnit"
+
+(
+    ${SGLR}/bin/sglr ${SGLRARGS} ${INPUT} | ${ASFIXTOOLS}/bin/implode-asfix -S 
+) | eval ${OUTPUT}
+

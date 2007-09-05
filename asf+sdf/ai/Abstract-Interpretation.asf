@@ -1,0 +1,57 @@
+equations
+
+[s]	u <: t = type(u) <: t
+
+[f]	is-flat(d) = pure-data(d)
+
+[s]	is-sharp(d) = pure-type(d)
+
+[a]	alpha(d) = data-to-type(d)
+
+[a]	alpha(A {oc*}) = {oc*}
+
+[a]	alpha(A) = {}
+
+[g]	gamma(t) = type-to-data(t)
+
+[g]	gamma(A {oc*}) = A
+
+[g]	gamma(A) = A
+
+[p]	pure-data(<s>) = false
+
+[default]	
+	pure-data(u) = true
+
+[p]	pure-data((d1,d2,d+)) = pure-data(d1) & pure-data((d2,d+))
+
+[p]	pure-data((d1,d2)) = pure-data(d1) & pure-data(d2)
+
+[p]	pure-type(d) = false
+
+[default]	
+	pure-type(t) = true
+
+[p]	pure-type((t1,t2,t+)) = pure-type(t1) & pure-type((t2,t+))
+
+[p]	pure-type((t1,t2)) = pure-type(t1) & pure-type(t2)
+
+[p]	data-to-type(<s>) = s
+
+[default]
+	data-to-type(u) = u
+
+[p]	data-to-type((d1,d2,d+)) = data-to-type(d1) * data-to-type((d2,d+))
+
+[p]	data-to-type((d1,d2)) = data-to-type(d1) * data-to-type(d2)
+
+[p]	type-to-data(s) = <s>
+
+[default]
+	type-to-data(u) = u
+
+[p]	type-to-data((t1,t2,t+)) = type-to-data(t1) ++ type-to-data((t2,t+))
+
+[p]	type-to-data((t1,t2)) = type-to-data(t1) ++ type-to-data(t2)
+
+

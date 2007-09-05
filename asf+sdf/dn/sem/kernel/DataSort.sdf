@@ -1,0 +1,8 @@
+module dn/sem/kernel/DataSort
+
+imports dn/syn/kernel/DataSort
+
+exports
+
+sorts DataSort
+

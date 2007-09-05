@@ -1,0 +1,33 @@
+module an/sem/internal/Natural-Map[Value]
+
+imports aux/Finite-Map[Natural Value]
+	[Finite-Map=>Natural-Map Entry=>Natural-Entry]
+	
+	aux/Finite-Set[Natural][Finite-Set=>Natural-Set]
+
+	basic/Integers
+
+exports
+
+sorts Natural-Set Natural-Map Natural-Entry Natural
+
+context-free syntax
+	dom(Natural-Map) -> Natural-Set {cons("dom-natural-map")}
+	min(Natural-Set) -> Natural {cons("min-natural-map")}
+	max(Natural-Set) -> Natural {cons("max-natural-map")}
+
+	Natural-Map "!" Natural -> Value {cons("natural-map-projection")}
+
+hiddens
+
+imports basic/Comments
+
+context-free syntax
+	min(Natural, Natural-Set) -> Natural {cons("hidden-min-natural-map")}
+	max(Natural, Natural-Set) -> Natural {cons("hidden-max-natural-map")}
+
+variables
+	"n"[0-9\']* -> Natural
+	"v"[0-9\']* -> Value
+	"m"[0-9\']* -> Natural-Map
+	"s"[0-9\']* -> Natural-Set

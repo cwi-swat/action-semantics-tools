@@ -1,0 +1,43 @@
+module ai/Type-Inference-Data
+
+imports ai/Type-Order
+	obs/__AN-K
+
+exports
+
+context-free syntax
+
+type(Data) -> DataSort
+type(DataOp) -> DataSort
+sig(DataOp) -> DataSort
+sig(DataPred) -> DataSort
+
+hiddens
+variables
+"l"[0-9\']* -> List
+"set"[0-9\']* -> Set
+"p"[0-9\']* -> Pair
+"t"[0-9\']* -> Type
+"t+"[0-9\']* -> {Type ","}+
+"ds"[0-9\']* -> DataSort
+"oc"[0-9\']* -> Outcome+
+"A"[0-9\']* -> Action
+"Ap"[0-9\']* -> ActionPrefix
+"Ac"[0-9\']* -> ActionConst
+"Ai"[0-9\']* -> ActionInfix
+"C"[0-9\']* -> {Action "or"}+
+"d"[0-9]* -> Data
+"d+"[0-9]* -> {Data ","}+
+"o"[0-9\']* -> DataOp
+"q"[0-9\']* -> DataPred
+"u"[0-9\']* -> Datum
+"n"[0-9\']* -> Int
+"tk"[0-9\']* -> Token
+"cell"[0-9\']* -> Cell
+"ag"[0-9\']* -> Agent
+"mt"[0-9\']* -> MessageTag
+"nat"[0-9\']* -> Nat
+"pos"[0-9\']* -> Pos
+"nat-con"[0-9\']* -> Nat-Con
+"b"[0-9\']* -> DataConst
+"bs"[0-9\']* -> Bindings

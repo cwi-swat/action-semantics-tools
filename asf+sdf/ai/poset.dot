@@ -1,0 +1,65 @@
+digraph poset {
+
+/*
+"datum*" -> data
+"datum?" -> "datum*"
+"()" -> "datum?"
+datum -> "datum?"
+"datum+" -> "datum*"
+"(datum,datum+)" -> "datum+"
+datum -> "datum+"
+int -> "datum?"
+int -> "datum"
+int -> "int+" -> "datum+"
+"int*" -> "datum*"
+"int?" -> "
+*/
+
+datum -> data
+"()" -> data
+int -> datum
+n -> int
+bool -> datum
+b -> bool 
+action -> datum
+a -> action
+"a [giving t1]" -> a
+"a [giving t1 raising t2]" -> "a [giving t1]"
+"a [giving t1 raising t2]" -> "a [raising t2]"
+
+"a [giving t1 raising t2 failing]" -> "a [giving t1 raising t2]"
+"a [giving t1 raising t2 failing]" -> "a [giving t1 failing]"
+"a [giving t1 raising t2 failing]" -> "a [raising t2 failing]"
+
+"a [giving t1 failing]" -> "a [giving t1]"
+"a [giving t1 failing]" -> "a [failing]"
+
+"a [raising t2]" -> a
+
+"a [raising t2 failing]" -> "a [raising t2]"
+"a [raising t2 failing]" -> "a [failing]"
+
+"a [failing]" -> a
+
+"normal d" -> "a [giving t1 raising t2 failing]"
+"exceptional d" -> "a [giving t1 raising t2 failing]"
+"failed" -> "a [giving t1 raising t2 failing]"
+
+"BOTTOM" -> "normal d"
+"BOTTOM" -> "exceptional d"
+"BOTTOM" -> "failed"
+"BOTTOM" -> n
+"BOTTOM" -> b
+"BOTTOM" -> tk
+"BOTTOM" -> bs
+"BOTTOM" -> c
+
+c -> cell
+bs -> bindings
+tk -> token
+cell -> datum
+token -> datum
+bindings -> datum
+
+}
+

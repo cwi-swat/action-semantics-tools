@@ -1,0 +1,8 @@
+exec+(
+((provide "x" and provide 2) then give binding_) and
+((provide "x" and provide 5) then give binding_)
+then give disjoint union_
+ hence 
+((provide "y" and give current bindings) then give bound_)
+
+, new-environment())

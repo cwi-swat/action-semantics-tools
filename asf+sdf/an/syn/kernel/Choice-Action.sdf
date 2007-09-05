@@ -1,0 +1,14 @@
+module an/syn/kernel/Choice-Action
+
+imports an/syn/kernel/Normal-Outcome
+	basic/Integers
+
+exports
+
+sorts Datum Action
+
+context-free syntax
+	Integer -> Datum
+
+	"choose" "natural" -> Action {cons("choose-natural")}
+

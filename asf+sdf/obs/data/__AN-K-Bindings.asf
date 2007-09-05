@@ -1,0 +1,41 @@
+equations
+
+[g]	str-comp(str1,str2) = 1
+	===
+	elt-gt(str1, str2) = true
+
+[g]	str-comp(str1,str2) != 1
+	===
+	elt-gt(str1, str2) = false
+
+
+[l]	str-comp(str1,str2) = -1
+	===
+	elt-lt(str1, str2) = true
+
+[l]	str-comp(str1,str2) != -1
+	===
+	elt-lt(str1, str2) = false
+
+[]	has-key(bs,tk) = true
+	===
+	result bound_ (bs,tk) = get(bs,tk)
+
+[]	result overriding_ (bs1,bs2) = bs1 + bs2
+
+[]	result disjoint union_ (bs1,bs2) = bs1 +/ bs2
+
+[]	result binding_ (tk,d) = put(empty-tree-map(), tk, d)
+
+[]	result the bindings_ bs = bs
+
+[]	result the bindable_ d = d
+
+[]	no bindings = empty-tree-map()
+
+[]	result graph_ bs = graph(domain(bs), bs)
+
+[]	graph(,bs) = empty-set()
+
+[]	graph(tk tk*, bs) = add-to-set(graph(tk*,bs), pair(tk,get(bs,tk)))
+

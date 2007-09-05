@@ -1,0 +1,5 @@
+equations
+
+[e]	elt-gt(n1, n2) = n1 > n2
+
+[e]	elt-lt(n1, n2) = n1 < n2

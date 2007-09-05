@@ -1,0 +1,5 @@
+module c/C
+imports c/Keywords c/Constants c/Lexical c/Declarators c/Program 
+	c/Statements c/Identifiers c/Types c/Expressions c/StructsAndUnions 
+	c/Enumerators c/ParameterDeclarators c/AbstractDeclarators
+

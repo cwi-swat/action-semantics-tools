@@ -1,0 +1,57 @@
+equations
+
+[]	is-product((t,t+)) = true
+
+[default]
+	is-product(t) = false
+
+[]	t * 1 = t
+
+[]	t * n = t * (t * n-1) when n > 1 = true
+
+[]	() * t = t
+
+[]	t * () = t
+
+[]	(t1,t1') * (t2,t2') = (t1,t1',t2,t2')
+
+[]	(t1,t1') * (t2,t2',t+2) = (t1,t1',t2,t2',t+2)
+
+[]	(t1,t1',t+1) * (t2,t2') = (t1,t1',t+1,t2,t2')
+
+[]	(t1,t1',t+1) * (t2,t2',t+2) = (t1,t1',t+1,t2,t2',t+2)
+
+[]	(t1,t+1) * t2 = (t1,t+1,t2)
+		when is-product(t2) = false
+
+[]	t1 * (t2,t+2) = (t1,t2,t+2)
+		when is-product(t1) = false
+
+[default]
+	t1 * t2 = (t1,t2)
+
+[]	t | t = t
+
+[]	oc*1 giving t1 oc*2 giving t2 oc*3 =
+		oc*1 giving (t1|t2) oc*2 oc*3
+
+
+[]	oc*1 raising t1 oc*2 raising t2 oc*3 =
+		oc*1 raising (t1|t2) oc*2 oc*3
+
+
+[]	oc*1 failing oc*2 failing oc*3 =
+		oc*1 failing oc*2 oc*3
+
+%% Ensure order: giving, raising, failing
+
+[]	oc*1 raising t oc*2 giving t' oc*3 =
+		oc*1 giving t' raising t oc*2 oc*3
+
+[]	oc*1 failing oc*2 giving t oc*3 =
+		oc*1 giving t failing oc*2 oc*3
+
+[]	oc*1 failing oc*2 raising t oc*3 =
+		oc*1 raising t failing oc*2 oc*3
+
+

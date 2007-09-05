@@ -1,0 +1,15 @@
+module pico/Program
+
+imports pico/Decls pico/Stats 
+
+exports
+
+sorts PROGRAM
+
+context-free syntax
+    "begin" DECLS SERIES "end" -> PROGRAM {cons("pico-program")}
+  variables
+    "Program" [0-9\']*      -> PROGRAM
+
+
+

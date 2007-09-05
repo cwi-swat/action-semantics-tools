@@ -1,0 +1,79 @@
+@80b0f50: prov int(10)
+@80b0f73: publish
+@80b0f74: frame @80b11d4
+@80b0f79: tryf @80b10ac
+@80b0f7e: tryf @80b1017
+@80b0f83: copy
+@80b0f84: push
+@80b0f85: copy
+@80b0f86: prov int(0)
+@80b0fa9: merge
+@80b0faa: publish
+@80b0fab: trye @80b0fea
+@80b0fb0: cast [<appl>,<appl>]
+@80b0fe3: eq
+@80b0fe4: catch @80b0fec
+@80b0fe9: epublish
+@80b0fea: fail
+@80b0feb: unpublish
+@80b0fec: unpublish
+@80b0fed: publish
+@80b0fee: prov int(1)
+@80b1011: unpublish
+@80b1012: catch @80b10a7
+@80b1017: copy
+@80b1018: copy
+@80b1019: push
+@80b101a: copy
+@80b101b: prov int(1)
+@80b103e: merge
+@80b103f: publish
+@80b1040: trye @80b107f
+@80b1045: cast [<appl>,<appl>]
+@80b1078: eq
+@80b1079: catch @80b1081
+@80b107e: epublish
+@80b107f: fail
+@80b1080: unpublish
+@80b1081: unpublish
+@80b1082: publish
+@80b1083: prov int(1)
+@80b10a6: unpublish
+@80b10a7: catch @80b11d3
+@80b10ac: copy
+@80b10ad: copy
+@80b10ae: push
+@80b10af: copy
+@80b10b0: prov int(2)
+@80b10d3: merge
+@80b10d4: publish
+@80b10d5: cast [int(<term>),int(<term>)]
+@80b1111: sub
+@80b1112: unpublish
+@80b1113: publish
+@80b1114: frame @80b111e
+@80b1119: goto @80b0f79
+@80b111e: unpublish
+@80b111f: push
+@80b1120: copy
+@80b1121: copy
+@80b1122: push
+@80b1123: copy
+@80b1124: prov int(1)
+@80b1147: merge
+@80b1148: publish
+@80b1149: cast [int(<term>),int(<term>)]
+@80b1185: sub
+@80b1186: unpublish
+@80b1187: publish
+@80b1188: frame @80b1192
+@80b118d: goto @80b0f79
+@80b1192: unpublish
+@80b1193: merge
+@80b1194: publish
+@80b1195: cast [int(<term>),int(<term>)]
+@80b11d1: add
+@80b11d2: unpublish
+@80b11d3: return
+@80b11d4: unpublish
+@80b11d5: return

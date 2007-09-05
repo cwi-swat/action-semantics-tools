@@ -1,0 +1,5 @@
+equations
+
+[]	to-expr(kernel, give _+_, expr1, expr2, env) = 
+		((Int)((expr1).at(1))).plus((Int)(expr1).at(2))
+

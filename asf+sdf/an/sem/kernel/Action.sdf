@@ -1,0 +1,4 @@
+module an/sem/kernel/Action
+
+imports an/syn/kernel/Action
+	msos/SmallStep-MSOS[Action Terminated]

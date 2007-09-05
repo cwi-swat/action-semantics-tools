@@ -1,0 +1,10 @@
+module dn/syn/internal/Agent
+
+exports
+
+sorts Agent
+
+context-free syntax
+	"agent" -> SortName {cons("agent-sortname")}
+	Agent -> Datum
+

@@ -1,0 +1,88 @@
+.TH "Action" 3 "13 Sep 2002" "Action Java Compiler Runtime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Action \- 
+.SH SYNOPSIS
+.br
+.PP
+Inherits \fBDatum\fP, and \fBRunnable\fP.
+.PP
+Inherited by \fBActionImpl\fP.
+.PP
+.SS "Public Methods"
+
+.in +1c
+.ti -1c
+.RI "\fBEnactable\fP \fBenactableValue\fP ()"
+.br
+.ti -1c
+.RI "\fBData\fP \fBenact\fP () throws \fBExceptional\fP, \fBFailed\fP, \fBUnfold\fP"
+.br
+.ti -1c
+.RI "Action \fBthen\fP (Action action)"
+.br
+.ti -1c
+.RI "Action \fBandThen\fP (Action action)"
+.br
+.ti -1c
+.RI "Action \fBand\fP (Action action)"
+.br
+.ti -1c
+.RI "Action \fBexceptionally\fP (Action action)"
+.br
+.ti -1c
+.RI "Action \fBandExceptionally\fP (Action action)"
+.br
+.ti -1c
+.RI "Action \fBotherwise\fP (Action action)"
+.br
+.ti -1c
+.RI "Action \fBhence\fP (Action action)"
+.br
+.ti -1c
+.RI "Action \fBindivisibly\fP ()"
+.br
+.in -1c
+.SH "MEMBER FUNCTION DOCUMENTATION"
+.PP 
+.SS "Action Action::and (Action action)"
+.PP
+Reimplemented in \fBActionImpl\fP.
+.SS "Action Action::andExceptionally (Action action)"
+.PP
+Reimplemented in \fBActionImpl\fP.
+.SS "Action Action::andThen (Action action)"
+.PP
+Reimplemented in \fBActionImpl\fP.
+.SS "\fBData\fP Action::enact ()"
+.PP
+Reimplemented in \fBActionImpl\fP, and \fBActionImpl\fP.
+.PP
+Referenced by ActionImpl::run().
+.PP
+.SS "\fBEnactable\fP Action::enactableValue ()"
+.PP
+Reimplemented in \fBActionImpl\fP.
+.PP
+Referenced by ActionImpl::and(), ActionImpl::andExceptionally(), ActionImpl::andThen(), ActionImpl::exceptionally(), ActionImpl::hence(), ActionImpl::otherwise(), and ActionImpl::then().
+.PP
+.SS "Action Action::exceptionally (Action action)"
+.PP
+Reimplemented in \fBActionImpl\fP.
+.SS "Action Action::hence (Action action)"
+.PP
+Reimplemented in \fBActionImpl\fP.
+.SS "Action Action::indivisibly ()"
+.PP
+Reimplemented in \fBActionImpl\fP.
+.SS "Action Action::otherwise (Action action)"
+.PP
+Reimplemented in \fBActionImpl\fP.
+.SS "Action Action::then (Action action)"
+.PP
+Reimplemented in \fBActionImpl\fP.
+
+.SH "AUTHOR"
+.PP 
+Generated automatically by Doxygen for Action Java Compiler Runtime from the source code.

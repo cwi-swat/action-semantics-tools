@@ -1,0 +1,14 @@
+module obs/aux/structs/Test-Tree
+
+imports obs/aux/structs/Balanced-Tree[Int]
+
+%% This is not yet supported
+%%[elt-gt(Elt,Elt) -> Bool => int-gt(Int, Int) -> Bool
+%%elt-lt(Elt,Elt) -> Bool => int-lt(Int, Int) -> Bool]
+
+
+hiddens
+variables
+"n"[0-9\']* -> Int
+
+

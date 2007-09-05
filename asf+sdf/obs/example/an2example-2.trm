@@ -1,0 +1,26 @@
+exec+(
+execute [[ 
+{
+  void barf() { int x = 4; { x = 100; x = x + 10; }}
+  {
+    int z = 6;
+    {
+      int y = 3;
+      {while (z > 1) {
+        z = z - 1;
+        y = y + 1;
+      }
+      barf(); }
+    }
+  }
+}
+]]
+, [])
+
+
+~~exec+history(
+
+~~evaluate [[ 4 > 5]]
+
+~~, [], [])
+

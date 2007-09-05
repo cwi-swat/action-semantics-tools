@@ -1,0 +1,295 @@
+\hypertarget{classSchedule}{
+\section{Schedule  Class Reference}
+\label{classSchedule}\index{Schedule@{Schedule}}
+}
+Inheritance diagram for Schedule:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=45pt]{classSchedule__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Schedule:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=123pt]{classSchedule__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceEmpty}{Empty} \hyperlink{classSchedule_a0}{send} (\hyperlink{interfaceAgent}{Agent} agent, \hyperlink{interfaceMessage}{Message} message, \hyperlink{interfaceMessageTag}{Message\-Tag} message\-Tag) throws \hyperlink{classExceptional}{Exceptional}
+\item 
+\hyperlink{interfaceMessage}{Message} \hyperlink{classSchedule_a1}{receive} (\hyperlink{interfaceMessageTag}{Message\-Tag} message\-Tag) throws \hyperlink{classExceptional}{Exceptional}
+\item 
+\hyperlink{interfaceAgent}{Agent} \hyperlink{classSchedule_a2}{activate} (\hyperlink{interfaceAction}{Action} action)
+\item 
+\hyperlink{interfaceEmpty}{Empty} \hyperlink{classSchedule_a3}{deactivate} (\hyperlink{interfaceAgent}{Agent} agent) throws \hyperlink{classExceptional}{Exceptional}
+\item 
+\hyperlink{interfaceAgent}{Agent} \hyperlink{classSchedule_a4}{give\-Current\-Agent} ()
+\item 
+\hyperlink{interfaceInt}{Int} \hyperlink{classSchedule_a5}{give\-Current\-Time} ()
+\item 
+\hyperlink{interfaceInt}{Int} \hyperlink{classSchedule_a6}{choose\-Natural} ()
+\end{CompactItemize}
+\subsection*{Static Public Methods}
+\begin{CompactItemize}
+\item 
+void \hyperlink{classSchedule_d0}{init\-Schedule} (\hyperlink{interfaceDataFactory}{Data\-Factory} \hyperlink{classSchedule_o0}{factory})
+\item 
+Schedule \hyperlink{classSchedule_d1}{get\-Schedule} ()
+\end{CompactItemize}
+\subsection*{Private Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{classSchedule_c0}{Schedule} (\hyperlink{interfaceDataFactory}{Data\-Factory} \hyperlink{classSchedule_o0}{factory})
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceDataFactory}{Data\-Factory} \hyperlink{classSchedule_o0}{factory}
+\item 
+\hyperlink{classHashtable}{Hashtable} \hyperlink{classSchedule_o1}{threads} = new \hyperlink{classHashtable}{Hashtable}()
+\item 
+\hyperlink{classHashtable}{Hashtable} \hyperlink{classSchedule_o2}{agents} = new \hyperlink{classHashtable}{Hashtable}()
+\item 
+\hyperlink{classHashtable}{Hashtable} \hyperlink{classSchedule_o3}{buffers} = new \hyperlink{classHashtable}{Hashtable}()
+\end{CompactItemize}
+\subsection*{Static Private Attributes}
+\begin{CompactItemize}
+\item 
+Schedule \hyperlink{classSchedule_r0}{the\-Schedule} = null
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classSchedule_c0}{
+\index{Schedule@{Schedule}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!Schedule@{Schedule}}
+\subsubsection[Schedule]{\setlength{\rightskip}{0pt plus 5cm}Schedule::Schedule (\hyperlink{interfaceDataFactory}{Data\-Factory} {\em factory})\hspace{0.3cm}{\tt  \mbox{[}inline, private\mbox{]}}}}
+\label{classSchedule_c0}
+
+
+
+
+Definition at line 19 of file Schedule.java.\footnotesize\begin{verbatim}00019                                           {
+00020         this.factory = factory;
+00021         Agent agent = factory.makeAgent();
+00022         Thread thread = Thread.currentThread();
+00023         agents.put(agent, thread);
+00024         threads.put(thread, agent);
+00025         buffers.put(agent, new TaggedBuffers(factory));
+00026     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classSchedule_a2}{
+\index{Schedule@{Schedule}!activate@{activate}}
+\index{activate@{activate}!Schedule@{Schedule}}
+\subsubsection[activate]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAgent}{Agent} Schedule::activate (\hyperlink{interfaceAction}{Action} {\em action})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classSchedule_a2}
+
+
+
+
+Reimplemented from \hyperlink{interfaceScheduling_a2}{Scheduling}.
+
+Definition at line 59 of file Schedule.java.\footnotesize\begin{verbatim}00059                                          {
+00060         Agent agent = factory.makeAgent();
+00061         Thread thread = new Thread(action);
+00062         agents.put(agent, thread);
+00063         threads.put(thread, agent);
+00064         buffers.put(agent, new TaggedBuffers(factory));
+00065         thread.start();
+00066         return agent;
+00067     }
+\end{verbatim}\normalsize 
+\hypertarget{classSchedule_a6}{
+\index{Schedule@{Schedule}!chooseNatural@{chooseNatural}}
+\index{chooseNatural@{chooseNatural}!Schedule@{Schedule}}
+\subsubsection[chooseNatural]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceInt}{Int} Schedule::choose\-Natural ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classSchedule_a6}
+
+
+
+
+Reimplemented from \hyperlink{interfaceScheduling_a6}{Scheduling}.
+
+Definition at line 89 of file Schedule.java.\footnotesize\begin{verbatim}00089                                {
+00090         return factory.makeInt((new Random()).nextInt());
+00091     }
+\end{verbatim}\normalsize 
+\hypertarget{classSchedule_a3}{
+\index{Schedule@{Schedule}!deactivate@{deactivate}}
+\index{deactivate@{deactivate}!Schedule@{Schedule}}
+\subsubsection[deactivate]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceEmpty}{Empty} Schedule::deactivate (\hyperlink{interfaceAgent}{Agent} {\em agent})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classSchedule_a3}
+
+
+
+
+Reimplemented from \hyperlink{interfaceScheduling_a3}{Scheduling}.
+
+Definition at line 69 of file Schedule.java.\footnotesize\begin{verbatim}00069                                                             {
+00070         if (agents.containsKey(agent)) {
+00071             Thread thread = (Thread)(agents.get(agent));
+00072             thread.interrupt();
+00073             agents.remove(agent);
+00074             threads.remove(thread);
+00075             return factory.makeEmpty();
+00076         }
+00077         throw new Exceptional(factory.makeEmpty());
+00078     }
+\end{verbatim}\normalsize 
+\hypertarget{classSchedule_d1}{
+\index{Schedule@{Schedule}!getSchedule@{getSchedule}}
+\index{getSchedule@{getSchedule}!Schedule@{Schedule}}
+\subsubsection[getSchedule]{\setlength{\rightskip}{0pt plus 5cm}Schedule Schedule::get\-Schedule ()\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classSchedule_d1}
+
+
+
+
+Definition at line 32 of file Schedule.java.\footnotesize\begin{verbatim}00032                                          {
+00033         if (theSchedule == null)
+00034             throw new RuntimeException("Initialize schedule first!");
+00035         return theSchedule;
+00036     }
+\end{verbatim}\normalsize 
+\hypertarget{classSchedule_a4}{
+\index{Schedule@{Schedule}!giveCurrentAgent@{giveCurrentAgent}}
+\index{giveCurrentAgent@{giveCurrentAgent}!Schedule@{Schedule}}
+\subsubsection[giveCurrentAgent]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceAgent}{Agent} Schedule::give\-Current\-Agent ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classSchedule_a4}
+
+
+
+
+Reimplemented from \hyperlink{interfaceScheduling_a4}{Scheduling}.
+
+Definition at line 80 of file Schedule.java.\footnotesize\begin{verbatim}00080                                     {
+00081         return (Agent)(threads.get(Thread.currentThread()));
+00082     }
+\end{verbatim}\normalsize 
+\hypertarget{classSchedule_a5}{
+\index{Schedule@{Schedule}!giveCurrentTime@{giveCurrentTime}}
+\index{giveCurrentTime@{giveCurrentTime}!Schedule@{Schedule}}
+\subsubsection[giveCurrentTime]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceInt}{Int} Schedule::give\-Current\-Time ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classSchedule_a5}
+
+
+
+
+Reimplemented from \hyperlink{interfaceScheduling_a5}{Scheduling}.
+
+Definition at line 84 of file Schedule.java.\footnotesize\begin{verbatim}00084                                  {
+00085         return factory.makeInt((Calendar.getInstance()).get(Calendar.SECOND));
+00086 
+00087     }
+\end{verbatim}\normalsize 
+\hypertarget{classSchedule_d0}{
+\index{Schedule@{Schedule}!initSchedule@{initSchedule}}
+\index{initSchedule@{initSchedule}!Schedule@{Schedule}}
+\subsubsection[initSchedule]{\setlength{\rightskip}{0pt plus 5cm}void Schedule::init\-Schedule (\hyperlink{interfaceDataFactory}{Data\-Factory} {\em factory})\hspace{0.3cm}{\tt  \mbox{[}inline, static\mbox{]}}}}
+\label{classSchedule_d0}
+
+
+
+
+Definition at line 28 of file Schedule.java.\footnotesize\begin{verbatim}00028                                                          {
+00029         theSchedule = new Schedule(factory);
+00030     }
+\end{verbatim}\normalsize 
+\hypertarget{classSchedule_a1}{
+\index{Schedule@{Schedule}!receive@{receive}}
+\index{receive@{receive}!Schedule@{Schedule}}
+\subsubsection[receive]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceMessage}{Message} Schedule::receive (\hyperlink{interfaceMessageTag}{Message\-Tag} {\em message\-Tag})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classSchedule_a1}
+
+
+
+
+Reimplemented from \hyperlink{interfaceScheduling_a1}{Scheduling}.
+
+Definition at line 48 of file Schedule.java.\footnotesize\begin{verbatim}00048                                                                      {
+00049         Thread thread = Thread.currentThread();
+00050         if (threads.containsKey(thread)) {
+00051             Agent agent = (Agent)threads.get(thread);
+00052             TaggedBuffers taggedBuffers = (TaggedBuffers)buffers.get(agent);
+00053             return taggedBuffers.dequeue(messageTag);
+00054         }
+00055         throw new Exceptional(factory.makeEmpty());
+00056     }   
+\end{verbatim}\normalsize 
+\hypertarget{classSchedule_a0}{
+\index{Schedule@{Schedule}!send@{send}}
+\index{send@{send}!Schedule@{Schedule}}
+\subsubsection[send]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceEmpty}{Empty} Schedule::send (\hyperlink{interfaceAgent}{Agent} {\em agent}, \hyperlink{interfaceMessage}{Message} {\em message}, \hyperlink{interfaceMessageTag}{Message\-Tag} {\em message\-Tag})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classSchedule_a0}
+
+
+
+
+Reimplemented from \hyperlink{interfaceScheduling_a0}{Scheduling}.
+
+Definition at line 40 of file Schedule.java.\footnotesize\begin{verbatim}00040                                                                                               {
+00041         if (agents.containsKey(agent)) {
+00042             TaggedBuffers taggedBuffers = (TaggedBuffers)buffers.get(agent);
+00043             taggedBuffers.queue(messageTag, message);
+00044         }
+00045         throw new Exceptional(factory.makeEmpty());
+00046     }   
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classSchedule_o2}{
+\index{Schedule@{Schedule}!agents@{agents}}
+\index{agents@{agents}!Schedule@{Schedule}}
+\subsubsection[agents]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{classHashtable}{Hashtable} Schedule::agents = new \hyperlink{classHashtable}{Hashtable}()\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classSchedule_o2}
+
+
+
+
+Definition at line 16 of file Schedule.java.\hypertarget{classSchedule_o3}{
+\index{Schedule@{Schedule}!buffers@{buffers}}
+\index{buffers@{buffers}!Schedule@{Schedule}}
+\subsubsection[buffers]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{classHashtable}{Hashtable} Schedule::buffers = new \hyperlink{classHashtable}{Hashtable}()\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classSchedule_o3}
+
+
+
+
+Definition at line 17 of file Schedule.java.\hypertarget{classSchedule_o0}{
+\index{Schedule@{Schedule}!factory@{factory}}
+\index{factory@{factory}!Schedule@{Schedule}}
+\subsubsection[factory]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceDataFactory}{Data\-Factory} Schedule::factory\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classSchedule_o0}
+
+
+
+
+Definition at line 14 of file Schedule.java.\hypertarget{classSchedule_r0}{
+\index{Schedule@{Schedule}!theSchedule@{theSchedule}}
+\index{theSchedule@{theSchedule}!Schedule@{Schedule}}
+\subsubsection[theSchedule]{\setlength{\rightskip}{0pt plus 5cm}Schedule Schedule::the\-Schedule = null\hspace{0.3cm}{\tt  \mbox{[}static, private\mbox{]}}}}
+\label{classSchedule_r0}
+
+
+
+
+Definition at line 12 of file Schedule.java.\hypertarget{classSchedule_o1}{
+\index{Schedule@{Schedule}!threads@{threads}}
+\index{threads@{threads}!Schedule@{Schedule}}
+\subsubsection[threads]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{classHashtable}{Hashtable} Schedule::threads = new \hyperlink{classHashtable}{Hashtable}()\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classSchedule_o1}
+
+
+
+
+Definition at line 15 of file Schedule.java.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{Schedule_8java-source}{Schedule.java}\end{CompactItemize}

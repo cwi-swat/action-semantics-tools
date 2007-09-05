@@ -1,0 +1,36 @@
+equations
+
+[cons]	set(x) = {x}
+
+[red]	{x*1 x x*2 x x*3} = {x*1 x x*2 x*3}
+
+[uni]	{x*1} + {x*2} = {x*1 x*2}
+
+[add]	{x*} + x = {x* x}
+
+[dif1]	x in s = true
+        ===
+        {x x*1} - s = {x*1} - s
+
+[dif1]	x in s = false
+        ===
+        {x x*1} - s = {x} + ({x*1} - s)
+
+
+[in1]	x in {x*1 x x*2} = true
+
+[default-in2]	
+	x in s = false
+
+[hed]	head({x x*}) = x
+
+[tal1]	tail({x x*}) = {x*}
+
+[tal2]	tail({}) = {}
+
+[emp]	empty-set() = {}
+
+[ise1]	is-empty(s) = true when s = {}
+
+[ise2]	is-empty(s) = false when s != {}
+

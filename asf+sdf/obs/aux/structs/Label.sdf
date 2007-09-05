@@ -1,0 +1,25 @@
+module obs/aux/structs/Label[Index Arrow]
+
+imports obs/layout/Layout
+
+exports
+
+context-free syntax
+
+Index ":" Arrow -> Component
+get(Label, Index) -> Arrow
+set(Label, Index, Arrow) -> Label
+
+Component ("*" Label)? -> Label
+
+Label ";" Label -> Label {assoc}
+"(" Label ")" -> Label {bracket}
+
+hiddens
+variables
+"a"[0-9\']* -> Arrow
+"a*"[0-9\']* -> {Arrow "*"}*
+"c"[0-9\']* -> Component
+"i"[0-9\']* -> Index
+"l"[0-9\']* -> Label
+

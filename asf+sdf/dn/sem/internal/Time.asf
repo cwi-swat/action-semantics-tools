@@ -1,0 +1,7 @@
+equations
+
+[strt]	start-time() = time(0)
+
+[t2n]	time-to-nat(time(n)) = n
+
+[n2t]	nat-to-time(n) = time(n)

@@ -1,0 +1,19 @@
+module test/Renamed-Set[X]
+
+imports basic/Booleans
+	basic/Whitespace
+
+exports
+
+sorts Set X
+
+context-free syntax
+	"{" X* "}" -> Set
+	Set "+" X -> Set
+	X "(-" Set -> Boolean
+
+hiddens
+variables
+	"x"[0-9\']* -> X
+	"x*"[0-9\']* -> X*
+	"s"[0-9\']* -> Set

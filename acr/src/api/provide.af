@@ -1,0 +1,1 @@
+infix(infix(infix(provide(datum(int(nat(numeral(nat-con("4")))))),then,const(raise)),exceptionally,infix(provide(datum(int(nat(numeral(nat-con("5")))))),and,provide(datum(int(nat(numeral(nat-con("6")))))))),then,give(infix(plus)))

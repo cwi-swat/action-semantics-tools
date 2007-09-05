@@ -1,0 +1,37 @@
+equations
+
+[de-0]	data-to-expression(A, env) = new fa-to-identifier(A, env)()
+
+[de-1]	data-to-expression(n, env) = factory.makeInt((int-to-integerliteral(n)))
+
+[de-1]	data-to-expression(true, env) = factory.makeBool(true)
+
+[de-1]	data-to-expression(false, env) = factory.makeBool(false)
+
+[de-1]	data-to-expression(string(char+), env) = 
+		factory.makeToken(stringliteral(char+))
+
+[de-2]	data-to-expression((), env) = factory.makeEmpty()
+
+[ti1]   int-to-integerliteral(nat-con(char+)) = deciliteral(char+)
+
+[ti2]   int-to-integerliteral(- nat-con(char+)) = - deciliteral(char+)
+
+[ti3]   int-to-integerliteral(+ nat-con(char+)) = deciliteral(char+)
+
+[tdi1]  datasort-to-identifier(int) = Int
+[tdi1]  datasort-to-identifier(nat) = Int
+[tdi1]  datasort-to-identifier(pos) = Int
+[tdi1]  datasort-to-identifier(bool) = Bool
+[tdi1]  datasort-to-identifier(action) = Action
+[tdi1]  datasort-to-identifier(action [oc]) = Action
+[tdi1]  datasort-to-identifier(token) = Token
+[tdi1]  datasort-to-identifier(cell) = Cell
+[tdi1]  datasort-to-identifier(bindings) = Bindings
+[tdi1]  datasort-to-identifier(agent) = Agent
+[tdi1]  datasort-to-identifier(message-tag) = MessageTag
+[tdi1]  datasort-to-identifier(data) = Data
+[tdi1]  datasort-to-identifier(message) = Message
+[tdi1]  datasort-to-identifier(bindable) = Bindable
+[tdi1]  datasort-to-identifier(storable) = Storable
+[tdi1]  datasort-to-identifier(datum) = Datum

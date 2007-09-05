@@ -1,0 +1,10 @@
+equations
+
+[]	new-cell(n) = @n
+
+[]	cell-to-int(@n) = n
+
+[]	result the cell_ @n = @n
+
+[]	result the storable_ d = d
+

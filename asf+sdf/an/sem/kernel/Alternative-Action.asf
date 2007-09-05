@@ -1,0 +1,23 @@
+equations
+
+[sos32]	s |- fail = <failed, s>
+
+[sos33]	s |- A1 = <A1', s'>
+	===
+	s |- A1 otherwise A2 = <A1' otherwise A2, s'>
+
+[sos34]	s |- failed otherwise A2 = <A2, s>
+
+[sos35]	s |- select(A) = <A, s>
+
+[sos36]	s |- select(A1 or C2) = <A1 otherwise select(C2), s>
+
+[sos37]	s |- select(C1 or A2) = <A2 otherwise select(C1), s>
+
+[sos38]	s |- select(C1 or C2) = <A otherwise select(C'), s'>
+	====
+	s |- select((C1 or C2) or C) = <A otherwise select(C or C'), s'>
+
+[sos39]	s |- select(C1 or C2) = <A otherwise select(C'), s'>
+	====
+	s |- select(C or (C1 or C2)) = <A otherwise select(C' or C), s'>

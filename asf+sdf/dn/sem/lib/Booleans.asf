@@ -1,0 +1,9 @@
+equations
+
+[res]	result the boolean_ b = b
+
+[res]	result not_ b = not(b)
+
+[res]	result _&_ (b1,b2) = b1 & b2
+
+[res]	result _|_ (b1,b2) = b1 | b2

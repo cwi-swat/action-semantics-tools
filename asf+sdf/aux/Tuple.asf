@@ -1,0 +1,17 @@
+equations
+
+[ins1]	x :: () = (x)
+
+[ins2]	x :: (x+) = (x, x+)
+
+[cat1]	(x+1) ++ (x+2) = (x+1, x+2)
+
+[cat2]	() ++ (x*) = (x*)
+
+[cat3]	(x*) ++ () = (x*)
+
+[at1]	(x) ! 1 = x
+
+[at2]	(x,x+) ! 1 = x
+
+[at3]	(x,x+) ! n = (x+) ! n-1 when n > 1 = true

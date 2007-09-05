@@ -1,0 +1,9 @@
+module obs/aux/structs/Pair[X Y]
+
+imports obs/layout/Layout
+
+exports
+
+context-free syntax
+
+pair(first:X,second:Y) -> Pair

@@ -1,0 +1,10 @@
+execute [[ 
+	{ 
+		int z = 6;
+		while (z == 6) 
+			z = 5;
+		od
+	}
+]]
+
+

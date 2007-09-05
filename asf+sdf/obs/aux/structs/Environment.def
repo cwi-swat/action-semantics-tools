@@ -1,0 +1,141 @@
+definition
+
+module obs/aux/structs/Finite-Map[Key Value]
+
+imports obs/data/booleans/Bool 
+	obs/aux/structs/Finite-Set[Key]
+
+exports
+
+sorts Finite-Map Value
+
+context-free syntax
+
+Finite-Map "." Key ":=" Value -> Finite-Map
+Finite-Map "." Key -> Value
+
+"(" Finite-Map ")" -> Finite-Map {bracket}
+
+Finite-Map "+" Finite-Map -> Finite-Map {assoc}
+
+get(Finite-Map, Key) -> Value
+put(Finite-Map, Key, Value) -> Finite-Map
+remove(Finite-Map, Key) -> Finite-Map
+
+has-key(Finite-Map, Key) -> Bool
+
+domain(Finite-Map) -> Finite-Set
+
+empty-map() -> Finite-Map
+
+disjoint-union(Finite-Map, Finite-Map) -> Finite-Map
+overriding(Finite-Map, Finite-Map) -> Finite-Map
+
+
+%%aliases
+Key # Value -> Tuple
+
+context-free syntax
+
+"{" Tuple* "}" -> Finite-Map
+
+
+hiddens
+
+variables
+"k"[0-9\']* -> Key
+"v"[0-9\']* -> Value
+"m"[0-9\']* -> Finite-Map
+"tup"[0-9\']* -> Tuple
+"tup*"[0-9\']* -> Tuple*
+
+
+
+module obs/aux/structs/Finite-Set[Elt]
+
+imports obs/data/booleans/Bool 
+
+exports 
+
+sorts Finite-Set
+
+context-free syntax
+
+empty-set() -> Finite-Set
+
+Finite-Set "+" Finite-Set -> Finite-Set {assoc}
+
+element-of(Finite-Set, Elt) -> Bool
+add-to-set(Finite-Set, Elt) -> Finite-Set
+set(Elt) -> Finite-Set
+set-union(Finite-Set, Finite-Set) -> Finite-Set
+head(Finite-Set) -> Elt
+tail(Finite-Set) -> Finite-Set
+
+hiddens
+context-free syntax
+
+"{" Elt* "}" -> Finite-Set
+
+variables
+"e"[0-9\']* -> Elt
+"e*"[0-9\']* -> Elt*
+"s"[0-9\']* -> Finite-Set
+
+
+module obs/data/booleans/Bool
+
+imports obs/layout/Layout
+
+exports
+  sorts Bool BoolConst
+  context-free syntax
+
+  "true"        -> BoolConst {cons("true")}
+  "false"       -> BoolConst {cons("false")}
+  BoolConst     -> Bool {cons("bool")}
+
+  "not" arg:Bool    -> Bool {prefer, cons("not")}
+
+  lhs:Bool "|" rhs:Bool -> Bool {left, cons("or")}
+  lhs:Bool "&" rhs:Bool -> Bool {left, cons("and")}
+  "(" Bool ")"       -> Bool {bracket, cons("bracket-bool")}
+
+context-free priorities
+  Bool "&" Bool -> Bool >
+  Bool "|" Bool -> Bool
+
+hiddens
+  variables
+    "b"[0-9]* -> Bool
+
+
+module obs/layout/Layout
+
+exports lexical syntax
+  %% added by TVDS
+  "~~" ~[\n]* [\n] -> LAYOUT
+  "%%" ~[\n]* [\n] -> LAYOUT
+
+  [\ \t\n]      -> LAYOUT
+
+context-free restrictions
+
+  LAYOUT? -/- [\ \t\n]
+
+
+
+
+
+module obs/aux/structs/Environment
+
+imports obs/aux/structs/Finite-Map[Environment-Key Environment-Value]
+		  [Finite-Map => Environment]
+
+exports
+
+sorts Environment
+
+context-free syntax
+
+new-environment() -> Environment

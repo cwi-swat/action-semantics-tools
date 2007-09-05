@@ -1,0 +1,19 @@
+module an/sem/internal/Agents
+
+imports dn/sem/internal/Agent 
+	an/sem/internal/Natural-Map
+	[Agent][Natural-Map=>Schedule Natural-Entry=>Schedule-Entry]
+	
+	aux/Finite-Map[Agent Action][Finite-Map=>Actions Entry=>Actions-Entry]
+	aux/List[Agent][List => Agents]
+
+exports
+
+sorts Schedule Actions Agents
+
+context-free syntax
+	empty-agents() -> Agents {cons("empty-agents")}
+	empty-actions() -> Actions {cons("empty-actions")}
+	empty-schedule() -> Schedule {cons("empty-schedule")}
+
+

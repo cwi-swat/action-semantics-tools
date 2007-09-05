@@ -1,0 +1,271 @@
+\hypertarget{classListImpl}{
+\section{List\-Impl  Class Reference}
+\label{classListImpl}\index{ListImpl@{List\-Impl}}
+}
+Inheritance diagram for List\-Impl:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{classListImpl__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for List\-Impl:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{classListImpl__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceDataValue}{Data\-Value} \hyperlink{classListImpl_a0}{head} () throws \hyperlink{classExceptional}{Exceptional}
+\item 
+\hyperlink{interfaceList}{List} \hyperlink{classListImpl_a1}{tail} ()
+\item 
+\hyperlink{interfaceList}{List} \hyperlink{classListImpl_a2}{insert} (\hyperlink{interfaceDataValue}{Data\-Value} data\-Value)
+\item 
+\hyperlink{interfaceList}{List} \hyperlink{classListImpl_a3}{append} (\hyperlink{interfaceDataValue}{Data\-Value} data\-Value)
+\item 
+\hyperlink{interfaceList}{List} \hyperlink{classListImpl_a4}{concat} (\hyperlink{interfaceList}{List} list)
+\item 
+\hyperlink{interfaceEmpty}{Empty} \hyperlink{classListImpl_a5}{equals} (\hyperlink{interfaceData}{Data} data) throws \hyperlink{classExceptional}{Exceptional}
+\end{CompactItemize}
+\subsection*{Private Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{classListImpl_c0}{List\-Impl} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory})
+\item 
+\hyperlink{classListImpl_c1}{List\-Impl} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory}, \hyperlink{interfaceDataValue}{Data\-Value} head)
+\item 
+\hyperlink{classListImpl_c2}{List\-Impl} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory}, \hyperlink{interfaceDataValue}{Data\-Value} head, \hyperlink{interfaceList}{List} tail)
+\end{CompactItemize}
+\subsection*{Static Private Methods}
+\begin{CompactItemize}
+\item 
+void \hyperlink{classListImpl_f0}{init} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory})
+\item 
+\hyperlink{interfaceList}{List} \hyperlink{classListImpl_f1}{empty} ()
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceDataValue}{Data\-Value} \hyperlink{classListImpl_o0}{\_\-head}
+\item 
+\hyperlink{interfaceList}{List} \hyperlink{classListImpl_o1}{\_\-tail}
+\end{CompactItemize}
+\subsection*{Static Private Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceList}{List} \hyperlink{classListImpl_r0}{\_\-empty}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classListImpl_c0}{
+\index{ListImpl@{List\-Impl}!ListImpl@{ListImpl}}
+\index{ListImpl@{ListImpl}!ListImpl@{List\-Impl}}
+\subsubsection[ListImpl]{\setlength{\rightskip}{0pt plus 5cm}List\-Impl::List\-Impl (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory})\hspace{0.3cm}{\tt  \mbox{[}inline, private\mbox{]}}}}
+\label{classListImpl_c0}
+
+
+
+
+Definition at line 21 of file List\-Impl.java.\footnotesize\begin{verbatim}00021                                           {
+00022         this(factory, null, null);
+00023     }
+\end{verbatim}\normalsize 
+\hypertarget{classListImpl_c1}{
+\index{ListImpl@{List\-Impl}!ListImpl@{ListImpl}}
+\index{ListImpl@{ListImpl}!ListImpl@{List\-Impl}}
+\subsubsection[ListImpl]{\setlength{\rightskip}{0pt plus 5cm}List\-Impl::List\-Impl (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory}, \hyperlink{interfaceDataValue}{Data\-Value} {\em head})\hspace{0.3cm}{\tt  \mbox{[}inline, private\mbox{]}}}}
+\label{classListImpl_c1}
+
+
+
+
+Definition at line 25 of file List\-Impl.java.\footnotesize\begin{verbatim}00025                                                   {
+00026         this(factory, head, _empty);
+00027     }
+\end{verbatim}\normalsize 
+\hypertarget{classListImpl_c2}{
+\index{ListImpl@{List\-Impl}!ListImpl@{ListImpl}}
+\index{ListImpl@{ListImpl}!ListImpl@{List\-Impl}}
+\subsubsection[ListImpl]{\setlength{\rightskip}{0pt plus 5cm}List\-Impl::List\-Impl (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory}, \hyperlink{interfaceDataValue}{Data\-Value} {\em head}, \hyperlink{interfaceList}{List} {\em tail})\hspace{0.3cm}{\tt  \mbox{[}inline, private\mbox{]}}}}
+\label{classListImpl_c2}
+
+
+
+
+Definition at line 29 of file List\-Impl.java.\footnotesize\begin{verbatim}00029                                                              {
+00030         super(factory);
+00031         _head = head;
+00032         _tail = tail;
+00033     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classListImpl_a3}{
+\index{ListImpl@{List\-Impl}!append@{append}}
+\index{append@{append}!ListImpl@{List\-Impl}}
+\subsubsection[append]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceList}{List} List\-Impl::append (\hyperlink{interfaceDataValue}{Data\-Value} {\em data\-Value})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classListImpl_a3}
+
+
+
+
+Reimplemented from \hyperlink{interfaceList_a3}{List}.
+
+Definition at line 50 of file List\-Impl.java.\footnotesize\begin{verbatim}00050                                             {
+00051         if (this == _empty) 
+00052             return new ListImpl(factory, dataValue);
+00053         return new ListImpl(factory, _head, _tail.append(dataValue));
+00054     }
+\end{verbatim}\normalsize 
+\hypertarget{classListImpl_a4}{
+\index{ListImpl@{List\-Impl}!concat@{concat}}
+\index{concat@{concat}!ListImpl@{List\-Impl}}
+\subsubsection[concat]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceList}{List} List\-Impl::concat (\hyperlink{interfaceList}{List} {\em list})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classListImpl_a4}
+
+
+
+
+Reimplemented from \hyperlink{interfaceList_a4}{List}.
+
+Definition at line 56 of file List\-Impl.java.\footnotesize\begin{verbatim}00056                                   {
+00057         if (list == _empty) 
+00058             return this;
+00059         if (this == _empty)
+00060             return list;
+00061         return new ListImpl(factory, _head, _tail.concat(list));
+00062     }
+\end{verbatim}\normalsize 
+\hypertarget{classListImpl_f1}{
+\index{ListImpl@{List\-Impl}!empty@{empty}}
+\index{empty@{empty}!ListImpl@{List\-Impl}}
+\subsubsection[empty]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceList}{List} List\-Impl::empty ()\hspace{0.3cm}{\tt  \mbox{[}inline, static, private\mbox{]}}}}
+\label{classListImpl_f1}
+
+
+
+
+Definition at line 17 of file List\-Impl.java.\footnotesize\begin{verbatim}00017                         {
+00018         return _empty;
+00019     }
+\end{verbatim}\normalsize 
+\hypertarget{classListImpl_a5}{
+\index{ListImpl@{List\-Impl}!equals@{equals}}
+\index{equals@{equals}!ListImpl@{List\-Impl}}
+\subsubsection[equals]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceEmpty}{Empty} List\-Impl::equals (\hyperlink{interfaceData}{Data} {\em data})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classListImpl_a5}
+
+
+
+
+Reimplemented from \hyperlink{classDataValueImpl_a5}{Data\-Value\-Impl}.
+
+Definition at line 64 of file List\-Impl.java.\footnotesize\begin{verbatim}00064                                                       {
+00065         if (this == data)
+00066             return factory.makeEmpty();
+00067         if (data instanceof List) {
+00068             if (_head.equals(((List)data).head()) == factory.makeEmpty())
+00069                 return _tail.equals(((List)data).tail());
+00070         }
+00071         throw new Exceptional(factory.makeEmpty());
+00072     }
+\end{verbatim}\normalsize 
+\hypertarget{classListImpl_a0}{
+\index{ListImpl@{List\-Impl}!head@{head}}
+\index{head@{head}!ListImpl@{List\-Impl}}
+\subsubsection[head]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceDataValue}{Data\-Value} List\-Impl::head ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classListImpl_a0}
+
+
+
+
+Reimplemented from \hyperlink{interfaceList_a0}{List}.
+
+Definition at line 36 of file List\-Impl.java.\footnotesize\begin{verbatim}00036                                                {
+00037         if (this == _empty)
+00038             throw new Exceptional(factory.makeEmpty());
+00039         return _head;
+00040     }
+\end{verbatim}\normalsize 
+\hypertarget{classListImpl_f0}{
+\index{ListImpl@{List\-Impl}!init@{init}}
+\index{init@{init}!ListImpl@{List\-Impl}}
+\subsubsection[init]{\setlength{\rightskip}{0pt plus 5cm}void List\-Impl::init (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory})\hspace{0.3cm}{\tt  \mbox{[}inline, static, private\mbox{]}}}}
+\label{classListImpl_f0}
+
+
+
+
+Definition at line 13 of file List\-Impl.java.\footnotesize\begin{verbatim}00013                                           {
+00014         _empty = new ListImpl(factory);
+00015     }
+\end{verbatim}\normalsize 
+\hypertarget{classListImpl_a2}{
+\index{ListImpl@{List\-Impl}!insert@{insert}}
+\index{insert@{insert}!ListImpl@{List\-Impl}}
+\subsubsection[insert]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceList}{List} List\-Impl::insert (\hyperlink{interfaceDataValue}{Data\-Value} {\em data\-Value})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classListImpl_a2}
+
+
+
+
+Reimplemented from \hyperlink{interfaceList_a2}{List}.
+
+Definition at line 46 of file List\-Impl.java.\footnotesize\begin{verbatim}00046                                             {
+00047         return new ListImpl(factory, dataValue, new ListImpl(factory, _head, _tail));
+00048     }
+\end{verbatim}\normalsize 
+\hypertarget{classListImpl_a1}{
+\index{ListImpl@{List\-Impl}!tail@{tail}}
+\index{tail@{tail}!ListImpl@{List\-Impl}}
+\subsubsection[tail]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceList}{List} List\-Impl::tail ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classListImpl_a1}
+
+
+
+
+Reimplemented from \hyperlink{interfaceList_a1}{List}.
+
+Definition at line 42 of file List\-Impl.java.\footnotesize\begin{verbatim}00042                        {
+00043         return _tail;
+00044     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classListImpl_r0}{
+\index{ListImpl@{List\-Impl}!_empty@{\_\-empty}}
+\index{_empty@{\_\-empty}!ListImpl@{List\-Impl}}
+\subsubsection[\_\-empty]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceList}{List} List\-Impl::\_\-empty\hspace{0.3cm}{\tt  \mbox{[}static, private\mbox{]}}}}
+\label{classListImpl_r0}
+
+
+
+
+Definition at line 8 of file List\-Impl.java.\hypertarget{classListImpl_o0}{
+\index{ListImpl@{List\-Impl}!_head@{\_\-head}}
+\index{_head@{\_\-head}!ListImpl@{List\-Impl}}
+\subsubsection[\_\-head]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceDataValue}{Data\-Value} List\-Impl::\_\-head\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classListImpl_o0}
+
+
+
+
+Definition at line 10 of file List\-Impl.java.\hypertarget{classListImpl_o1}{
+\index{ListImpl@{List\-Impl}!_tail@{\_\-tail}}
+\index{_tail@{\_\-tail}!ListImpl@{List\-Impl}}
+\subsubsection[\_\-tail]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceList}{List} List\-Impl::\_\-tail\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{classListImpl_o1}
+
+
+
+
+Definition at line 11 of file List\-Impl.java.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{ListImpl_8java-source}{List\-Impl.java}\end{CompactItemize}

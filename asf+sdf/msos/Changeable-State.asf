@@ -1,0 +1,9 @@
+equations
+
+[comp]	pair(s1,s) $ pair(s,s2) = pair(s1,s2)
+
+[pr]	pre(pair(s1,s2)) = s1
+
+[pos]	post(pair(s1,s2)) = s2
+
+[uno]	unobs(s) = pair(s,s)

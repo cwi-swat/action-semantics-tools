@@ -1,0 +1,2 @@
+fa-to-decls(unfolding (copy then unfold then give_+_), new-environment().pos:=1)
+

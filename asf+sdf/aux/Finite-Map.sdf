@@ -1,0 +1,39 @@
+module aux/Finite-Map[Key Value]
+
+imports basic/Whitespace
+	basic/Booleans
+
+exports
+
+sorts Finite-Map Key Value
+
+exports
+
+context-free syntax
+	"[" "]" -> Finite-Map {cons("empty-map")}
+	Finite-Map Entry -> Finite-Map {cons("non-empty-map")}
+	"[" Value "/" Key "]" -> Entry {cons("map-entry")}
+	"(" Finite-Map ")" -> Finite-Map {bracket,cons("map-bracket")}
+
+	eval(Key, Finite-Map) -> Value {cons("eval-map")}
+	Finite-Map "@" Key -> Value {cons("eval-at-map")}
+	
+	is-empty(Finite-Map) -> Boolean {cons("is-empty")}
+
+	Finite-Map "+" Entry -> Finite-Map {cons("plus-map-entry")}
+	Finite-Map "-" Entry -> Finite-Map {cons("minus-map-entry")}
+	Finite-Map "-" Key -> Finite-Map {cons("minus-key")}
+	Finite-Map "--" Value -> Finite-Map {cons("minus-value")}
+	Finite-Map "+" Finite-Map -> Finite-Map {left,cons("map-plus-map")}
+
+	has-key(Key, Finite-Map) -> Boolean {cons("has-key")}
+	has-value(Value, Finite-Map) -> Boolean {cons("has-value")}
+	
+
+	
+
+hiddens
+variables
+	"m"[0-9\']* -> Finite-Map
+	"k"[0-9\']* -> Key
+	"v"[0-9\']* -> Value

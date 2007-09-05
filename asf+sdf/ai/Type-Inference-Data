@@ -1,0 +1,72 @@
+equations
+
+[t1]    type(A) = action
+[t2]    type(tk) = token
+[t2]    type(true) = bool
+[t3]    type(false) = bool
+[t4]    type(no bindings) = bindings
+[t4]    type(bs) = bindings
+[t4]    type((d1,d2,d+)) = type(d1) * type((d2,d+))
+[t5]    type((d1,d2)) = type(d2) * type(d2)
+[t6]    type(n) = int
+[t7]    type(nat) = nat
+%%[t8]  type(pos) = pos
+[t7]    type(cell) = cell
+[t7]    type(ag) = agent
+[t7]    type(mt) = message-tag
+[t8]    type(()) = ()
+[t]	type(p) = pair
+[t]	type(set) = set
+
+[t9]    type(_then_) = action
+[t10]   type(_ and then _) = action
+[t11]   type(_ and _) = action
+[t12]   type(_ exceptionally _) = action
+[t13]   type(_ and exceptionally _) = action
+[t14]   type(indivisibly _) = action
+[t15]   type(_ otherwise _) = action
+[t16]   type(provide _) = action
+[t17]   type(_ hence _) = action
+[t18]   type(not _) = bool
+[t19]   type(_+_) = int
+[t20]   type(_*_) = int
+[t21]   type(_-_) = int
+[t22]   type(_-?_) = nat
+[t23]   type(the ds _) = ds
+
+[t24]   type(# 1 _) = datum * 2
+[t24]	type(# nat-con _) = datum * nat-con
+		when nat-con > 1 = true
+
+[t25]   type(tupleToList_) = list
+[t26]   type(bound_) = data
+[t27]   type(binding_) = bindings
+[t28]   type(overriding _) = bindings
+[t29]   type(disjoint union _) = bindings
+
+[s09]   sig(_ then _) = (action, action)
+[s10]   sig(_ and then _) = (action, action)
+[s11]   sig(_ and _) = (action,action)
+[s12]   sig(_ exceptionally _) = (action,action)
+[s13]   sig(_ and exceptionally _) = (action,action)
+[s14]   sig(indivisibly _) = action
+[s15]   sig(_ otherwise _) = (action,action)
+[s16]   sig(provide _) = data
+[s17]   sig(_ hence _) = (action,action)
+[s18]   sig(not _) = bool
+[s19]   sig(_+_) = (int,int)
+[s20]   sig(_*_) = (int,int)
+[s21]   sig(_-_) = (int,int)
+[s22]   sig(_-?_) = (int,int)
+[s23]   sig(the ds _) = ds
+[s24]   sig(# nat-con _) = data
+[s25]   sig(tupleToList_) = data
+[s26]   sig(bound_) = (bindings,token)
+[s27]   sig(binding_) = (token,datum)
+[s28]   sig(overriding _) = (bindings,bindings)
+[s29]   sig(disjoint union _) = (bindings,bindings)
+[s30]   sig(_=_) = (datum,datum)
+[s30]   sig(_<=_) = (int,int)
+[s30]   sig(_>=_) = (int,int)
+[s30]   sig(_>_) = (int,int)
+[s30]   sig(_<_) = (int,int)

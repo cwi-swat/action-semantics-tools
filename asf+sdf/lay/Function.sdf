@@ -1,0 +1,33 @@
+module lay/Function[Level Name X Y]
+
+exports
+
+sorts Level
+
+context-free syntax
+
+	%% To be defined by user
+	"_|_" -> Level 
+	"~|~" -> Level 
+%%	bot -> Level {prefer}	
+%%	top -> Level {prefer}
+
+	pred(Level) -> Level {prefer}
+
+	Name "(" X ")" -> Y
+	Name "(" Level ","  X ")" -> Y
+
+
+hiddens
+
+imports basic/Whitespace
+
+
+variables
+	"x"[0-9\']* -> X
+	"y"[0-9\']* -> Y
+	"l"[0-9\']* -> Level
+	"f"[0-9\']* -> Name
+
+
+

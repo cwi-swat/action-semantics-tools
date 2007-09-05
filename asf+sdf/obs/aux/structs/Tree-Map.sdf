@@ -1,0 +1,52 @@
+module obs/aux/structs/Tree-Map[Key Value]
+
+%% Note: to use this, implement elt-gt and elt-lt for Key!
+
+imports obs/aux/structs/Balanced-Tree[Key # Value] [Tree => Tree-Map] 
+
+
+exports
+
+sorts Tree-Map
+
+context-free syntax
+
+elt-gt(Key,Key) -> Bool
+elt-lt(Key,Key) -> Bool
+
+Tree-Map "." Key ":=" Value -> Tree-Map
+Tree-Map "." Key -> Value
+
+get(Tree-Map, Key) -> Value
+put(Tree-Map, Key, Value) -> Tree-Map
+has-key(Tree-Map, Key) -> Bool
+
+Tree-Map "-" Tree-Map -> Tree-Map {left}
+"(" Tree-Map ")" -> Tree-Map {bracket}
+
+Tree-Map "+" Tree-Map -> Tree-Map {assoc}
+
+Tree-Map "+/" Tree-Map -> Tree-Map {assoc}
+
+intersect(Tree-Map,Tree-Map) -> Tree-Map
+
+empty-tree-map() -> Tree-Map
+
+domain(Tree-Map) -> Key*
+
+hiddens
+
+sorts Key # Value (Key # Value)*
+
+context-free syntax
+
+"NULL" -> Value {cons("NULL")}
+domain((Key # Value)*) -> Key*
+
+variables
+"t"[0-9\']* -> Tree-Map
+"k"[0-9\']* -> Key
+"k*"[0-9\']* -> Key*
+"kv*"[0-9\']* -> (Key # Value)*
+"v"[0-9\']* -> Value
+

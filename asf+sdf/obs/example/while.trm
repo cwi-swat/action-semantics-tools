@@ -1,0 +1,23 @@
+exec+history(
+execute [[
+z := 1
+%%while z = 2 do
+%%	z := 5
+%%od
+
+]]
+
+then evaluate [[ z ]]
+
+,[], [])
+
+%%exec+history(unfolding (provide (1,2) then check _=_ otherwise unfold), [], [])
+
+%%exec+history(execute [[ z := 5 ]], [], [])
+%%exec+history(provide 5 then create, [], [])
+%%exec+history(provide (z, 5) then give binding, [] , [])
+%%exec+history(execute [[ z:= 5]] then evaluate [[ z = 1 ]], [], [])
+
+
+%%exec+history(execute [[ z := 2 + 5 ]], [], [])
+

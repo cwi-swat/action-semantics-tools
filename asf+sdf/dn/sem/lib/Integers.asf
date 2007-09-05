@@ -1,0 +1,19 @@
+equations
+
+[th]	result the int_ n = n
+
+[add]	result _+_ (n1,n2) = n1+n2
+
+[min]	result _-_ (n1,n2) = n1-n2
+
+[tim]	result _*_ (n1,n2) = n1*n2
+
+[asc]	result the int_ n = n
+
+[gt1]	holds _>_ (n1,n2) = n1 > n2
+
+[lt2]	holds _<_ (n1,n2) = n1 < n2
+
+[ge]	holds _>=_ (n1,n2) = n1 >= n2
+
+[le]	holds _<=_ (n1,n2) = n1 <= n2

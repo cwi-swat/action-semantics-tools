@@ -1,0 +1,28 @@
+equations
+
+[dom1]	dom([]) = empty-set()
+
+[dom1]	dom(m[v/n]) = dom(m) + n
+
+[min1]	min(s) = min(head(s), s)
+
+[min2]	min(n, s) = min(n, tail(s))
+		when n < head(s) = true
+
+[min3]	min(n, s) = min(head(s), tail(s))
+		when n >= head(s) = true
+
+[min4]	min(n, s) = n when s = empty-set()
+
+[max1]	max(s) = max(head(s), s)
+
+[max2]	max(n, s) = max(n, tail(s))
+		when n > head(s) = true
+
+[max3]	max(n, s) = max(head(s), tail(s))
+		when n <= head(s) = true
+
+[max4]	max(n, s) = n when s = empty-set()
+
+
+[excl]	m ! n = eval(n, m)

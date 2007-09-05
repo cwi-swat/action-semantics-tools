@@ -1,0 +1,18 @@
+equations
+
+[sos28]	s@data = d,
+	result o d = d',
+	d' != nothing
+	===
+	s |- give o = <normal d', s>
+
+[default-sos29]
+	s |- give o = <exceptional (), s>
+
+[sos30]	s@data = d,
+	holds q d = true
+	===
+	s |- check q = <normal (), s>
+
+[default-sos31]
+	s |- check q = <exceptional (), s>

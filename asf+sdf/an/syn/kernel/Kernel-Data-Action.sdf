@@ -1,0 +1,14 @@
+module an/syn/kernel/Kernel-Data-Action
+
+imports an/syn/kernel/Normal-Outcome 
+	an/syn/kernel/Exceptional-Outcome
+	dn/syn/kernel/Kernel-Data
+
+exports
+
+sorts Action
+
+context-free syntax
+	"give" DataOp -> Action {cons("give-dataop")}
+	"check" DataPred -> Action {cons("check-datapred")}
+

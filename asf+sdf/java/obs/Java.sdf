@@ -1,0 +1,322 @@
+module java/Java
+exports
+  sorts CompilationUnit
+
+  context-free syntax
+    IntegerLiteral -> Literal {cons("IntLit")}
+    FloatingPointLiteral -> Literal {cons("FloatLit")}
+    BooleanLiteral -> Literal {cons("BoolLit")}
+    CharacterLiteral -> Literal {cons("CharLit")}
+    StringLiteral -> Literal {cons("StringLit")}
+    "null" -> Literal {cons("Null")}
+
+  sorts Type
+
+  context-free syntax
+    PrimitiveType -> Type
+    ReferenceType -> Type
+    NumericType -> PrimitiveType
+    "boolean" -> PrimitiveType {cons("BoolType")}
+    IntegralType -> NumericType
+    FloatingPointType -> NumericType
+    "byte" -> IntegralType {cons("ByteType")}
+    "short" -> IntegralType {cons("ShortType")}
+    "int" -> IntegralType {cons("IntType")}
+    "long" -> IntegralType {cons("LongType")}
+    "char" -> IntegralType {cons("CharType")}
+    "float" -> FloatingPointType {cons("FloatType")}
+    "double" -> FloatingPointType {cons("DoubleType")}
+    ClassOrInterfaceType -> ReferenceType
+    ArrayType -> ReferenceType
+    Name -> ClassOrInterfaceType
+    ClassOrInterfaceType -> ClassType
+    ClassOrInterfaceType -> InterfaceType
+    ( PrimitiveType | Name | ArrayType ) "[" "]" -> ArrayType {cons("ArrayType")}
+
+  context-free syntax
+    {Identifier "."}+ -> Name {cons("Name")}
+    Identifier -> SimpleName {cons("Id")}
+
+  context-free syntax
+    PackageDeclaration ImportDeclarations TypeDeclarations -> CompilationUnit {cons("CompilationUnit")}
+    ImportDeclaration* -> ImportDeclarations {cons("Imports")}
+    TypeDeclaration* -> TypeDeclarations {cons("TypeDecls")}
+     -> PackageDeclaration {cons("NoPackage")}
+    "package" Name ";" -> PackageDeclaration {cons("Package")}
+    SingleTypeImportDeclaration -> ImportDeclaration
+    TypeImportOnDemandDeclaration -> ImportDeclaration
+    "import" Name ";" -> SingleTypeImportDeclaration {cons("SingleTypeImport")}
+    "import" Name "." "*" ";" -> TypeImportOnDemandDeclaration {cons("TypeOnDemandImport")}
+    ClassDeclaration -> TypeDeclaration
+    InterfaceDeclaration -> TypeDeclaration
+    ";" -> TypeDeclaration {cons("EmptyTypeDeclaration")}
+
+  context-free syntax
+    Modifier* -> Modifiers
+    "public" -> Modifier {cons("Public")}
+    "protected" -> Modifier {cons("Protected")}
+    "private" -> Modifier {cons("Private")}
+    "static" -> Modifier {cons("Static")}
+    "abstract" -> Modifier {cons("Abstract")}
+    "final" -> Modifier {cons("Final")}
+    "native" -> Modifier {cons("Native")}
+    "synchronized" -> Modifier {cons("Synchronized")}
+    "transient" -> Modifier {cons("Transient")}
+    "volatile" -> Modifier {cons("Volatile")}
+
+  sorts ClassDeclaration
+
+  context-free syntax
+    Modifier* "class" Identifier Super? Interfaces? ClassBody -> ClassDeclaration {cons("Class")}
+    "extends" ClassType -> Super {cons("Extends")}
+    "implements" {InterfaceType ","}+ -> Interfaces {cons("Implements")}
+    "{" ClassBodyDeclaration* "}" -> ClassBody {cons("ClassBody")}
+    ClassMemberDeclaration -> ClassBodyDeclaration
+    StaticInitializer -> ClassBodyDeclaration
+    ConstructorDeclaration -> ClassBodyDeclaration
+    FieldDeclaration -> ClassMemberDeclaration
+    MethodDeclaration -> ClassMemberDeclaration
+  
+    %% Added by tvds: inner classes
+    ClassDeclaration -> ClassBodyDeclaration
+
+
+  sorts FieldDeclaration
+
+  context-free syntax
+    Modifier* Type {VariableDeclarator ","}+ ";" -> FieldDeclaration {cons("FieldDec")}
+    VariableDeclaratorId VariableInitializer? -> VariableDeclarator {cons("VarDeclarator")}
+    Identifier -> VariableDeclaratorId
+    VariableDeclaratorId "[" "]" -> VariableDeclaratorId {cons("ArrayField")}
+    "=" Expression -> VariableInitializer {cons("InitVar")}
+    "=" ArrayInitializer -> VariableInitializer {cons("InitArray")}
+    "{" {VariableInitializer ","}* ","? "}" -> ArrayInitializer {cons("ArrayInitializer")}
+
+  sorts MethodDeclaration
+
+  context-free syntax
+    MethodHeader MethodBody -> MethodDeclaration {cons("Method")}
+    Modifier* ReturnType Identifier "(" {FormalParameter ","}* ")" ArrayMethod* Throws? -> MethodHeader {cons("Header")}
+    "[" "]" -> ArrayMethod {cons("ArrayMethod-dunno-a_0")}
+    "void" -> ReturnType {cons("Void")}
+    Type -> ReturnType
+    Type VariableDeclaratorId -> FormalParameter {cons("Param")}
+    "throws" {ClassType ","}+ -> Throws {cons("Throws")}
+    Block -> MethodBody
+    ";" -> MethodBody {cons("EmptyBody")}
+    "static" Block -> StaticInitializer {cons("Static1")}
+
+  sorts ConstructorDeclaration
+
+  context-free syntax
+    Modifier* SimpleName "(" {FormalParameter ","}* ")" Throws? "{" ExplicitConstructorInvocation? BlockStatement* "}" -> ConstructorDeclaration {cons("Constructor")}
+    "super" "(" {Expression ","}* ")" ";" -> ExplicitConstructorInvocation {cons("CallSuperConstructor")}
+    "this" "(" {Expression ","}* ")" ";" -> ExplicitConstructorInvocation {cons("CallThisConstructor")}
+
+  sorts InterfaceDeclaration
+
+  context-free syntax
+    Modifier* "interface" Identifier ExtendsInterfaces? "{" InterfaceMemberDeclaration* "}" -> InterfaceDeclaration {cons("Interface")}
+    "extends" {InterfaceType ","}+ -> ExtendsInterfaces {cons("ExtendsInterfaces")}
+    ConstantDeclaration -> InterfaceMemberDeclaration
+    AbstractMethodDeclaration -> InterfaceMemberDeclaration
+    FieldDeclaration -> ConstantDeclaration
+    MethodHeader ";" -> AbstractMethodDeclaration {cons("AbstractMethod")}
+
+  sorts Block Statement
+
+  context-free syntax
+    "{" BlockStatement* "}" -> Block {cons("Block")}
+    LocalVariableDeclarationStatement -> BlockStatement
+    Statement -> BlockStatement
+    Type {VariableDeclarator ","}+ ";" -> LocalVariableDeclarationStatement {cons("VarDec")}
+    Type {VariableDeclarator ","}+ -> LocalVariableDeclaration {cons("ForVarDec")}
+    StatementWithoutTrailingSubstatement -> Statement
+    LabeledStatement -> Statement
+    IfThenStatement -> Statement
+    IfThenElseStatement -> Statement
+    WhileStatement -> Statement
+    ForStatement -> Statement
+    StatementWithoutTrailingSubstatement -> StatementNoShortIf
+    LabeledStatementNoShortIf -> StatementNoShortIf
+    IfThenElseStatementNoShortIf -> StatementNoShortIf
+    WhileStatementNoShortIf -> StatementNoShortIf
+    ForStatementNoShortIf -> StatementNoShortIf
+    Block -> StatementWithoutTrailingSubstatement
+    EmptyStatement -> StatementWithoutTrailingSubstatement
+    ExpressionStatement -> StatementWithoutTrailingSubstatement
+    SwitchStatement -> StatementWithoutTrailingSubstatement
+    DoStatement -> StatementWithoutTrailingSubstatement
+    BreakStatement -> StatementWithoutTrailingSubstatement
+    ContinueStatement -> StatementWithoutTrailingSubstatement
+    ReturnStatement -> StatementWithoutTrailingSubstatement
+    SynchronizedStatement -> StatementWithoutTrailingSubstatement
+    ThrowStatement -> StatementWithoutTrailingSubstatement
+    TryStatement -> StatementWithoutTrailingSubstatement
+    ";" -> EmptyStatement {cons("EmptyStatement")}
+    Identifier ":" Statement -> LabeledStatement {cons("Labeled")}
+    Identifier ":" StatementNoShortIf -> LabeledStatementNoShortIf {cons("Labeled1")}
+    StatementExpression ";" -> ExpressionStatement {cons("Stat")}
+    Assignment -> StatementExpression
+    PreIncrementExpression -> StatementExpression
+    PreDecrementExpression -> StatementExpression
+    PostIncrementExpression -> StatementExpression
+    PostDecrementExpression -> StatementExpression
+    MethodInvocation -> StatementExpression
+    ClassInstanceCreationExpression -> StatementExpression
+
+  sorts IfThenStatement
+
+  context-free syntax
+    "if" "(" Expression ")" Statement -> IfThenStatement {cons("If")}
+    "if" "(" Expression ")" StatementNoShortIf "else" Statement -> IfThenElseStatement {cons("IfElse")}
+    "if" "(" Expression ")" StatementNoShortIf "else" StatementNoShortIf -> IfThenElseStatementNoShortIf {cons("IfElse1")}
+
+  sorts SwitchStatement
+
+  context-free syntax
+    "switch" "(" Expression ")" "{" SwitchBlockStatementGroup* SwitchLabel* "}" -> SwitchStatement {cons("Switch")}
+    SwitchLabel+ BlockStatement+ -> SwitchBlockStatementGroup {cons("SwitchGroup")}
+    "case" ConstantExpression ":" -> SwitchLabel {cons("Case")}
+    "default" ":" -> SwitchLabel {cons("Default")}
+
+  sorts WhileStatement
+
+  context-free syntax
+    "while" "(" Expression ")" Statement -> WhileStatement {cons("While")}
+    "while" "(" Expression ")" StatementNoShortIf -> WhileStatementNoShortIf {cons("While1")}
+    "do" Statement "while" "(" Expression ")" ";" -> DoStatement {cons("DoWhile")}
+
+  sorts ForStatement
+
+  context-free syntax
+    "for" "(" ForInit ";" Expression? ";" {StatementExpression ","}* ")" Statement -> ForStatement {cons("For")}
+    "for" "(" ForInit ";" Expression? ";" {StatementExpression ","}* ")" StatementNoShortIf -> ForStatementNoShortIf {cons("For1")}
+    {StatementExpression ","}* -> ForInit {cons("ForInit")}
+    LocalVariableDeclaration -> ForInit {cons("ForVarDecl")}
+    "break" Identifier? ";" -> BreakStatement {cons("Break")}
+    "continue" Identifier? ";" -> ContinueStatement {cons("Continue")}
+    "return" Expression? ";" -> ReturnStatement {cons("Return")}
+    "throw" Expression ";" -> ThrowStatement {cons("Throw")}
+    "synchronized" "(" Expression ")" Block -> SynchronizedStatement {cons("Synchronized1")}
+
+  sorts TryStatement
+
+  context-free syntax
+    "try" Block Catches Finally? -> TryStatement {cons("Try")}
+    %%"try" Block Catches? Finally -> TryStatement {cons("Try1")}
+    CatchClause+ -> Catches
+    "catch" "(" FormalParameter ")" Block -> CatchClause {cons("Catch")}
+    "finally" Block -> Finally {cons("Finally")}
+
+  sorts 
+
+  context-free syntax
+    PrimaryNoNewArray -> Primary
+    ArrayCreationExpression -> Primary
+    Literal -> PrimaryNoNewArray
+    "this" -> PrimaryNoNewArray {cons("This")}
+    "(" Expression ")" -> PrimaryNoNewArray %%{bracket}
+    ClassInstanceCreationExpression -> PrimaryNoNewArray
+    FieldAccess -> PrimaryNoNewArray
+    MethodInvocation -> PrimaryNoNewArray
+    ArrayAccess -> PrimaryNoNewArray
+
+  context-free syntax
+    "new" ClassType "(" {Expression ","}* ")" -> ClassInstanceCreationExpression {cons("New")}
+
+
+%% Added by TVDS for anonymous inner classes.
+    "new" ClassType "(" {Expression ","}* ")" Super? Interfaces? ClassBody
+	-> ClassInstanceCreationExpression {cons("AnonNew")}
+
+
+    "new" ( PrimitiveType | ClassOrInterfaceType ) DimExprs Dims? -> ArrayCreationExpression {cons("NewArray")}
+    DimExpr+ -> DimExprs
+    "[" Expression "]" -> DimExpr {cons("DimExpr")}
+    "[" "]" -> Dim {cons("Dim")}
+    Dim+ -> Dims {cons("Dims")}
+
+  context-free syntax
+    Primary "." Identifier -> FieldAccess {cons("Get")}
+    "super" "." Identifier -> FieldAccess {cons("GetSuper")}
+
+  context-free syntax
+    MethodName "(" {Expression ","}* ")" -> MethodInvocation {cons("Invoke")}
+    Name -> MethodName {cons("CallName")}
+    Primary "." Identifier -> MethodName {cons("CallDynamic")}
+    "super" "." Identifier -> MethodName {cons("CallSuper")}
+    ( Name | PrimaryNoNewArray ) "[" Expression "]" -> ArrayAccess {cons("GetArray")}
+    Primary -> PostfixExpression
+    Name -> PostfixExpression {cons("Var")}
+    PostIncrementExpression -> PostfixExpression
+    PostDecrementExpression -> PostfixExpression
+    PostfixExpression "++" -> PostIncrementExpression {cons("PostIncr")}
+    PostfixExpression "--" -> PostDecrementExpression {cons("PostDecr")}
+    PreIncrementExpression -> UnaryExpression
+    PreDecrementExpression -> UnaryExpression
+    "+" UnaryExpression -> UnaryExpression {cons("Pos")}
+    "-" UnaryExpression -> UnaryExpression {cons("Neg")}
+    UnaryExpressionNotPlusMinus -> UnaryExpression
+    "++" UnaryExpression -> PreIncrementExpression {cons("PreIncr")}
+    "--" UnaryExpression -> PreDecrementExpression {cons("PreDecr")}
+    PostfixExpression -> UnaryExpressionNotPlusMinus
+    "~" UnaryExpression -> UnaryExpressionNotPlusMinus {cons("Tilde")}
+    "!" UnaryExpression -> UnaryExpressionNotPlusMinus {cons("Not")}
+    CastExpression -> UnaryExpressionNotPlusMinus
+    "(" PrimitiveType Dims? ")" UnaryExpression -> CastExpression {cons("CastType")}
+    "(" Name Dims ")" UnaryExpressionNotPlusMinus -> CastExpression {cons("CastName")}
+    "(" Expression ")" UnaryExpressionNotPlusMinus -> CastExpression {cons("CastExp")}
+    UnaryExpression -> MultiplicativeExpression
+    MultiplicativeExpression "*" UnaryExpression -> MultiplicativeExpression {cons("Mul")}
+    MultiplicativeExpression "/" UnaryExpression -> MultiplicativeExpression {cons("Div")}
+    MultiplicativeExpression "%" UnaryExpression -> MultiplicativeExpression {cons("Mod")}
+    MultiplicativeExpression -> AdditiveExpression
+    AdditiveExpression "+" MultiplicativeExpression -> AdditiveExpression {cons("Add")}
+    AdditiveExpression "-" MultiplicativeExpression -> AdditiveExpression {cons("Sub")}
+    AdditiveExpression -> ShiftExpression
+    ShiftExpression "<<" AdditiveExpression -> ShiftExpression {cons("LShift")}
+    ShiftExpression ">>" AdditiveExpression -> ShiftExpression {cons("RShift")}
+    ShiftExpression ">>>" AdditiveExpression -> ShiftExpression {cons("URShift")}
+    ShiftExpression -> RelationalExpression
+    RelationalExpression "<" ShiftExpression -> RelationalExpression {cons("LT")}
+    RelationalExpression ">" ShiftExpression -> RelationalExpression {cons("GT")}
+    RelationalExpression "<=" ShiftExpression -> RelationalExpression {cons("LE")}
+    RelationalExpression ">=" ShiftExpression -> RelationalExpression {cons("GE")}
+    RelationalExpression "instanceof" ReferenceType -> RelationalExpression {cons("Instanceof")}
+    RelationalExpression -> EqualityExpression
+    EqualityExpression "==" RelationalExpression -> EqualityExpression {cons("EQ")}
+    EqualityExpression "!=" RelationalExpression -> EqualityExpression {cons("NEQ")}
+    EqualityExpression -> AndExpression
+    AndExpression "&" EqualityExpression -> AndExpression {cons("And")}
+    AndExpression -> ExclusiveOrExpression
+    ExclusiveOrExpression "^" AndExpression -> ExclusiveOrExpression {cons("XOR")}
+    ExclusiveOrExpression -> InclusiveOrExpression
+    InclusiveOrExpression "|" ExclusiveOrExpression -> InclusiveOrExpression {cons("Or")}
+    InclusiveOrExpression -> ConditionalAndExpression
+    ConditionalAndExpression "&&" InclusiveOrExpression -> ConditionalAndExpression {cons("CondAnd")}
+    ConditionalAndExpression -> ConditionalOrExpression
+    ConditionalOrExpression "||" ConditionalAndExpression -> ConditionalOrExpression {cons("CondOr")}
+    ConditionalOrExpression -> ConditionalExpression
+    ConditionalOrExpression "?" Expression ":" ConditionalExpression -> ConditionalExpression {cons("Cond")}
+    ConditionalExpression -> AssignmentExpression
+    Assignment -> AssignmentExpression
+    LeftHandSide AssignmentOperator AssignmentExpression -> Assignment {cons("Assign")}
+    Name -> LeftHandSide
+    FieldAccess -> LeftHandSide
+    ArrayAccess -> LeftHandSide
+    "=" -> AssignmentOperator {cons("NormAssign")}
+    "*=" -> AssignmentOperator {cons("MulAssign")}
+    "/=" -> AssignmentOperator {cons("DivAssign")}
+    "%=" -> AssignmentOperator {cons("ModAssign")}
+    "+=" -> AssignmentOperator {cons("AddAssign")}
+    "-=" -> AssignmentOperator {cons("SubAssign")}
+    "<<=" -> AssignmentOperator {cons("LShiftAssign")}
+    ">>=" -> AssignmentOperator {cons("RShiftAssign")}
+    ">>>=" -> AssignmentOperator {cons("URShiftAssign")}
+    "&=" -> AssignmentOperator {cons("AndAssign")}
+    "^=" -> AssignmentOperator {cons("XorAssign")}
+    "|=" -> AssignmentOperator {cons("OrAssign")}
+    AssignmentExpression -> Expression
+    Expression -> ConstantExpression
+

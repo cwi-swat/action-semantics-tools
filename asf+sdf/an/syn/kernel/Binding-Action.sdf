@@ -1,0 +1,15 @@
+module an/syn/kernel/Binding-Action
+
+imports	an/syn/kernel/Normal-Outcome
+	an/syn/kernel/Exceptional-Outcome
+	an/syn/kernel/Failed-Outcome
+
+exports
+
+sorts Action ActionInfix
+
+context-free syntax
+
+	"give" "current" "bindings" -> Action {cons("give-current-bindings")}
+	"hence" -> ActionInfix {cons("hence-infix")}
+

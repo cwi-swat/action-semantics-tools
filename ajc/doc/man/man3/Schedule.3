@@ -1,0 +1,92 @@
+.TH "Schedule" 3 "13 Sep 2002" "Action Java Compiler Runtime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Schedule \- 
+.SH SYNOPSIS
+.br
+.PP
+Inherits \fBScheduling\fP.
+.PP
+.SS "Public Methods"
+
+.in +1c
+.ti -1c
+.RI "synchronized \fBEmpty\fP \fBsend\fP (\fBAgent\fP agent, \fBMessage\fP message, \fBMessageTag\fP messageTag) throws \fBExceptional\fP"
+.br
+.ti -1c
+.RI "synchronized \fBMessage\fP \fBreceive\fP (\fBMessageTag\fP messageTag) throws \fBExceptional\fP"
+.br
+.ti -1c
+.RI "synchronized \fBAgent\fP \fBactivate\fP (\fBAction\fP action)"
+.br
+.ti -1c
+.RI "synchronized \fBEmpty\fP \fBdeactivate\fP (\fBAgent\fP agent) throws \fBExceptional\fP"
+.br
+.ti -1c
+.RI "synchronized \fBAgent\fP \fBcurrentAgent\fP ()"
+.br
+.ti -1c
+.RI "\fBInt\fP \fBcurrentTime\fP ()"
+.br
+.ti -1c
+.RI "\fBInt\fP \fBchooseNatural\fP ()"
+.br
+.in -1c
+.SS "Static Public Methods"
+
+.in +1c
+.ti -1c
+.RI "void \fBinitSchedule\fP (\fBDataFactory\fP factory)"
+.br
+.ti -1c
+.RI "Schedule \fBgetSchedule\fP ()"
+.br
+.in -1c
+.SH "MEMBER FUNCTION DOCUMENTATION"
+.PP 
+.SS "synchronized \fBAgent\fP Schedule::activate (\fBAction\fP action)"
+.PP
+Reimplemented from \fBScheduling\fP.
+.PP
+Definition at line 60 of file Schedule.java.
+.SS "\fBInt\fP Schedule::chooseNatural ()"
+.PP
+Reimplemented from \fBScheduling\fP.
+.PP
+Definition at line 90 of file Schedule.java.
+.SS "synchronized \fBAgent\fP Schedule::currentAgent ()"
+.PP
+Reimplemented from \fBScheduling\fP.
+.PP
+Definition at line 81 of file Schedule.java.
+.SS "\fBInt\fP Schedule::currentTime ()"
+.PP
+Reimplemented from \fBScheduling\fP.
+.PP
+Definition at line 85 of file Schedule.java.
+.SS "synchronized \fBEmpty\fP Schedule::deactivate (\fBAgent\fP agent)"
+.PP
+Reimplemented from \fBScheduling\fP.
+.PP
+Definition at line 70 of file Schedule.java.
+.SS "Schedule Schedule::getSchedule ()\fC [static]\fP"
+.PP
+Definition at line 32 of file Schedule.java.
+.SS "void Schedule::initSchedule (\fBDataFactory\fP factory)\fC [static]\fP"
+.PP
+Definition at line 28 of file Schedule.java.
+.SS "synchronized \fBMessage\fP Schedule::receive (\fBMessageTag\fP messageTag)"
+.PP
+Reimplemented from \fBScheduling\fP.
+.PP
+Definition at line 48 of file Schedule.java.
+.SS "synchronized \fBEmpty\fP Schedule::send (\fBAgent\fP agent, \fBMessage\fP message, \fBMessageTag\fP messageTag)"
+.PP
+Reimplemented from \fBScheduling\fP.
+.PP
+Definition at line 40 of file Schedule.java.
+
+.SH "AUTHOR"
+.PP 
+Generated automatically by Doxygen for Action Java Compiler Runtime from the source code.

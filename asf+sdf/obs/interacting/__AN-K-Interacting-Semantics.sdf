@@ -1,0 +1,65 @@
+module obs/interacting/__AN-K-Interacting-Semantics
+
+imports obs/storing/__AN-K-Storing-Semantics
+	obs/interacting/__AN-K-Interacting 
+	obs/aux/__AN-K-Agents
+	obs/aux/__AN-K-Messages
+	obs/aux/__AN-K-Time
+	obs/aux/structs/Info[Schedule-Index Schedule]
+	obs/aux/structs/Info[Actions-Index Actions]
+	obs/aux/structs/Info[Buffers-Index Buffers]
+	obs/aux/structs/Info[Agents-Index Agents]
+	obs/aux/structs/Info[Agent-Index Agent]
+	obs/aux/structs/Info[Time-Index Time]
+
+
+exports
+
+context-free syntax
+
+"schedule" -> Schedule-Index
+"actions" -> Actions-Index
+"buffers" -> Buffers-Index
+"agents" -> Agents-Index
+"agent" -> Agent-Index
+"time" -> Time-Index
+
+
+mt-exec(Action, Environment) -> Conf
+"mt-exec+" "(" Action "," Environment ")" -> Conf
+
+hiddens
+
+sorts Messages
+
+context-free syntax
+
+check-schedule(Environment) -> Environment
+get-waiting-agent(Environment) -> Agent
+get-action-for-agent(Environment, Agent) -> Action
+update-actions(Environment, Agent, Action) -> Environment
+update-time(Environment) -> Environment
+update-schedule(Environment, Action) -> Environment
+check-buffers(Buffers, Agent) -> Buffers
+check-taggedbuffers(TaggedBuffers, MessageTag) -> TaggedBuffers
+
+
+variables
+"d"[0-9\']* -> Data
+"u"[0-9\']* -> Datum
+"A"[0-9\']* -> Action
+"a"[0-9\']* -> Environment
+"i"[0-9\']* -> Environment
+"n"[0-9\']* -> Int
+"s"[0-9\']* -> Schedule
+"bs"[0-9\']* -> Buffers
+"tbs"[0-9\']* -> TaggedBuffers
+"As"[0-9\']* -> Actions
+"ag"[0-9\']* -> Agent
+"ags"[0-9\']* -> Agents
+"ti"[0-9\']* -> Time
+"m"[0-9\']* -> Datum
+"ms"[0-9\']* -> Messages
+"mt"[0-9\']* -> MessageTag
+"t"[0-9\']* -> Terminated
+

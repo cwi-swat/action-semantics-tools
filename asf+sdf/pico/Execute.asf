@@ -1,0 +1,25 @@
+equations
+
+[ex-e]	execute[[ ]] = skip
+
+[ex-as]	execute[[ Id := Exp ]] =
+		give the cell bound to token of [[ Id ]] and
+		evaluate[[ Exp ]] then update
+
+[ex-if]	execute[[ if Exp then Series1 else Series2 fi ]] =
+		truth of[[ Exp ]] then infallibly select (
+			(given true then execute[[ Series1 ]]) or
+			(given false then execute[[ Series2 ]])
+		)
+
+[ex-wh]	execute[[ while Exp do Series od ]] =
+		unfolding (truth of[[ Exp ]] then infallibly select (
+			(given true then execute[[ Series ]] and then unfold) or
+			(given false then skip))
+		)
+			
+
+[ex-sq]	execute[[ Stat ; Stat+ ]] = 
+		execute[[ Stat ]] and then execute[[ Stat+ ]]
+
+

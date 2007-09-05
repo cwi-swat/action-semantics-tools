@@ -1,0 +1,10 @@
+module obs/aux/structs/Info[Key Value]
+
+imports obs/aux/structs/Environment
+
+exports
+
+context-free syntax
+
+Key -> Environment-Key
+Value -> Environment-Value

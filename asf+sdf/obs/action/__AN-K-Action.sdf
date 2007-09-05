@@ -1,0 +1,41 @@
+module obs/action/__AN-K-Action
+
+imports obs/data/__AN-K-Data-Contract
+
+
+exports 
+
+context-free syntax
+
+Terminated -> Action %%{cons("terminated")}
+
+"(" Action ")" -> Action {bracket, prefer, cons("bracket")}
+ActionConst -> Action {cons("const")}
+prefix:ActionPrefix arg:Action -> Action {cons("prefix")}
+lhs:Action infix:ActionInfix rhs:Action -> Action {left, cons("infix")}
+"provide" data:Data -> Action {cons("provide")}
+Action -> Datum {avoid,cons("action")}
+ActionPrefix -> DataOpPrefix {avoid,cons("action-prefix")}
+ActionInfix -> DataOpInfix {avoid,cons("action-infix")}
+
+lexical syntax
+"action" -> SortName 
+"provide" -> DataOpPrefix {avoid}
+ 
+hiddens 
+
+sorts Action ActionPrefix ActionInfix ActionConst Terminated
+
+variables
+"A"[0-9\']* -> Action
+"Ai"[0-9\']* -> ActionInfix
+"Ap"[0-9\']* -> ActionPrefix
+"d"[0-9\']* -> Data
+"u"[0-9\']* -> Datum
+"oc"[0-9\']* -> Outcome+
+"t"[0-9\']* -> Terminated
+
+
+
+
+

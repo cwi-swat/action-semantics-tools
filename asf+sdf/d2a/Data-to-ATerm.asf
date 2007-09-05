@@ -1,0 +1,80 @@
+equations
+
+[al]	aterm ++ [aterms] = [aterm,aterms]
+
+
+[ds]	datasort-to-aterm(int) = int(<term>)
+[ds]	datasort-to-aterm(bool) = bool(<term>)
+[ds]	datasort-to-aterm(datum) = <appl(<term>)>
+[ds]	datasort-to-aterm(data) = <term>
+[ds]	datasort-to-aterm(action) = action(<term>)
+[ds]	datasort-to-aterm(action [oc]) = action(<term>)
+[ds]	datasort-to-aterm(agent) = agent(<term>)
+[ds]	datasort-to-aterm(cell) = cell(<term>)
+[ds]	datasort-to-aterm(bindings) = bindings(<term>)
+[ds]	datasort-to-aterm(storable) = <appl(<term>)>
+[ds]	datasort-to-aterm(bindable) = <appl(<term>)>
+[ds]	datasort-to-aterm(message) = <appl(<term>)>
+[ds]	datasort-to-aterm(message-tag) = message-tag(<term>)
+[ds]	datasort-to-aterm(token) = token(<term>)
+[ds]	datasort-to-aterm(list) = list(<term>)
+
+
+[ds]	datasort-to-aterm((ds1, ds2, ds+)) =
+		datasort-to-aterm(ds1) ++
+		datasort-to-aterm((ds2,ds+))
+
+[ds]	datasort-to-aterm((ds1,ds2)) =
+		[datasort-to-aterm(ds1),datasort-to-aterm(ds2)]
+
+[default-ds]	
+	datasort-to-aterm(ds) = NOT-SUPPORTED
+
+
+
+[da]	data-to-aterm(tk) = token(tk)
+
+[da]	data-to-aterm(n) = int(n)
+
+[da]	n = cell-to-int(c)
+	===
+	data-to-aterm(c) = cell(n)
+
+[da]	n = agent-to-int(ag)
+	===
+	data-to-aterm(ag) = agent(n)
+
+
+~~ Yes this involves knowledge of the representation of bindings...
+~~ maybe we should design a data-to-aterm function in balanced-tree
+~~ and let the user of tree-map write and element-data-to-aterm.
+
+
+[da]	bs = empty
+	===
+	data-to-aterm(bs) = bindings(empty)
+
+[da]	data-to-aterm(tree(<tk,d>, n, bs1, bs2)) =
+		bindings(tree(
+			[data-to-aterm(tk),data-to-aterm(d)],
+			n, data-to-aterm(bs1),
+			data-to-aterm(bs2)))
+
+[da]	data-to-aterm(<tk>) = message-tag(tk)
+
+[da]	data-to-aterm(true) = bool(1)
+
+[da]	data-to-aterm(false) = bool(0)
+
+[da]	data-to-aterm(()) = []
+
+[da]	data-to-aterm((d1,d2,d+)) = 
+		data-to-aterm(d1) ++ data-to-aterm((d2,d+))
+
+[]	data-to-aterm((d1,d2)) = 
+		[data-to-aterm(d1),data-to-aterm(d2)]
+
+
+
+
+

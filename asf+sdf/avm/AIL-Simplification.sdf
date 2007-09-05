@@ -1,0 +1,11 @@
+module avm/AIL-Simplification
+
+imports avm/Full-AN-to-AIL
+
+hiddens
+
+variables
+"i"[0-9\']* -> Instruction
+"stat*"[0-9\']* -> Statement*
+"aterm"[0-9\']* -> ATerm
+"l"[0-9\']* -> Label

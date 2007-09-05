@@ -1,0 +1,33 @@
+digraph pico {
+	node [shape=box]
+	"Pico-Run" -> "Pico-Execute"
+	"Pico-Run" -> "Pico-Declare"
+	"Pico-Run" -> "Pico-Program"
+	"Pico-Execute" -> "Pico-Evaluate"
+	"Pico-Execute" -> "Pico-Stats"
+	"Pico-Declare" -> "Pico-Trans"
+	"Pico-Declare" -> "Pico-Decls"
+	"Pico-Program" -> "Pico-Stats"
+	"Pico-Program" -> "Pico-Decls"
+	"Pico-Evaluate" -> "Pico-Exps"
+	"Pico-Evaluate" -> "Pico-Trans"
+	"Pico-Stats" -> "Pico-Exps"
+	"Pico-Decls" -> "Pico-Types"
+	"Pico-Decls" -> "Pico-Lex"
+	"Pico-Trans" -> "AN2"
+	"Pico-Trans" -> "Pico-Lex"
+	"Pico-Exps" -> "Pico-Lex"
+/*	"Pico-Lex" -> "asf/syntax/Comments"
+	"asf/syntax/Comments" -> "basic/Whitespace"*/
+
+	"Pico-Run" [style=dashed];
+	"Pico-Execute" [style=dashed];
+	"Pico-Evaluate" [style=dashed];
+	"Pico-Declare" [style=dashed];
+	"Pico-Trans" [style=dashed];
+
+	"AN2" [shape=circle,style=dashed];
+	/*"asf/syntax/Comments" [style=dotted];
+	"basic/Whitespace" [style=dotted];*/
+
+}

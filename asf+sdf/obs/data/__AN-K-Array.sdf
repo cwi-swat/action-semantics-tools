@@ -1,0 +1,24 @@
+module obs/data/__AN-K-Array
+
+imports obs/aux/structs/Fixed-Array[Datum][Array => Datum-Array]
+	obs/data/__AN-K-Data-Contract 
+	obs/data/integers/__AN-K-Int
+
+exports
+
+sorts Data
+
+context-free syntax
+
+Datum-Array -> Datum
+
+"[]" -> DataOpInfix
+"->" -> DataOpPrefix
+"array" -> DataOpPrefix
+"array" -> SortName
+
+hiddens
+variables
+"a" -> Datum-Array
+"n" -> Int
+"u" -> Datum

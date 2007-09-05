@@ -1,0 +1,10 @@
+module an/syn/kernel/Failed-Outcome
+
+imports an/syn/kernel/Action
+
+exports
+
+sorts Terminated
+
+context-free syntax
+	"failed" -> Terminated {cons("failed")}

@@ -1,0 +1,50 @@
+\hypertarget{classExceptionally_1_1__Exceptionally}{
+\section{Exceptionally::\_\-Exceptionally  Class Reference}
+\label{classExceptionally_1_1__Exceptionally}\index{Exceptionally::_Exceptionally@{Exceptionally::\_\-Exceptionally}}
+}
+Inheritance diagram for Exceptionally::\_\-Exceptionally:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=84pt]{classExceptionally_1_1__Exceptionally__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Exceptionally::\_\-Exceptionally:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=84pt]{classExceptionally_1_1__Exceptionally__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceData}{Data} \hyperlink{classExceptionally_1_1__Exceptionally_a0}{enact} (\hyperlink{interfaceData}{Data} data, \hyperlink{interfaceBindings}{Bindings} bindings) throws \hyperlink{classExceptional}{Exceptional}, \hyperlink{classFailed}{Failed}
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classExceptionally_1_1__Exceptionally_a0}{
+\index{Exceptionally::_Exceptionally@{Exceptionally::\_\-Exceptionally}!enact@{enact}}
+\index{enact@{enact}!Exceptionally::_Exceptionally@{Exceptionally::\_\-Exceptionally}}
+\subsubsection[enact]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceData}{Data} Exceptionally::\_\-Exceptionally::enact (\hyperlink{interfaceData}{Data} {\em data}, \hyperlink{interfaceBindings}{Bindings} {\em bindings})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classExceptionally_1_1__Exceptionally_a0}
+
+
+
+
+Reimplemented from \hyperlink{interfaceEnactable_a0}{Enactable}.
+
+Definition at line 120 of file Action\-Impl.java.\footnotesize\begin{verbatim}00120                                                                                    {
+00121             try {
+00122                 return enactable1.enact(data,bindings);
+00123             }
+00124             catch (Exceptional e) {
+00125                 Data d = e.getData();
+00126                 return enactable2.enact(d, bindings);
+00127             }
+00128         }
+\end{verbatim}\normalsize 
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{ActionImpl_8java-source}{Action\-Impl.java}\end{CompactItemize}

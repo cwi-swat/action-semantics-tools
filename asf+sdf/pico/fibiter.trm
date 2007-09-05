@@ -1,0 +1,16 @@
+pico-interpreter(
+begin
+  declare 
+    n: natural,
+    i: natural,
+    j: natural,
+    k: natural;
+  n := 3; i := 1;
+  j := 0; k := 0;
+  while n - k do
+    j := i + j;
+    i := j - i;
+    k := k + 1
+  od
+end
+)

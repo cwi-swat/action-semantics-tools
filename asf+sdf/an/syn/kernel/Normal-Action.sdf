@@ -1,0 +1,16 @@
+module an/syn/kernel/Normal-Action
+
+imports an/syn/kernel/Normal-Outcome 
+
+exports
+
+sorts Action ActionInfix ActionPrefix
+
+context-free syntax
+	"provide" Data -> Action {cons("provide-data")}
+	"copy" -> Action {cons("copy")}
+	"then" -> ActionInfix {cons("then-infix")}
+	"and" "then"  -> ActionInfix {cons("and-then-infix")}
+	"and"  -> ActionInfix {cons("and-infix")}
+	"indivisibly" -> ActionPrefix {cons("indivisibly-prefix")}
+

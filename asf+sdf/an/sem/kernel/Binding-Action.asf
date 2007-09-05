@@ -1,0 +1,24 @@
+equations
+
+[sos51]	s@bindings = b
+	===
+	s |- give current bindings = <normal b, s>
+
+[sos52]	s |- A1 = <A1', s'>
+	===
+	s |- A1 hence A2 = <A1' hence A2, s / s'>
+
+[sos53]	s' = s[b1/bindings],
+	s' |- A2 = <A2', s''>
+	===
+	s |- normal b1 hence A2 = <normal b1 hence A2', s''>
+
+[sos54]	s |- normal b1 hence t2 = <t2, s>
+
+[default-sos55]
+	s |- normal d hence A2 = <exceptional (), s>
+
+[sos56]	s |- exceptional d1 hence A2 = <exceptional d1, s>
+
+[sos57]	s |- failed hence A2 = <failed, s>
+

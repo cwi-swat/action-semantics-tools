@@ -1,0 +1,24 @@
+module ail/AIL-Definition
+
+imports ail/AIL
+
+exports
+
+sorts Definition
+
+exports 
+context-free syntax
+
+"<int>" -> Pattern {cons("int")}
+"<term>" -> Pattern {cons("aterm")}
+"<label>" -> Pattern {cons("label")}
+"<code>" -> Pattern {cons("code")}
+
+name:Id pattern:Pattern ";" -> Signature {cons("with-pattern")}
+name:Id  ";" -> Signature {cons("without-pattern")}
+
+"definition" id:Id "{"
+	list:Signature* 
+"}" -> Definition
+
+

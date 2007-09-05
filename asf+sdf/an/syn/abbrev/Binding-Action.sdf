@@ -1,0 +1,25 @@
+module an/syn/abbrev/Binding-Action
+
+imports an/syn/abbrev/Data-Control-Action
+
+exports
+
+sorts Yielder Action ActionPrefix ActionInfix
+
+context-free syntax
+	"current" "bindings" -> Yielder {avoid,cons("current-bindings-yielder")}
+	"bound" "to" Yielder -> Yielder {cons("bound-to-yielder")}
+	"closure" Yielder -> Yielder {cons("closure-yielder")}
+	"bind" -> Action {cons("bind-action")}
+	"furthermore" -> ActionPrefix {cons("furthermore-prefix")}
+	"moreover" -> ActionInfix {cons("moreover-infix")}
+	"before" -> ActionInfix {cons("before-infix")}
+	"recursively" -> ActionPrefix {cons("recursively-infix")}
+	"unfolding" -> ActionPrefix {cons("unfolding-infix")}
+	"unfold" -> Action {cons("unfold-action")}
+
+hiddens
+
+context-free syntax
+	"unf" -> Token {cons("unf-token")}
+	"rec" -> Token {cons("rec-token")}

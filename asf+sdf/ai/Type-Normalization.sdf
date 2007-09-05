@@ -1,0 +1,29 @@
+module ai/Type-Normalization
+
+imports obs/data/__AN-K-DataTypes
+	obs/data/integers/Int
+
+exports
+
+sorts DataSort Outcomes
+
+context-free syntax
+
+DataSort "*" DataSort -> DataSort {assoc}
+DataSort "*" Int -> DataSort
+
+hiddens
+
+context-free syntax
+
+is-product(DataSort) -> Bool
+
+variables
+"t"[0-9\']* -> DataSort
+"t+"[0-9\']* -> {DataSort ","}+
+"t*"[0-9\']* -> {DataSort ","}*
+"s"[0-9\']* -> SortName
+"oc*"[0-9\']* -> Outcome*
+"n"[0-9\']* -> Int
+
+

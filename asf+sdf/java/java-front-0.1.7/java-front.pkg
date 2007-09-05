@@ -1,0 +1,27 @@
+package
+identification
+         name=java-front
+      version=0.1.7
+     location=http://www.mbravenboer.org/software/java-front/
+         info=http://www.mbravenboer.org/java_front.xhtml
+  description='This package contains a handcrafted grammar for the java language
+               in the syntax definition formalism (sdf). This grammar exploits 
+               all the great benefits of sdf. This package can be used to parse
+               Java code with sglr. Future versions might include more java 
+               related features than just parsing, but for the near future it is
+               the main target to produce a decent sdf grammar for the java 
+               language. '
+     keywords=java, grammar, sdf, xt
+
+configuration interface
+
+requires
+   asfix-tools    0.3
+   sglr           3.8
+   pgen           1.5
+   sdf-tools      0.3
+   stratego-tools 0.3
+   stratego       0.8
+   gpp            2.3
+   gb             1.0
+

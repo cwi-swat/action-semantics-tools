@@ -1,0 +1,28 @@
+module obs/_AN
+
+imports
+        obs/binding/_AN-Binding 
+	obs/storing/_AN-Storing 
+	obs/datacontrol/_AN-Data-Control 
+	obs/interacting/_AN-Interacting
+
+exports sorts Action
+
+hiddens variables
+
+  "A"[1-9]      -> Action
+
+  "D"[1-9]      -> Data
+
+  "DS"          -> DataSort
+  "DO"          -> DataOp
+  "DOP"         -> DataOpPrefix
+  "DOI"         -> DataOpInfix
+  "PP"          -> DataPredPrefix 
+  "PI"          -> DataPredInfix 
+  "P"           -> DataPred
+  "E"           -> Enquirer
+  "Y"[1-9]      -> Yielder
+  "Y+"          -> {Yielder ","}+
+
+

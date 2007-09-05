@@ -1,0 +1,133 @@
+\hypertarget{classEmptyImpl}{
+\section{Empty\-Impl  Class Reference}
+\label{classEmptyImpl}\index{EmptyImpl@{Empty\-Impl}}
+}
+Inheritance diagram for Empty\-Impl:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=89pt]{classEmptyImpl__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Empty\-Impl:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classEmptyImpl__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceDataValue}{Data\-Value} \hyperlink{classEmptyImpl_a0}{first} () throws \hyperlink{classExceptional}{Exceptional}
+\item 
+\hyperlink{interfaceList}{List} \hyperlink{classEmptyImpl_a1}{tuple\-To\-List} ()
+\end{CompactItemize}
+\subsection*{Private Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{classEmptyImpl_c0}{Empty\-Impl} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory})
+\end{CompactItemize}
+\subsection*{Static Private Methods}
+\begin{CompactItemize}
+\item 
+void \hyperlink{classEmptyImpl_f0}{init} (\hyperlink{classPureFactory}{Pure\-Factory} \hyperlink{classDataImpl_o0}{factory})
+\item 
+\hyperlink{interfaceEmpty}{Empty} \hyperlink{classEmptyImpl_f1}{empty} ()
+\end{CompactItemize}
+\subsection*{Static Private Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceEmpty}{Empty} \hyperlink{classEmptyImpl_r0}{\_\-empty} = null
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classEmptyImpl_c0}{
+\index{EmptyImpl@{Empty\-Impl}!EmptyImpl@{EmptyImpl}}
+\index{EmptyImpl@{EmptyImpl}!EmptyImpl@{Empty\-Impl}}
+\subsubsection[EmptyImpl]{\setlength{\rightskip}{0pt plus 5cm}Empty\-Impl::Empty\-Impl (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory})\hspace{0.3cm}{\tt  \mbox{[}inline, private\mbox{]}}}}
+\label{classEmptyImpl_c0}
+
+
+
+
+Definition at line 11 of file Empty\-Impl.java.\footnotesize\begin{verbatim}00011                                            {
+00012         super(factory);
+00013     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classEmptyImpl_f1}{
+\index{EmptyImpl@{Empty\-Impl}!empty@{empty}}
+\index{empty@{empty}!EmptyImpl@{Empty\-Impl}}
+\subsubsection[empty]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceEmpty}{Empty} Empty\-Impl::empty ()\hspace{0.3cm}{\tt  \mbox{[}inline, static, private\mbox{]}}}}
+\label{classEmptyImpl_f1}
+
+
+
+
+Definition at line 20 of file Empty\-Impl.java.\footnotesize\begin{verbatim}00020                          {
+00021         return _empty;
+00022     }
+\end{verbatim}\normalsize 
+\hypertarget{classEmptyImpl_a0}{
+\index{EmptyImpl@{Empty\-Impl}!first@{first}}
+\index{first@{first}!EmptyImpl@{Empty\-Impl}}
+\subsubsection[first]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceDataValue}{Data\-Value} Empty\-Impl::first ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classEmptyImpl_a0}
+
+
+
+
+Reimplemented from \hyperlink{classDataValueImpl_a0}{Data\-Value\-Impl}.
+
+Definition at line 26 of file Empty\-Impl.java.\footnotesize\begin{verbatim}00026                                                 {
+00027         throw new Exceptional(factory.makeEmpty());
+00028     }
+\end{verbatim}\normalsize 
+\hypertarget{classEmptyImpl_f0}{
+\index{EmptyImpl@{Empty\-Impl}!init@{init}}
+\index{init@{init}!EmptyImpl@{Empty\-Impl}}
+\subsubsection[init]{\setlength{\rightskip}{0pt plus 5cm}void Empty\-Impl::init (\hyperlink{classPureFactory}{Pure\-Factory} {\em factory})\hspace{0.3cm}{\tt  \mbox{[}inline, static, private\mbox{]}}}}
+\label{classEmptyImpl_f0}
+
+
+
+
+Definition at line 15 of file Empty\-Impl.java.\footnotesize\begin{verbatim}00015                                           {
+00016         _empty = new EmptyImpl(factory);
+00017         //_empty._rest = _empty;
+00018     }
+\end{verbatim}\normalsize 
+\hypertarget{classEmptyImpl_a1}{
+\index{EmptyImpl@{Empty\-Impl}!tupleToList@{tupleToList}}
+\index{tupleToList@{tupleToList}!EmptyImpl@{Empty\-Impl}}
+\subsubsection[tupleToList]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceList}{List} Empty\-Impl::tuple\-To\-List ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{classEmptyImpl_a1}
+
+
+
+
+Reimplemented from \hyperlink{classDataValueImpl_a2}{Data\-Value\-Impl}.
+
+Definition at line 30 of file Empty\-Impl.java.\footnotesize\begin{verbatim}00030                               {
+00031         return factory.makeList0();
+00032     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classEmptyImpl_r0}{
+\index{EmptyImpl@{Empty\-Impl}!_empty@{\_\-empty}}
+\index{_empty@{\_\-empty}!EmptyImpl@{Empty\-Impl}}
+\subsubsection[\_\-empty]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceEmpty}{Empty} Empty\-Impl::\_\-empty = null\hspace{0.3cm}{\tt  \mbox{[}static, private\mbox{]}}}}
+\label{classEmptyImpl_r0}
+
+
+
+
+Definition at line 10 of file Empty\-Impl.java.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{EmptyImpl_8java-source}{Empty\-Impl.java}\end{CompactItemize}

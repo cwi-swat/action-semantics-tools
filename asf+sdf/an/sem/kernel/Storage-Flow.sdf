@@ -1,0 +1,12 @@
+module an/sem/kernel/Storage-Flow
+
+imports an/sem/kernel/Action 
+	an/sem/internal/Storage
+	msos/Mutable-Info[Storage-Index Storage] %%[Pair => Storage-Pair]
+	msos/Mutable-Info[Cells-Index Cells]     %%[Pair => Cells-Pair]
+
+exports
+
+context-free syntax
+	"storage" -> Storage-Index {cons("storage-index")}
+	"cells" -> Cells-Index {cons("cells-index")}

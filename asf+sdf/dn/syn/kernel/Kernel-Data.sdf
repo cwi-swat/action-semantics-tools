@@ -1,0 +1,15 @@
+module dn/syn/kernel/Kernel-Data
+
+imports basic/Integers
+	dn/syn/kernel/Data
+	dn/syn/kernel/DataSort
+
+exports
+
+context-free syntax
+	"#" NatCon -> DataOpPrefix {cons("projection-prefix")}
+	"="  -> DataPredInfix {cons("equals-infix")}
+
+
+
+

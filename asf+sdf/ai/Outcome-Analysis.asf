@@ -1,0 +1,73 @@
+equations
+
+%% p is in the set of outcomes
+[b]	giving(ocs) = is-giving(ocs)
+
+[b]	raising(ocs) = is-raising(ocs)
+
+[b]	failing(ocs) = is-failing(ocs)
+
+[m]	[]p({oc}) = p({oc})
+
+[m]	[]p({}) = true
+
+[default]
+	[]p(ocs) = false
+
+[d]	<>p(ocs) = p(ocs)
+
+[default]
+	<>p(ocs) = false
+
+
+[]	ocs[giving] = get-giving(ocs)
+
+[]	ocs[raising] = get-raising(ocs)
+
+[]	ocs[failing] = get-failing(ocs)
+
+[d]	oc1 = ocs[raising],
+	oc2 = ocs[failing]
+	===
+	ocs / giving = {oc1} + {oc2}
+
+[d]	oc1 = ocs[failing],
+	oc2 = ocs[giving]
+	===
+	ocs / raising = {oc1} + {oc2}
+
+[d]	oc1 = ocs[raising],
+	oc2 = ocs[giving]
+	===
+	ocs / failing = {oc1} + {oc2}
+
+[a]	{oc*1} + {oc*2} = {oc*1 oc*2}
+
+[]	is-giving({oc*1 giving ds oc*2}) = true
+
+[]	is-failing({oc*1 failing oc*2}) = true
+
+[]	is-raising({oc*1 raising ds oc*2}) = true
+
+[default]
+	is-giving(ocs) = false
+
+[default]
+	is-failing(ocs) = false
+
+[default]
+	is-raising(ocs) = false
+
+
+[]	get-given({oc*1 giving ds oc*2}) = ds
+
+[]	get-raised({oc*1 raising ds oc*2}) = ds
+
+
+[]	get-raising({oc*1 raising ds oc*2}) = raising ds
+
+[]	get-failing({oc*1 failing oc*2}) = failing
+
+[]	get-giving({oc*1 giving ds oc*2}) = giving ds
+
+

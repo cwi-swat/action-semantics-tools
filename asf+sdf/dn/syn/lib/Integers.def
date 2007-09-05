@@ -1,0 +1,119 @@
+definition
+
+module basic/Integers
+
+imports
+  basic/Booleans
+
+exports
+  sorts NatCon Natural Integer
+  lexical syntax
+    [0-9]+ -> NatCon
+  context-free syntax
+     NatCon           		-> Natural
+     Natural "-/" Natural	-> Natural {left}
+     "(" Natural ")"       	-> Natural {bracket}
+     Natural               	-> Integer
+     "+" Natural           	-> Integer
+     "-" Natural           	-> Integer
+     Integer "+" Integer       	-> Integer {left}
+     Integer "-" Integer       	-> Integer {left}
+     Integer "*" Integer       	-> Integer {left}
+     Integer ">" Integer       	-> Boolean
+     Integer ">=" Integer      	-> Boolean
+     Integer "<" Integer       	-> Boolean
+     Integer "<=" Integer      	-> Boolean
+     "(" Integer ")"       	-> Integer {bracket}
+
+  context-free priorities
+    Integer "*" Integer -> Integer >
+    {left: Integer "+" Integer -> Integer
+           Integer "-" Integer -> Integer}
+
+hiddens
+  imports asf/syntax/Comments
+   
+  context-free syntax
+    gt "(" Natural "," Natural ")" -> Boolean
+    Natural "-//" Natural          -> Natural
+    Natural ">-" Natural           -> Natural
+
+  variables
+    "Nat" [0-9\']*      -> Natural 
+    "Nat-con" [0-9\']*  -> NatCon
+    "Int" [0-9\']*      -> Integer
+
+  variables 
+    "n" [0-9]* -> NatCon
+    "c" [0-9]* -> CHAR
+    "x" [0-9]* -> CHAR*
+    "y" [0-9]* -> CHAR+
+
+module basic/Booleans
+
+exports
+  sorts BoolCon
+  context-free syntax
+    "true"  -> BoolCon {constructor}
+    "false" -> BoolCon {constructor}
+
+  sorts Boolean
+  context-free syntax
+    BoolCon -> Boolean
+
+    Boolean "|" Boolean 	-> Boolean {left}
+    Boolean "&" Boolean 	-> Boolean {left}
+    "not" "(" Boolean ")" 	-> Boolean
+    "(" Boolean ")"       	-> Boolean {bracket}
+
+  context-free priorities
+    Boolean "&" Boolean -> Boolean >
+    Boolean "|" Boolean -> Boolean
+
+hiddens
+  imports
+    asf/syntax/Comments
+  variables
+    "Bool"[0-9]* 	-> Boolean
+    "Bool-con"[0-9]* 	-> BoolCon
+
+
+module asf/syntax/Comments
+
+imports
+  basic/Whitespace
+
+exports
+  lexical syntax
+    "%%" ~[\n]* "\n"	-> LAYOUT
+    "%" ~[\%\n]+ "%"	-> LAYOUT
+  context-free restrictions
+    LAYOUT? -/- [\%]
+
+module basic/Whitespace
+
+exports
+  lexical syntax
+    [\ \t\n]	-> LAYOUT
+  context-free restrictions
+    LAYOUT? -/- [\ \t\n]
+
+module dn/syn/lib/Integers
+
+imports basic/Integers
+
+exports
+
+context-free syntax
+	Integer -> Datum
+	"int" -> SortName {cons("int-sortname")}
+
+	"+" -> DataOpInfix {cons("plus-infix")}
+	"-" -> DataOpInfix {cons("minus-infix")}
+	"*" -> DataOpInfix {cons("times-infix")}
+
+	">" -> DataPredInfix {cons("gt-infix")}
+	"<" -> DataPredInfix {cons("lt-infix")}
+	">=" -> DataPredInfix {cons("geq-infix")}
+	"<=" -> DataPredInfix {cons("leq-infix")}
+

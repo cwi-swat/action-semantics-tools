@@ -1,0 +1,23 @@
+module dn/sem/internal/Time
+
+imports basic/Integers
+
+exports
+
+sorts Time
+
+context-free syntax
+	start-time() -> Time {cons("start-time")}
+	time-to-nat(Time) -> Natural {cons("time-to-nat")}
+	nat-to-time(Natural) -> Time {cons("nat-to-time")}
+
+hiddens
+
+imports basic/Comments
+
+context-free syntax
+	time(Natural) -> Time {cons("time")}
+
+variables
+	"n"[0-9\']* -> Natural
+	"t"[0-9\']* -> Time

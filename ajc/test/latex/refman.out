@@ -1,0 +1,130 @@
+\BOOKMARK [0][-]{chapter.1}{Package List}{}
+\BOOKMARK [1][-]{section.1.1}{Package List}{chapter.1}
+\BOOKMARK [0][-]{chapter.2}{Hierarchical Index}{}
+\BOOKMARK [1][-]{section.2.1}{Class Hierarchy}{chapter.2}
+\BOOKMARK [0][-]{chapter.3}{Compound Index}{}
+\BOOKMARK [1][-]{section.3.1}{Compound List}{chapter.3}
+\BOOKMARK [0][-]{chapter.4}{File Index}{}
+\BOOKMARK [1][-]{section.4.1}{File List}{chapter.4}
+\BOOKMARK [0][-]{chapter.5}{Package Documentation}{}
+\BOOKMARK [1][-]{section.5.1}{Package ajc}{chapter.5}
+\BOOKMARK [1][-]{section.5.2}{Package ajc.data}{chapter.5}
+\BOOKMARK [1][-]{section.5.3}{Package ajc.data.pure}{chapter.5}
+\BOOKMARK [0][-]{chapter.6}{Class Documentation}{}
+\BOOKMARK [1][-]{section.6.1}{And::\137And Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.2}{AndExceptionally::\137AndExceptionally Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.3}{AndThen::\137AndThen Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.4}{Exceptionally::\137Exceptionally Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.5}{Hence::\137Hence Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.6}{Indivisibly::\137Indivisibly Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.7}{Otherwise::\137Otherwise Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.8}{Provide::\137Provide Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.9}{Then::\137Then Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.10}{AbstractEnactable Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.11}{AbstractInfixCombinator Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.12}{AbstractPrefixCombinator Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.13}{Action Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.14}{ActionImpl Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.15}{Agent Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.16}{AgentImpl Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.17}{And Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.18}{AndExceptionally Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.19}{AndThen Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.20}{Bindable Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.21}{Bindings Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.22}{BindingsImpl Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.23}{Bool Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.24}{BoolImpl Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.25}{Cell Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.26}{CellImpl Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.27}{Comparable Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.28}{Data Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.29}{DataConst Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.30}{DataConstImpl Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.31}{DataFactory Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.32}{DataImpl Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.33}{DataValue Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.34}{DataValueImpl Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.35}{Datum Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.36}{DatumImpl Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.37}{Empty Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.38}{EmptyImpl Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.39}{Enactable Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.40}{Exception Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.41}{Exceptional Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.42}{Exceptionally Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.43}{Failed Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.44}{Hashtable Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.45}{Hence Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.46}{Indivisibly Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.47}{Int Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.48}{IntImpl Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.49}{List Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.50}{ListImpl Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.51}{Message Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.52}{MessageTag Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.53}{MessageTagImpl Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.54}{Otherwise Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.55}{Provide Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.56}{PureFactory Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.57}{Runnable Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.58}{Schedule Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.59}{Scheduling Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.60}{Storable Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.61}{Store Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.62}{Storing Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.63}{TaggedBuffers Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.64}{Text Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.65}{TextImpl Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.66}{Then Class Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.67}{Token Interface Reference}{chapter.6}
+\BOOKMARK [1][-]{section.6.68}{TokenImpl Class Reference}{chapter.6}
+\BOOKMARK [0][-]{chapter.7}{File Documentation}{}
+\BOOKMARK [1][-]{section.7.1}{AbstractAction.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.2}{AbstractEnactable.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.3}{AbstractInfixCombinator.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.4}{AbstractPrefixCombinator.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.5}{Action.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.6}{ActionImpl.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.7}{Agent.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.8}{AgentImpl.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.9}{Bindable.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.10}{Bindings.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.11}{BindingsImpl.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.12}{Bool.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.13}{BoolImpl.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.14}{Cell.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.15}{CellImpl.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.16}{Data.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.17}{DataConst.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.18}{DataConstImpl.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.19}{DataFactory.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.20}{DataImpl.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.21}{DataValue.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.22}{DataValueImpl.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.23}{Datum.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.24}{DatumImpl.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.25}{Empty.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.26}{EmptyImpl.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.27}{Enactable.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.28}{Exceptional.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.29}{Failed.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.30}{Int.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.31}{IntImpl.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.32}{List.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.33}{ListImpl.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.34}{Message.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.35}{MessageTag.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.36}{MessageTagImpl.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.37}{PureFactory.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.38}{Schedule.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.39}{Scheduling.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.40}{Storable.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.41}{Store.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.42}{Storing.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.43}{TaggedBuffers.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.44}{Text.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.45}{TextImpl.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.46}{Token.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.47}{TokenImpl.java File Reference}{chapter.7}
+\BOOKMARK [1][-]{section.7.48}{Tuple.java File Reference}{chapter.7}

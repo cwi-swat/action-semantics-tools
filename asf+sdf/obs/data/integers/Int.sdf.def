@@ -1,0 +1,52 @@
+definition
+
+module Main
+
+imports
+	Int 
+
+module Int
+
+imports Bool
+   
+exports
+
+lexical syntax
+[0]           -> Zero %%{cons("Zero")}
+[1-9][0-9]*   -> PosNumeral %%{cons("PosNumeral")}
+Zero -> Nat-Con %%{cons("Nat-Con")}
+PosNumeral -> Nat-Con %%{cons("Nat-Con")}
+
+restrictions
+	PosNumeral -/- [0-9]
+
+context-free syntax
+
+Nat-Con -> Numeral {cons("Numeral")}
+
+Numeral       -> Nat {cons("Nat")}
+Nat           -> Int {cons("Int")}
+l:Nat "-?" r:Nat  -> Nat {left, cons("monus")}
+"(" Nat ")"            -> Nat {bracket}
+"+" Nat                -> Int {cons("unary-plus")}
+"-" Nat                -> Int {cons("unary-minus")}
+
+l:Int "+" r:Int   -> Int {left, prefer, cons("plus")}
+l:Int "-" r:Int   -> Int {left, prefer, cons("minus")}
+l:Int "*" r:Int   -> Int {left, prefer, cons("times")}
+l:Int ">" r:Int       -> Bool {prefer, cons("gt")}
+l:Int ">=" r:Int      -> Bool {prefer, cons("ge")}
+l:Int "<" r:Int       -> Bool {prefer, cons("lt")}
+l:Int "<=" r:Int      -> Bool {prefer, cons("le")}
+"(" Int ")"       -> Int {bracket}
+
+context-free priorities
+
+Int "*" Int -> Int > 
+{ Int "+" Int -> Int {left}
+  Int "-" Int -> Int {left}
+}
+
+
+
+

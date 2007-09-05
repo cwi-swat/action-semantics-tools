@@ -1,0 +1,86 @@
+This is pdfTeX, Version 3.14159-13d (Web2C 7.3.1) (format=pdflatex 2002.1.14)  24 SEP 2002 17:36
+**test.tex
+(test.tex[/usr/share/texmf/pdftex/config/pdftex.cfg]
+LaTeX2e <2000/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, d
+utch, italian, nohyphenation, loaded.
+(/usr/share/texmf/tex/latex/base/article.cls
+Document Class: article 2000/05/19 v1.4b Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size10.clo
+File: size10.clo 2000/05/19 v1.4b Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (boxenv.sty
+Package: boxenv 
+
+Package: `boxenv' 1.7 <2000/03/30> (Merijn de Jonge (mdejonge@cwi.nl))
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+\box@leftmargin=\dimen103
+\box@indentation=\dimen104
+\box@xpos=\dimen105
+\box@thewidth=\dimen106
+\box@widthincalculation=\dimen107
+\box@lastlinewidth=\dimen108
+\box@linewidth=\dimen109
+\box@rightskip=\dimen110
+\box@parindent=\dimen111
+\box@hyphenpenalty=\count87
+\box@investigation=\box26
+\box@tester=\box27
+\box@widthcalculation=\box28
+\box@tmpskip=\skip43
+
+Using default box-font definitions.
+) (test.aux)
+\openout1 = `test.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+ (fib-rec.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 21.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 21.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 24.
+ (/usr/share/texmf/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 24.
+ [1
+
+[/usr/share/texmf/dvips/config/pdftex.map]]) [2] (test.aux) ) 
+Here is how much of TeX's memory you used:
+ 343 strings out of 50614
+ 3590 string characters out of 693303
+ 53878 words of memory out of 1500001
+ 3386 multiletter control sequences out of 10000+25000
+ 3948 words of font info for 15 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 10000
+ 23i,4n,19p,131b,445s stack positions out of 3000i,500n,3000p,50000b,5000s
+<cmbx10.pfb><cmr10
+.pfb><cmsy10.pfb>
+Output written on test.pdf (2 pages, 21448 bytes).

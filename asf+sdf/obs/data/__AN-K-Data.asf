@@ -1,0 +1,115 @@
+equations
+
+[default-0]	
+	result o d = nothing
+
+
+[1]	result rest_ (d1,d2) = d2
+
+[2]	result rest_ (d1,d2,d+) = (d2,d+)
+
+[3]	is-tuple(d) = false
+	===
+	result rest_ d = ()
+
+[1]	result the data _ d = d
+
+[2]	result the datum _ u = u
+
+[3]	result the ds _ d1 != nothing,
+	result the ds+ _ (d2,d+) != nothing
+	===
+	result the ds+ _ (d1,d2,d+) = (d1,d2,d+)
+		
+[4]	result the ds _ d1 != nothing,
+	result the ds _ d2 != nothing
+	===
+	result the ds+ _ (d1,d2) = (d1,d2)
+
+[5]	is-tuple(d) = false
+	===
+	result the ds+ _ d = result the ds _ d
+
+[6]	result the ds* _ () = ()
+
+[7]	d != ()
+	===
+	result the ds* _ d = result the ds+ _ d
+
+[8]	result the ds? _ () = ()
+
+
+[9]	d != ()
+	===
+	result the ds? _ d = result the ds _ d
+
+[10]	result the ()_ () = ()
+
+%% Problem: (ds) is allowed as a non bracket one tuple
+%% however, (u) is not allowed in that form...
+%%[11]	result the (ds)_ d = result the ds_ d
+
+[12]	result the ds1 _ d1 != nothing,
+	result the ds2 _ d2 != nothing
+	===
+	result the (ds1,ds2)_ (d1,d2) = (d1,d2)
+
+[13]	result the ds1 _ d1 != nothing,
+	result the (ds2,ds,+) _ (d2,d+) != nothing
+	===
+	result the (ds1,ds2,ds,+)_ (d1,d2,d+) = (d1,d2,d+)
+
+[14]	result the ds_ d != nothing
+	===
+	result the (ds | ds')_ d = d
+
+[15]	result the ds'_ d != nothing
+	===
+	result the (ds | ds')_ d = d
+
+[1]	d' = d ! p,
+	d' != nothing
+	===
+	result #p _ d = d'
+
+[1]	result #-1 _ d = nothing
+
+
+[2]	holds _ = _ (d, d) = true
+
+[3]	d1 != d2
+	===
+	holds _ = _ (d1, d2) = false
+
+~~[6]	(u) ! 1 = u
+[6]	is-tuple(d) = false
+	===
+	d ! 1 = d
+
+~~[7]	(u , d', d+) ! 1 = u
+[7]	(d1 , d2, d+) ! 1 = d1
+
+~~[8]	(u , d') ! 1 = u
+[8]	(d1 , d2) ! 1 = d1
+
+~~[9]	n > 1 = true
+~~	===
+~~	(d , d', d+) ! n = (d', d+) ! n-1
+[9]	n > 1 = true
+	===
+	(d1 , d2, d+) ! n = (d2, d+) ! n-1
+
+~~[10]	n > 1 = true
+~~	===
+~~	(d , d') ! n = (d') ! n-1
+[10]	n > 1 = true
+	===
+	(d1 , d2) ! n = d2 ! n-1
+
+[default]
+	d ! n = nothing
+
+[it]	is-tuple((d,d+)) = true
+
+[default-it]
+	is-tuple(d) = false

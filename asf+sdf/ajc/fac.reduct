@@ -1,0 +1,618 @@
+actionToStatements(normal no bindings)
+if (outcome.getData() instanceof Bindings) {
+	scope.enter((Bindings)outcome.getData());
+	outcome.normal(scope.peek());
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	outcome.normal(new Integer(4));
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	outcome.normal(storage.create(data.peek()));
+	data.pop();
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	outcome.normal("input");
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	if (data.peek() instanceof Cell) 
+	outcome.normal(data.peek());
+else
+	outcome.exceptional(null);
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.is2Tuple()) 
+		if (tuple.elementAt(0) instanceof String) {
+			outcome.normal(new Bindings(tuple.elementAt(0),	
+					tuple.elementAt(1)));
+		}
+}
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+	data.pop();
+}
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	outcome.normal(new Integer(1));
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	outcome.normal(storage.create(data.peek()));
+	data.pop();
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	outcome.normal("output");
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	if (data.peek() instanceof Cell) 
+	outcome.normal(data.peek());
+else
+	outcome.exceptional(null);
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.is2Tuple()) 
+		if (tuple.elementAt(0) instanceof String) {
+			outcome.normal(new Bindings(tuple.elementAt(0),	
+					tuple.elementAt(1)));
+		}
+}
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+	data.pop();
+}
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	outcome.normal(new Integer(0));
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	outcome.normal(storage.create(data.peek()));
+	data.pop();
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	outcome.normal("repnr");
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	if (data.peek() instanceof Cell) 
+	outcome.normal(data.peek());
+else
+	outcome.exceptional(null);
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.is2Tuple()) 
+		if (tuple.elementAt(0) instanceof String) {
+			outcome.normal(new Bindings(tuple.elementAt(0),	
+					tuple.elementAt(1)));
+		}
+}
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+	data.pop();
+}
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	outcome.normal(new Integer(0));
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	outcome.normal(storage.create(data.peek()));
+	data.pop();
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	outcome.normal("rep");
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	if (data.peek() instanceof Cell) 
+	outcome.normal(data.peek());
+else
+	outcome.exceptional(null);
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.is2Tuple()) 
+		if (tuple.elementAt(0) instanceof String) {
+			outcome.normal(new Bindings(tuple.elementAt(0),	
+					tuple.elementAt(1)));
+		}
+}
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+	data.pop();
+}
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.is2Tuple()) 
+		if (tuple.elementAt(0) instanceof Bindings &&
+		    tuple.elementAt(1) instanceof Bindings) {
+			outcome.normal((Bindings)tuple.elementAt(0).disjointunion(
+				(Bindings)tuple.elementAt(1)));
+		}
+}
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.is2Tuple()) 
+		if (tuple.elementAt(0) instanceof Bindings &&
+		    tuple.elementAt(1) instanceof Bindings) {
+			outcome.normal((Bindings)tuple.elementAt(0).disjointunion(
+				(Bindings)tuple.elementAt(1)));
+		}
+}
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.is2Tuple()) 
+		if (tuple.elementAt(0) instanceof Bindings &&
+		    tuple.elementAt(1) instanceof Bindings) {
+			outcome.normal((Bindings)tuple.elementAt(0).disjointunion(
+				(Bindings)tuple.elementAt(1)));
+		}
+}
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.is2Tuple()) 
+		if (tuple.elementAt(0) instanceof Bindings &&
+		    tuple.elementAt(1) instanceof Bindings) {
+			outcome.normal((Bindings)tuple.elementAt(0).overriding(
+				(Bindings)tuple.elementAt(1)));
+		}
+}
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+if (outcome.getData() instanceof Bindings) {
+	scope.enter((Bindings)outcome.getData());
+	outcome.normal(scope.peek());
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	Tuple tuple = new Tuple();
+tuple.add("unf");
+tuple.add(new Action(this) {
+		public Terminated enact(Object given, Bindings bindings) {
+			data.push(given);
+			scope.enter(bindings);
+			outcome.normal(scope.peek());
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	outcome.normal("input");
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.is2Tuple()) 
+		if (tuple.elementAt(0) instanceof Bindings &&
+		    tuple.elementAt(1) instanceof String) {
+			Object temp = (Bindings)tuple.elementAt(0).bound(
+				(Bindings)tuple.elementAt(1));
+			if (temp != null)
+				outcome.normal(temp);
+		}
+}
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Cell) 
+	outcome.normal(data.peek());
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Cell) {
+	Object temp = storage.inspect((Cell)data.peek());
+	if (temp != null)
+		outcome.normal(temp);
+	else
+		outcome.exceptional(null);
+}
+else outcome.exceptional(null);
+	data.pop();
+}
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	outcome.normal(new Integer(1));
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.size() >= 1)
+		outcome.normal(tuple.elementAt(0));
+}
+else
+	outcome.exceptional(null);
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Integer) 
+	outcome.normal(data.peek());
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.size() >= 2)
+		outcome.normal(tuple.elementAt(1));
+}
+else
+	outcome.exceptional(null);
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Integer) 
+	outcome.normal(data.peek());
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = data.peek();
+	if (tuple.is2Tuple()) 
+		if (tuple.elementAt(0) instanceof Integer &&
+		    tuple.elementAt(1) instanceof Integer) {
+			int x = (Integer)tuple.elementAt(0).intValue();
+			int y = (Integer)tuple.elementAt(1).intValue();
+			outcome.normal(new Integer(x-y));
+		}
+}
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+	data.pop();
+}
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	actionToStatements(provide 0 
+		then give #1_ then give the int_ and (give #2_ then give the int_) then (check _>_ exceptionally fail and copy)
+	 	then provide true otherwise provide false then select (
+		give the data _ then give tupleToList_ and (provide true then give tupleToList_) then (check _=_ exceptionally fail and copy) then (give current bindings and provide "rep" then give bound_ then give the cell_
+		and (give current bindings and provide "output" then give bound_ then give the cell_ then inspect) then update and then (give current bindings and provide "repnr" then give bound_ then give the cell_
+		and (give current bindings and provide "input" then give bound_ then give the cell_ then inspect) then update and then (give current bindings and (provide ("unf", give current bindings and provide "repnr" then give bound_ then give the cell_ then inspect and provide 1 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _-_) and provide 0 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then (check _>_ exceptionally fail and copy)
+	 	then provide true otherwise provide false) then (select (
+		give the data _ then give tupleToList_ and (provide true then give tupleToList_) then (check _=_ exceptionally fail and copy) then (give current bindings and provide "output" then give bound_ then give the cell_
+		and (give current bindings and provide "output" then give bound_ then give the cell_ then inspect and (give current bindings and provide "rep" then give bound_ then give the cell_ then inspect) 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _+_)) then update and then (give current bindings and provide "repnr" then give bound_ then give the cell_
+		and (give current bindings and provide "repnr" then give bound_ then give the cell_ then inspect and provide 1 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _-_)) then update)) and then (give the data_ then give provide_ and (give current bindings then give provide_ and (give current bindings and provide "unf" then give bound_ then give the action[taking () giving bindings]_) then give _hence_) then give _then_ then enact) or
+		give the data _ then give tupleToList_ and (provide false then give tupleToList_) then (check _=_ exceptionally fail and copy) then provide ()) otherwise (provide () then raise))) then give binding_) then give overriding_ hence (give current bindings and provide "repnr" then give bound_ then give the cell_ then inspect and provide 1 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _-_) and provide 0 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then (check _>_ exceptionally fail and copy)
+	 	then provide true otherwise provide false) then (select (
+		give the data _ then give tupleToList_ and (provide true then give tupleToList_) then (check _=_ exceptionally fail and copy) then (give current bindings and provide "output" then give bound_ then give the cell_
+		and (give current bindings and provide "output" then give bound_ then give the cell_ then inspect and (give current bindings and provide "rep" then give bound_ then give the cell_ then inspect) 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _+_)) then update and then (give current bindings and provide "repnr" then give bound_ then give the cell_
+		and (give current bindings and provide "repnr" then give bound_ then give the cell_ then inspect and provide 1 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _-_)) then update)) and then (give the data_ then give provide_ and (give current bindings then give provide_ and (give current bindings and provide "unf" then give bound_ then give the action[taking () giving bindings]_) then give _hence_) then give _then_ then enact) or
+		give the data _ then give tupleToList_ and (provide false then give tupleToList_) then (check _=_ exceptionally fail and copy) then provide ()) otherwise (provide () then raise)))
+		and exceptionally (give the data _ then give tupleToList_ and (provide "break" then give tupleToList_) then (check _=_ exceptionally fail and copy) then provide () otherwise raise) and then (give current bindings and provide "input" then give bound_ then give the cell_
+		and (give current bindings and provide "input" then give bound_ then give the cell_ then inspect and provide 1 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _-_)) then update)))) and then (give the data_ then give provide_ and (give current bindings then give provide_ and (give current bindings and provide "unf" then give bound_ then give the action[taking () giving bindings]_) then give _hence_) then give _then_ then enact) or
+		give the data _ then give tupleToList_ and (provide false then give tupleToList_) then (check _=_ exceptionally fail and copy) then provide ()) otherwise (provide () then raise))
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+			return outcome;
+		}
+		});
+outcome.normal(tuple);
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.is2Tuple()) 
+		if (tuple.elementAt(0) instanceof String) {
+			outcome.normal(new Bindings(tuple.elementAt(0),	
+					tuple.elementAt(1)));
+		}
+}
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.is2Tuple()) 
+		if (tuple.elementAt(0) instanceof Bindings &&
+		    tuple.elementAt(1) instanceof Bindings) {
+			outcome.normal((Bindings)tuple.elementAt(0).overriding(
+				(Bindings)tuple.elementAt(1)));
+		}
+}
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+if (outcome.getData() instanceof Bindings) {
+	scope.enter((Bindings)outcome.getData());
+	outcome.normal(scope.peek());
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	outcome.normal("input");
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.is2Tuple()) 
+		if (tuple.elementAt(0) instanceof Bindings &&
+		    tuple.elementAt(1) instanceof String) {
+			Object temp = (Bindings)tuple.elementAt(0).bound(
+				(Bindings)tuple.elementAt(1));
+			if (temp != null)
+				outcome.normal(temp);
+		}
+}
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Cell) 
+	outcome.normal(data.peek());
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Cell) {
+	Object temp = storage.inspect((Cell)data.peek());
+	if (temp != null)
+		outcome.normal(temp);
+	else
+		outcome.exceptional(null);
+}
+else outcome.exceptional(null);
+	data.pop();
+}
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	outcome.normal(new Integer(1));
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.size() >= 1)
+		outcome.normal(tuple.elementAt(0));
+}
+else
+	outcome.exceptional(null);
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Integer) 
+	outcome.normal(data.peek());
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.size() >= 2)
+		outcome.normal(tuple.elementAt(1));
+}
+else
+	outcome.exceptional(null);
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Integer) 
+	outcome.normal(data.peek());
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = data.peek();
+	if (tuple.is2Tuple()) 
+		if (tuple.elementAt(0) instanceof Integer &&
+		    tuple.elementAt(1) instanceof Integer) {
+			int x = (Integer)tuple.elementAt(0).intValue();
+			int y = (Integer)tuple.elementAt(1).intValue();
+			outcome.normal(new Integer(x-y));
+		}
+}
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+	data.pop();
+}
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	actionToStatements(provide 0 
+		then give #1_ then give the int_ and (give #2_ then give the int_) then (check _>_ exceptionally fail and copy)
+	 	then provide true otherwise provide false then select (
+		give the data _ then give tupleToList_ and (provide true then give tupleToList_) then (check _=_ exceptionally fail and copy) then (give current bindings and provide "rep" then give bound_ then give the cell_
+		and (give current bindings and provide "output" then give bound_ then give the cell_ then inspect) then update and then (give current bindings and provide "repnr" then give bound_ then give the cell_
+		and (give current bindings and provide "input" then give bound_ then give the cell_ then inspect) then update and then (give current bindings and (provide ("unf", give current bindings and provide "repnr" then give bound_ then give the cell_ then inspect and provide 1 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _-_) and provide 0 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then (check _>_ exceptionally fail and copy)
+	 	then provide true otherwise provide false) then (select (
+		give the data _ then give tupleToList_ and (provide true then give tupleToList_) then (check _=_ exceptionally fail and copy) then (give current bindings and provide "output" then give bound_ then give the cell_
+		and (give current bindings and provide "output" then give bound_ then give the cell_ then inspect and (give current bindings and provide "rep" then give bound_ then give the cell_ then inspect) 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _+_)) then update and then (give current bindings and provide "repnr" then give bound_ then give the cell_
+		and (give current bindings and provide "repnr" then give bound_ then give the cell_ then inspect and provide 1 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _-_)) then update)) and then (give the data_ then give provide_ and (give current bindings then give provide_ and (give current bindings and provide "unf" then give bound_ then give the action[taking () giving bindings]_) then give _hence_) then give _then_ then enact) or
+		give the data _ then give tupleToList_ and (provide false then give tupleToList_) then (check _=_ exceptionally fail and copy) then provide ()) otherwise (provide () then raise))) then give binding_) then give overriding_ hence (give current bindings and provide "repnr" then give bound_ then give the cell_ then inspect and provide 1 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _-_) and provide 0 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then (check _>_ exceptionally fail and copy)
+	 	then provide true otherwise provide false) then (select (
+		give the data _ then give tupleToList_ and (provide true then give tupleToList_) then (check _=_ exceptionally fail and copy) then (give current bindings and provide "output" then give bound_ then give the cell_
+		and (give current bindings and provide "output" then give bound_ then give the cell_ then inspect and (give current bindings and provide "rep" then give bound_ then give the cell_ then inspect) 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _+_)) then update and then (give current bindings and provide "repnr" then give bound_ then give the cell_
+		and (give current bindings and provide "repnr" then give bound_ then give the cell_ then inspect and provide 1 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _-_)) then update)) and then (give the data_ then give provide_ and (give current bindings then give provide_ and (give current bindings and provide "unf" then give bound_ then give the action[taking () giving bindings]_) then give _hence_) then give _then_ then enact) or
+		give the data _ then give tupleToList_ and (provide false then give tupleToList_) then (check _=_ exceptionally fail and copy) then provide ()) otherwise (provide () then raise)))
+		and exceptionally (give the data _ then give tupleToList_ and (provide "break" then give tupleToList_) then (check _=_ exceptionally fail and copy) then provide () otherwise raise) and then (give current bindings and provide "input" then give bound_ then give the cell_
+		and (give current bindings and provide "input" then give bound_ then give the cell_ then inspect and provide 1 
+		then (give #1_ then give the int_ and (give #2_ then give the int_) then give _-_)) then update)))) and then (give the data_ then give provide_ and (give current bindings then give provide_ and (give current bindings and provide "unf" then give bound_ then give the action[taking () giving bindings]_) then give _hence_) then give _then_ then enact) or
+		give the data _ then give tupleToList_ and (provide false then give tupleToList_) then (check _=_ exceptionally fail and copy) then provide ()) otherwise (provide () then raise))
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+	scope.leave();
+}
+else
+	outcome.exceptional(null);
+if (outcome.isExceptional()) {
+	Terminated temp = outcome;
+	outcome.normal(data.peek());
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) 
+	outcome.normal(data.peek());
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	outcome.normal("break");
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) 
+	outcome.normal(data.peek());
+else
+	outcome.exceptional(null);
+	data.pop();
+}
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	if (data.peek() instanceof Tuple) {
+	Tuple tuple = (Tuple)data.peek();
+	if (tuple.is2Tuple())  {
+		if (tuple.elementAt(0).equals(tuple.elementAt(1)))
+			outcome.normal(null);
+		else
+			outcome.exceptional(null);
+	}
+}
+if (outcome.isExceptional()) {
+	data.push(outcome.getData());
+	outcome.failed();
+	data.pop();
+}
+if (outcome.isNormal()) {
+	Terminated temp = outcome;
+	outcome.normal(data.peek());
+	if (outcome.isNormal())
+		outcome.normal(concatData(temp.getData(), outcome.getData()));
+}
+	data.pop();
+}
+if (outcome.isNormal()) {
+	data.push(outcome.getData());
+	outcome.normal(null);
+	data.pop();
+}
+if (outcome.isFailed) {
+	outcome.exceptional(null);
+}
+	if (outcome.isExceptional())
+		outcome.exceptional(concatData(temp.getData(), 
+			outcome.getData()));
+}
+	scope.leave();
+}
+else
+	outcome.exceptional(null);
+	scope.leave();
+}
+else
+	outcome.exceptional(null);

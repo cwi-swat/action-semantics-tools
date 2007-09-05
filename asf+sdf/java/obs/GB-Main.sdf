@@ -1,0 +1,7 @@
+module java/GB-Main
+imports java/Main
+
+exports
+  syntax
+    <START> -> SURROGATE-START {cons("\"java-0.1\"")}
+    SURROGATE-START [\256] -> <Start> {prefer, cons("SURROGATE-START")}

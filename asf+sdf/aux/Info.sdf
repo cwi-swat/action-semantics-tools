@@ -1,0 +1,9 @@
+module aux/Info[Key Value]
+
+imports aux/Environment
+
+exports
+
+context-free syntax
+	Key -> Environment-Key
+	Value -> Environment-Value

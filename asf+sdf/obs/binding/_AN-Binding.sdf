@@ -1,0 +1,25 @@
+module obs/binding/_AN-Binding
+
+imports obs/__AN-K 
+
+exports context-free syntax
+
+        "current" "bindings"    -> Yielder
+        "bound" "to" Yielder    -> Yielder
+        "closure" Yielder       -> Yielder
+
+lexical syntax
+
+        "bind"                  -> ActionConst
+        "find"                  -> ActionConst
+        "furthermore"           -> ActionPrefix
+        "moreover"              -> ActionInfix
+        "before"                -> ActionInfix
+        "recursively"           -> ActionPrefix
+        "unfolding"             -> ActionPrefix
+        "unfold"                -> ActionConst
+
+
+hiddens sorts
+
+        ActionConst ActionPrefix ActionInfix Yielder

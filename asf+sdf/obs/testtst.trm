@@ -1,0 +1,16 @@
+test(
+let 
+	P1 = provide 1
+	P2 = provide 2
+	Plus = give _+_
+	Ptk = provide "tk"
+	Pac = provide (provide 5)
+	Raise = provide () then raise
+	Binding = provide "x" and provide "3" then give binding_
+	Bound = give current bindings and provide "x" then give bound_
+in
+	(P1 and P2) then Plus
+	Ptk then Plus
+	Binding hence Bound
+
+)

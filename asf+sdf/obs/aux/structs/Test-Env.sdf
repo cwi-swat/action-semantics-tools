@@ -1,0 +1,9 @@
+module obs/aux/structs/Test-Env
+
+imports obs/aux/structs/Info[Data-Key Int] obs/data/integers/Int
+
+exports
+
+context-free syntax
+
+"data" -> Data-Key

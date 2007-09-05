@@ -1,0 +1,15 @@
+module pico/Evaluate
+
+imports pico/Exps
+	pico/Trans
+	dn/sem/lib/Booleans
+
+exports
+
+context-free syntax
+	"truth" "of" "[[" EXP "]]" -> Action {cons("pico-truth-of")}
+	"evaluate" "[[" EXP "]]" -> Action {cons("pico-evaluate")}
+
+hiddens
+variables
+"char+"[0-9\']* -> CHAR+

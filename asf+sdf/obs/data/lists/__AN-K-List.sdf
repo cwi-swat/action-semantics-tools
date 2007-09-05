@@ -1,0 +1,32 @@
+module obs/data/lists/__AN-K-List
+
+imports obs/aux/structs/Generic-List[Data] 
+	obs/data/__AN-K-Data-Contract
+	obs/data/integers/__AN-K-Int
+
+exports 
+
+lexical syntax
+  "tupleToList"         -> DataOpPrefix 
+  "list"                -> SortName 
+  "++" -> DataOpInfix
+  "append" -> DataOpPrefix
+  "insert" -> DataOpPrefix
+  "length" -> DataOpPrefix
+  "head" -> DataOpPrefix
+  "tail" -> DataOpPrefix
+  "replace-at" -> DataOpPrefix
+  "element-at" -> DataOpPrefix
+
+context-free syntax
+
+  List                  -> Datum {cons("list")}
+
+hiddens sorts Data
+
+variables
+"d"[0-9\']* -> Data
+"l"[0-9\']* -> List
+"n"[0-9\']* -> Int
+
+

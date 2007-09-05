@@ -1,0 +1,49 @@
+equations
+
+[fs1]	is-unfolding(A) = true,
+	get-unfolding(A) = A',
+	is-tail-recursive(A') = false,
+	env.pos = n,
+	n' = n * 10,
+	lab1 = make-label(n),
+	lab2 = make-label(n+1),
+	env1 = env.unf := <lab1,false>,
+	env2 = env1.pos := n'
+	===
+	fa-to-stats(A, env) =
+		frame lab2;
+	lab1: 	fa-to-stats(A', env2)
+		return;
+	lab2:	
+
+[fs1]	is-unfolding(A) = true,
+	get-unfolding(A) = A',
+	is-tail-recursive(A') = true,
+	env.pos = n,
+	n' = n * 10,
+	lab1 = make-label(n),
+	env1 = env.unf := <lab1,true>,
+	env2 = env1.pos := n'
+	===
+	fa-to-stats(A, env) =
+	lab1: 	fa-to-stats(A', env2)
+
+
+
+[fs2]	is-unfold(A) = true,
+	env.unf = <lab, false>,
+	env.pos = n,
+	lab' = make-label(n)
+	===
+	fa-to-stats(A, env) = 
+		frame lab';
+		goto lab;
+	lab':	
+
+[fs2]	is-unfold(A) = true,
+	env.unf = <lab, true>,
+	env.pos = n
+	===
+	fa-to-stats(A, env) = 
+		goto lab;
+

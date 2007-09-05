@@ -1,0 +1,19 @@
+test(
+
+a1 then a2
+
+a1 and then a2
+
+a1 and a2 
+
+a1 exceptionally a2 
+
+a1 and exceptionally a2 
+
+a1 otherwise a2 
+
+a1 hence a2 
+
+select (a2 or a1 or a2)
+
+)

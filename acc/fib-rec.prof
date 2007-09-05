@@ -1,0 +1,455 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00       29     0.00     0.00  ACC_merge
+  0.00      0.00     0.00       20     0.00     0.00  ACC_try
+  0.00      0.00     0.00        8     0.00     0.00  ACC_jit_provide
+  0.00      0.00     0.00        8     0.00     0.00  ATtreeGet
+  0.00      0.00     0.00        8     0.00     0.00  an2_binding_comparator
+  0.00      0.00     0.00        6     0.00     0.00  ACC_catch_exception
+  0.00      0.00     0.00        6     0.00     0.00  ACC_catch_failure
+  0.00      0.00     0.00        6     0.00     0.00  ACC_throw_exception
+  0.00      0.00     0.00        6     0.00     0.00  ACC_throw_failure
+  0.00      0.00     0.00        4     0.00     0.00  ACC_give_bound
+  0.00      0.00     0.00        4     0.00     0.00  ACC_jit_hence
+  0.00      0.00     0.00        4     0.00     0.00  ACC_jit_then
+  0.00      0.00     0.00        4     0.00     0.00  action1100101000
+  0.00      0.00     0.00        3     0.00     0.00  action1100101010
+  0.00      0.00     0.00        1     0.00     0.00  ACC_init_jitter
+  0.00      0.00     0.00        1     0.00     0.00  ACC_init_throws
+  0.00      0.00     0.00        1     0.00     0.00  ATmakeTree
+  0.00      0.00     0.00        1     0.00     0.00  ATtreeInit
+  0.00      0.00     0.00        1     0.00     0.00  ATtreeSetComparator
+  0.00      0.00     0.00        1     0.00     0.00  ATtreeUnion
+  0.00      0.00     0.00        1     0.00     0.00  action11
+  0.00      0.00     0.00        1     0.00     0.00  action11001
+  0.00      0.00     0.00        1     0.00     0.00  action1100101100
+  0.00      0.00     0.00        1     0.00     0.00  action110010110010
+  0.00      0.00     0.00        1     0.00     0.00  action11001011001000
+  0.00      0.00     0.00        1     0.00     0.00  action110010110010010
+  0.00      0.00     0.00        1     0.00     0.00  action1100101101
+  0.00      0.00     0.00        1     0.00     0.00  action110010110110
+  0.00      0.00     0.00        1     0.00     0.00  action11001011011000
+  0.00      0.00     0.00        1     0.00     0.00  action110010110110010
+  0.00      0.00     0.00        1     0.00     0.00  action111
+  0.00      0.00     0.00        1     0.00     0.00  action111000
+  0.00      0.00     0.00        1     0.00     0.00  action111010
+  0.00      0.00     0.00        1     0.00     0.00  action111100
+  0.00      0.00     0.00        1     0.00     0.00  action11110010
+  0.00      0.00     0.00        1     0.00     0.00  action1111001000
+  0.00      0.00     0.00        1     0.00     0.00  action11110010010
+  0.00      0.00     0.00        1     0.00     0.00  action111101
+  0.00      0.00     0.00        1     0.00     0.00  action11110110
+  0.00      0.00     0.00        1     0.00     0.00  action1111011000
+  0.00      0.00     0.00        1     0.00     0.00  action11110110010
+  0.00      0.00     0.00        1     0.00     0.00  an2_at_init
+  0.00      0.00     0.00        1     0.00     0.00  an2_at_init_types
+  0.00      0.00     0.00        1     0.00     0.00  an2_fprint_store
+  0.00      0.00     0.00        1     0.00     0.00  an2_init_store
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) no time propagated
+
+index % time    self  children    called     name
+                0.00    0.00       1/29          action110010110010 [24]
+                0.00    0.00       1/29          action1100101100 [23]
+                0.00    0.00       1/29          action110010110110 [28]
+                0.00    0.00       1/29          action1100101101 [27]
+                0.00    0.00       1/29          action1100101 [282]
+                0.00    0.00       1/29          action11001 [22]
+                0.00    0.00       1/29          action111000 [32]
+                0.00    0.00       1/29          action111010 [33]
+                0.00    0.00       1/29          action11110010 [35]
+                0.00    0.00       1/29          action111100 [34]
+                0.00    0.00       1/29          action11110110 [39]
+                0.00    0.00       1/29          action111101 [38]
+                0.00    0.00       1/29          action111 [31]
+                0.00    0.00       1/29          action11 [21]
+                0.00    0.00       2/29          action110010110010010 [26]
+                0.00    0.00       2/29          action110010110110010 [30]
+                0.00    0.00       2/29          action11110010010 [37]
+                0.00    0.00       2/29          action11110110010 [41]
+                0.00    0.00       3/29          action1100101010 [14]
+                0.00    0.00       4/29          action1100101000 [13]
+[1]      0.0    0.00    0.00      29         ACC_merge [1]
+-----------------------------------------------
+                0.00    0.00       1/20          action111000 [32]
+                0.00    0.00       1/20          action111010 [33]
+                0.00    0.00       1/20          main [352]
+                0.00    0.00       2/20          action111 [31]
+                0.00    0.00       3/20          action1100101010 [14]
+                0.00    0.00       4/20          action1100101000 [13]
+                0.00    0.00       8/20          action1100101 [282]
+[2]      0.0    0.00    0.00      20         ACC_try [2]
+-----------------------------------------------
+                0.00    0.00       1/8           action11001011001000 [25]
+                0.00    0.00       1/8           action110010110010010 [26]
+                0.00    0.00       1/8           action11001011011000 [29]
+                0.00    0.00       1/8           action110010110110010 [30]
+                0.00    0.00       1/8           action1111001000 [36]
+                0.00    0.00       1/8           action11110010010 [37]
+                0.00    0.00       1/8           action1111011000 [40]
+                0.00    0.00       1/8           action11110110010 [41]
+[3]      0.0    0.00    0.00       8         ACC_jit_provide [3]
+-----------------------------------------------
+                0.00    0.00       8/8           ACC_give_bound [10]
+[4]      0.0    0.00    0.00       8         ATtreeGet [4]
+                0.00    0.00       8/8           an2_binding_comparator [5]
+-----------------------------------------------
+                0.00    0.00       8/8           ATtreeGet [4]
+[5]      0.0    0.00    0.00       8         an2_binding_comparator [5]
+-----------------------------------------------
+                0.00    0.00       1/6           action1100101010 [14]
+                0.00    0.00       1/6           action111000 [32]
+                0.00    0.00       1/6           action111010 [33]
+                0.00    0.00       3/6           action1100101000 [13]
+[6]      0.0    0.00    0.00       6         ACC_catch_exception [6]
+-----------------------------------------------
+                0.00    0.00       2/6           action111 [31]
+                0.00    0.00       4/6           action1100101 [282]
+[7]      0.0    0.00    0.00       6         ACC_catch_failure [7]
+-----------------------------------------------
+                0.00    0.00       1/6           action1100101010 [14]
+                0.00    0.00       1/6           action111000 [32]
+                0.00    0.00       1/6           action111010 [33]
+                0.00    0.00       3/6           action1100101000 [13]
+[8]      0.0    0.00    0.00       6         ACC_throw_exception [8]
+-----------------------------------------------
+                0.00    0.00       1/6           action1100101010 [14]
+                0.00    0.00       1/6           action111000 [32]
+                0.00    0.00       1/6           action111010 [33]
+                0.00    0.00       3/6           action1100101000 [13]
+[9]      0.0    0.00    0.00       6         ACC_throw_failure [9]
+-----------------------------------------------
+                0.00    0.00       1/4           action110010110010010 [26]
+                0.00    0.00       1/4           action110010110110010 [30]
+                0.00    0.00       1/4           action11110010010 [37]
+                0.00    0.00       1/4           action11110110010 [41]
+[10]     0.0    0.00    0.00       4         ACC_give_bound [10]
+                0.00    0.00       8/8           ATtreeGet [4]
+-----------------------------------------------
+                0.00    0.00       1/4           action110010110010 [24]
+                0.00    0.00       1/4           action110010110110 [28]
+                0.00    0.00       1/4           action11110010 [35]
+                0.00    0.00       1/4           action11110110 [39]
+[11]     0.0    0.00    0.00       4         ACC_jit_hence [11]
+-----------------------------------------------
+                0.00    0.00       1/4           action110010110010 [24]
+                0.00    0.00       1/4           action110010110110 [28]
+                0.00    0.00       1/4           action11110010 [35]
+                0.00    0.00       1/4           action11110110 [39]
+[12]     0.0    0.00    0.00       4         ACC_jit_then [12]
+-----------------------------------------------
+                0.00    0.00       4/4           action1100101 [282]
+[13]     0.0    0.00    0.00       4         action1100101000 [13]
+                0.00    0.00       4/29          ACC_merge [1]
+                0.00    0.00       4/20          ACC_try [2]
+                0.00    0.00       3/6           ACC_throw_exception [8]
+                0.00    0.00       3/6           ACC_catch_exception [6]
+                0.00    0.00       3/6           ACC_throw_failure [9]
+-----------------------------------------------
+                0.00    0.00       3/3           action1100101 [282]
+[14]     0.0    0.00    0.00       3         action1100101010 [14]
+                0.00    0.00       3/29          ACC_merge [1]
+                0.00    0.00       3/20          ACC_try [2]
+                0.00    0.00       1/6           ACC_throw_exception [8]
+                0.00    0.00       1/6           ACC_catch_exception [6]
+                0.00    0.00       1/6           ACC_throw_failure [9]
+-----------------------------------------------
+                0.00    0.00       1/1           main [352]
+[15]     0.0    0.00    0.00       1         ACC_init_jitter [15]
+-----------------------------------------------
+                0.00    0.00       1/1           main [352]
+[16]     0.0    0.00    0.00       1         ACC_init_throws [16]
+-----------------------------------------------
+                0.00    0.00       1/1           action11001 [22]
+[17]     0.0    0.00    0.00       1         ATmakeTree [17]
+-----------------------------------------------
+                0.00    0.00       1/1           an2_at_init [42]
+[18]     0.0    0.00    0.00       1         ATtreeInit [18]
+-----------------------------------------------
+                0.00    0.00       1/1           an2_at_init [42]
+[19]     0.0    0.00    0.00       1         ATtreeSetComparator [19]
+-----------------------------------------------
+                0.00    0.00       1/1           action11 [21]
+[20]     0.0    0.00    0.00       1         ATtreeUnion [20]
+-----------------------------------------------
+                0.00    0.00       1/1           main [352]
+[21]     0.0    0.00    0.00       1         action11 [21]
+                0.00    0.00       1/1           action11001 [22]
+                0.00    0.00       1/29          ACC_merge [1]
+                0.00    0.00       1/1           ATtreeUnion [20]
+                0.00    0.00       1/1           action111 [31]
+-----------------------------------------------
+                0.00    0.00       1/1           action11 [21]
+[22]     0.0    0.00    0.00       1         action11001 [22]
+                0.00    0.00       1/29          ACC_merge [1]
+                0.00    0.00       1/1           ATmakeTree [17]
+-----------------------------------------------
+                0.00    0.00       1/1           action1100101 [282]
+[23]     0.0    0.00    0.00       1         action1100101100 [23]
+                0.00    0.00       1/29          ACC_merge [1]
+                0.00    0.00       1/1           action110010110010 [24]
+-----------------------------------------------
+                0.00    0.00       1/1           action1100101100 [23]
+[24]     0.0    0.00    0.00       1         action110010110010 [24]
+                0.00    0.00       1/1           action11001011001000 [25]
+                0.00    0.00       1/1           action110010110010010 [26]
+                0.00    0.00       1/4           ACC_jit_hence [11]
+                0.00    0.00       1/29          ACC_merge [1]
+                0.00    0.00       1/4           ACC_jit_then [12]
+-----------------------------------------------
+                0.00    0.00       1/1           action110010110010 [24]
+[25]     0.0    0.00    0.00       1         action11001011001000 [25]
+                0.00    0.00       1/8           ACC_jit_provide [3]
+-----------------------------------------------
+                0.00    0.00       1/1           action110010110010 [24]
+[26]     0.0    0.00    0.00       1         action110010110010010 [26]
+                0.00    0.00       2/29          ACC_merge [1]
+                0.00    0.00       1/8           ACC_jit_provide [3]
+                0.00    0.00       1/4           ACC_give_bound [10]
+-----------------------------------------------
+                0.00    0.00       1/1           action1100101 [282]
+[27]     0.0    0.00    0.00       1         action1100101101 [27]
+                0.00    0.00       1/29          ACC_merge [1]
+                0.00    0.00       1/1           action110010110110 [28]
+-----------------------------------------------
+                0.00    0.00       1/1           action1100101101 [27]
+[28]     0.0    0.00    0.00       1         action110010110110 [28]
+                0.00    0.00       1/1           action11001011011000 [29]
+                0.00    0.00       1/1           action110010110110010 [30]
+                0.00    0.00       1/4           ACC_jit_hence [11]
+                0.00    0.00       1/29          ACC_merge [1]
+                0.00    0.00       1/4           ACC_jit_then [12]
+-----------------------------------------------
+                0.00    0.00       1/1           action110010110110 [28]
+[29]     0.0    0.00    0.00       1         action11001011011000 [29]
+                0.00    0.00       1/8           ACC_jit_provide [3]
+-----------------------------------------------
+                0.00    0.00       1/1           action110010110110 [28]
+[30]     0.0    0.00    0.00       1         action110010110110010 [30]
+                0.00    0.00       2/29          ACC_merge [1]
+                0.00    0.00       1/8           ACC_jit_provide [3]
+                0.00    0.00       1/4           ACC_give_bound [10]
+-----------------------------------------------
+                0.00    0.00       1/1           action11 [21]
+[31]     0.0    0.00    0.00       1         action111 [31]
+                0.00    0.00       2/20          ACC_try [2]
+                0.00    0.00       2/6           ACC_catch_failure [7]
+                0.00    0.00       1/1           action111000 [32]
+                0.00    0.00       1/1           action111010 [33]
+                0.00    0.00       1/1           action111100 [34]
+                0.00    0.00       1/1           action111101 [38]
+                0.00    0.00       1/29          ACC_merge [1]
+-----------------------------------------------
+                0.00    0.00       1/1           action111 [31]
+[32]     0.0    0.00    0.00       1         action111000 [32]
+                0.00    0.00       1/29          ACC_merge [1]
+                0.00    0.00       1/20          ACC_try [2]
+                0.00    0.00       1/6           ACC_throw_exception [8]
+                0.00    0.00       1/6           ACC_catch_exception [6]
+                0.00    0.00       1/6           ACC_throw_failure [9]
+-----------------------------------------------
+                0.00    0.00       1/1           action111 [31]
+[33]     0.0    0.00    0.00       1         action111010 [33]
+                0.00    0.00       1/29          ACC_merge [1]
+                0.00    0.00       1/20          ACC_try [2]
+                0.00    0.00       1/6           ACC_throw_exception [8]
+                0.00    0.00       1/6           ACC_catch_exception [6]
+                0.00    0.00       1/6           ACC_throw_failure [9]
+-----------------------------------------------
+                0.00    0.00       1/1           action111 [31]
+[34]     0.0    0.00    0.00       1         action111100 [34]
+                0.00    0.00       1/29          ACC_merge [1]
+                0.00    0.00       1/1           action11110010 [35]
+-----------------------------------------------
+                0.00    0.00       1/1           action111100 [34]
+[35]     0.0    0.00    0.00       1         action11110010 [35]
+                0.00    0.00       1/1           action1111001000 [36]
+                0.00    0.00       1/1           action11110010010 [37]
+                0.00    0.00       1/4           ACC_jit_hence [11]
+                0.00    0.00       1/29          ACC_merge [1]
+                0.00    0.00       1/4           ACC_jit_then [12]
+-----------------------------------------------
+                0.00    0.00       1/1           action11110010 [35]
+[36]     0.0    0.00    0.00       1         action1111001000 [36]
+                0.00    0.00       1/8           ACC_jit_provide [3]
+-----------------------------------------------
+                0.00    0.00       1/1           action11110010 [35]
+[37]     0.0    0.00    0.00       1         action11110010010 [37]
+                0.00    0.00       2/29          ACC_merge [1]
+                0.00    0.00       1/8           ACC_jit_provide [3]
+                0.00    0.00       1/4           ACC_give_bound [10]
+-----------------------------------------------
+                0.00    0.00       1/1           action111 [31]
+[38]     0.0    0.00    0.00       1         action111101 [38]
+                0.00    0.00       1/29          ACC_merge [1]
+                0.00    0.00       1/1           action11110110 [39]
+-----------------------------------------------
+                0.00    0.00       1/1           action111101 [38]
+[39]     0.0    0.00    0.00       1         action11110110 [39]
+                0.00    0.00       1/1           action1111011000 [40]
+                0.00    0.00       1/1           action11110110010 [41]
+                0.00    0.00       1/4           ACC_jit_hence [11]
+                0.00    0.00       1/29          ACC_merge [1]
+                0.00    0.00       1/4           ACC_jit_then [12]
+-----------------------------------------------
+                0.00    0.00       1/1           action11110110 [39]
+[40]     0.0    0.00    0.00       1         action1111011000 [40]
+                0.00    0.00       1/8           ACC_jit_provide [3]
+-----------------------------------------------
+                0.00    0.00       1/1           action11110110 [39]
+[41]     0.0    0.00    0.00       1         action11110110010 [41]
+                0.00    0.00       2/29          ACC_merge [1]
+                0.00    0.00       1/8           ACC_jit_provide [3]
+                0.00    0.00       1/4           ACC_give_bound [10]
+-----------------------------------------------
+                0.00    0.00       1/1           main [352]
+[42]     0.0    0.00    0.00       1         an2_at_init [42]
+                0.00    0.00       1/1           an2_at_init_types [43]
+                0.00    0.00       1/1           ATtreeInit [18]
+                0.00    0.00       1/1           ATtreeSetComparator [19]
+-----------------------------------------------
+                0.00    0.00       1/1           an2_at_init [42]
+[43]     0.0    0.00    0.00       1         an2_at_init_types [43]
+-----------------------------------------------
+                0.00    0.00       1/1           main [352]
+[44]     0.0    0.00    0.00       1         an2_fprint_store [44]
+-----------------------------------------------
+                0.00    0.00       1/1           main [352]
+[45]     0.0    0.00    0.00       1         an2_init_store [45]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+
+Index by function name
+
+   [6] ACC_catch_exception    [19] ATtreeSetComparator    [32] action111000 (gmon-start.c)
+   [7] ACC_catch_failure      [20] ATtreeUnion            [33] action111010 (gmon-start.c)
+  [10] ACC_give_bound         [21] action11 (gmon-start.c) [34] action111100 (gmon-start.c)
+  [15] ACC_init_jitter        [22] action11001 (gmon-start.c) [35] action11110010 (gmon-start.c)
+  [16] ACC_init_throws        [13] action1100101000 (gmon-start.c) [36] action1111001000 (gmon-start.c)
+  [11] ACC_jit_hence          [14] action1100101010 (gmon-start.c) [37] action11110010010 (gmon-start.c)
+   [3] ACC_jit_provide        [23] action1100101100 (gmon-start.c) [38] action111101 (gmon-start.c)
+  [12] ACC_jit_then           [24] action110010110010 (gmon-start.c) [39] action11110110 (gmon-start.c)
+   [1] ACC_merge              [25] action11001011001000 (gmon-start.c) [40] action1111011000 (gmon-start.c)
+   [8] ACC_throw_exception    [26] action110010110010010 (gmon-start.c) [41] action11110110010 (gmon-start.c)
+   [9] ACC_throw_failure      [27] action1100101101 (gmon-start.c) [42] an2_at_init
+   [2] ACC_try                [28] action110010110110 (gmon-start.c) [43] an2_at_init_types
+  [17] ATmakeTree             [29] action11001011011000 (gmon-start.c) [5] an2_binding_comparator
+   [4] ATtreeGet              [30] action110010110110010 (gmon-start.c) [44] an2_fprint_store
+  [18] ATtreeInit             [31] action111 (gmon-start.c) [45] an2_init_store

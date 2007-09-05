@@ -1,0 +1,10 @@
+module dn/syn/kernel/Data
+
+imports aux/Tuple[Datum][Tuple => Data]
+
+exports
+
+sorts Data Datum
+
+context-free syntax
+	Datum -> Data

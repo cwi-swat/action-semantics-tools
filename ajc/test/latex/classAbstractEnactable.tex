@@ -1,0 +1,111 @@
+\hypertarget{classAbstractEnactable}{
+\section{Abstract\-Enactable  Class Reference}
+\label{classAbstractEnactable}\index{AbstractEnactable@{Abstract\-Enactable}}
+}
+Inheritance diagram for Abstract\-Enactable:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=59pt]{classAbstractEnactable__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Abstract\-Enactable:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=85pt]{classAbstractEnactable__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Protected Methods}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceData}{Data} \hyperlink{classAbstractEnactable_b0}{fail} () throws \hyperlink{classFailed}{Failed}
+\item 
+\hyperlink{interfaceData}{Data} \hyperlink{classAbstractEnactable_b1}{raise} (\hyperlink{interfaceData}{Data} data) throws \hyperlink{classExceptional}{Exceptional}
+\item 
+\hyperlink{interfaceData}{Data} \hyperlink{classAbstractEnactable_b2}{catch\-Exceptional} (\hyperlink{classException}{Exception} e) throws \hyperlink{classException}{Exception}
+\item 
+void \hyperlink{classAbstractEnactable_b3}{catch\-Failed} (\hyperlink{classException}{Exception} e) throws \hyperlink{classException}{Exception}
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{interfaceDataFactory}{Data\-Factory} \hyperlink{classAbstractEnactable_n0}{factory}
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classAbstractEnactable_b2}{
+\index{AbstractEnactable@{Abstract\-Enactable}!catchExceptional@{catchExceptional}}
+\index{catchExceptional@{catchExceptional}!AbstractEnactable@{Abstract\-Enactable}}
+\subsubsection[catchExceptional]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceData}{Data} Abstract\-Enactable::catch\-Exceptional (\hyperlink{classException}{Exception} {\em e})\hspace{0.3cm}{\tt  \mbox{[}inline, protected\mbox{]}}}}
+\label{classAbstractEnactable_b2}
+
+
+
+
+Definition at line 21 of file Abstract\-Enactable.java.\footnotesize\begin{verbatim}00021                                                                   {
+00022         if (e instanceof Exceptional) 
+00023             return ((Exceptional)e).getData();
+00024         if (e instanceof Failed)
+00025             throw (Failed)e;
+00026         if (e instanceof ClassCastException)
+00027             return factory.makeEmpty(); 
+00028         throw e;
+00029     }
+\end{verbatim}\normalsize 
+\hypertarget{classAbstractEnactable_b3}{
+\index{AbstractEnactable@{Abstract\-Enactable}!catchFailed@{catchFailed}}
+\index{catchFailed@{catchFailed}!AbstractEnactable@{Abstract\-Enactable}}
+\subsubsection[catchFailed]{\setlength{\rightskip}{0pt plus 5cm}void Abstract\-Enactable::catch\-Failed (\hyperlink{classException}{Exception} {\em e})\hspace{0.3cm}{\tt  \mbox{[}inline, protected\mbox{]}}}}
+\label{classAbstractEnactable_b3}
+
+
+
+
+Definition at line 31 of file Abstract\-Enactable.java.\footnotesize\begin{verbatim}00031                                                              {
+00032         if (!(e instanceof Failed))
+00033             throw e;
+00034     }
+\end{verbatim}\normalsize 
+\hypertarget{classAbstractEnactable_b0}{
+\index{AbstractEnactable@{Abstract\-Enactable}!fail@{fail}}
+\index{fail@{fail}!AbstractEnactable@{Abstract\-Enactable}}
+\subsubsection[fail]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceData}{Data} Abstract\-Enactable::fail ()\hspace{0.3cm}{\tt  \mbox{[}inline, protected\mbox{]}}}}
+\label{classAbstractEnactable_b0}
+
+
+
+
+Definition at line 14 of file Abstract\-Enactable.java.\footnotesize\begin{verbatim}00014                                         {
+00015         throw new Failed();
+00016     }
+\end{verbatim}\normalsize 
+\hypertarget{classAbstractEnactable_b1}{
+\index{AbstractEnactable@{Abstract\-Enactable}!raise@{raise}}
+\index{raise@{raise}!AbstractEnactable@{Abstract\-Enactable}}
+\subsubsection[raise]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceData}{Data} Abstract\-Enactable::raise (\hyperlink{interfaceData}{Data} {\em data})\hspace{0.3cm}{\tt  \mbox{[}inline, protected\mbox{]}}}}
+\label{classAbstractEnactable_b1}
+
+
+
+
+Definition at line 17 of file Abstract\-Enactable.java.\footnotesize\begin{verbatim}00017                                                        {
+00018         throw new Exceptional(data);
+00019     }
+\end{verbatim}\normalsize 
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classAbstractEnactable_n0}{
+\index{AbstractEnactable@{Abstract\-Enactable}!factory@{factory}}
+\index{factory@{factory}!AbstractEnactable@{Abstract\-Enactable}}
+\subsubsection[factory]{\setlength{\rightskip}{0pt plus 5cm}\hyperlink{interfaceDataFactory}{Data\-Factory} Abstract\-Enactable::factory\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classAbstractEnactable_n0}
+
+
+
+
+Definition at line 12 of file Abstract\-Enactable.java.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{AbstractEnactable_8java-source}{Abstract\-Enactable.java}\end{CompactItemize}

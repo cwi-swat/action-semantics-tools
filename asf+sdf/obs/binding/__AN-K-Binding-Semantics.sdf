@@ -1,0 +1,33 @@
+module obs/binding/__AN-K-Binding-Semantics
+
+imports obs/binding/__AN-K-Binding
+        obs/datacontrol/__AN-K-Data-Control-Semantics
+	obs/aux/structs/Info[Bindings-Index Bindings]
+
+exports
+
+context-free syntax
+
+"bindings" -> Bindings-Index
+
+hiddens
+variables
+"tk"[0-9\']* -> Token
+"bv"[0-9\']* -> Data %%Bindable
+"bs"[0-9\']* -> Bindings
+"d"[0-9\']* -> Data
+"u"[0-9\']* -> Datum
+"b"[0-9\']* -> Binding
+"dc"[0-9\']* -> DataConst
+"t"[0-9\']* -> Terminated
+[ia][0-9\']* -> Environment
+"A"[0-9\']* -> Action
+"s"[0-9\']* -> StateUniv
+
+
+
+
+
+
+
+

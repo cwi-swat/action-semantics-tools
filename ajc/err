@@ -1,0 +1,123 @@
+ajc/AbstractEnactable.java: In class `ajc.AbstractEnactable':
+ajc/AbstractEnactable.java: In method `catchExceptional(java.lang.Exception)':
+ajc/AbstractEnactable.java:31: Incompatible type for `return'. Explicit cast needed to convert `ajc.data.Empty' to `ajc.data.Data'.
+	    return factory.makeEmpty();	
+            ^
+1 error
+ajc/Schedule.java: In class `ajc.Schedule':
+ajc/Schedule.java: In method `send(ajc.data.Agent,ajc.data.Message,ajc.data.MessageTag)':
+ajc/Schedule.java:45: Can't find constructor `ajc.Exceptional(Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	throw new Exceptional(factory.makeEmpty());
+                  ^
+ajc/Schedule.java: In method `receive(ajc.data.MessageTag)':
+ajc/Schedule.java:56: Can't find constructor `ajc.Exceptional(Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	throw new Exceptional(factory.makeEmpty());
+                  ^
+ajc/Schedule.java: In method `deactivate(ajc.data.Agent)':
+ajc/Schedule.java:78: Can't find constructor `ajc.Exceptional(Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	throw new Exceptional(factory.makeEmpty());
+                  ^
+3 errors
+ajc/Store.java: In class `ajc.Store':
+ajc/Store.java: In method `destroy(ajc.data.Cell)':
+ajc/Store.java:45: Can't find constructor `ajc.Exceptional(Ljava/lang/String;Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	    throw new Exceptional("destroy: cell non-existent", factory.makeEmpty());
+                      ^
+ajc/Store.java: In method `update(ajc.data.Cell,ajc.data.Storable)':
+ajc/Store.java:51: Can't find constructor `ajc.Exceptional(Ljava/lang/String;Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	    throw new Exceptional("update: cell non-existent", factory.makeEmpty());
+                      ^
+ajc/Store.java: In method `inspect(ajc.data.Cell)':
+ajc/Store.java:58: Can't find constructor `ajc.Exceptional(Ljava/lang/String;Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	    throw new Exceptional("inpect: cell non-existent", factory.makeEmpty());
+                      ^
+3 errors
+ajc/TaggedBuffers.java:7: Class or interface `java.util.LinkedList' not found in import.
+import java.util.LinkedList;
+       ^
+ajc/TaggedBuffers.java:18: Type `LinkedList' not found in the declaration of the local variable `messages'.
+	    LinkedList messages = new LinkedList();
+            ^
+2 errors
+ajc/data/Bindings.java:6: Class or interface `java.util.Map' not found in import.
+import java.util.Map;
+       ^
+ajc/data/Bindings.java:9: Type `Map' not found in the declaration of the return type of method `mapValue'.
+    public Map mapValue();
+           ^
+2 errors
+ajc/data/pure/ActionImpl.java: In class `ajc.data.pure.ActionImpl':
+ajc/data/pure/ActionImpl.java: In method `enact()':
+ajc/data/pure/ActionImpl.java:29: Can't find method `enact(Lajc/data/Empty;Lajc/data/Bindings;)' in type `ajc.Enactable'.
+	return enactable.enact(factory.makeEmpty(), factory.makeNoBindings());
+                        ^
+ajc/data/pure/ActionImpl.java: In method `equals(ajc.data.Data)':
+ajc/data/pure/ActionImpl.java:72: Can't find constructor `ajc.Exceptional(Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	throw new Exceptional(factory.makeEmpty());
+                  ^
+2 errors
+ajc/data/pure/BindingsImpl.java:7: Class or interface `java.util.TreeMap' not found in import.
+import java.util.TreeMap;
+       ^
+ajc/data/pure/BindingsImpl.java:54: Type `Set' not found in the declaration of the local variable `keySet'.
+	Set keySet = bindings.mapValue().keySet();
+        ^
+2 errors
+ajc/data/pure/BoolImpl.java: In class `ajc.data.pure.BoolImpl':
+ajc/data/pure/BoolImpl.java: In method `equals(ajc.data.Data)':
+ajc/data/pure/BoolImpl.java:29: Can't find constructor `ajc.Exceptional(Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	throw new Exceptional(factory.makeEmpty());
+                  ^
+1 error
+ajc/data/pure/DataValueImpl.java: In class `ajc.data.pure.DataValueImpl':
+ajc/data/pure/DataValueImpl.java: In method `rest()':
+ajc/data/pure/DataValueImpl.java:16: Incompatible type for `return'. Explicit cast needed to convert `ajc.data.Empty' to `ajc.data.Data'.
+	return factory.makeEmpty();
+        ^
+ajc/data/pure/DataValueImpl.java: In method `at(int)':
+ajc/data/pure/DataValueImpl.java:30: Can't find constructor `ajc.Exceptional(Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	throw new Exceptional(factory.makeEmpty());
+                  ^
+ajc/data/pure/DataValueImpl.java: In method `equals(ajc.data.Data)':
+ajc/data/pure/DataValueImpl.java:40: Can't find constructor `ajc.Exceptional(Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	throw new Exceptional(factory.makeEmpty());
+                  ^
+3 errors
+ajc/data/pure/IntImpl.java: In class `ajc.data.pure.IntImpl':
+ajc/data/pure/IntImpl.java: In method `greater(ajc.data.Int)':
+ajc/data/pure/IntImpl.java:38: Can't find constructor `ajc.Exceptional(Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	throw new Exceptional(factory.makeEmpty());
+                  ^
+ajc/data/pure/IntImpl.java: In method `greaterOrEq(ajc.data.Int)':
+ajc/data/pure/IntImpl.java:43: Can't find constructor `ajc.Exceptional(Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	throw new Exceptional(factory.makeEmpty());
+                  ^
+ajc/data/pure/IntImpl.java: In method `less(ajc.data.Int)':
+ajc/data/pure/IntImpl.java:48: Can't find constructor `ajc.Exceptional(Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	throw new Exceptional(factory.makeEmpty());
+                  ^
+ajc/data/pure/IntImpl.java: In method `lessOrEq(ajc.data.Int)':
+ajc/data/pure/IntImpl.java:53: Can't find constructor `ajc.Exceptional(Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	throw new Exceptional(factory.makeEmpty());
+                  ^
+ajc/data/pure/IntImpl.java: In method `equals(ajc.data.Data)':
+ajc/data/pure/IntImpl.java:60: Can't find constructor `ajc.Exceptional(Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	throw new Exceptional(factory.makeEmpty());
+                  ^
+5 errors
+ajc/data/pure/ListImpl.java: In class `ajc.data.pure.ListImpl':
+ajc/data/pure/ListImpl.java: In method `head()':
+ajc/data/pure/ListImpl.java:42: Can't find constructor `ajc.Exceptional(Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	    throw new Exceptional(factory.makeEmpty());
+                      ^
+ajc/data/pure/ListImpl.java: In method `equals(ajc.data.Data)':
+ajc/data/pure/ListImpl.java:78: Can't find constructor `ajc.Exceptional(Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	throw new Exceptional(factory.makeEmpty());
+                  ^
+2 errors
+ajc/data/pure/TextImpl.java: In class `ajc.data.pure.TextImpl':
+ajc/data/pure/TextImpl.java: In method `equals(ajc.data.Data)':
+ajc/data/pure/TextImpl.java:24: Can't find constructor `ajc.Exceptional(Lajc/data/Empty;)' in type `ajc.Exceptional'.
+	throw new Exceptional(factory.makeEmpty());
+                  ^
+1 error

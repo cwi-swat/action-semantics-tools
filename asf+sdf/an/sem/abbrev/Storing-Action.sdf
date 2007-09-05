@@ -1,0 +1,8 @@
+module an/sem/abbrev/Storing-Action
+
+imports an/syn/abbrev/Storing-Action
+	an/sem/abbrev/Data-Control-Action
+
+hiddens
+variables
+	"Y"[0-9\']* -> Yielder

@@ -1,0 +1,15 @@
+module an/sem/kernel/Normal-Action
+
+imports an/syn/kernel/Normal-Action
+	an/sem/kernel/Data-Flow
+
+hiddens
+
+variables
+	"A"[0-9\']* -> Action
+	"a"[0-9\']* -> Arbitrary
+	"i"[0-9\']* -> Arbitrary
+	"s"[0-9\']* -> IndexedState
+	"d"[0-9\']* -> Data
+	"t"[0-9\']* -> Terminated
+
